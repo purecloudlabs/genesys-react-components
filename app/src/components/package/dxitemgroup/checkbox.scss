@@ -1,0 +1,61 @@
+.dx-item-group {
+	input[type='checkbox'] {
+		// Hide default appearance
+		-webkit-appearance: none;
+		appearance: none;
+
+		// Custom appearance
+		margin: 0 8px 0 0;
+		width: 16px;
+		height: 16px;
+		border: 1px solid #8a96a3;
+		border-radius: 2px;
+		background-color: #ffffff;
+	}
+
+	// Hide checkmark initially
+	input[type='checkbox']::before {
+		display: none;
+	}
+
+	// Fill in background on check
+	input[type='checkbox']:checked {
+		background-color: #8a96a3;
+	}
+
+	// Display checkmark on check
+	input[type='checkbox']:checked::before {
+		display: block;
+		position: relative;
+		top: 7px;
+		left: 3px;
+		font-size: 9px;
+		line-height: 0;
+		color: #ffffff;
+
+		// genesys-dev-icons app-check
+		content: '\f103';
+		font-family: genesys-dev-icons !important;
+		font-style: normal;
+		font-weight: normal !important;
+		font-feature-settings: normal;
+		font-variant: normal;
+		text-transform: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	// Hover - radio button
+	input[type='checkbox']:not(:disabled):hover {
+		border-color: #4d5061;
+	}
+
+	// Focus - radio button
+	input[type='checkbox']:not(:disabled):focus {
+		outline: #aac9ff solid 2px;
+	}
+	// Disable default focus outline
+	input[type='checkbox']:not(:disabled):focus-visible {
+		outline: 0;
+	}
+}

@@ -1,13 +1,23 @@
 import { GenesysDevIcons } from 'genesys-dev-icons';
 import React, { useRef } from 'react';
+import DxItemGroup from '../package/dxitemgroup/DxItemGroup';
 import DxTextbox from '../package/dxtextbox/DxTextbox';
 import DxToggle from '../package/dxtoggle/DxToggle';
+import { DxItemGroupItem } from '../package/DxTypes';
 
 import './FormDemo.scss';
 
 export default function FormDemo() {
 	// Pass a ref to the input so you can focus/blur it from outside
 	let inputRef = useRef<HTMLInputElement>(null);
+
+	const items: DxItemGroupItem[] = [
+		{ label: 'First thing', value: 'one' },
+		{ label: 'вторая вещь', value: 'second value' },
+		{ label: 'Dritte Sache', value: '3' },
+		{ label: 'Ceathrú rud', value: 'four' },
+		{ label: 'Vyfde ding', value: 'the fifth elemenbt' },
+	];
 
 	return (
 		<div>
@@ -54,6 +64,20 @@ export default function FormDemo() {
 				icon={GenesysDevIcons.IaAuthorization}
 				clearButton={true}
 			/>
+			<DxTextbox
+				inputType='integer'
+				label='Integer input'
+				icon={GenesysDevIcons.IaAuthorization}
+				clearButton={true}
+				onChange={(value) => console.log(value)}
+			/>
+			<DxTextbox
+				inputType='decimal'
+				label='Decimal input'
+				icon={GenesysDevIcons.IaAuthorization}
+				clearButton={true}
+				onChange={(value) => console.log(value)}
+			/>
 			<DxTextbox inputType='email' label='Email input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
 			<DxTextbox inputType='date' label='Date input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
 			<DxTextbox inputType='datetime-local' label='Datetime-local input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
@@ -87,6 +111,25 @@ export default function FormDemo() {
 				onChange={(value) => console.log(value)}
 				trueIcon={GenesysDevIcons.AppStarSolid}
 				falseIcon={GenesysDevIcons.AppStarStroke}
+			/>
+			<h3>Item Groups</h3>
+			<h4>Checkboxes</h4>
+			<DxItemGroup items={items} format='checkbox' />
+			<DxItemGroup
+				title='With a title'
+				items={items}
+				format='checkbox'
+				onItemChanged={(item, isSelected) => console.log(`Check: ${item.label} (${item.value}) -> ${isSelected}`)}
+				onItemsChanged={(items) => console.log('Check:', items)}
+			/>
+			<h4>Radio Buttons</h4>
+			<DxItemGroup items={items} format='radio' />
+			<DxItemGroup
+				title='With a title'
+				items={items}
+				format='radio'
+				onItemChanged={(item, isSelected) => console.log(`Radio: ${item.label} (${item.value}) -> ${isSelected}`)}
+				onItemsChanged={(items) => console.log('Radio:', items)}
 			/>
 		</div>
 	);

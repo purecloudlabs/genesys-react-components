@@ -1,0 +1,36 @@
+.dx-item-group {
+	border: 0;
+	margin: 20px 0;
+	padding: 0;
+
+	.legend-text {
+		display: block;
+		margin: 0 0 4px 0;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 14px;
+		color: #75757a;
+	}
+
+	label {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		margin: 15px 0;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+		.label-text {
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 12px;
+			color: #75757a;
+		}
+	}
+}

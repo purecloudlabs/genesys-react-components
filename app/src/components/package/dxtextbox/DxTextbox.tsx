@@ -5,7 +5,7 @@ import { StringChangedCallback, VoidEventCallback } from '../DxTypes';
 import './DxTextbox.scss';
 
 // export type DxTextboxType = 'text' | 'password' | 'integer' | 'decimal' | 'date' | 'time' | 'datetime';
-export type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time';
+export type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 
 export interface DxTextboxProps {
 	initialValue?: string;
@@ -26,6 +26,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 	const [value, setValue] = useState(props.initialValue || '');
 	const [isFocused, setIsFocused] = useState(false);
 	const [escapePressed, setEscapePressed] = useState(Date.now());
+	const [step, setStep] = useState<string | number | undefined>(undefined);
 	let [timer, setTimer] = useState(undefined as unknown as ReturnType<typeof setTimeout>);
 
 	// Constructor
@@ -48,6 +49,25 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Value changed
 	useEffect(() => {
+		if (props.inputType === 'decimal') {
+			// Normalize step setting
+			if (!isNaN(parseFloat(value))) {
+				const match = /\.(.+)/.exec(value);
+				console.log(match);
+				if (match) {
+					const s = `0.${Array.apply(null, Array(match[1].length - 1))
+						.map(() => '0')
+						.join('')}1`;
+					console.log(s);
+					setStep(s);
+				}
+			}
+		} else if (props.inputType === 'integer') {
+			// Overwrite value as integer to forcibly truncate floating point numbers
+			setValue(parseInt(value).toString());
+		}
+
+		// Debounce onChange notification
 		if (!props.onChange) return;
 		clearTimeout(timer);
 		setTimer(setTimeout(() => (props.onChange ? props.onChange(value) : undefined), debounceMs));
@@ -75,6 +95,10 @@ export default function DxTextbox(props: DxTextboxProps) {
 		}
 	}
 
+	// Normalize input type
+	let inputType: React.HTMLInputTypeAttribute | undefined = props.inputType;
+	if (inputType === 'integer' || inputType === 'decimal') inputType = 'number';
+
 	// TODO: handle props.inputType
 	let component = (
 		<div className={`dx-textbox${hasLabel ? ' with-label' : ''}`}>
@@ -82,7 +106,8 @@ export default function DxTextbox(props: DxTextboxProps) {
 			<input
 				className='dx-input'
 				// type='text'
-				type={props.inputType}
+				type={inputType}
+				step={step}
 				value={value}
 				placeholder={props.placeholder}
 				onChange={(e) => setValue(e.target.value)}
@@ -96,7 +121,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 					if (props.onBlur) props.onBlur();
 				}}
 			/>
-			{props.clearButton && value ? (
+			{props.clearButton && (value || isFocused) ? (
 				<GenesysDevIcon icon={GenesysDevIcons.AppTimes} className='clear-icon' onClick={() => setValue('')} />
 			) : undefined}
 		</div>
