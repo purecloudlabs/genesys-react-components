@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import './DxAccordion.scss';
 
 interface IProps {
-	title: string;
+	title: React.ReactNode;
 	children: React.ReactNode;
 	showOpen?: boolean;
 }

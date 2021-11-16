@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import { BooleanChangedCallback } from '../DxTypes';
 
@@ -19,6 +19,11 @@ export default function DxToggle(props: DxToggleProps) {
 
 	const trueIcon = props.trueIcon || GenesysDevIcons.AppCheck;
 	const falseIcon = props.falseIcon || GenesysDevIcons.AppTimes;
+
+	useEffect(() => {
+		if (props.onChange) props.onChange(value);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [value]);
 
 	const toggleValue = () => {
 		if (props.isTriState) {

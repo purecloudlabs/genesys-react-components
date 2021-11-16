@@ -1,0 +1,41 @@
+.dx-tabbed-content {
+	margin: 40px 0;
+
+	.tab-titles {
+		border-bottom: 1px solid #bfd4e4;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 20px;
+
+		.tab-title {
+			display: inline-block;
+			padding: 5px 20px;
+			border-bottom: 1px solid transparent;
+			cursor: pointer;
+
+			&.active {
+				border-bottom-color: #597393;
+				font-weight: bold;
+			}
+
+			// Make markdown-parsed paragraphs look normal
+			& p {
+				margin: 0;
+				display: inline;
+			}
+		}
+	}
+
+	.tab-content {
+		padding: 13px 20px 20px 20px;
+		border-bottom: 1px solid #bfd4e4;
+
+		// Clear excess margins from content, we provide the padding
+		& *:first-child {
+			margin-top: 0;
+		}
+		& *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
