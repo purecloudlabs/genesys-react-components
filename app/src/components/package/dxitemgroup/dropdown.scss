@@ -1,0 +1,44 @@
+.dx-select-group {
+	appearance: none;
+	position: relative;
+
+	select {
+		border: 1px solid #8a96a3;
+		border-radius: 2px;
+		background-color: #ffffff;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 12px;
+		line-height: 14px;
+		color: #75757a;
+		padding: 8px 32px 8px 12px;
+		width: 100%;
+		appearance: none;
+
+		&:focus-visible {
+			outline: 2px solid #aac9ff;
+		}
+
+		option {
+			background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);
+		}
+	}
+
+	&::after {
+		position: absolute;
+		bottom: 12px;
+		right: 12px;
+		content: '\f104';
+		font-size: 8px;
+		font-family: genesys-dev-icons !important;
+		font-style: normal;
+		font-weight: normal !important;
+		font-feature-settings: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		pointer-events: none;
+	}
+}

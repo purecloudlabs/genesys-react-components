@@ -17,11 +17,19 @@ export default function FormDemo() {
 	let [displayMode, setDisplayMode] = useState<'accordion' | 'tabs'>('accordion');
 
 	const itemGroupItems: DxItemGroupItem[] = [
-		{ label: 'First thing', value: 'one' },
-		{ label: 'вторая вещь', value: 'second value' },
-		{ label: 'Dritte Sache', value: '3' },
-		{ label: 'Ceathrú rud', value: 'four' },
-		{ label: 'Vyfde ding', value: 'the fifth elemenbt' },
+		{ label: 'First thing', value: 'English' },
+		{ label: 'вторая вещь', value: 'Russian' },
+		{ label: 'Dritte Sache', value: 'German' },
+		{ label: 'Ceathrú rud', value: 'Irish' },
+		{ label: 'Vyfde ding', value: 'Afrikaans' },
+		{ label: 'ആറാമത്തെ കാര്യം', value: 'Malayalam' },
+		{ label: 'Yedinci şey', value: 'Turkish' },
+		{ label: 'דבר שמיני', value: 'Hebrew' },
+		{
+			label:
+				'For millions of years, mankind lived just like the animals. Then something happened which unleashed the power of our imagination. We learned to talk and we learned to listen. Speech has allowed the communication of ideas, enabling human beings to work together to build the impossible. Mankind\u0027s greatest achievements have come about by talking, and its greatest failures by not talking. It doesn\u0027t have to be like this. Our greatest hopes could become reality in the future. With the technology at our disposal, the possibilities are unbounded. All we need to do is make sure we keep talking.',
+			value: 'Stephen Hawking',
+		},
 	];
 
 	const demoSections = [
@@ -133,6 +141,12 @@ export default function FormDemo() {
 			content: (
 				<Fragment>
 					<p>For selecting from a list of things</p>
+					<h3>Dropdown</h3>
+					<DxItemGroup items={itemGroupItems} format='dropdown' />
+					<DxItemGroup title='Dropdown with a title' items={itemGroupItems} format='dropdown' />
+					<h3>Multi-select</h3>
+					<DxItemGroup items={itemGroupItems} format='multiselect' />
+					<DxItemGroup title='Multi-select with a title' items={itemGroupItems} format='multiselect' />
 					<h3>Checkboxes</h3>
 					<DxItemGroup items={itemGroupItems} format='checkbox' />
 					<DxItemGroup
@@ -246,26 +260,34 @@ export default function FormDemo() {
 		},
 	];
 
-	let content: any = demoSections.map((section) =>
+	let content: any = demoSections.map((section, i) =>
 		displayMode === 'accordion' ? (
-			<DxAccordion title={section.title}>{section.content}</DxAccordion>
+			<DxAccordion key={i} title={section.title}>
+				{section.content}
+			</DxAccordion>
 		) : (
-			<DxTabPanel title={section.title}>{section.content}</DxTabPanel>
+			<DxTabPanel key={i} title={section.title}>
+				{section.content}
+			</DxTabPanel>
 		)
 	);
 	if (displayMode === 'accordion') {
 		content = (
 			<DxAccordionGroup>
-				{demoSections.map((section) => (
-					<DxAccordion title={section.title}>{section.content}</DxAccordion>
+				{demoSections.map((section, i) => (
+					<DxAccordion key={i} title={section.title}>
+						{section.content}
+					</DxAccordion>
 				))}
 			</DxAccordionGroup>
 		);
 	} else {
 		content = (
-			<DxTabbedContent>
-				{demoSections.map((section) => (
-					<DxTabPanel title={section.title}>{section.content}</DxTabPanel>
+			<DxTabbedContent initialTabId={2}>
+				{demoSections.map((section, i) => (
+					<DxTabPanel key={i} title={section.title}>
+						{section.content}
+					</DxTabPanel>
 				))}
 			</DxTabbedContent>
 		);

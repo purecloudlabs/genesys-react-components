@@ -1,0 +1,57 @@
+.dx-multiselect-group {
+	appearance: none;
+	position: relative;
+
+	select {
+		border: 1px solid #8a96a3;
+		border-radius: 2px;
+		background-color: #ffffff;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 12px;
+		line-height: 14px;
+		color: #75757a;
+		width: 100%;
+		appearance: none;
+
+		&:focus-visible {
+			outline: 2px solid #aac9ff;
+		}
+
+		option {
+			overflow: hidden;
+			white-space: pre;
+			text-overflow: ellipsis;
+			-webkit-appearance: none;
+			font-style: normal;
+			font-weight: 300;
+			font-size: 12px;
+			line-height: 31px;
+			padding: 8px 12px;
+			color: #75757a;
+
+			&:checked {
+				background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);
+			}
+		}
+
+		// Webkit scrollbars (Chrome, Opera, Safari, Edge... every browser but firefox
+		// https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
+		&::-webkit-scrollbar {
+			-webkit-appearance: none;
+			width: 7px;
+			height: 7px;
+		}
+		&::-webkit-scrollbar-thumb {
+			border-radius: 4px;
+			background-color: #b0b2b5;
+		}
+		&::-webkit-scrollbar-corner {
+			background: transparent;
+		}
+
+		// Just firefox
+		// https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color
+		scrollbar-color: #b0b2b5 transparent;
+	}
+}

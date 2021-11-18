@@ -5,6 +5,8 @@ import { DxItemGroupItem, DxItemGroupItemValue, ItemChangedCallback, ItemGroupCh
 import './DxItemGroup.scss';
 import './checkbox.scss';
 import './radiobutton.scss';
+import './dropdown.scss';
+import './multiselect.scss';
 
 interface IProps {
 	title?: string;
@@ -41,22 +43,43 @@ export default function DxItemGroup(props: IProps) {
 		setData(newData);
 	};
 
-	return (
-		<fieldset className='dx-item-group'>
-			{props.title ? <legend className='legend-text'>{props.title}</legend> : undefined}
-			{data.map((d, i) => (
-				<label key={i}>
-					<input
-						type={props.format}
-						name={props.format === 'checkbox' ? `${id}-${i}` : id}
-						id={d.item.label}
-						value={d.item.value}
-						checked={d.isSelected}
-						onChange={(e) => onChange(i, d.item, e)}
-					/>
-					<span className='label-text'>{d.item.label}</span>
+	switch (props.format) {
+		case 'multiselect':
+		case 'dropdown': {
+			return (
+				<label className={`dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}`}>
+					{props.title ? <span className='legend-text'>{props.title}</span> : undefined}
+					<select multiple={props.format === 'multiselect'}>
+						{data.map((d, i) => (
+							<option key={i} value={d.item.value}>
+								{d.item.label}
+							</option>
+						))}
+					</select>
 				</label>
-			))}
-		</fieldset>
-	);
+			);
+		}
+		case 'checkbox':
+		case 'radio':
+		default: {
+			return (
+				<fieldset className='dx-item-group'>
+					{props.title ? <legend className='legend-text'>{props.title}</legend> : undefined}
+					{data.map((d, i) => (
+						<label key={i}>
+							<input
+								type={props.format}
+								name={props.format === 'checkbox' ? `${id}-${i}` : id}
+								id={d.item.label}
+								value={d.item.value}
+								checked={d.isSelected}
+								onChange={(e) => onChange(i, d.item, e)}
+							/>
+							<span className='label-text'>{d.item.label}</span>
+						</label>
+					))}
+				</fieldset>
+			);
+		}
+	}
 }
