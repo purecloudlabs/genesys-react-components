@@ -1,7 +1,8 @@
-import { GenesysDevIcons } from 'genesys-dev-icons';
+import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { Fragment, useRef, useState } from 'react';
 import DxAccordion from '../package/dxaccordion/DxAccordion';
 import DxAccordionGroup from '../package/dxaccordion/DxAccordionGroup';
+import DxButton from '../package/dxbutton/DxButton';
 import DxItemGroup from '../package/dxitemgroup/DxItemGroup';
 import DxTabbedContent from '../package/dxtabbedcontent/DxTabbedContent';
 import DxTabPanel from '../package/dxtabbedcontent/DxTabPanel';
@@ -133,6 +134,61 @@ export default function FormDemo() {
 						trueIcon={GenesysDevIcons.AppStarSolid}
 						falseIcon={GenesysDevIcons.AppStarStroke}
 					/>
+				</Fragment>
+			),
+		},
+		{
+			title: 'DxButton',
+			content: (
+				<Fragment>
+					<p>Button go brrr</p>
+					<h3>Buttons</h3>
+					<DxButton type='primary' onClick={() => console.log('Primary clicked')}>
+						Primary
+					</DxButton>
+					<DxButton type='secondary' onClick={() => console.log('Secondary clicked')}>
+						Secondary
+					</DxButton>
+					<h3>Disabled buttons</h3>
+					<DxButton type='primary' onClick={() => console.log('Primary (disabled) clicked')} disabled={true}>
+						Primary
+					</DxButton>
+					<DxButton type='secondary' onClick={() => console.log('Secondary (disabled) clicked')} disabled={true}>
+						Secondary
+					</DxButton>
+					<h3>Buttons with "creative" content</h3>
+					<DxButton type='primary' onClick={() => console.log('Primary ROCKET LAUNCH!!!!')}>
+						<div
+							style={{
+								fontSize: '100px',
+								lineHeight: 0,
+								color: '#9cff40',
+								padding: '20px',
+								margin: '20px',
+								border: '8px dashed aqua',
+								background:
+									'radial-gradient(circle, rgba(225,13,19,1) 0%, rgba(244,150,0,1) 20%, rgba(249,233,0,1) 40%, rgba(2,147,56,1) 60%, rgba(62,73,153,1) 80%, rgba(197,29,131,1) 100%)',
+							}}
+						>
+							<GenesysDevIcon icon={GenesysDevIcons.DestGetStarted} />
+						</div>
+					</DxButton>
+					<DxButton type='secondary' onClick={() => console.log('Secondary ROCKET LAUNCH!!!!')}>
+						<div
+							style={{
+								fontSize: '100px',
+								lineHeight: 0,
+								color: '#9cff40',
+								padding: '20px',
+								margin: '20px',
+								border: '8px dashed aqua',
+								background:
+									'radial-gradient(circle, rgba(225,13,19,1) 0%, rgba(244,150,0,1) 20%, rgba(249,233,0,1) 40%, rgba(2,147,56,1) 60%, rgba(62,73,153,1) 80%, rgba(197,29,131,1) 100%)',
+							}}
+						>
+							<GenesysDevIcon icon={GenesysDevIcons.AppStarStroke} />
+						</div>
+					</DxButton>
 				</Fragment>
 			),
 		},
