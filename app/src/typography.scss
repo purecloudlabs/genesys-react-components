@@ -153,11 +153,13 @@ body {
 		}
 	}
 
-	code {
-		padding: 2px 4px;
+	pre {
+		margin: 20px 0;
+		padding: 20px;
+		background-color: #eaeaea;
+		color: #8452CF;
 		border-radius: 4px;
-		color: #8452cf;
-		background-color: #eff0f5;
+		overflow: auto;
 	}
 
 	// Standardized indentation

@@ -44,6 +44,24 @@ export default function FormDemo() {
 			content: (
 				<Fragment>
 					<p>For text-ish inputs</p>
+					<h3>Example</h3>
+					<pre>
+						<code>
+							{`<DxTextbox
+	inputType='text'
+	label='Label text'
+	placeholder='Placeholder text...'
+	icon={GenesysDevIcons.AppSearch}
+	clearButton={true}
+	onChange={(value: string) => console.log('value changed', value)}
+	changeDebounceMs={1234}
+	inputRef={inputRef}
+	onFocus={() => console.log('focus')}
+	onBlur={() => console.log('blur')}
+	description='Informative description text'
+/>`}
+						</code>
+					</pre>
 					<h3>Basic usage</h3>
 					<DxTextbox />
 					<DxTextbox label='With a label and placeholder' placeholder='placeholder text' />
@@ -116,6 +134,20 @@ export default function FormDemo() {
 					<p>
 						For boolean inputs, including a tri-state option allowing <em>undefined</em> as a value
 					</p>
+					<h3>Example</h3>
+					<pre>
+						<code>
+							{`<DxToggle
+	label='Toggle label'
+	initialValue={true}
+	isTriState={true}
+	onChange={(value) => console.log(value)}
+	trueIcon={GenesysDevIcons.AppSun}
+	falseIcon={GenesysDevIcons.AppMoon}
+	description='Informative description text'
+/>`}
+						</code>
+					</pre>
 					<h3>Dual state</h3>
 					<DxToggle />
 					<DxToggle label='With a label' />
@@ -154,6 +186,14 @@ export default function FormDemo() {
 			content: (
 				<Fragment>
 					<p>Button go brrr</p>
+					<h3>Example</h3>
+					<pre>
+						<code>
+							{`<DxButton type='primary' onClick={() => console.log('clicked')} disabled={false}>
+	Button text
+</DxButton>`}
+						</code>
+					</pre>
 					<h3>Buttons</h3>
 					<DxButton type='primary' onClick={() => console.log('Primary clicked')}>
 						Primary
@@ -212,6 +252,19 @@ export default function FormDemo() {
 			content: (
 				<Fragment>
 					<p>For selecting from a list of things</p>
+					<h3>Example</h3>
+					<pre>
+						<code>
+							{`<DxItemGroup
+	title='Label text'
+	items={itemGroupItems}
+	format='dropdown'
+	onItemChanged={(item, isSelected) => console.log('isSelected', isSelected)}
+	onItemsChanged={(items) => console.log('Item list:', items)}
+	description='Informative description text'
+/>`}
+						</code>
+					</pre>
 					<h3>Dropdown</h3>
 					<DxItemGroup items={itemGroupItems} format='dropdown' />
 					<DxItemGroup title='Dropdown with a title' items={itemGroupItems} format='dropdown' />
@@ -264,6 +317,14 @@ export default function FormDemo() {
 			content: (
 				<Fragment>
 					<p>Shows tab titles in a row and one content panel at a time</p>
+					<h3>Example</h3>
+					<pre>
+						<code>
+							{`<DxTabbedContent>
+	<DxTabPanel title='Panel Title'>Panel content</DxTabPanel>
+</DxTabbedContent>`}
+						</code>
+					</pre>
 					<DxTabbedContent>
 						<DxTabPanel title='first panel'>super plain text</DxTabPanel>
 						<DxTabPanel title='SECOND panel'>
@@ -309,6 +370,14 @@ export default function FormDemo() {
 			content: (
 				<Fragment>
 					<p>Shows a group of individually expandable accordion panels</p>
+					<h3>Example</h3>
+					<pre>
+						<code>
+							{`<DxAccordionGroup>
+	<DxAccordion title='Accordion Title'>Accordion content</DxAccordion>
+</DxAccordionGroup>`}
+						</code>
+					</pre>
 					<DxAccordionGroup>
 						<DxAccordion title='first panel'>super plain text</DxAccordion>
 						<DxAccordion title='SECOND panel'>
