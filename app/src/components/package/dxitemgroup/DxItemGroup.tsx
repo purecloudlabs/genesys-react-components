@@ -7,9 +7,11 @@ import './checkbox.scss';
 import './radiobutton.scss';
 import './dropdown.scss';
 import './multiselect.scss';
+import DxLabel from '../dxlabel/DxLabel';
 
 interface IProps {
 	title?: string;
+	description?: string;
 	format: DxItemGroupFormat;
 	items: DxItemGroupItem[];
 	onItemChanged?: ItemChangedCallback;
@@ -47,24 +49,24 @@ export default function DxItemGroup(props: IProps) {
 		case 'multiselect':
 		case 'dropdown': {
 			return (
-				<label className={`dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}`}>
-					{props.title ? <span className='legend-text'>{props.title}</span> : undefined}
-					<select multiple={props.format === 'multiselect'}>
-						{data.map((d, i) => (
-							<option key={i} value={d.item.value}>
-								{d.item.label}
-							</option>
-						))}
-					</select>
-				</label>
+				<DxLabel label={props.title} description={props.description}>
+					<div className={`dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}`}>
+						<select multiple={props.format === 'multiselect'}>
+							{data.map((d, i) => (
+								<option key={i} value={d.item.value}>
+									{d.item.label}
+								</option>
+							))}
+						</select>
+					</div>
+				</DxLabel>
 			);
 		}
 		case 'checkbox':
 		case 'radio':
 		default: {
 			return (
-				<fieldset className='dx-item-group'>
-					{props.title ? <legend className='legend-text'>{props.title}</legend> : undefined}
+				<DxLabel label={props.title} description={props.description} className='dx-item-group' useFieldset={true}>
 					{data.map((d, i) => (
 						<label key={i}>
 							<input
@@ -78,7 +80,7 @@ export default function DxItemGroup(props: IProps) {
 							<span className='label-text'>{d.item.label}</span>
 						</label>
 					))}
-				</fieldset>
+				</DxLabel>
 			);
 		}
 	}

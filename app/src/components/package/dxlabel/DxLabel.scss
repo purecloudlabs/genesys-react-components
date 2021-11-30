@@ -1,0 +1,31 @@
+.dx-label {
+	margin: 20px 0;
+	display: block;
+
+	.label-text,
+	.input-description {
+		display: block;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 14px;
+		color: #75757a;
+	}
+
+	.label-text {
+		margin: 0 0 4px 0;
+	}
+
+	.input-description {
+		padding: 6px 20px;
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 8px;
+
+		.icon {
+			color: #597393;
+			line-height: 0;
+		}
+	}
+}

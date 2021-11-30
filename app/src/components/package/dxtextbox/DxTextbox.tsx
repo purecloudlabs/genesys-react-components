@@ -1,5 +1,6 @@
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { useEffect, useRef, useState } from 'react';
+import DxLabel from '../dxlabel/DxLabel';
 import { StringChangedCallback, VoidEventCallback } from '../DxTypes';
 
 import './DxTextbox.scss';
@@ -11,6 +12,7 @@ export interface DxTextboxProps {
 	initialValue?: string;
 	inputType?: DxTextboxType;
 	label?: string;
+	description?: string;
 	placeholder?: string;
 	icon?: GenesysDevIcons;
 	clearButton?: boolean;
@@ -101,11 +103,10 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// TODO: handle props.inputType
 	let component = (
-		<div className={`dx-textbox${hasLabel ? ' with-label' : ''}`}>
+		<div className={`dx-textbox${hasLabel ? ' with-label' : ''}`} style={{}}>
 			{props.icon ? <GenesysDevIcon icon={props.icon} className='input-icon' /> : undefined}
 			<input
 				className='dx-input'
-				// type='text'
 				type={inputType}
 				step={step}
 				value={value}
@@ -129,9 +130,8 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Render
 	return (
-		<label className='dx-label'>
-			{hasLabel ? <span className='label-text'>{props.label}</span> : undefined}
+		<DxLabel label={props.label} description={props.description}>
 			{component}
-		</label>
+		</DxLabel>
 	);
 }

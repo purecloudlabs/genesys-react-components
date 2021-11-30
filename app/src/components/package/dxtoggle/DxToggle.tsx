@@ -3,11 +3,13 @@ import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import { BooleanChangedCallback } from '../DxTypes';
 
 import './DxToggle.scss';
+import DxLabel from '../dxlabel/DxLabel';
 
 export interface DxToggleProps {
 	isTriState?: boolean;
 	initialValue?: boolean;
 	label?: string;
+	description?: string;
 	trueIcon?: GenesysDevIcons;
 	falseIcon?: GenesysDevIcons;
 	onChange?: BooleanChangedCallback;
@@ -15,7 +17,6 @@ export interface DxToggleProps {
 
 export default function DxToggle(props: DxToggleProps) {
 	const [value, setValue] = useState(props.isTriState ? props.initialValue : props.initialValue || false);
-	const hasLabel = props.label && props.label !== '';
 
 	const trueIcon = props.trueIcon || GenesysDevIcons.AppCheck;
 	const falseIcon = props.falseIcon || GenesysDevIcons.AppTimes;
@@ -36,8 +37,7 @@ export default function DxToggle(props: DxToggleProps) {
 	};
 
 	return (
-		<label className='dx-label'>
-			{hasLabel ? <span className='label-text'>{props.label}</span> : undefined}
+		<DxLabel label={props.label} description={props.description}>
 			<div className='dx-toggle-container'>
 				<div className='dx-toggle' onClick={toggleValue}>
 					{value !== false ? <GenesysDevIcon icon={falseIcon} /> : undefined}
@@ -47,6 +47,6 @@ export default function DxToggle(props: DxToggleProps) {
 					{value !== true ? <GenesysDevIcon icon={trueIcon} /> : undefined}
 				</div>
 			</div>
-		</label>
+		</DxLabel>
 	);
 }
