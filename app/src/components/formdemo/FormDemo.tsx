@@ -1,14 +1,26 @@
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { Fragment, useRef, useState } from 'react';
-import DxAccordion from '../package/dxaccordion/DxAccordion';
-import DxAccordionGroup from '../package/dxaccordion/DxAccordionGroup';
-import DxButton from '../package/dxbutton/DxButton';
-import DxItemGroup from '../package/dxitemgroup/DxItemGroup';
-import DxTabbedContent from '../package/dxtabbedcontent/DxTabbedContent';
-import DxTabPanel from '../package/dxtabbedcontent/DxTabPanel';
-import DxTextbox from '../package/dxtextbox/DxTextbox';
-import DxToggle from '../package/dxtoggle/DxToggle';
-import { DxItemGroupItem } from '../package/DxTypes';
+// import DxAccordion from '../../../../src/dxaccordion/DxAccordion';
+// import DxAccordionGroup from '../../../../src/dxaccordion/DxAccordionGroup';
+// import DxButton from '../../../../src/dxbutton/DxButton';
+// import DxItemGroup from '../../../../src/dxitemgroup/DxItemGroup';
+// import DxTabbedContent from '../../../../src/dxtabbedcontent/DxTabbedContent';
+// import DxTabPanel from '../../../../src/dxtabbedcontent/DxTabPanel';
+// import DxTextbox from '../../../../src/dxtextbox/DxTextbox';
+// import DxToggle from '../../../../src/dxtoggle/DxToggle';
+// import { DxItemGroupItem } from '../../../../src/';
+
+import {
+	DxAccordion,
+	DxAccordionGroup,
+	DxButton,
+	DxItemGroup,
+	DxTabbedContent,
+	DxTabPanel,
+	DxTextbox,
+	DxToggle,
+	DxItemGroupItem,
+} from 'genesys-react-components';
 
 import './FormDemo.scss';
 

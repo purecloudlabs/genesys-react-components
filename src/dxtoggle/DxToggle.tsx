@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
-import { BooleanChangedCallback } from '../DxTypes';
+import { BooleanChangedCallback, DxToggleProps } from '..';
 
 import './DxToggle.scss';
 import DxLabel from '../dxlabel/DxLabel';
-
-export interface DxToggleProps {
-	isTriState?: boolean;
-	initialValue?: boolean;
-	label?: string;
-	description?: string;
-	trueIcon?: GenesysDevIcons;
-	falseIcon?: GenesysDevIcons;
-	onChange?: BooleanChangedCallback;
-}
 
 export default function DxToggle(props: DxToggleProps) {
 	const [value, setValue] = useState(props.isTriState ? props.initialValue : props.initialValue || false);

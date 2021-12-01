@@ -1,5 +1,5 @@
 import React from 'react';
-import { VoidEventCallback } from '../DxTypes';
+import { VoidEventCallback } from '..';
 
 import './DxButton.scss';
 
