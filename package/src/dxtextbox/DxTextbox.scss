@@ -1,0 +1,70 @@
+.dx-textbox {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	border: 1px solid #c6cbd1;
+	border-radius: 2px;
+	margin: 0;
+	padding: 0 10px;
+	height: 32px;
+
+	&.with-label {
+		margin-top: 0;
+	}
+
+	&:focus-within {
+		// outline: -webkit-focus-ring-color auto 1px;
+		outline: #aac9ff solid 2px;
+	}
+
+	.icon {
+		display: block;
+		flex: none;
+		color: #75757a;
+
+		&.input-icon {
+			font-size: 14px;
+			line-height: 0;
+		}
+
+		&.clear-icon {
+			font-size: 11px;
+			line-height: 0;
+			cursor: pointer;
+			padding: 4px;
+			margin-right: -4px;
+		}
+	}
+
+	input {
+		flex-grow: 1;
+		border: 0;
+		background: #ffffff;
+		box-sizing: border-box;
+		height: 32px;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 16px;
+		color: #272d2d;
+
+		&:focus-visible {
+			outline: 0;
+		}
+
+		&::placeholder {
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 16px;
+			color: #757576;
+		}
+	}
+}

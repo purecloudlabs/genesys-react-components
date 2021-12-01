@@ -8,9 +8,10 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "genesys-dev-icons": "^0.1.12",
+    "genesys-react-components": "^0.1.0-alpha.2",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -24,8 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "linkicons": "npm uninstall genesys-dev-icons && npm link genesys-dev-icons",
-    "unlinkicons": "npm uninstall genesys-dev-icons && yarn add genesys-dev-icons"
+    "linklib": "npm uninstall genesys-react-components && npm link genesys-react-components",
+    "unlinklib": "npm uninstall genesys-react-components && yarn add genesys-react-components"
   },
   "eslintConfig": {
     "extends": [

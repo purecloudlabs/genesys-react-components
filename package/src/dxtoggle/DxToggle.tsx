@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
-import { BooleanChangedCallback } from '../DxTypes';
+import { BooleanChangedCallback } from '..';
 
 import './DxToggle.scss';
 import DxLabel from '../dxlabel/DxLabel';

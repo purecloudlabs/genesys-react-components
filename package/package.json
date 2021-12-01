@@ -1,0 +1,53 @@
+{
+	"name": "genesys-react-components",
+	"version": "0.1.0-alpha.2",
+	"private": false,
+	"description": "A React component library containing standardized form elements.",
+	"homepage": "https://purecloudlabs.github.io/genesys-react-components",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/purecloudlabs/genesys-react-components.git",
+		"directory": "package"
+	},
+	"types": "dist/index.d.ts",
+	"browser": "dist/esm/index.js",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"scripts": {
+		"prepare": "yarn build",
+		"build": "rm -rf ./lib && tsc && npm run copy-resources",
+		"copy-resources": "cd src && find ./ -name '*.scss' | cpio -pdm ../lib",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"rollup": "rm -rf dist && rollup -c"
+	},
+	"author": "Genesys",
+	"license": "https://github.com/purecloudlabs/genesys-react-components/blob/main/LICENSE",
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^21.0.1",
+		"@rollup/plugin-node-resolve": "^13.0.6",
+		"@rollup/plugin-typescript": "^8.3.0",
+		"@types/react": "^17.0.29",
+		"@types/react-dom": "^17.0.9",
+		"@types/uuid": "^8.3.1",
+		"autoprefixer": "^10.4.0",
+		"genesys-dev-icons": "^0.1.12",
+		"node-sass": "^6.0.1",
+		"postcss": "^8.4.4",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"rollup": "^2.60.2",
+		"rollup-plugin-dts": "^4.0.1",
+		"rollup-plugin-postcss": "^4.0.2",
+		"typescript": "^4.4.4",
+		"uuid": "^8.3.2"
+	},
+	"peerDependencies": {
+		"genesys-dev-icons": "^0.1.12",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"uuid": "^8.3.2"
+	},
+	"files": [
+		"dist"
+	]
+}

@@ -1,11 +1,11 @@
-import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { useEffect, useRef, useState } from 'react';
+import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
+
+import { StringChangedCallback, VoidEventCallback } from '..';
 import DxLabel from '../dxlabel/DxLabel';
-import { StringChangedCallback, VoidEventCallback } from '../DxTypes';
 
 import './DxTextbox.scss';
 
-// export type DxTextboxType = 'text' | 'password' | 'integer' | 'decimal' | 'date' | 'time' | 'datetime';
 export type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 
 export interface DxTextboxProps {

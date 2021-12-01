@@ -1,0 +1,58 @@
+.dx-button {
+	margin: 15px 10px;
+	border-radius: 2px;
+	padding: 8px 15px;
+	cursor: pointer;
+	font-weight: 500;
+
+	&-primary {
+		color: #ffffff;
+		border: 1px solid #419bb2;
+		background-color: #419bb2;
+
+		&:hover {
+			background-color: #317b8d;
+			border-color: #317b8d;
+			transition: 0.1s;
+		}
+
+		&:focus {
+			background-color: #419bb2;
+			border-color: #419bb2;
+			box-shadow: 0 0 0 2px #aac9ff;
+			transition: 0.1s;
+		}
+
+		&:disabled {
+			background-color: #9aafb540;
+			border-color: #9aafb540;
+			transition: 0.1s;
+		}
+	}
+
+	&-secondary {
+		color: #419bb2;
+		border: 1px solid #419bb2;
+		background-color: #ffffff;
+
+		&:hover {
+			color: #317b8d;
+			border-color: #317b8d;
+			transition: 0.1s;
+		}
+
+		&:focus {
+			color: #419bb2;
+			border-color: #419bb2;
+			box-shadow: 0 0 0 2px #aac9ff;
+			transition: 0.1s;
+		}
+
+		&:disabled {
+			color: #8a9a9e;
+			background-color: #e0e6e8;
+			border-color: #e0e6e8;
+			transition: 0.1s;
+		}
+	}
+}

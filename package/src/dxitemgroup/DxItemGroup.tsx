@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { DxItemGroupItem, DxItemGroupItemValue, ItemChangedCallback, ItemGroupChangedCallback } from '../DxTypes';
+import { DxItemGroupItem, DxItemGroupItemValue, ItemChangedCallback, ItemGroupChangedCallback } from '..';
 
 import './DxItemGroup.scss';
 import './checkbox.scss';

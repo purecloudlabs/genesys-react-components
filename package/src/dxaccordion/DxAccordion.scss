@@ -1,0 +1,37 @@
+.dx-accordion {
+	margin: 0;
+
+	.accordion-heading {
+		border-width: 0 0 1px 0;
+		border-style: solid;
+		border-color: #bfd4e4;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 14px;
+		color: #54565a;
+		padding: 13px 20px;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+
+		.icon {
+			line-height: 0;
+		}
+	}
+
+	.accordion-content {
+		padding: 13px 20px 20px 20px;
+		border-bottom: 1px solid #bfd4e4;
+
+		// Clear excess margins from content, we provide the padding
+		& *:first-child {
+			margin-top: 0;
+		}
+		& *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
