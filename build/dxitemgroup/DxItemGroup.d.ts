@@ -1,7 +1,6 @@
 /// <reference types="react" />
 import { DxItemGroupItem, ItemChangedCallback, ItemGroupChangedCallback } from '..';
 import './DxItemGroup.scss';
-import './checkbox.scss';
 import './radiobutton.scss';
 import './dropdown.scss';
 import './multiselect.scss';

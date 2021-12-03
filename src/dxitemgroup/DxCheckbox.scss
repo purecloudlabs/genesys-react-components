@@ -1,4 +1,22 @@
-.dx-item-group {
+.dx-checkbox {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	margin: 15px 0;
+
+	&:first-of-type {
+		margin-top: 0;
+	}
+
+	.label-text {
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 18px;
+		color: #75757a;
+	}
+
 	input[type='checkbox'] {
 		// Hide default appearance
 		-webkit-appearance: none;
@@ -59,4 +77,54 @@
 	input[type='checkbox']:not(:disabled):focus-visible {
 		outline: 0;
 	}
+	input[type='radio'] {
+		// Hide default appearance
+		-webkit-appearance: none;
+		appearance: none;
+
+		// Custom appearance
+		margin: 0 8px 0 0;
+		width: 16px;
+		height: 16px;
+		border: 1px solid #8a96a3;
+		border-radius: 8px;
+		background-color: #ffffff;
+		flex-shrink: 0;
+	}
+
+	// Hide radio button initially
+	input[type='radio']::before {
+		display: none;
+	}
+
+	// Display filled radio button
+	input[type='radio']:checked::before {
+		content: '';
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-radius: 8px;
+		position: relative;
+		top: 2px;
+		left: 2px;
+		background-color: #8a96a3;
+	}
+
+	// Hover - radio button
+	input[type='radio']:not(:disabled):hover {
+		border-color: #4d5061;
+	}
+
+	// Focus - radio button
+	input[type='radio']:not(:disabled):focus {
+		outline: #aac9ff solid 2px;
+	}
+	// Disable default focus outline
+	input[type='radio']:not(:disabled):focus-visible {
+		outline: 0;
+	}
+}
+
+.dx-label .dx-checkbox .label-text {
+	margin: 0;
 }

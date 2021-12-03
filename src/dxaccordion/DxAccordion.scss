@@ -27,10 +27,10 @@
 		border-bottom: 1px solid #bfd4e4;
 
 		// Clear excess margins from content, we provide the padding
-		& *:first-child {
+		& > *:first-child {
 			margin-top: 0;
 		}
-		& *:last-child {
+		& > *:last-child {
 			margin-bottom: 0;
 		}
 	}

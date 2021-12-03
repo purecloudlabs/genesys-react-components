@@ -1,14 +1,5 @@
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { Fragment, useRef, useState } from 'react';
-// import DxAccordion from '../../../../src/dxaccordion/DxAccordion';
-// import DxAccordionGroup from '../../../../src/dxaccordion/DxAccordionGroup';
-// import DxButton from '../../../../src/dxbutton/DxButton';
-// import DxItemGroup from '../../../../src/dxitemgroup/DxItemGroup';
-// import DxTabbedContent from '../../../../src/dxtabbedcontent/DxTabbedContent';
-// import DxTabPanel from '../../../../src/dxtabbedcontent/DxTabPanel';
-// import DxTextbox from '../../../../src/dxtextbox/DxTextbox';
-// import DxToggle from '../../../../src/dxtoggle/DxToggle';
-// import { DxItemGroupItem } from '../../../../src/';
 
 import {
 	DxAccordion,
@@ -20,6 +11,7 @@ import {
 	DxTextbox,
 	DxToggle,
 	DxItemGroupItem,
+	DxCheckbox,
 } from 'genesys-react-components';
 
 import './FormDemo.scss';
@@ -190,6 +182,34 @@ export default function FormDemo() {
 						trueIcon={GenesysDevIcons.AppSun}
 						falseIcon={GenesysDevIcons.AppMoon}
 					/>
+				</Fragment>
+			),
+		},
+		{
+			title: 'DxCheckbox',
+			content: (
+				<Fragment>
+					<p>For individual checkboxes</p>
+					<h3>Example</h3>
+					<pre>
+						<code>{`<DxCheckbox 
+	label='Checkbox label}' 
+	value='item-value' 
+	description='A description'
+	initialValue={true}
+	name='name-string'
+	className='clazzy-checkbox'
+	onCheckChanged={(checked: boolean) => console.log('value changed: ' + checked)} 
+/>`}</code>
+					</pre>
+					<h3>Checkboxes</h3>
+					{itemGroupItems.map((item) => (
+						<DxCheckbox
+							label={item.label}
+							value={item.value}
+							onCheckChanged={(checked) => console.log(`${item.value} (${item.label}) -> ${checked}`)}
+						/>
+					))}
 				</Fragment>
 			),
 		},

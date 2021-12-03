@@ -29,7 +29,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$c = ".dx-accordion {\n  margin: 0;\n}\n.dx-accordion .accordion-heading {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: #bfd4e4;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 14px;\n  color: #54565a;\n  padding: 13px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.dx-accordion .accordion-heading .icon {\n  line-height: 0;\n}\n.dx-accordion .accordion-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-accordion .accordion-content *:first-child {\n  margin-top: 0;\n}\n.dx-accordion .accordion-content *:last-child {\n  margin-bottom: 0;\n}";
+var css_248z$c = ".dx-accordion {\n  margin: 0;\n}\n.dx-accordion .accordion-heading {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: #bfd4e4;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 14px;\n  color: #54565a;\n  padding: 13px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.dx-accordion .accordion-heading .icon {\n  line-height: 0;\n}\n.dx-accordion .accordion-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-accordion .accordion-content > *:first-child {\n  margin-top: 0;\n}\n.dx-accordion .accordion-content > *:last-child {\n  margin-bottom: 0;\n}";
 styleInject(css_248z$c);
 
 function DxAccordion(props) {
@@ -70,20 +70,17 @@ function DxButton(props) {
 var css_248z$9 = ".dx-item-group {\n  display: block;\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n.dx-item-group label {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  margin: 15px 0;\n}\n.dx-item-group label:first-of-type {\n  margin-top: 0;\n}\n.dx-item-group label .label-text {\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 12px;\n  line-height: 18px;\n  color: #75757a;\n}";
 styleInject(css_248z$9);
 
-var css_248z$8 = ".dx-item-group input[type=checkbox] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid #8a96a3;\n  border-radius: 2px;\n  background-color: #ffffff;\n  flex-shrink: 0;\n}\n.dx-item-group input[type=checkbox]::before {\n  display: none;\n}\n.dx-item-group input[type=checkbox]:checked {\n  background-color: #8a96a3;\n}\n.dx-item-group input[type=checkbox]:checked::before {\n  display: block;\n  position: relative;\n  top: 7px;\n  left: 3px;\n  font-size: 9px;\n  line-height: 0;\n  color: #ffffff;\n  content: \"\\f103\";\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.dx-item-group input[type=checkbox]:not(:disabled):hover {\n  border-color: #4d5061;\n}\n.dx-item-group input[type=checkbox]:not(:disabled):focus {\n  outline: #aac9ff solid 2px;\n}\n.dx-item-group input[type=checkbox]:not(:disabled):focus-visible {\n  outline: 0;\n}";
+var css_248z$8 = "";
 styleInject(css_248z$8);
 
-var css_248z$7 = ".dx-item-group input[type=radio] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid #8a96a3;\n  border-radius: 8px;\n  background-color: #ffffff;\n  flex-shrink: 0;\n}\n.dx-item-group input[type=radio]::before {\n  display: none;\n}\n.dx-item-group input[type=radio]:checked::before {\n  content: \"\";\n  display: block;\n  width: 10px;\n  height: 10px;\n  border-radius: 8px;\n  position: relative;\n  top: 2px;\n  left: 2px;\n  background-color: #8a96a3;\n}\n.dx-item-group input[type=radio]:not(:disabled):hover {\n  border-color: #4d5061;\n}\n.dx-item-group input[type=radio]:not(:disabled):focus {\n  outline: #aac9ff solid 2px;\n}\n.dx-item-group input[type=radio]:not(:disabled):focus-visible {\n  outline: 0;\n}";
+var css_248z$7 = ".dx-select-group {\n  appearance: none;\n  position: relative;\n}\n.dx-select-group select {\n  border: 1px solid #8a96a3;\n  border-radius: 2px;\n  background-color: #ffffff;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: #75757a;\n  padding: 8px 32px 8px 12px;\n  width: 100%;\n  appearance: none;\n}\n.dx-select-group select:focus-visible {\n  outline: 2px solid #aac9ff;\n}\n.dx-select-group select option {\n  background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);\n}\n.dx-select-group::after {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  content: \"\\f104\";\n  font-size: 8px;\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  pointer-events: none;\n}";
 styleInject(css_248z$7);
 
-var css_248z$6 = ".dx-select-group {\n  appearance: none;\n  position: relative;\n}\n.dx-select-group select {\n  border: 1px solid #8a96a3;\n  border-radius: 2px;\n  background-color: #ffffff;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: #75757a;\n  padding: 8px 32px 8px 12px;\n  width: 100%;\n  appearance: none;\n}\n.dx-select-group select:focus-visible {\n  outline: 2px solid #aac9ff;\n}\n.dx-select-group select option {\n  background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);\n}\n.dx-select-group::after {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  content: \"\\f104\";\n  font-size: 8px;\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  pointer-events: none;\n}";
+var css_248z$6 = ".dx-multiselect-group {\n  appearance: none;\n  position: relative;\n}\n.dx-multiselect-group select {\n  border: 1px solid #8a96a3;\n  border-radius: 2px;\n  background-color: #ffffff;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: #75757a;\n  width: 100%;\n  appearance: none;\n  scrollbar-color: #b0b2b5 transparent;\n}\n.dx-multiselect-group select:focus-visible {\n  outline: 2px solid #aac9ff;\n}\n.dx-multiselect-group select option {\n  overflow: hidden;\n  white-space: pre;\n  text-overflow: ellipsis;\n  -webkit-appearance: none;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 31px;\n  padding: 8px 12px;\n  color: #75757a;\n}\n.dx-multiselect-group select option:checked {\n  background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);\n}\n.dx-multiselect-group select::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 7px;\n  height: 7px;\n}\n.dx-multiselect-group select::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: #b0b2b5;\n}\n.dx-multiselect-group select::-webkit-scrollbar-corner {\n  background: transparent;\n}";
 styleInject(css_248z$6);
 
-var css_248z$5 = ".dx-multiselect-group {\n  appearance: none;\n  position: relative;\n}\n.dx-multiselect-group select {\n  border: 1px solid #8a96a3;\n  border-radius: 2px;\n  background-color: #ffffff;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: #75757a;\n  width: 100%;\n  appearance: none;\n  scrollbar-color: #b0b2b5 transparent;\n}\n.dx-multiselect-group select:focus-visible {\n  outline: 2px solid #aac9ff;\n}\n.dx-multiselect-group select option {\n  overflow: hidden;\n  white-space: pre;\n  text-overflow: ellipsis;\n  -webkit-appearance: none;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 31px;\n  padding: 8px 12px;\n  color: #75757a;\n}\n.dx-multiselect-group select option:checked {\n  background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);\n}\n.dx-multiselect-group select::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 7px;\n  height: 7px;\n}\n.dx-multiselect-group select::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: #b0b2b5;\n}\n.dx-multiselect-group select::-webkit-scrollbar-corner {\n  background: transparent;\n}";
+var css_248z$5 = ".dx-label {\n  margin: 20px 0;\n  display: block;\n}\n.dx-label .label-text,\n.dx-label .input-description {\n  display: block;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  color: #75757a;\n}\n.dx-label .label-text {\n  margin: 0 0 4px 0;\n}\n.dx-label .input-description {\n  padding: 6px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n}\n.dx-label .input-description .icon {\n  color: #597393;\n  line-height: 0;\n}";
 styleInject(css_248z$5);
-
-var css_248z$4 = ".dx-label {\n  margin: 20px 0;\n  display: block;\n}\n.dx-label .label-text,\n.dx-label .input-description {\n  display: block;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  color: #75757a;\n}\n.dx-label .label-text {\n  margin: 0 0 4px 0;\n}\n.dx-label .input-description {\n  padding: 6px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n}\n.dx-label .input-description .icon {\n  color: #597393;\n  line-height: 0;\n}";
-styleInject(css_248z$4);
 
 function DxLabel(props) {
     const hasLabel = props.label && props.label !== '';
@@ -102,6 +99,15 @@ function DxLabel(props) {
         description));
 }
 
+var css_248z$4 = ".dx-checkbox {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  margin: 15px 0;\n}\n.dx-checkbox:first-of-type {\n  margin-top: 0;\n}\n.dx-checkbox .label-text {\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 12px;\n  line-height: 18px;\n  color: #75757a;\n}\n.dx-checkbox input[type=checkbox] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid #8a96a3;\n  border-radius: 2px;\n  background-color: #ffffff;\n  flex-shrink: 0;\n}\n.dx-checkbox input[type=checkbox]::before {\n  display: none;\n}\n.dx-checkbox input[type=checkbox]:checked {\n  background-color: #8a96a3;\n}\n.dx-checkbox input[type=checkbox]:checked::before {\n  display: block;\n  position: relative;\n  top: 7px;\n  left: 3px;\n  font-size: 9px;\n  line-height: 0;\n  color: #ffffff;\n  content: \"\\f103\";\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):hover {\n  border-color: #4d5061;\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):focus {\n  outline: #aac9ff solid 2px;\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):focus-visible {\n  outline: 0;\n}\n.dx-checkbox input[type=radio] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid #8a96a3;\n  border-radius: 8px;\n  background-color: #ffffff;\n  flex-shrink: 0;\n}\n.dx-checkbox input[type=radio]::before {\n  display: none;\n}\n.dx-checkbox input[type=radio]:checked::before {\n  content: \"\";\n  display: block;\n  width: 10px;\n  height: 10px;\n  border-radius: 8px;\n  position: relative;\n  top: 2px;\n  left: 2px;\n  background-color: #8a96a3;\n}\n.dx-checkbox input[type=radio]:not(:disabled):hover {\n  border-color: #4d5061;\n}\n.dx-checkbox input[type=radio]:not(:disabled):focus {\n  outline: #aac9ff solid 2px;\n}\n.dx-checkbox input[type=radio]:not(:disabled):focus-visible {\n  outline: 0;\n}\n\n.dx-label .dx-checkbox .label-text {\n  margin: 0;\n}";
+styleInject(css_248z$4);
+
+function DxCheckbox(props) {
+    return (React.createElement("label", { className: `dx-checkbox ${props.className || ''}` },
+        React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, id: props.label, value: props.value, checked: props.initialValue, onChange: (e) => (props.onCheckChanged ? props.onCheckChanged(e.target.checked) : undefined) }),
+        React.createElement("span", { className: 'label-text' }, props.label)));
+}
+
 function DxItemGroup(props) {
     const [data, setData] = useState(props.items.map((item) => {
         return { item, isSelected: false };
@@ -114,15 +120,15 @@ function DxItemGroup(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
     // Handle checkbox changed
-    const onChange = (idx, item, e) => {
+    const onChange = (idx, item, checked) => {
         if (props.onItemChanged)
-            props.onItemChanged(item, e.target.checked);
+            props.onItemChanged(item, checked);
         let newData = [...data];
         // Unselect everything if it's radio buttons
         if (props.format === 'radio')
             newData.forEach((value) => (value.isSelected = false));
         // Set the selected state of the new item
-        newData[idx].isSelected = e.target.checked;
+        newData[idx].isSelected = checked;
         setData(newData);
     };
     switch (props.format) {
@@ -135,14 +141,24 @@ function DxItemGroup(props) {
         case 'checkbox':
         case 'radio':
         default: {
-            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: 'dx-item-group', useFieldset: true }, data.map((d, i) => (React.createElement("label", { key: i },
-                React.createElement("input", { type: props.format, name: props.format === 'checkbox' ? `${id}-${i}` : id, id: d.item.label, value: d.item.value, checked: d.isSelected, onChange: (e) => onChange(i, d.item, e) }),
-                React.createElement("span", { className: 'label-text' }, d.item.label))))));
+            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: 'dx-item-group', useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, value: d.item.value, initialValue: d.isSelected, onCheckChanged: (checked) => onChange(i, d.item, checked) })
+            // <label key={i}>
+            // 	<input
+            // 		type={props.format}
+            // 		name={props.format === 'checkbox' ? `${id}-${i}` : id}
+            // 		id={d.item.label}
+            // 		value={d.item.value}
+            // 		checked={d.isSelected}
+            // 		onChange={(e) => onChange(i, d.item, e)}
+            // 	/>
+            // 	<span className='label-text'>{d.item.label}</span>
+            // </label>
+            ))));
         }
     }
 }
 
-var css_248z$3 = ".dx-tabbed-content {\n  margin: 40px 0;\n}\n.dx-tabbed-content .tab-titles {\n  border-bottom: 1px solid #bfd4e4;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 20px;\n}\n.dx-tabbed-content .tab-titles .tab-title {\n  display: inline-block;\n  padding: 5px 20px;\n  border-bottom: 1px solid transparent;\n  cursor: pointer;\n}\n.dx-tabbed-content .tab-titles .tab-title.active {\n  border-bottom-color: #597393;\n  font-weight: bold;\n}\n.dx-tabbed-content .tab-titles .tab-title p {\n  margin: 0;\n  display: inline;\n}\n.dx-tabbed-content .tab-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-tabbed-content .tab-content *:first-child {\n  margin-top: 0;\n}\n.dx-tabbed-content .tab-content *:last-child {\n  margin-bottom: 0;\n}";
+var css_248z$3 = ".dx-tabbed-content {\n  margin: 40px 0;\n}\n.dx-tabbed-content .tab-titles {\n  border-bottom: 1px solid #bfd4e4;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 20px;\n}\n.dx-tabbed-content .tab-titles .tab-title {\n  display: inline-block;\n  padding: 5px 20px;\n  border-bottom: 1px solid transparent;\n  cursor: pointer;\n}\n.dx-tabbed-content .tab-titles .tab-title.active {\n  border-bottom-color: #597393;\n  font-weight: bold;\n}\n.dx-tabbed-content .tab-titles .tab-title p {\n  margin: 0;\n  display: inline;\n}\n.dx-tabbed-content .tab-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-tabbed-content .tab-content > *:first-child {\n  margin-top: 0;\n}\n.dx-tabbed-content .tab-content > *:last-child {\n  margin-bottom: 0;\n}";
 styleInject(css_248z$3);
 
 function DxTabbedContent(props) {
@@ -295,5 +311,5 @@ function DxToggle(props) {
                 value !== true ? React.createElement(GenesysDevIcon, { icon: trueIcon }) : undefined))));
 }
 
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle };
+export { DxAccordion, DxAccordionGroup, DxButton, DxCheckbox, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle };
 //# sourceMappingURL=index.js.map

@@ -4,12 +4,13 @@ import DxAccordion from './dxaccordion/DxAccordion';
 import DxAccordionGroup from './dxaccordion/DxAccordionGroup';
 import DxButton from './dxbutton/DxButton';
 import DxItemGroup from './dxitemgroup/DxItemGroup';
+import DxCheckbox from './dxitemgroup/DxCheckbox';
 import DxLabel from './dxlabel/DxLabel';
 import DxTabbedContent from './dxtabbedcontent/DxTabbedContent';
 import DxTabPanel from './dxtabbedcontent/DxTabPanel';
 import DxTextbox from './dxtextbox/DxTextbox';
 import DxToggle from './dxtoggle/DxToggle';
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle };
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle };
 export interface StringChangedCallback {
     (value: string): void;
 }

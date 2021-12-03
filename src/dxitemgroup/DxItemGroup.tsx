@@ -3,11 +3,11 @@ import { v4 as uuid } from 'uuid';
 import { DxItemGroupItem, DxItemGroupItemValue, ItemChangedCallback, ItemGroupChangedCallback } from '..';
 
 import './DxItemGroup.scss';
-import './checkbox.scss';
 import './radiobutton.scss';
 import './dropdown.scss';
 import './multiselect.scss';
 import DxLabel from '../dxlabel/DxLabel';
+import DxCheckbox from './DxCheckbox';
 
 interface IProps {
 	title?: string;
@@ -35,13 +35,13 @@ export default function DxItemGroup(props: IProps) {
 	}, [data]);
 
 	// Handle checkbox changed
-	const onChange = (idx: number, item: DxItemGroupItem, e: React.ChangeEvent<HTMLInputElement>) => {
-		if (props.onItemChanged) props.onItemChanged(item, e.target.checked);
+	const onChange = (idx: number, item: DxItemGroupItem, checked: boolean) => {
+		if (props.onItemChanged) props.onItemChanged(item, checked);
 		let newData = [...data];
 		// Unselect everything if it's radio buttons
 		if (props.format === 'radio') newData.forEach((value) => (value.isSelected = false));
 		// Set the selected state of the new item
-		newData[idx].isSelected = e.target.checked;
+		newData[idx].isSelected = checked;
 		setData(newData);
 	};
 
@@ -68,17 +68,25 @@ export default function DxItemGroup(props: IProps) {
 			return (
 				<DxLabel label={props.title} description={props.description} className='dx-item-group' useFieldset={true}>
 					{data.map((d, i) => (
-						<label key={i}>
-							<input
-								type={props.format}
-								name={props.format === 'checkbox' ? `${id}-${i}` : id}
-								id={d.item.label}
-								value={d.item.value}
-								checked={d.isSelected}
-								onChange={(e) => onChange(i, d.item, e)}
-							/>
-							<span className='label-text'>{d.item.label}</span>
-						</label>
+						<DxCheckbox
+							key={i}
+							name={props.format === 'checkbox' ? `${id}-${i}` : id}
+							label={d.item.label}
+							value={d.item.value}
+							initialValue={d.isSelected}
+							onCheckChanged={(checked) => onChange(i, d.item, checked)}
+						/>
+						// <label key={i}>
+						// 	<input
+						// 		type={props.format}
+						// 		name={props.format === 'checkbox' ? `${id}-${i}` : id}
+						// 		id={d.item.label}
+						// 		value={d.item.value}
+						// 		checked={d.isSelected}
+						// 		onChange={(e) => onChange(i, d.item, e)}
+						// 	/>
+						// 	<span className='label-text'>{d.item.label}</span>
+						// </label>
 					))}
 				</DxLabel>
 			);
