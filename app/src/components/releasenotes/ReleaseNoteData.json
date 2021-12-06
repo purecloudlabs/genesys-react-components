@@ -5,7 +5,8 @@
 		"features": [
 			"Support disabled property on all input-type components",
 			"Support className property on all components",
-			"Fancy schmancy release notes"
+			"Fancy schmancy release notes",
+			"Support 'controlled component' behavior to update internal state when the property value (or checked for checkboxes) is updated"
 		],
 		"bugfixes": ["Fix radio input button style to show as radio button instead of checkmark"]
 	},

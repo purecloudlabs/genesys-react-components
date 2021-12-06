@@ -103,8 +103,19 @@ var css_248z$4 = ".dx-checkbox {\n  display: flex;\n  flex-flow: row nowrap;\n  
 styleInject(css_248z$4);
 
 function DxCheckbox(props) {
+    let initialValue = props.checked !== undefined ? props.checked : props.initiallyChecked || false;
+    const [checked, setChecked] = useState(initialValue);
+    useEffect(() => {
+        if (props.checked === undefined || props.checked === checked)
+            return;
+        setChecked(props.checked);
+    }, [props.checked]);
+    useEffect(() => {
+        if (props.onCheckChanged)
+            props.onCheckChanged(checked);
+    }, [checked]);
     return (React.createElement("label", { className: `dx-checkbox${props.className ? ' ' + props.className : ''}${props.disabled ? ' disabled' : ''}` },
-        React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, id: props.label, value: props.value, checked: props.initialValue, onChange: (e) => (props.onCheckChanged ? props.onCheckChanged(e.target.checked) : undefined), disabled: props.disabled === true }),
+        React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, id: props.label, value: props.itemValue, checked: checked, onChange: (e) => setChecked(e.target.checked), disabled: props.disabled === true }),
         React.createElement("span", { className: 'label-text' }, props.label)));
 }
 
@@ -141,12 +152,12 @@ function DxItemGroup(props) {
         case 'checkbox':
         case 'radio':
         default: {
-            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: `dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, value: d.item.value, initialValue: d.isSelected, onCheckChanged: (checked) => onChange(i, d.item, checked), useRadioType: props.format === 'radio', disabled: props.disabled || d.item.disabled })))));
+            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: `dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, onCheckChanged: (checked) => onChange(i, d.item, checked), useRadioType: props.format === 'radio', disabled: props.disabled || d.item.disabled })))));
         }
     }
 }
 
-var css_248z$3 = ".dx-tabbed-content {\n  margin: 40px 0;\n}\n.dx-tabbed-content .tab-titles {\n  border-bottom: 1px solid #bfd4e4;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 20px;\n}\n.dx-tabbed-content .tab-titles .tab-title {\n  display: inline-block;\n  padding: 5px 20px;\n  border-bottom: 1px solid transparent;\n  cursor: pointer;\n}\n.dx-tabbed-content .tab-titles .tab-title.active {\n  border-bottom-color: #597393;\n  font-weight: bold;\n}\n.dx-tabbed-content .tab-titles .tab-title p {\n  margin: 0;\n  display: inline;\n}\n.dx-tabbed-content .tab-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-tabbed-content .tab-content > *:first-child {\n  margin-top: 0;\n}\n.dx-tabbed-content .tab-content > *:last-child {\n  margin-bottom: 0;\n}";
+var css_248z$3 = ".dx-tabbed-content {\n  margin: 40px 0;\n}\n.dx-tabbed-content .tab-titles {\n  border-bottom: 1px solid #bfd4e4;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 20px;\n}\n.dx-tabbed-content .tab-titles .tab-title {\n  display: inline-block;\n  padding: 5px 20px;\n  border-bottom: 1px solid transparent;\n  cursor: pointer;\n}\n.dx-tabbed-content .tab-titles .tab-title:hover {\n  border-color: #bfd4e4;\n}\n.dx-tabbed-content .tab-titles .tab-title.active {\n  border-bottom-color: #597393;\n  font-weight: bold;\n}\n.dx-tabbed-content .tab-titles .tab-title p {\n  margin: 0;\n  display: inline;\n}\n.dx-tabbed-content .tab-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-tabbed-content .tab-content > *:first-child {\n  margin-top: 0;\n}\n.dx-tabbed-content .tab-content > *:last-child {\n  margin-bottom: 0;\n}";
 styleInject(css_248z$3);
 
 function DxTabbedContent(props) {
@@ -175,7 +186,7 @@ styleInject(css_248z$1);
 
 function DxTextbox(props) {
     const [debounceMs, setDebounceMs] = useState(props.changeDebounceMs || 300);
-    const [value, setValue] = useState(props.initialValue || '');
+    const [value, setValue] = useState(props.initialValue || props.value || '');
     const [isFocused, setIsFocused] = useState(false);
     const [escapePressed, setEscapePressed] = useState(Date.now());
     const [step, setStep] = useState(undefined);
@@ -188,6 +199,10 @@ function DxTextbox(props) {
             document.removeEventListener('keydown', globalKeyBindings, false);
         };
     }, []);
+    // Value prop updated
+    useEffect(() => {
+        setValue(props.value || '');
+    }, [props.value]);
     // Escape pressed
     useEffect(() => {
         var _a;
@@ -268,9 +283,17 @@ var css_248z = ".dx-toggle-container {\n  display: inline-block;\n}\n.dx-toggle-
 styleInject(css_248z);
 
 function DxToggle(props) {
-    const [value, setValue] = useState(props.isTriState ? props.initialValue : props.initialValue || false);
+    let initialValue = props.value !== undefined ? props.value : props.initialValue;
+    if (!props.isTriState)
+        initialValue = initialValue || false;
+    const [value, setValue] = useState(initialValue);
     const trueIcon = props.trueIcon || GenesysDevIcons.AppCheck;
     const falseIcon = props.falseIcon || GenesysDevIcons.AppTimes;
+    useEffect(() => {
+        if (props.initialValue || props.value === value || (!props.isTriState && props.value === undefined))
+            return;
+        setValue(props.value);
+    }, [props.value]);
     useEffect(() => {
         if (props.onChange)
             props.onChange(value);

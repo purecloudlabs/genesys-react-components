@@ -1,14 +1,15 @@
 /// <reference types="react" />
-import { BooleanChangedCallback } from '..';
+import { CheckedChangedCallback } from '..';
 import './DxCheckbox.scss';
 interface IProps {
     label: string;
-    value: string;
+    itemValue: string;
     description?: string;
-    initialValue?: boolean;
+    checked?: boolean;
+    initiallyChecked?: boolean;
     name?: string;
     className?: string;
-    onCheckChanged?: BooleanChangedCallback;
+    onCheckChanged?: CheckedChangedCallback;
     useRadioType?: boolean;
     disabled?: boolean;
 }

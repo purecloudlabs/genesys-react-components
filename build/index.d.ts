@@ -17,6 +17,9 @@ export interface StringChangedCallback {
 export interface BooleanChangedCallback {
     (value?: boolean): void;
 }
+export interface CheckedChangedCallback {
+    (checked: boolean): void;
+}
 export interface VoidEventCallback {
     (): void;
 }
@@ -38,6 +41,7 @@ export interface ItemGroupChangedCallback {
 export interface DxToggleProps {
     isTriState?: boolean;
     initialValue?: boolean;
+    value?: boolean;
     label?: string;
     description?: string;
     trueIcon?: GenesysDevIcons;
@@ -49,6 +53,7 @@ export interface DxToggleProps {
 export declare type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 export interface DxTextboxProps {
     initialValue?: string;
+    value?: string;
     inputType?: DxTextboxType;
     label?: string;
     description?: string;

@@ -20,6 +20,8 @@ export default function FormDemo() {
 	// Pass a ref to the input so you can focus/blur it from outside
 	let inputRef = useRef<HTMLInputElement>(null);
 	let [displayMode, setDisplayMode] = useState<'accordion' | 'tabs'>('accordion');
+	let [boundString, setBoundString] = useState('');
+	let [boundBoolean, setBoundBoolean] = useState<boolean | undefined>(true);
 
 	// This weird array thing allows this string to be collapsed in the IDE
 	const doge = [
@@ -90,7 +92,7 @@ export default function FormDemo() {
 				/>
 				<h3>Complex Usages</h3>
 				<DxTextbox
-					label='1000ms debounce (default 300), removes focus on value change via onChange callback'
+					label='1000ms debounce (default 300ms), uses inputRef to remove focus via onChange callback'
 					placeholder='Focus will clear 1 second after you stop typing'
 					icon={GenesysDevIcons.AppZoomZoomRight}
 					clearButton={true}
@@ -109,6 +111,28 @@ export default function FormDemo() {
 					icon={GenesysDevIcons.AppThumbsUp}
 					clearButton={true}
 					initialValue='this is an initial value'
+				/>
+				<h4>Value Binding</h4>
+				<p>
+					Setting and updating the <code>value</code> property allows the value of the input to be updated externally. These text boxes
+					share a common state property for <code>value</code> and both update the value of that shared object when their value changes.
+					This causes the text written to one input to be set as the value of the other.
+				</p>
+				<DxTextbox
+					label='Value-bound input A'
+					placeholder='Type here and the text will show up in B'
+					icon={GenesysDevIcons.AppZoomZoomDown}
+					clearButton={true}
+					value={boundString}
+					onChange={(newValue) => setBoundString(newValue)}
+				/>
+				<DxTextbox
+					label='Value-bound input B'
+					placeholder='Type here and the text will show up in A'
+					icon={GenesysDevIcons.AppZoomZoomUp}
+					clearButton={true}
+					value={boundString}
+					onChange={(newValue) => setBoundString(newValue)}
 				/>
 				<h3>Other input types</h3>
 				<DxTextbox
@@ -200,6 +224,14 @@ export default function FormDemo() {
 					falseIcon={GenesysDevIcons.AppMoon}
 					disabled={true}
 				/>
+				<h3>Value Binding</h3>
+				<p>
+					Setting and updating the <code>value</code> property allows the value of the input to be updated externally. These toggles share a
+					common state property for <code>value</code> and both update the value of that shared object when their value changes. This causes
+					the value selected by one toggle to be set as the value of the other.
+				</p>
+				<DxToggle label='Value-bound toggle A' isTriState={true} value={boundBoolean} onChange={(value) => setBoundBoolean(value)} />
+				<DxToggle label='Value-bound toggle B' isTriState={true} value={boundBoolean} onChange={(value) => setBoundBoolean(value)} />
 			</Fragment>
 		),
 	});
@@ -222,20 +254,43 @@ export default function FormDemo() {
 				</pre>
 				<h3>Checkboxes</h3>
 				{itemGroupItems.map((item, i) => (
-					<DxCheckbox key={i} {...item} onCheckChanged={(checked) => console.log(`${item.value} (${item.label}) -> ${checked}`)} />
+					<DxCheckbox
+						key={i}
+						label={item.label}
+						itemValue={item.value}
+						onCheckChanged={(checked) => console.log(`${item.value} (${item.label}) -> ${checked}`)}
+					/>
 				))}
+				<h3>Value Binding</h3>
+				<p>
+					Setting and updating the <code>checked</code> property allows the checked state of the checkbox to be updated externally. These
+					two checkboxes share a common state property for <code>checked</code> and both update the value of that shared object when their
+					value changes. This causes the value selected by one to be set as the value of the other.
+				</p>
+				<DxCheckbox
+					label='Value-bound checkbox A'
+					itemValue='check-a'
+					checked={boundBoolean}
+					onCheckChanged={(checked) => setBoundBoolean(checked)}
+				/>
+				<DxCheckbox
+					label='Value-bound checkbox B'
+					itemValue='check-B'
+					checked={boundBoolean}
+					onCheckChanged={(checked) => setBoundBoolean(checked)}
+				/>
 				<h3>Disabled Checkbox</h3>
 				<DxCheckbox
 					label='disabled checkbox'
-					value='dis'
+					itemValue='dis'
 					disabled={true}
 					onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
 				/>
 				<DxCheckbox
 					label='disabled with an initial value of true'
-					value='dis'
+					itemValue='dis'
 					disabled={true}
-					initialValue={true}
+					initiallyChecked={true}
 					onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
 				/>
 			</Fragment>
@@ -480,27 +535,6 @@ export default function FormDemo() {
 			</Fragment>
 		),
 	});
-	// demoSections.push({
-	// 	title: 'Release Notes',
-	// 	content: (
-	// 		<Fragment>
-	// 			<h2>0.1.0-alpha.7</h2>
-	// 			<h3>Features</h3>
-	// 			<ul>
-	// 				<li>
-	// 					Support <code>disabled</code> property on all input-type components
-	// 				</li>
-	// 				<li>
-	// 					Support <code>className</code> property on all components
-	// 				</li>
-	// 			</ul>
-	// 			<h3>Bugfixes</h3>
-	// 			<ul>
-	// 				<li>Fix radio input button style to show as radio button instead of checkmark</li>
-	// 			</ul>
-	// 		</Fragment>
-	// 	),
-	// });
 
 	let content: any = demoSections.map((section, i) =>
 		displayMode === 'accordion' ? (

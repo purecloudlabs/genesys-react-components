@@ -6,10 +6,18 @@ import './DxToggle.scss';
 import DxLabel from '../dxlabel/DxLabel';
 
 export default function DxToggle(props: DxToggleProps) {
-	const [value, setValue] = useState(props.isTriState ? props.initialValue : props.initialValue || false);
+	let initialValue: boolean | undefined = props.value !== undefined ? props.value : props.initialValue;
+	if (!props.isTriState) initialValue = initialValue || false;
+
+	const [value, setValue] = useState<boolean | undefined>(initialValue);
 
 	const trueIcon = props.trueIcon || GenesysDevIcons.AppCheck;
 	const falseIcon = props.falseIcon || GenesysDevIcons.AppTimes;
+
+	useEffect(() => {
+		if (props.initialValue || props.value === value || (!props.isTriState && props.value === undefined)) return;
+		setValue(props.value);
+	}, [props.value]);
 
 	useEffect(() => {
 		if (props.onChange) props.onChange(value);

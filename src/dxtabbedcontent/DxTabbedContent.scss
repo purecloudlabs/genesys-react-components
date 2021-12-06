@@ -13,6 +13,10 @@
 			border-bottom: 1px solid transparent;
 			cursor: pointer;
 
+			&:hover {
+				border-color: #bfd4e4;
+			}
+
 			&.active {
 				border-bottom-color: #597393;
 				font-weight: bold;

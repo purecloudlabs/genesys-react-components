@@ -7,7 +7,7 @@ import './DxTextbox.scss';
 
 export default function DxTextbox(props: DxTextboxProps) {
 	const [debounceMs, setDebounceMs] = useState(props.changeDebounceMs || 300);
-	const [value, setValue] = useState(props.initialValue || '');
+	const [value, setValue] = useState(props.initialValue || props.value || '');
 	const [isFocused, setIsFocused] = useState(false);
 	const [escapePressed, setEscapePressed] = useState(Date.now());
 	const [step, setStep] = useState<string | number | undefined>(undefined);
@@ -22,6 +22,11 @@ export default function DxTextbox(props: DxTextboxProps) {
 			document.removeEventListener('keydown', globalKeyBindings, false);
 		};
 	}, []);
+
+	// Value prop updated
+	useEffect(() => {
+		setValue(props.value || '');
+	}, [props.value]);
 
 	// Escape pressed
 	useEffect(() => {

@@ -70,8 +70,8 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 							key={i}
 							name={props.format === 'checkbox' ? `${id}-${i}` : id}
 							label={d.item.label}
-							value={d.item.value}
-							initialValue={d.isSelected}
+							itemValue={d.item.value}
+							initiallyChecked={d.isSelected}
 							onCheckChanged={(checked) => onChange(i, d.item, checked)}
 							useRadioType={props.format === 'radio'}
 							disabled={props.disabled || d.item.disabled}
