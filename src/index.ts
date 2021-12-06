@@ -54,6 +54,7 @@ export interface DxToggleProps {
 	falseIcon?: GenesysDevIcons;
 	disabled?: boolean;
 	onChange?: BooleanChangedCallback;
+	className?: string;
 }
 
 export type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
@@ -72,4 +73,37 @@ export interface DxTextboxProps {
 	onFocus?: VoidEventCallback;
 	onBlur?: VoidEventCallback;
 	disabled?: boolean;
+	className?: string;
+}
+
+export interface DxAccordionProps {
+	title: React.ReactNode;
+	children: React.ReactNode;
+	showOpen?: boolean;
+	className?: string;
+}
+
+export interface DxItemGroupProps {
+	title?: string;
+	description?: string;
+	format: DxItemGroupFormat;
+	items: DxItemGroupItem[];
+	disabled?: boolean;
+	className?: string;
+	onItemChanged?: ItemChangedCallback;
+	onItemsChanged?: ItemGroupChangedCallback;
+}
+
+export type DxItemGroupFormat = 'checkbox' | 'radio' | 'dropdown' | 'multiselect';
+
+export interface DxTabbedContentProps {
+	children: React.ReactNode;
+	initialTabId?: number;
+	className?: string;
+}
+
+export interface DxTabPanelProps {
+	title: React.ReactNode;
+	children: React.ReactNode;
+	className?: string;
 }

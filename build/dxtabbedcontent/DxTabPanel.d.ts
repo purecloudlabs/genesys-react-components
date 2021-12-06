@@ -1,8 +1,4 @@
-import React from 'react';
+/// <reference types="react" />
+import { DxTabPanelProps } from '..';
 import './DxTabPanel.scss';
-interface IProps {
-    title: React.ReactNode;
-    children: React.ReactNode;
-}
-export default function DxTabPanel(props: IProps): JSX.Element;
-export {};
+export default function DxTabPanel(props: DxTabPanelProps): JSX.Element;

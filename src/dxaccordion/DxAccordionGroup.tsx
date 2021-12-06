@@ -4,8 +4,9 @@ import './DxAccordionGroup.scss';
 
 interface IProps {
 	children: React.ReactNode;
+	className?: string;
 }
 
 export default function DxAccordionGroup(props: IProps) {
-	return <div className='dx-accordion-group'>{props.children}</div>;
+	return <div className={`dx-accordion-group${props.className ? ' ' + props.className : ''}`}>{props.children}</div>;
 }

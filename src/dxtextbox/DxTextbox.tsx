@@ -1,7 +1,7 @@
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { useEffect, useRef, useState } from 'react';
 import DxLabel from '../dxlabel/DxLabel';
-import { DxTextboxProps, StringChangedCallback, VoidEventCallback } from '..';
+import { DxTextboxProps } from '..';
 
 import './DxTextbox.scss';
 
@@ -105,7 +105,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 				}}
 				disabled={props.disabled === true}
 			/>
-			{props.clearButton && (value || isFocused) && (!props.disabled) ? (
+			{props.clearButton && (value || isFocused) && !props.disabled ? (
 				<GenesysDevIcon icon={GenesysDevIcons.AppTimes} className='clear-icon' onClick={() => setValue('')} />
 			) : undefined}
 		</div>
@@ -113,7 +113,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Render
 	return (
-		<DxLabel label={props.label} description={props.description}>
+		<DxLabel label={props.label} description={props.description} className={props.className}>
 			{component}
 		</DxLabel>
 	);

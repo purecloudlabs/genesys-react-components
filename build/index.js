@@ -34,7 +34,7 @@ styleInject(css_248z$c);
 
 function DxAccordion(props) {
     const [isOpen, setIsOpen] = useState(props.showOpen || false);
-    return (React.createElement("div", { className: 'dx-accordion' },
+    return (React.createElement("div", { className: `dx-accordion${props.className ? ' ' + props.className : ''}` },
         React.createElement("div", { className: 'accordion-heading', onClick: () => setIsOpen(!isOpen) },
             props.title,
             " ",
@@ -46,7 +46,7 @@ var css_248z$b = ".dx-accordion-group {\n  margin: 40px 0;\n}";
 styleInject(css_248z$b);
 
 function DxAccordionGroup(props) {
-    return React.createElement("div", { className: 'dx-accordion-group' }, props.children);
+    return React.createElement("div", { className: `dx-accordion-group${props.className ? ' ' + props.className : ''}` }, props.children);
 }
 
 var css_248z$a = ".dx-button {\n  margin: 15px 10px;\n  border-radius: 2px;\n  padding: 8px 15px;\n  cursor: pointer;\n  font-weight: 500;\n}\n.dx-button-primary {\n  color: #ffffff;\n  border: 1px solid #419bb2;\n  background-color: #419bb2;\n}\n.dx-button-primary:hover {\n  background-color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-primary:focus {\n  background-color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-primary:disabled {\n  background-color: #9aafb540;\n  border-color: #9aafb540;\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-secondary {\n  color: #419bb2;\n  border: 1px solid #419bb2;\n  background-color: #ffffff;\n}\n.dx-button-secondary:hover {\n  color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-secondary:focus {\n  color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-secondary:disabled {\n  color: #8a9a9e;\n  background-color: #e0e6e8;\n  border-color: #e0e6e8;\n  transition: 0.1s;\n  cursor: not-allowed;\n}";
@@ -134,14 +134,14 @@ function DxItemGroup(props) {
     switch (props.format) {
         case 'multiselect':
         case 'dropdown': {
-            return (React.createElement(DxLabel, { label: props.title, description: props.description },
+            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: props.className },
                 React.createElement("div", { className: `dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}${props.disabled ? ' disabled' : ''}` },
                     React.createElement("select", { multiple: props.format === 'multiselect', disabled: props.disabled === true }, data.map((d, i) => (React.createElement("option", { key: i, value: d.item.value, disabled: d.item.disabled }, d.item.label)))))));
         }
         case 'checkbox':
         case 'radio':
         default: {
-            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: `dx-item-group${props.disabled ? ' disabled' : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, value: d.item.value, initialValue: d.isSelected, onCheckChanged: (checked) => onChange(i, d.item, checked), useRadioType: props.format === 'radio', disabled: props.disabled || d.item.disabled })))));
+            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: `dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, value: d.item.value, initialValue: d.isSelected, onCheckChanged: (checked) => onChange(i, d.item, checked), useRadioType: props.format === 'radio', disabled: props.disabled || d.item.disabled })))));
         }
     }
 }
@@ -158,7 +158,7 @@ function DxTabbedContent(props) {
             return 'Unknown title';
         return child.props.title;
     }));
-    return (React.createElement("div", { className: 'dx-tabbed-content' },
+    return (React.createElement("div", { className: `dx-tabbed-content${props.className ? ' ' + props.className : ''}` },
         React.createElement("div", { className: 'tab-titles' }, titles.map((title, i) => (React.createElement("span", { key: i, className: `tab-title${i === activeTab ? ' active' : ''}`, onClick: () => setActiveTab(i) }, title)))),
         React.createElement("div", { className: 'tab-content' }, React.Children.toArray(props.children)[activeTab])));
 }
@@ -167,7 +167,7 @@ var css_248z$2 = "";
 styleInject(css_248z$2);
 
 function DxTabPanel(props) {
-    return React.createElement("div", { className: 'dx-tab-panel' }, props.children);
+    return React.createElement("div", { className: `dx-tab-panel${props.className ? ' ' + props.className : ''}` }, props.children);
 }
 
 var css_248z$1 = ".dx-textbox {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 10px;\n  border: 1px solid #c6cbd1;\n  border-radius: 2px;\n  margin: 0;\n  padding: 0 10px;\n  height: 32px;\n  background-color: #ffffff;\n}\n.dx-textbox.with-label {\n  margin-top: 0;\n}\n.dx-textbox:focus-within {\n  outline: #aac9ff solid 2px;\n}\n.dx-textbox .icon {\n  display: block;\n  flex: none;\n  color: #75757a;\n}\n.dx-textbox .icon.input-icon {\n  font-size: 14px;\n  line-height: 0;\n}\n.dx-textbox .icon.clear-icon {\n  font-size: 11px;\n  line-height: 0;\n  cursor: pointer;\n  padding: 4px;\n  margin-right: -4px;\n}\n.dx-textbox input {\n  flex-grow: 1;\n  border: 0;\n  background: transparent;\n  box-sizing: border-box;\n  height: 32px;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 16px;\n  color: #272d2d;\n}\n.dx-textbox input:focus-visible {\n  outline: 0;\n}\n.dx-textbox input::placeholder {\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: #757576;\n}\n.dx-textbox.disabled {\n  background-color: #e6ebec;\n  border-color: #e8eaed;\n  cursor: not-allowed;\n}\n.dx-textbox.disabled input {\n  cursor: not-allowed;\n  color: #75757a;\n}\n.dx-textbox.disabled .icon,\n.dx-textbox.disabled input::placeholder {\n  color: #ffffff;\n}";
@@ -259,9 +259,9 @@ function DxTextbox(props) {
                 if (props.onBlur)
                     props.onBlur();
             }, disabled: props.disabled === true }),
-        props.clearButton && (value || isFocused) && (!props.disabled) ? (React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppTimes, className: 'clear-icon', onClick: () => setValue('') })) : undefined));
+        props.clearButton && (value || isFocused) && !props.disabled ? (React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppTimes, className: 'clear-icon', onClick: () => setValue('') })) : undefined));
     // Render
-    return (React.createElement(DxLabel, { label: props.label, description: props.description }, component));
+    return (React.createElement(DxLabel, { label: props.label, description: props.description, className: props.className }, component));
 }
 
 var css_248z = ".dx-toggle-container {\n  display: inline-block;\n}\n.dx-toggle-container .dx-toggle {\n  background: #f5f8fb;\n  border: 1px solid #c6cbd1;\n  border-radius: 6px;\n  height: 26px;\n  padding: 0px 4px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 2px;\n  cursor: pointer;\n}\n.dx-toggle-container .dx-toggle:hover .slider {\n  border-color: #aac9ff;\n}\n.dx-toggle-container .dx-toggle .icon {\n  font-size: 10px;\n  line-height: 0;\n  margin: 0 5px;\n  color: #c4c4c4;\n}\n.dx-toggle-container .dx-toggle .clear-placeholder {\n  width: 19px;\n  padding: 0 1px 0 0;\n  margin: 0;\n  display: block;\n}\n.dx-toggle-container .dx-toggle .slider {\n  height: 22px;\n  width: 22px;\n  border-radius: 22px;\n  background-color: #419bb2;\n  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid transparent;\n}\n.dx-toggle-container .dx-toggle .slider .icon {\n  font-size: 10px;\n  line-height: 0;\n  color: #ffffff;\n  padding: 0;\n  margin: 0;\n}\n.dx-toggle-container.disabled .dx-toggle {\n  border-color: #e8eaed;\n  color: #ffffff;\n  cursor: not-allowed;\n}\n.dx-toggle-container.disabled .dx-toggle:hover .slider {\n  border-color: transparent;\n}\n.dx-toggle-container.disabled .dx-toggle .slider {\n  color: #8a9a9e;\n  background-color: #e0e6e8;\n}";
@@ -291,7 +291,7 @@ function DxToggle(props) {
             setValue(!value);
         }
     };
-    return (React.createElement(DxLabel, { label: props.label, description: props.description },
+    return (React.createElement(DxLabel, { label: props.label, description: props.description, className: props.className },
         React.createElement("div", { className: `dx-toggle-container${props.disabled ? ' disabled' : ''}` },
             React.createElement("div", { className: 'dx-toggle', onClick: toggleValue },
                 value !== false ? React.createElement(GenesysDevIcon, { icon: falseIcon }) : undefined,

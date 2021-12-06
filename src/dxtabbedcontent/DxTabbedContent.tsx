@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
+import { DxTabbedContentProps } from '..';
 
 import './DxTabbedContent.scss';
 
-interface IProps {
-	children: React.ReactNode;
-	initialTabId?: number;
-}
-
-export default function DxTabbedContent(props: IProps) {
+export default function DxTabbedContent(props: DxTabbedContentProps) {
 	const [activeTab, setActiveTab] = useState(props.initialTabId || 0);
 	const [titles] = useState<React.ReactNode[]>(
 		// Scrape titles from child elements
@@ -18,7 +14,7 @@ export default function DxTabbedContent(props: IProps) {
 	);
 
 	return (
-		<div className='dx-tabbed-content'>
+		<div className={`dx-tabbed-content${props.className ? ' ' + props.className : ''}`}>
 			<div className='tab-titles'>
 				{titles.map((title, i) => (
 					<span key={i} className={`tab-title${i === activeTab ? ' active' : ''}`} onClick={() => setActiveTab(i)}>

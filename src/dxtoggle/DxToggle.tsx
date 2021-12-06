@@ -28,7 +28,7 @@ export default function DxToggle(props: DxToggleProps) {
 	};
 
 	return (
-		<DxLabel label={props.label} description={props.description}>
+		<DxLabel label={props.label} description={props.description} className={props.className}>
 			<div className={`dx-toggle-container${props.disabled ? ' disabled' : ''}`}>
 				<div className='dx-toggle' onClick={toggleValue}>
 					{value !== false ? <GenesysDevIcon icon={falseIcon} /> : undefined}

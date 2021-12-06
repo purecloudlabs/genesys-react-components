@@ -334,6 +334,7 @@ export default function FormDemo() {
 						format='dropdown'
 						description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
 					/>
+					<DxItemGroup title='Disabled Dropdown' items={itemGroupItems} format='dropdown' disabled={true} />
 					<h3>Multi-select</h3>
 					<DxItemGroup items={itemGroupItems} format='multiselect' />
 					<DxItemGroup title='Multi-select with a title' items={itemGroupItems} format='multiselect' />
@@ -343,6 +344,7 @@ export default function FormDemo() {
 						format='multiselect'
 						description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
 					/>
+					<DxItemGroup title='Disabled Multi-select' items={itemGroupItems} format='multiselect' disabled={true} />
 					<h3>Checkboxes</h3>
 					<DxItemGroup items={itemGroupItems} format='checkbox' />
 					<DxItemGroup

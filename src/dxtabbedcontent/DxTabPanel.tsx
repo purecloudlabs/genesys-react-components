@@ -1,12 +1,8 @@
 import React from 'react';
+import { DxTabPanelProps } from '..';
 
 import './DxTabPanel.scss';
 
-interface IProps {
-	title: React.ReactNode;
-	children: React.ReactNode;
-}
-
-export default function DxTabPanel(props: IProps) {
-	return <div className='dx-tab-panel'>{props.children}</div>;
+export default function DxTabPanel(props: DxTabPanelProps) {
+	return <div className={`dx-tab-panel${props.className ? ' ' + props.className : ''}`}>{props.children}</div>;
 }

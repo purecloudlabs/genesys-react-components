@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { DxItemGroupItem, DxItemGroupItemValue, ItemChangedCallback, ItemGroupChangedCallback } from '..';
+import { DxItemGroupItem, DxItemGroupItemValue, DxItemGroupProps, ItemChangedCallback, ItemGroupChangedCallback } from '..';
 
 import './DxItemGroup.scss';
 import './radiobutton.scss';
@@ -9,19 +9,7 @@ import './multiselect.scss';
 import DxLabel from '../dxlabel/DxLabel';
 import DxCheckbox from './DxCheckbox';
 
-interface IProps {
-	title?: string;
-	description?: string;
-	format: DxItemGroupFormat;
-	items: DxItemGroupItem[];
-	disabled?: boolean;
-	onItemChanged?: ItemChangedCallback;
-	onItemsChanged?: ItemGroupChangedCallback;
-}
-
-export type DxItemGroupFormat = 'checkbox' | 'radio' | 'dropdown' | 'multiselect';
-
-export default function DxItemGroup(props: IProps) {
+export default function DxItemGroup(props: DxItemGroupProps) {
 	const [data, setData] = useState<DxItemGroupItemValue[]>(
 		props.items.map((item) => {
 			return { item, isSelected: false };
@@ -50,7 +38,7 @@ export default function DxItemGroup(props: IProps) {
 		case 'multiselect':
 		case 'dropdown': {
 			return (
-				<DxLabel label={props.title} description={props.description}>
+				<DxLabel label={props.title} description={props.description} className={props.className}>
 					<div
 						className={`dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}${
 							props.disabled ? ' disabled' : ''
@@ -74,7 +62,7 @@ export default function DxItemGroup(props: IProps) {
 				<DxLabel
 					label={props.title}
 					description={props.description}
-					className={`dx-item-group${props.disabled ? ' disabled' : ''}`}
+					className={`dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`}
 					useFieldset={true}
 				>
 					{data.map((d, i) => (

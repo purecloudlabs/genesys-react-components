@@ -1,8 +1,4 @@
-import React from 'react';
+/// <reference types="react" />
+import { DxTabbedContentProps } from '..';
 import './DxTabbedContent.scss';
-interface IProps {
-    children: React.ReactNode;
-    initialTabId?: number;
-}
-export default function DxTabbedContent(props: IProps): JSX.Element;
-export {};
+export default function DxTabbedContent(props: DxTabbedContentProps): JSX.Element;

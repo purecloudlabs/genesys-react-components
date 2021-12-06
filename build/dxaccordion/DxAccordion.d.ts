@@ -1,9 +1,4 @@
-import React from 'react';
+/// <reference types="react" />
+import { DxAccordionProps } from '..';
 import './DxAccordion.scss';
-interface IProps {
-    title: React.ReactNode;
-    children: React.ReactNode;
-    showOpen?: boolean;
-}
-export default function DxAccordion(props: IProps): JSX.Element;
-export {};
+export default function DxAccordion(props: DxAccordionProps): JSX.Element;
