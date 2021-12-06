@@ -1,0 +1,55 @@
+/***
+ * Scrollbars
+ ***/
+
+// Webkit scrollbars (Chrome, Opera, Safari, Edge... every browser but firefox
+// https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
+::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+	height: 7px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: #b0b2b5;
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+// Just firefox
+// https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color
+body {
+	scrollbar-color: #b0b2b5 transparent;
+}
+
+.scrollbar-toggle-button {
+	position: fixed;
+	top: 7px;
+	left: 750px;
+	width: 220px;
+}
+
+.layout.default-layout.disappearing-scrollbars {
+	.layout-navigation,
+	.layout-content,
+	.layout-sidebar {
+		// Firefox
+		scrollbar-color: transparent transparent;
+
+		// Chrome
+		&::-webkit-scrollbar-thumb {
+			background-color: transparent;
+		}
+
+		&:hover {
+			// Firefox
+			scrollbar-color: #b0b2b5 transparent;
+
+			// Chrome
+			&::-webkit-scrollbar-thumb {
+				background-color: #b0b2b5;
+			}
+		}
+	}
+}

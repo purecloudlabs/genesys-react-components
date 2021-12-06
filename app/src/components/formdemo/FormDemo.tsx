@@ -42,16 +42,16 @@ export default function FormDemo() {
 		},
 	];
 
-	const demoSections = [
-		{
-			title: 'DxTextbox',
-			content: (
-				<Fragment>
-					<p>For text-ish inputs</p>
-					<h3>Example</h3>
-					<pre>
-						<code>
-							{`<DxTextbox
+	const demoSections = [];
+	demoSections.push({
+		title: 'DxTextbox',
+		content: (
+			<Fragment>
+				<p>For text-ish inputs</p>
+				<h3>Example</h3>
+				<pre>
+					<code>
+						{`<DxTextbox
 	inputType='text'
 	label='Label text'
 	placeholder='Placeholder text...'
@@ -64,92 +64,92 @@ export default function FormDemo() {
 	onBlur={() => console.log('blur')}
 	description='Informative description text'
 />`}
-						</code>
-					</pre>
-					<h3>Basic usage</h3>
-					<DxTextbox />
-					<DxTextbox label='With a label and placeholder' placeholder='placeholder text' />
-					<DxTextbox
-						label='With a label and placeholder and description'
-						placeholder='placeholder text'
-						description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
-					/>
-					<DxTextbox
-						label='With a label, placeholder, icon, and clear button'
-						placeholder='This is placeholder text'
-						icon={GenesysDevIcons.AppSearch}
-						clearButton={true}
-					/>
-					<DxTextbox
-						label='disabled textbox'
-						placeholder='This is placeholder text'
-						initialValue='intial text'
-						icon={GenesysDevIcons.AppSearch}
-						clearButton={true}
-						disabled={true}
-					/>
-					<h3>Complex Usages</h3>
-					<DxTextbox
-						label='1000ms debounce (default 300), removes focus on value change via onChange callback'
-						placeholder='Focus will clear 1 second after you stop typing'
-						icon={GenesysDevIcons.AppZoomZoomRight}
-						clearButton={true}
-						onChange={(value: string) => {
-							console.log('1000ms debouncer triggered, clearing focus', value);
-							inputRef.current?.blur();
-						}}
-						changeDebounceMs={1000}
-						inputRef={inputRef}
-						onFocus={() => console.log('focus')}
-						onBlur={() => console.log('blur')}
-					/>
-					<DxTextbox
-						label='With an initial value'
-						placeholder="You won't see this value initially"
-						icon={GenesysDevIcons.AppThumbsUp}
-						clearButton={true}
-						initialValue='this is an initial value'
-					/>
-					<h3>Other input types</h3>
-					<DxTextbox
-						inputType='password'
-						label='Password input'
-						placeholder='hunter2'
-						icon={GenesysDevIcons.IaAuthorization}
-						clearButton={true}
-					/>
-					<DxTextbox
-						inputType='integer'
-						label='Integer input'
-						icon={GenesysDevIcons.IaAuthorization}
-						clearButton={true}
-						onChange={(value) => console.log(value)}
-					/>
-					<DxTextbox
-						inputType='decimal'
-						label='Decimal input'
-						icon={GenesysDevIcons.IaAuthorization}
-						clearButton={true}
-						onChange={(value) => console.log(value)}
-					/>
-					<DxTextbox inputType='email' label='Email input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
-					<DxTextbox inputType='date' label='Date input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
-					<DxTextbox inputType='datetime-local' label='Datetime-local input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
-					<DxTextbox inputType='time' label='Time input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
-				</Fragment>
-			),
-		},
-		{
-			title: 'DxToggle',
-			content: (
-				<Fragment>
-					<p>
-						For boolean inputs, including a tri-state option allowing <em>undefined</em> as a value
-					</p>
-					<h3>Example</h3>
-					<pre>
-						<code>
-							{`<DxToggle
+					</code>
+				</pre>
+				<h3>Basic usage</h3>
+				<DxTextbox />
+				<DxTextbox label='With a label and placeholder' placeholder='placeholder text' />
+				<DxTextbox
+					label='With a label and placeholder and description'
+					placeholder='placeholder text'
+					description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
+				/>
+				<DxTextbox
+					label='With a label, placeholder, icon, and clear button'
+					placeholder='This is placeholder text'
+					icon={GenesysDevIcons.AppSearch}
+					clearButton={true}
+				/>
+				<DxTextbox
+					label='disabled textbox'
+					placeholder='This is placeholder text'
+					initialValue='intial text'
+					icon={GenesysDevIcons.AppSearch}
+					clearButton={true}
+					disabled={true}
+				/>
+				<h3>Complex Usages</h3>
+				<DxTextbox
+					label='1000ms debounce (default 300), removes focus on value change via onChange callback'
+					placeholder='Focus will clear 1 second after you stop typing'
+					icon={GenesysDevIcons.AppZoomZoomRight}
+					clearButton={true}
+					onChange={(value: string) => {
+						console.log('1000ms debouncer triggered, clearing focus', value);
+						inputRef.current?.blur();
+					}}
+					changeDebounceMs={1000}
+					inputRef={inputRef}
+					onFocus={() => console.log('focus')}
+					onBlur={() => console.log('blur')}
+				/>
+				<DxTextbox
+					label='With an initial value'
+					placeholder="You won't see this value initially"
+					icon={GenesysDevIcons.AppThumbsUp}
+					clearButton={true}
+					initialValue='this is an initial value'
+				/>
+				<h3>Other input types</h3>
+				<DxTextbox
+					inputType='password'
+					label='Password input'
+					placeholder='hunter2'
+					icon={GenesysDevIcons.IaAuthorization}
+					clearButton={true}
+				/>
+				<DxTextbox
+					inputType='integer'
+					label='Integer input'
+					icon={GenesysDevIcons.IaAuthorization}
+					clearButton={true}
+					onChange={(value) => console.log(value)}
+				/>
+				<DxTextbox
+					inputType='decimal'
+					label='Decimal input'
+					icon={GenesysDevIcons.IaAuthorization}
+					clearButton={true}
+					onChange={(value) => console.log(value)}
+				/>
+				<DxTextbox inputType='email' label='Email input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
+				<DxTextbox inputType='date' label='Date input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
+				<DxTextbox inputType='datetime-local' label='Datetime-local input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
+				<DxTextbox inputType='time' label='Time input' icon={GenesysDevIcons.IaAuthorization} clearButton={true} />
+			</Fragment>
+		),
+	});
+	demoSections.push({
+		title: 'DxToggle',
+		content: (
+			<Fragment>
+				<p>
+					For boolean inputs, including a tri-state option allowing <em>undefined</em> as a value
+				</p>
+				<h3>Example</h3>
+				<pre>
+					<code>
+						{`<DxToggle
 	label='Toggle label'
 	initialValue={true}
 	isTriState={true}
@@ -158,59 +158,59 @@ export default function FormDemo() {
 	falseIcon={GenesysDevIcons.AppMoon}
 	description='Informative description text'
 />`}
-						</code>
-					</pre>
-					<h3>Dual state</h3>
-					<DxToggle />
-					<DxToggle label='With a label' />
-					<DxToggle
-						label='With a description'
-						description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
-					/>
-					<h3>Tri-state</h3>
-					<DxToggle
-						label='Default (undefined)'
-						isTriState={true}
-						onChange={(value) => console.log(value)}
-						description='The default state is undefined; it is neither true nor false.'
-					/>
-					<DxToggle label='On' isTriState={true} onChange={(value) => console.log(value)} initialValue={true} />
-					<DxToggle label='Off' isTriState={true} onChange={(value) => console.log(value)} initialValue={false} />
-					<h3>Custom Icons</h3>
-					<DxToggle
-						label='Dark/light icons'
-						onChange={(value) => console.log(value)}
-						trueIcon={GenesysDevIcons.AppSun}
-						falseIcon={GenesysDevIcons.AppMoon}
-					/>
-					<DxToggle
-						label='Dark/light icons'
-						initialValue={true}
-						onChange={(value) => console.log(value)}
-						trueIcon={GenesysDevIcons.AppSun}
-						falseIcon={GenesysDevIcons.AppMoon}
-					/>
-					<h3>Disabled</h3>
-					<DxToggle label='Disabled' onChange={(value) => console.log(value)} disabled={true} />
-					<DxToggle
-						label='Disabled w/initialValue=true and custom icons'
-						initialValue={true}
-						onChange={(value) => console.log(value)}
-						trueIcon={GenesysDevIcons.AppSun}
-						falseIcon={GenesysDevIcons.AppMoon}
-						disabled={true}
-					/>
-				</Fragment>
-			),
-		},
-		{
-			title: 'DxCheckbox',
-			content: (
-				<Fragment>
-					<p>For individual checkboxes</p>
-					<h3>Example</h3>
-					<pre>
-						<code>{`<DxCheckbox 
+					</code>
+				</pre>
+				<h3>Dual state</h3>
+				<DxToggle />
+				<DxToggle label='With a label' />
+				<DxToggle
+					label='With a description'
+					description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
+				/>
+				<h3>Tri-state</h3>
+				<DxToggle
+					label='Default (undefined)'
+					isTriState={true}
+					onChange={(value) => console.log(value)}
+					description='The default state is undefined; it is neither true nor false.'
+				/>
+				<DxToggle label='On' isTriState={true} onChange={(value) => console.log(value)} initialValue={true} />
+				<DxToggle label='Off' isTriState={true} onChange={(value) => console.log(value)} initialValue={false} />
+				<h3>Custom Icons</h3>
+				<DxToggle
+					label='Dark/light icons'
+					onChange={(value) => console.log(value)}
+					trueIcon={GenesysDevIcons.AppSun}
+					falseIcon={GenesysDevIcons.AppMoon}
+				/>
+				<DxToggle
+					label='Dark/light icons'
+					initialValue={true}
+					onChange={(value) => console.log(value)}
+					trueIcon={GenesysDevIcons.AppSun}
+					falseIcon={GenesysDevIcons.AppMoon}
+				/>
+				<h3>Disabled</h3>
+				<DxToggle label='Disabled' onChange={(value) => console.log(value)} disabled={true} />
+				<DxToggle
+					label='Disabled w/initialValue=true and custom icons'
+					initialValue={true}
+					onChange={(value) => console.log(value)}
+					trueIcon={GenesysDevIcons.AppSun}
+					falseIcon={GenesysDevIcons.AppMoon}
+					disabled={true}
+				/>
+			</Fragment>
+		),
+	});
+	demoSections.push({
+		title: 'DxCheckbox',
+		content: (
+			<Fragment>
+				<p>For individual checkboxes</p>
+				<h3>Example</h3>
+				<pre>
+					<code>{`<DxCheckbox 
 	label='Checkbox label}' 
 	value='item-value' 
 	description='A description'
@@ -219,103 +219,103 @@ export default function FormDemo() {
 	className='clazzy-checkbox'
 	onCheckChanged={(checked: boolean) => console.log('value changed: ' + checked)} 
 />`}</code>
-					</pre>
-					<h3>Checkboxes</h3>
-					{itemGroupItems.map((item) => (
-						<DxCheckbox {...item} onCheckChanged={(checked) => console.log(`${item.value} (${item.label}) -> ${checked}`)} />
-					))}
-					<h3>Disabled Checkbox</h3>
-					<DxCheckbox
-						label='disabled checkbox'
-						value='dis'
-						disabled={true}
-						onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
-					/>
-					<DxCheckbox
-						label='disabled with an initial value of true'
-						value='dis'
-						disabled={true}
-						initialValue={true}
-						onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
-					/>
-				</Fragment>
-			),
-		},
-		{
-			title: 'DxButton',
-			content: (
-				<Fragment>
-					<p>Button go brrr</p>
-					<h3>Example</h3>
-					<pre>
-						<code>
-							{`<DxButton type='primary' onClick={() => console.log('clicked')} disabled={false}>
+				</pre>
+				<h3>Checkboxes</h3>
+				{itemGroupItems.map((item, i) => (
+					<DxCheckbox key={i} {...item} onCheckChanged={(checked) => console.log(`${item.value} (${item.label}) -> ${checked}`)} />
+				))}
+				<h3>Disabled Checkbox</h3>
+				<DxCheckbox
+					label='disabled checkbox'
+					value='dis'
+					disabled={true}
+					onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
+				/>
+				<DxCheckbox
+					label='disabled with an initial value of true'
+					value='dis'
+					disabled={true}
+					initialValue={true}
+					onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
+				/>
+			</Fragment>
+		),
+	});
+	demoSections.push({
+		title: 'DxButton',
+		content: (
+			<Fragment>
+				<p>Button go brrr</p>
+				<h3>Example</h3>
+				<pre>
+					<code>
+						{`<DxButton type='primary' onClick={() => console.log('clicked')} disabled={false}>
 	Button text
 </DxButton>`}
-						</code>
-					</pre>
-					<h3>Buttons</h3>
-					<DxButton type='primary' onClick={() => console.log('Primary clicked')}>
-						Primary
-					</DxButton>
-					<DxButton type='secondary' onClick={() => console.log('Secondary clicked')}>
-						Secondary
-					</DxButton>
-					<h3>Disabled buttons</h3>
-					<DxButton type='primary' onClick={() => console.log('Primary (disabled) clicked')} disabled={true}>
-						Primary
-					</DxButton>
-					<DxButton type='secondary' onClick={() => console.log('Secondary (disabled) clicked')} disabled={true}>
-						Secondary
-					</DxButton>
-					<h3>Buttons with "creative" content</h3>
-					<DxButton type='primary' onClick={() => console.log('Primary ROCKET LAUNCH!!!!')}>
-						<div
-							style={{
-								fontSize: '100px',
-								lineHeight: 0,
-								color: '#9cff40',
-								padding: '20px',
-								margin: '20px',
-								border: '8px dashed aqua',
-								background:
-									'radial-gradient(circle, rgba(225,13,19,1) 0%, rgba(244,150,0,1) 20%, rgba(249,233,0,1) 40%, rgba(2,147,56,1) 60%, rgba(62,73,153,1) 80%, rgba(197,29,131,1) 100%)',
-							}}
-						>
-							<GenesysDevIcon icon={GenesysDevIcons.DestGetStarted} />
-						</div>
-					</DxButton>
-					<DxButton type='secondary' onClick={() => console.log('Secondary ROCKET LAUNCH!!!!')}>
-						<div
-							style={{
-								fontSize: '100px',
-								lineHeight: 0,
-								color: 'transparent',
-								padding: '20px',
-								margin: '20px',
-								border: '8px dashed aqua',
-								borderRadius: '500px',
-								background: `url('${doge}')`,
-								backgroundRepeat: 'no-repeat',
-								backgroundSize: 'cover',
-								backgroundPosition: 'center',
-							}}
-						>
-							<GenesysDevIcon icon={GenesysDevIcons.AppSun} />
-						</div>
-					</DxButton>
-				</Fragment>
-			),
-		},
-		{
-			title: 'DxItemGroup',
-			content: (
-				<Fragment>
-					<p>For selecting from a list of things</p>
-					<h3>Example</h3>
-					<pre>
-						<code>
-							{`<DxItemGroup
+					</code>
+				</pre>
+				<h3>Buttons</h3>
+				<DxButton type='primary' onClick={() => console.log('Primary clicked')}>
+					Primary
+				</DxButton>
+				<DxButton type='secondary' onClick={() => console.log('Secondary clicked')}>
+					Secondary
+				</DxButton>
+				<h3>Disabled buttons</h3>
+				<DxButton type='primary' onClick={() => console.log('Primary (disabled) clicked')} disabled={true}>
+					Primary
+				</DxButton>
+				<DxButton type='secondary' onClick={() => console.log('Secondary (disabled) clicked')} disabled={true}>
+					Secondary
+				</DxButton>
+				<h3>Buttons with "creative" content</h3>
+				<DxButton type='primary' onClick={() => console.log('Primary ROCKET LAUNCH!!!!')}>
+					<div
+						style={{
+							fontSize: '100px',
+							lineHeight: 0,
+							color: '#9cff40',
+							padding: '20px',
+							margin: '20px',
+							border: '8px dashed aqua',
+							background:
+								'radial-gradient(circle, rgba(225,13,19,1) 0%, rgba(244,150,0,1) 20%, rgba(249,233,0,1) 40%, rgba(2,147,56,1) 60%, rgba(62,73,153,1) 80%, rgba(197,29,131,1) 100%)',
+						}}
+					>
+						<GenesysDevIcon icon={GenesysDevIcons.DestGetStarted} />
+					</div>
+				</DxButton>
+				<DxButton type='secondary' onClick={() => console.log('Secondary ROCKET LAUNCH!!!!')}>
+					<div
+						style={{
+							fontSize: '100px',
+							lineHeight: 0,
+							color: 'transparent',
+							padding: '20px',
+							margin: '20px',
+							border: '8px dashed aqua',
+							borderRadius: '500px',
+							background: `url('${doge}')`,
+							backgroundRepeat: 'no-repeat',
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+						}}
+					>
+						<GenesysDevIcon icon={GenesysDevIcons.AppSun} />
+					</div>
+				</DxButton>
+			</Fragment>
+		),
+	});
+	demoSections.push({
+		title: 'DxItemGroup',
+		content: (
+			<Fragment>
+				<p>For selecting from a list of things</p>
+				<h3>Example</h3>
+				<pre>
+					<code>
+						{`<DxItemGroup
 	title='Label text'
 	items={itemGroupItems}
 	format='dropdown'
@@ -323,164 +323,184 @@ export default function FormDemo() {
 	onItemsChanged={(items) => console.log('Item list:', items)}
 	description='Informative description text'
 />`}
-						</code>
-					</pre>
-					<h3>Dropdown</h3>
-					<DxItemGroup items={itemGroupItems} format='dropdown' />
-					<DxItemGroup title='Dropdown with a title' items={itemGroupItems} format='dropdown' />
-					<DxItemGroup
-						title='Dropdown with a description'
-						items={itemGroupItems}
-						format='dropdown'
-						description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
-					/>
-					<DxItemGroup title='Disabled Dropdown' items={itemGroupItems} format='dropdown' disabled={true} />
-					<h3>Multi-select</h3>
-					<DxItemGroup items={itemGroupItems} format='multiselect' />
-					<DxItemGroup title='Multi-select with a title' items={itemGroupItems} format='multiselect' />
-					<DxItemGroup
-						title='Multi-select with a description'
-						items={itemGroupItems}
-						format='multiselect'
-						description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
-					/>
-					<DxItemGroup title='Disabled Multi-select' items={itemGroupItems} format='multiselect' disabled={true} />
-					<h3>Checkboxes</h3>
-					<DxItemGroup items={itemGroupItems} format='checkbox' />
-					<DxItemGroup
-						title='With a title'
-						items={itemGroupItems}
-						format='checkbox'
-						onItemChanged={(item, isSelected) => console.log(`Check: ${item.label} (${item.value}) -> ${isSelected}`)}
-						onItemsChanged={(items) => console.log('Check:', items)}
-					/>
-					<DxItemGroup
-						title='With a description'
-						items={itemGroupItems}
-						format='checkbox'
-						onItemChanged={(item, isSelected) => console.log(`Check: ${item.label} (${item.value}) -> ${isSelected}`)}
-						onItemsChanged={(items) => console.log('Check:', items)}
-						description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
-					/>
-					<h3>Radio Buttons</h3>
-					<DxItemGroup items={itemGroupItems} format='radio' />
-					<DxItemGroup
-						title='With a title'
-						items={itemGroupItems}
-						format='radio'
-						onItemChanged={(item, isSelected) => console.log(`Radio: ${item.label} (${item.value}) -> ${isSelected}`)}
-						onItemsChanged={(items) => console.log('Radio:', items)}
-					/>
-				</Fragment>
-			),
-		},
-		{
-			title: 'DxTabbedContent',
-			content: (
-				<Fragment>
-					<p>Shows tab titles in a row and one content panel at a time</p>
-					<h3>Example</h3>
-					<pre>
-						<code>
-							{`<DxTabbedContent>
+					</code>
+				</pre>
+				<h3>Dropdown</h3>
+				<DxItemGroup items={itemGroupItems} format='dropdown' />
+				<DxItemGroup title='Dropdown with a title' items={itemGroupItems} format='dropdown' />
+				<DxItemGroup
+					title='Dropdown with a description'
+					items={itemGroupItems}
+					format='dropdown'
+					description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
+				/>
+				<DxItemGroup title='Disabled Dropdown' items={itemGroupItems} format='dropdown' disabled={true} />
+				<h3>Multi-select</h3>
+				<DxItemGroup items={itemGroupItems} format='multiselect' />
+				<DxItemGroup title='Multi-select with a title' items={itemGroupItems} format='multiselect' />
+				<DxItemGroup
+					title='Multi-select with a description'
+					items={itemGroupItems}
+					format='multiselect'
+					description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
+				/>
+				<DxItemGroup title='Disabled Multi-select' items={itemGroupItems} format='multiselect' disabled={true} />
+				<h3>Checkboxes</h3>
+				<DxItemGroup items={itemGroupItems} format='checkbox' />
+				<DxItemGroup
+					title='With a title'
+					items={itemGroupItems}
+					format='checkbox'
+					onItemChanged={(item, isSelected) => console.log(`Check: ${item.label} (${item.value}) -> ${isSelected}`)}
+					onItemsChanged={(items) => console.log('Check:', items)}
+				/>
+				<DxItemGroup
+					title='With a description'
+					items={itemGroupItems}
+					format='checkbox'
+					onItemChanged={(item, isSelected) => console.log(`Check: ${item.label} (${item.value}) -> ${isSelected}`)}
+					onItemsChanged={(items) => console.log('Check:', items)}
+					description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
+				/>
+				<h3>Radio Buttons</h3>
+				<DxItemGroup items={itemGroupItems} format='radio' />
+				<DxItemGroup
+					title='With a title'
+					items={itemGroupItems}
+					format='radio'
+					onItemChanged={(item, isSelected) => console.log(`Radio: ${item.label} (${item.value}) -> ${isSelected}`)}
+					onItemsChanged={(items) => console.log('Radio:', items)}
+				/>
+			</Fragment>
+		),
+	});
+	demoSections.push({
+		title: 'DxTabbedContent',
+		content: (
+			<Fragment>
+				<p>Shows tab titles in a row and one content panel at a time</p>
+				<h3>Example</h3>
+				<pre>
+					<code>
+						{`<DxTabbedContent>
 	<DxTabPanel title='Panel Title'>Panel content</DxTabPanel>
 </DxTabbedContent>`}
-						</code>
-					</pre>
-					<DxTabbedContent>
-						<DxTabPanel title='first panel'>super plain text</DxTabPanel>
-						<DxTabPanel title='SECOND panel'>
-							<p>interior content here</p>
-							<h2>A heading inside</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat congue bibendum. Etiam ut congue arcu. Nunc eget
-								ipsum vel justo dictum pretium. Praesent sed tortor rhoncus, bibendum nunc sit amet, lobortis nisi. Quisque lacinia
-								efficitur erat at porttitor. Fusce vitae iaculis tortor. Etiam eget sollicitudin ante. Cras eu diam augue. Vivamus quis
-								purus in neque vulputate rhoncus. Nulla efficitur, orci id pretium ultricies, elit arcu aliquam neque, sed iaculis dolor dui
-								at sapien. Nunc volutpat nisi quis lacinia finibus. Donec semper ac eros eget ultricies. Vivamus massa tellus, scelerisque
-								blandit sagittis ut, venenatis at ligula.
-							</p>
-							<p>
-								Nulla nec urna mattis, convallis purus vel, eleifend odio. Phasellus eu velit iaculis, efficitur lorem quis, efficitur
-								purus. Vestibulum dapibus venenatis mi, vel mattis neque gravida et. Sed vel purus id libero porta fringilla. Duis felis
-								felis, placerat eget porta ut, condimentum nec risus. Phasellus elementum posuere ex at interdum. Nulla vitae cursus nisl.
-							</p>
-						</DxTabPanel>
-						<DxTabPanel
-							title={
-								<span
-									style={{
-										backgroundImage: 'linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)',
-										WebkitBackgroundClip: 'text',
-										WebkitTextFillColor: 'transparent',
-										fontSize: '24px',
-										lineHeight: '24px',
-									}}
-								>
-									Obnoxiously <em>formatted</em> title
-								</span>
-							}
-						>
-							<p>interior content here</p>
-						</DxTabPanel>
-					</DxTabbedContent>
-				</Fragment>
-			),
-		},
-		{
-			title: 'DxAccordionGroup',
-			content: (
-				<Fragment>
-					<p>Shows a group of individually expandable accordion panels</p>
-					<h3>Example</h3>
-					<pre>
-						<code>
-							{`<DxAccordionGroup>
+					</code>
+				</pre>
+				<DxTabbedContent>
+					<DxTabPanel title='first panel'>super plain text</DxTabPanel>
+					<DxTabPanel title='SECOND panel'>
+						<p>interior content here</p>
+						<h2>A heading inside</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat congue bibendum. Etiam ut congue arcu. Nunc eget ipsum
+							vel justo dictum pretium. Praesent sed tortor rhoncus, bibendum nunc sit amet, lobortis nisi. Quisque lacinia efficitur erat
+							at porttitor. Fusce vitae iaculis tortor. Etiam eget sollicitudin ante. Cras eu diam augue. Vivamus quis purus in neque
+							vulputate rhoncus. Nulla efficitur, orci id pretium ultricies, elit arcu aliquam neque, sed iaculis dolor dui at sapien. Nunc
+							volutpat nisi quis lacinia finibus. Donec semper ac eros eget ultricies. Vivamus massa tellus, scelerisque blandit sagittis
+							ut, venenatis at ligula.
+						</p>
+						<p>
+							Nulla nec urna mattis, convallis purus vel, eleifend odio. Phasellus eu velit iaculis, efficitur lorem quis, efficitur purus.
+							Vestibulum dapibus venenatis mi, vel mattis neque gravida et. Sed vel purus id libero porta fringilla. Duis felis felis,
+							placerat eget porta ut, condimentum nec risus. Phasellus elementum posuere ex at interdum. Nulla vitae cursus nisl.
+						</p>
+					</DxTabPanel>
+					<DxTabPanel
+						title={
+							<span
+								style={{
+									backgroundImage: 'linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)',
+									WebkitBackgroundClip: 'text',
+									WebkitTextFillColor: 'transparent',
+									fontSize: '24px',
+									lineHeight: '24px',
+								}}
+							>
+								Obnoxiously <em>formatted</em> title
+							</span>
+						}
+					>
+						<p>interior content here</p>
+					</DxTabPanel>
+				</DxTabbedContent>
+			</Fragment>
+		),
+	});
+	demoSections.push({
+		title: 'DxAccordionGroup',
+		content: (
+			<Fragment>
+				<p>Shows a group of individually expandable accordion panels</p>
+				<h3>Example</h3>
+				<pre>
+					<code>
+						{`<DxAccordionGroup>
 	<DxAccordion title='Accordion Title'>Accordion content</DxAccordion>
 </DxAccordionGroup>`}
-						</code>
-					</pre>
-					<DxAccordionGroup>
-						<DxAccordion title='first panel'>super plain text</DxAccordion>
-						<DxAccordion title='SECOND panel'>
-							<p>interior content here</p>
-							<h2>A heading inside</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat congue bibendum. Etiam ut congue arcu. Nunc eget
-								ipsum vel justo dictum pretium. Praesent sed tortor rhoncus, bibendum nunc sit amet, lobortis nisi. Quisque lacinia
-								efficitur erat at porttitor. Fusce vitae iaculis tortor. Etiam eget sollicitudin ante. Cras eu diam augue. Vivamus quis
-								purus in neque vulputate rhoncus. Nulla efficitur, orci id pretium ultricies, elit arcu aliquam neque, sed iaculis dolor dui
-								at sapien. Nunc volutpat nisi quis lacinia finibus. Donec semper ac eros eget ultricies. Vivamus massa tellus, scelerisque
-								blandit sagittis ut, venenatis at ligula.
-							</p>
-							<p>
-								Nulla nec urna mattis, convallis purus vel, eleifend odio. Phasellus eu velit iaculis, efficitur lorem quis, efficitur
-								purus. Vestibulum dapibus venenatis mi, vel mattis neque gravida et. Sed vel purus id libero porta fringilla. Duis felis
-								felis, placerat eget porta ut, condimentum nec risus. Phasellus elementum posuere ex at interdum. Nulla vitae cursus nisl.
-							</p>
-						</DxAccordion>
-						<DxAccordion
-							title={
-								<span
-									style={{
-										backgroundImage: 'linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)',
-										WebkitBackgroundClip: 'text',
-										WebkitTextFillColor: 'transparent',
-										fontSize: '24px',
-										lineHeight: '24px',
-									}}
-								>
-									Obnoxiously <em>formatted</em> title
-								</span>
-							}
-						>
-							<p>interior content here</p>
-						</DxAccordion>
-					</DxAccordionGroup>
-				</Fragment>
-			),
-		},
-	];
+					</code>
+				</pre>
+				<DxAccordionGroup>
+					<DxAccordion title='first panel'>super plain text</DxAccordion>
+					<DxAccordion title='SECOND panel'>
+						<p>interior content here</p>
+						<h2>A heading inside</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat congue bibendum. Etiam ut congue arcu. Nunc eget ipsum
+							vel justo dictum pretium. Praesent sed tortor rhoncus, bibendum nunc sit amet, lobortis nisi. Quisque lacinia efficitur erat
+							at porttitor. Fusce vitae iaculis tortor. Etiam eget sollicitudin ante. Cras eu diam augue. Vivamus quis purus in neque
+							vulputate rhoncus. Nulla efficitur, orci id pretium ultricies, elit arcu aliquam neque, sed iaculis dolor dui at sapien. Nunc
+							volutpat nisi quis lacinia finibus. Donec semper ac eros eget ultricies. Vivamus massa tellus, scelerisque blandit sagittis
+							ut, venenatis at ligula.
+						</p>
+						<p>
+							Nulla nec urna mattis, convallis purus vel, eleifend odio. Phasellus eu velit iaculis, efficitur lorem quis, efficitur purus.
+							Vestibulum dapibus venenatis mi, vel mattis neque gravida et. Sed vel purus id libero porta fringilla. Duis felis felis,
+							placerat eget porta ut, condimentum nec risus. Phasellus elementum posuere ex at interdum. Nulla vitae cursus nisl.
+						</p>
+					</DxAccordion>
+					<DxAccordion
+						title={
+							<span
+								style={{
+									backgroundImage: 'linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)',
+									WebkitBackgroundClip: 'text',
+									WebkitTextFillColor: 'transparent',
+									fontSize: '24px',
+									lineHeight: '24px',
+								}}
+							>
+								Obnoxiously <em>formatted</em> title
+							</span>
+						}
+					>
+						<p>interior content here</p>
+					</DxAccordion>
+				</DxAccordionGroup>
+			</Fragment>
+		),
+	});
+	// demoSections.push({
+	// 	title: 'Release Notes',
+	// 	content: (
+	// 		<Fragment>
+	// 			<h2>0.1.0-alpha.7</h2>
+	// 			<h3>Features</h3>
+	// 			<ul>
+	// 				<li>
+	// 					Support <code>disabled</code> property on all input-type components
+	// 				</li>
+	// 				<li>
+	// 					Support <code>className</code> property on all components
+	// 				</li>
+	// 			</ul>
+	// 			<h3>Bugfixes</h3>
+	// 			<ul>
+	// 				<li>Fix radio input button style to show as radio button instead of checkmark</li>
+	// 			</ul>
+	// 		</Fragment>
+	// 	),
+	// });
 
 	let content: any = demoSections.map((section, i) =>
 		displayMode === 'accordion' ? (
@@ -517,6 +537,12 @@ export default function FormDemo() {
 
 	return (
 		<div>
+			<p>
+				View the source for this demo app on github:{' '}
+				<a href='https://github.com/purecloudlabs/genesys-react-components/tree/master/app' target='_blank' rel='noreferrer'>
+					purecloudlabs/genesys-react-components <GenesysDevIcon icon={GenesysDevIcons.BrandGithub} />
+				</a>
+			</p>
 			<div className='display-toggle'>
 				Accordions
 				<DxToggle

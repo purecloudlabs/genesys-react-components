@@ -1,0 +1,16 @@
+[
+	{
+		"version": "0.1.0-alpha.7",
+		"notes": "This release contains several improvements to the components",
+		"features": [
+			"Support disabled property on all input-type components",
+			"Support className property on all components",
+			"Fancy schmancy release notes"
+		],
+		"bugfixes": ["Fix radio input button style to show as radio button instead of checkmark"]
+	},
+	{
+		"version": "0.1.0-alpha.6",
+		"notes": "This release predates tracking release notes"
+	}
+]
