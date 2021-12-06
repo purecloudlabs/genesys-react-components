@@ -85,7 +85,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// TODO: handle props.inputType
 	let component = (
-		<div className={`dx-textbox${hasLabel ? ' with-label' : ''}`} style={{}}>
+		<div className={`dx-textbox${hasLabel ? ' with-label' : ''}${props.disabled ? ' disabled' : ''}`} style={{}}>
 			{props.icon ? <GenesysDevIcon icon={props.icon} className='input-icon' /> : undefined}
 			<input
 				className='dx-input'
@@ -103,8 +103,9 @@ export default function DxTextbox(props: DxTextboxProps) {
 					setIsFocused(false);
 					if (props.onBlur) props.onBlur();
 				}}
+				disabled={props.disabled === true}
 			/>
-			{props.clearButton && (value || isFocused) ? (
+			{props.clearButton && (value || isFocused) && (!props.disabled) ? (
 				<GenesysDevIcon icon={GenesysDevIcons.AppTimes} className='clear-icon' onClick={() => setValue('')} />
 			) : undefined}
 		</div>

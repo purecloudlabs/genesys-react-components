@@ -9,6 +9,7 @@
 	margin: 0;
 	padding: 0 10px;
 	height: 32px;
+	background-color: #ffffff;
 
 	&.with-label {
 		margin-top: 0;
@@ -41,7 +42,7 @@
 	input {
 		flex-grow: 1;
 		border: 0;
-		background: #ffffff;
+		background: transparent;
 		box-sizing: border-box;
 		height: 32px;
 		width: 100%;
@@ -59,12 +60,27 @@
 		}
 
 		&::placeholder {
-			font-family: Roboto;
 			font-style: normal;
 			font-weight: 300;
 			font-size: 14px;
 			line-height: 16px;
 			color: #757576;
+		}
+	}
+
+	&.disabled {
+		background-color: #e6ebec;
+		border-color: #e8eaed;
+		cursor: not-allowed;
+
+		input {
+			cursor: not-allowed;
+			color: #75757a;
+		}
+
+		.icon,
+		input::placeholder {
+			color: #ffffff;
 		}
 	}
 }

@@ -32,8 +32,8 @@ export default function FormDemo() {
 		{ label: 'Dritte Sache', value: 'German' },
 		{ label: 'Ceathrú rud', value: 'Irish' },
 		{ label: 'Vyfde ding', value: 'Afrikaans' },
-		{ label: 'ആറാമത്തെ കാര്യം', value: 'Malayalam' },
-		{ label: 'Yedinci şey', value: 'Turkish' },
+		{ label: 'ആറാമത്തെ കാര്യം', value: 'Malayalam', disabled: true },
+		{ label: 'Yedinci şey', value: 'Turkish', disabled: true },
 		{ label: 'דבר שמיני', value: 'Hebrew' },
 		{
 			label:
@@ -79,6 +79,14 @@ export default function FormDemo() {
 						placeholder='This is placeholder text'
 						icon={GenesysDevIcons.AppSearch}
 						clearButton={true}
+					/>
+					<DxTextbox
+						label='disabled textbox'
+						placeholder='This is placeholder text'
+						initialValue='intial text'
+						icon={GenesysDevIcons.AppSearch}
+						clearButton={true}
+						disabled={true}
 					/>
 					<h3>Complex Usages</h3>
 					<DxTextbox
@@ -182,6 +190,16 @@ export default function FormDemo() {
 						trueIcon={GenesysDevIcons.AppSun}
 						falseIcon={GenesysDevIcons.AppMoon}
 					/>
+					<h3>Disabled</h3>
+					<DxToggle label='Disabled' onChange={(value) => console.log(value)} disabled={true} />
+					<DxToggle
+						label='Disabled w/initialValue=true and custom icons'
+						initialValue={true}
+						onChange={(value) => console.log(value)}
+						trueIcon={GenesysDevIcons.AppSun}
+						falseIcon={GenesysDevIcons.AppMoon}
+						disabled={true}
+					/>
 				</Fragment>
 			),
 		},
@@ -204,12 +222,22 @@ export default function FormDemo() {
 					</pre>
 					<h3>Checkboxes</h3>
 					{itemGroupItems.map((item) => (
-						<DxCheckbox
-							label={item.label}
-							value={item.value}
-							onCheckChanged={(checked) => console.log(`${item.value} (${item.label}) -> ${checked}`)}
-						/>
+						<DxCheckbox {...item} onCheckChanged={(checked) => console.log(`${item.value} (${item.label}) -> ${checked}`)} />
 					))}
+					<h3>Disabled Checkbox</h3>
+					<DxCheckbox
+						label='disabled checkbox'
+						value='dis'
+						disabled={true}
+						onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
+					/>
+					<DxCheckbox
+						label='disabled with an initial value of true'
+						value='dis'
+						disabled={true}
+						initialValue={true}
+						onCheckChanged={(checked) => console.log(`DISABLED -> ${checked}`)}
+					/>
 				</Fragment>
 			),
 		},

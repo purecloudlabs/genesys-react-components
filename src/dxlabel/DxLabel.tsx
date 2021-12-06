@@ -21,20 +21,19 @@ export default function DxLabel(props: IProps) {
 		</div>
 	) : undefined;
 
-	if (props.useFieldset) {
-		return (
-			<fieldset className={'dx-label ' + props.className || ''}>
-				{props.label ? <legend className='label-text'>{props.label}</legend> : undefined}
-				{props.children}
-				{description}
-			</fieldset>
-		);
-	}
-	return (
-		<label className={'dx-label ' + props.className || ''}>
+	const contents = (
+		<React.Fragment>
+			{' '}
 			{hasLabel ? <span className='label-text'>{props.label}</span> : undefined}
 			{props.children}
 			{description}
-		</label>
+		</React.Fragment>
 	);
+
+	const className = `dx-label${props.className ? ' ' + props.className : ''}`;
+
+	if (props.useFieldset) {
+		return <fieldset className={className}>{contents}</fieldset>;
+	}
+	return <label className={className}>{contents}</label>;
 }

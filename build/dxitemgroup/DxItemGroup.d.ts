@@ -9,6 +9,7 @@ interface IProps {
     description?: string;
     format: DxItemGroupFormat;
     items: DxItemGroupItem[];
+    disabled?: boolean;
     onItemChanged?: ItemChangedCallback;
     onItemsChanged?: ItemGroupChangedCallback;
 }

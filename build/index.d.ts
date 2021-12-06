@@ -23,6 +23,7 @@ export interface VoidEventCallback {
 export interface DxItemGroupItem {
     label: string;
     value: string;
+    disabled?: boolean;
 }
 export interface DxItemGroupItemValue {
     item: DxItemGroupItem;
@@ -41,6 +42,7 @@ export interface DxToggleProps {
     description?: string;
     trueIcon?: GenesysDevIcons;
     falseIcon?: GenesysDevIcons;
+    disabled?: boolean;
     onChange?: BooleanChangedCallback;
 }
 export declare type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
@@ -57,4 +59,5 @@ export interface DxTextboxProps {
     inputRef?: React.RefObject<HTMLInputElement>;
     onFocus?: VoidEventCallback;
     onBlur?: VoidEventCallback;
+    disabled?: boolean;
 }

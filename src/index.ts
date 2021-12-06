@@ -28,6 +28,7 @@ export interface VoidEventCallback {
 export interface DxItemGroupItem {
 	label: string;
 	value: string;
+	disabled?: boolean;
 }
 
 // Item value of a DxItemGroupItem in a DxItemGroup
@@ -51,6 +52,7 @@ export interface DxToggleProps {
 	description?: string;
 	trueIcon?: GenesysDevIcons;
 	falseIcon?: GenesysDevIcons;
+	disabled?: boolean;
 	onChange?: BooleanChangedCallback;
 }
 
@@ -69,4 +71,5 @@ export interface DxTextboxProps {
 	inputRef?: React.RefObject<HTMLInputElement>;
 	onFocus?: VoidEventCallback;
 	onBlur?: VoidEventCallback;
+	disabled?: boolean;
 }

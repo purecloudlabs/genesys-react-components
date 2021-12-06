@@ -33,6 +33,11 @@
 			&:checked {
 				background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);
 			}
+
+			&:disabled {
+				color: #8a9a9e;
+				cursor: not-allowed;
+			}
 		}
 
 		// Webkit scrollbars (Chrome, Opera, Safari, Edge... every browser but firefox
@@ -53,5 +58,17 @@
 		// Just firefox
 		// https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color
 		scrollbar-color: #b0b2b5 transparent;
+	}
+
+	&.disabled {
+		select:disabled {
+			background-color: #e6ebec;
+			border-color: #e8eaed;
+			cursor: not-allowed;
+
+			option {
+				color: #8a9a9e;
+			}
+		}
 	}
 }

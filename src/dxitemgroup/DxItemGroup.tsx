@@ -14,6 +14,7 @@ interface IProps {
 	description?: string;
 	format: DxItemGroupFormat;
 	items: DxItemGroupItem[];
+	disabled?: boolean;
 	onItemChanged?: ItemChangedCallback;
 	onItemsChanged?: ItemGroupChangedCallback;
 }
@@ -50,10 +51,14 @@ export default function DxItemGroup(props: IProps) {
 		case 'dropdown': {
 			return (
 				<DxLabel label={props.title} description={props.description}>
-					<div className={`dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}`}>
-						<select multiple={props.format === 'multiselect'}>
+					<div
+						className={`dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}${
+							props.disabled ? ' disabled' : ''
+						}`}
+					>
+						<select multiple={props.format === 'multiselect'} disabled={props.disabled === true}>
 							{data.map((d, i) => (
-								<option key={i} value={d.item.value}>
+								<option key={i} value={d.item.value} disabled={d.item.disabled}>
 									{d.item.label}
 								</option>
 							))}
@@ -66,7 +71,12 @@ export default function DxItemGroup(props: IProps) {
 		case 'radio':
 		default: {
 			return (
-				<DxLabel label={props.title} description={props.description} className='dx-item-group' useFieldset={true}>
+				<DxLabel
+					label={props.title}
+					description={props.description}
+					className={`dx-item-group${props.disabled ? ' disabled' : ''}`}
+					useFieldset={true}
+				>
 					{data.map((d, i) => (
 						<DxCheckbox
 							key={i}
@@ -75,18 +85,9 @@ export default function DxItemGroup(props: IProps) {
 							value={d.item.value}
 							initialValue={d.isSelected}
 							onCheckChanged={(checked) => onChange(i, d.item, checked)}
+							useRadioType={props.format === 'radio'}
+							disabled={props.disabled || d.item.disabled}
 						/>
-						// <label key={i}>
-						// 	<input
-						// 		type={props.format}
-						// 		name={props.format === 'checkbox' ? `${id}-${i}` : id}
-						// 		id={d.item.label}
-						// 		value={d.item.value}
-						// 		checked={d.isSelected}
-						// 		onChange={(e) => onChange(i, d.item, e)}
-						// 	/>
-						// 	<span className='label-text'>{d.item.label}</span>
-						// </label>
 					))}
 				</DxLabel>
 			);

@@ -18,10 +18,6 @@
 		&:focus-visible {
 			outline: 2px solid #aac9ff;
 		}
-
-		option {
-			background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);
-		}
 	}
 
 	&::after {
@@ -40,5 +36,18 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		pointer-events: none;
+	}
+
+	&.disabled {
+		&::after {
+			color: #8a9a9e;
+		}
+
+		select:disabled {
+			background-color: #e6ebec;
+			border-color: #e8eaed;
+			color: #8a9a9e;
+			cursor: not-allowed;
+		}
 	}
 }

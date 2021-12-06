@@ -10,6 +10,7 @@ interface IProps {
     className?: string;
     onCheckChanged?: BooleanChangedCallback;
     useRadioType?: boolean;
+    disabled?: boolean;
 }
 export default function DxCheckbox(props: IProps): JSX.Element;
 export {};

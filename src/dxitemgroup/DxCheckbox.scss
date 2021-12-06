@@ -123,6 +123,21 @@
 	input[type='radio']:not(:disabled):focus-visible {
 		outline: 0;
 	}
+
+	&.disabled {
+		cursor: not-allowed;
+
+		input {
+			border-color: #e8eaed;
+			cursor: not-allowed;
+		}
+
+		// Fill in background on check
+		input:checked {
+			background-color: #e8eaed;
+			cursor: not-allowed;
+		}
+	}
 }
 
 .dx-label .dx-checkbox .label-text {

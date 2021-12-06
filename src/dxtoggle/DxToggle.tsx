@@ -17,6 +17,7 @@ export default function DxToggle(props: DxToggleProps) {
 	}, [value]);
 
 	const toggleValue = () => {
+		if (props.disabled) return;
 		if (props.isTriState) {
 			if (value === undefined) setValue(true);
 			else if (value === true) setValue(false);
@@ -28,7 +29,7 @@ export default function DxToggle(props: DxToggleProps) {
 
 	return (
 		<DxLabel label={props.label} description={props.description}>
-			<div className='dx-toggle-container'>
+			<div className={`dx-toggle-container${props.disabled ? ' disabled' : ''}`}>
 				<div className='dx-toggle' onClick={toggleValue}>
 					{value !== false ? <GenesysDevIcon icon={falseIcon} /> : undefined}
 					{value === true && props.isTriState ? <div className='clear-placeholder'>&nbsp;</div> : undefined}
