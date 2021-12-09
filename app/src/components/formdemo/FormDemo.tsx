@@ -388,6 +388,8 @@ export default function FormDemo() {
 					items={itemGroupItems}
 					format='dropdown'
 					description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
+					onItemChanged={(item, isSelected) => console.log('dropdown::onItemChanged', item, isSelected)}
+					onItemsChanged={(items) => console.log('dropdown::onItemsChanged', items)}
 				/>
 				<DxItemGroup title='Disabled Dropdown' items={itemGroupItems} format='dropdown' disabled={true} />
 				<h3>Multi-select</h3>
@@ -398,6 +400,8 @@ export default function FormDemo() {
 					items={itemGroupItems}
 					format='multiselect'
 					description='Time zone context used to calculate response intervals (this allows resolving DST changes). The interval offset is used even when timeZone is specified. Default is UTC. Time zones are represented as a string of the zone name as found in the IANA time zone database. For example: UTC, Etc/UTC, or Europe/London'
+					onItemChanged={(item, isSelected) => console.log('dropdown::onItemChanged', item, isSelected)}
+					onItemsChanged={(items) => console.log('dropdown::onItemsChanged', items)}
 				/>
 				<DxItemGroup title='Disabled Multi-select' items={itemGroupItems} format='multiselect' disabled={true} />
 				<h3>Checkboxes</h3>

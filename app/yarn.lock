@@ -5450,10 +5450,10 @@ genesys-dev-icons@^0.1.12:
   resolved "https://registry.npmjs.org/genesys-dev-icons/-/genesys-dev-icons-0.1.12.tgz"
   integrity sha512-jFE8S2VDfkZLyVlX5OLJQ2aobS6w8fwmzUu0BYSl8VuFyoPAteBSThairhrPx4isnsG7TvkjB/5tLEBj0w4d2Q==
 
-genesys-react-components@^0.1.0-alpha.7:
-  version "0.1.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/genesys-react-components/-/genesys-react-components-0.1.0-alpha.7.tgz#c06d8fc8beed8defb544099a30628d229b1995e0"
-  integrity sha512-IjdDn2ROmtmE4+nEqVK7T6HtJsh31ArI45g5Y/qIzDmdrtYS0LsjakP8JuN04QHjwWEJ5Wdj+AqqGuiRW3yMnQ==
+genesys-react-components@^0.1.0-alpha.8:
+  version "0.1.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/genesys-react-components/-/genesys-react-components-0.1.0-alpha.8.tgz#882854c1e75ffe82911269121668c0b2e9ca8935"
+  integrity sha512-HnraitleQI963LtVCOLgr4iuQkozEapWbETao/OV0ZleUYHIouyww6T0wEMKsTsJ053dwzSSU5QBse34dz4pJQ==
 
 gensync@^1.0.0-beta.1, gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"

@@ -1,5 +1,10 @@
 [
 	{
+		"version": "0.1.0-alpha.8",
+		"notes": "Minor bugfix release",
+		"bugfixes": ["Fix DxItemGroup to raise events for all display formats"]
+	},
+	{
 		"version": "0.1.0-alpha.7",
 		"notes": "This release contains several improvements to the components",
 		"features": [

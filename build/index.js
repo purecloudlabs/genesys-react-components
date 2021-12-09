@@ -130,8 +130,8 @@ function DxItemGroup(props) {
             props.onItemsChanged(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
-    // Handle checkbox changed
-    const onChange = (idx, item, checked) => {
+    // Handle individual item changed
+    const itemChanged = (idx, item, checked) => {
         if (props.onItemChanged)
             props.onItemChanged(item, checked);
         let newData = [...data];
@@ -142,17 +142,33 @@ function DxItemGroup(props) {
         newData[idx].isSelected = checked;
         setData(newData);
     };
+    const selectChanged = (e) => {
+        const options = e.target.options;
+        let newData = [...data];
+        // Assign selected value for each item in the list
+        for (let i = 0; i < options.length; i++) {
+            const thisItem = newData.find((value) => value.item.value === options[i].value);
+            thisItem.isSelected = options[i].selected;
+        }
+        // Update entire data list
+        setData(newData);
+        // Trigger individual update
+        const changedItemIdx = newData.findIndex((value) => value.item.value === e.target.value);
+        if (changedItemIdx >= 0)
+            itemChanged(changedItemIdx, newData[changedItemIdx].item, newData[changedItemIdx].isSelected);
+    };
     switch (props.format) {
         case 'multiselect':
         case 'dropdown': {
+            const isMulti = props.format === 'multiselect';
             return (React.createElement(DxLabel, { label: props.title, description: props.description, className: props.className },
-                React.createElement("div", { className: `dx-item-group${props.format === 'multiselect' ? ' dx-multiselect-group' : ' dx-select-group'}${props.disabled ? ' disabled' : ''}` },
-                    React.createElement("select", { multiple: props.format === 'multiselect', disabled: props.disabled === true }, data.map((d, i) => (React.createElement("option", { key: i, value: d.item.value, disabled: d.item.disabled }, d.item.label)))))));
+                React.createElement("div", { className: `dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${props.disabled ? ' disabled' : ''}` },
+                    React.createElement("select", { multiple: isMulti, disabled: props.disabled === true, onChange: (e) => selectChanged(e) }, data.map((d, i) => (React.createElement("option", { key: i, value: d.item.value, disabled: d.item.disabled }, d.item.label)))))));
         }
         case 'checkbox':
         case 'radio':
         default: {
-            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: `dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, onCheckChanged: (checked) => onChange(i, d.item, checked), useRadioType: props.format === 'radio', disabled: props.disabled || d.item.disabled })))));
+            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: `dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, onCheckChanged: (checked) => itemChanged(i, d.item, checked), useRadioType: props.format === 'radio', disabled: props.disabled || d.item.disabled })))));
         }
     }
 }
