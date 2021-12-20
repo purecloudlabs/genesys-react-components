@@ -50,7 +50,7 @@ export interface DxToggleProps {
     onChange?: BooleanChangedCallback;
     className?: string;
 }
-export declare type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
+export declare type DxTextboxType = 'text' | 'textarea' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 export interface DxTextboxProps {
     initialValue?: string;
     value?: string;

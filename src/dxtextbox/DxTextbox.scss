@@ -16,7 +16,6 @@
 	}
 
 	&:focus-within {
-		// outline: -webkit-focus-ring-color auto 1px;
 		outline: #aac9ff solid 2px;
 	}
 
@@ -39,7 +38,7 @@
 		}
 	}
 
-	input {
+	.dx-input {
 		flex-grow: 1;
 		border: 0;
 		background: transparent;
@@ -82,5 +81,27 @@
 		input::placeholder {
 			color: #ffffff;
 		}
+	}
+}
+
+.dx-textarea {
+	padding: 10px;
+	border: 1px solid #c6cbd1;
+	border-radius: 2px;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+
+	&:focus-within {
+		outline: #aac9ff solid 2px;
+	}
+
+	&::placeholder {
+		font-family: 'Roboto', sans-serif;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 16px;
+		color: #757576;
 	}
 }

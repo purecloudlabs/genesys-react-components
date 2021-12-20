@@ -1,6 +1,6 @@
 import React from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
-import { BrowserRouter, HashRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import FormDemo from './components/formdemo/FormDemo';
 import { dependencies } from '../package.json';
 
@@ -10,7 +10,6 @@ import DxNavigation, { DxNavigationItem } from './components/dxnavigation/DxNavi
 import ReleaseNotes from './components/releasenotes/ReleaseNotes';
 
 function App() {
-	const navigate = useNavigate();
 	let iconVersion = (dependencies as any)['genesys-react-components'] || '';
 	if (iconVersion.startsWith('^')) iconVersion = iconVersion.substr(1);
 	if (iconVersion !== '') iconVersion = `v${iconVersion}`;

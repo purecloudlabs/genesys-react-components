@@ -1,5 +1,16 @@
 [
 	{
+		"version": "0.1.0-alpha.10",
+		"notes": "DxTextbox updates",
+		"features": ["Added support for multiline DxTextbox (i.e. textarea)"],
+		"bugfixes": ["DxTextbox - fix initialValue vs. value bug"]
+	},
+	{
+		"version": "0.1.0-alpha.9",
+		"notes": "DxItemGroup updates",
+		"features": ["Added support for updating items collection in DxItemGroup"]
+	},
+	{
 		"version": "0.1.0-alpha.8",
 		"notes": "Minor bugfix release",
 		"bugfixes": ["Fix DxItemGroup to raise events for all display formats"]

@@ -62,7 +62,7 @@ export interface DxToggleProps {
 	className?: string;
 }
 
-export type DxTextboxType = 'text' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
+export type DxTextboxType = 'text' | 'textarea' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 
 export interface DxTextboxProps {
 	initialValue?: string;

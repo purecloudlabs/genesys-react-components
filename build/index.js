@@ -124,19 +124,37 @@ function DxItemGroup(props) {
         return { item, isSelected: false };
     }));
     const [id] = useState(v4());
+    const [title, setTitle] = useState(props.title);
+    const [description, setDescription] = useState(props.description);
+    const [format, setFormat] = useState(props.format);
+    const [items, setItems] = useState(props.items);
+    const [disabled, setDisabled] = useState(props.disabled);
+    const [className, setClassName] = useState(props.className);
     // data changed
     useEffect(() => {
         if (props.onItemsChanged)
             props.onItemsChanged(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
+    // Recalculate on props changed
+    useEffect(() => {
+        setTitle(props.title);
+        setDescription(props.description);
+        setFormat(props.format);
+        setItems(props.items);
+        setDisabled(props.disabled);
+        setClassName(props.className);
+        setData(props.items.map((item) => {
+            return { item, isSelected: false };
+        }));
+    }, [props.title, props.description, props.format, props.items, props.disabled, props.className]);
     // Handle individual item changed
     const itemChanged = (idx, item, checked) => {
         if (props.onItemChanged)
             props.onItemChanged(item, checked);
         let newData = [...data];
         // Unselect everything if it's radio buttons
-        if (props.format === 'radio')
+        if (format === 'radio')
             newData.forEach((value) => (value.isSelected = false));
         // Set the selected state of the new item
         newData[idx].isSelected = checked;
@@ -157,18 +175,18 @@ function DxItemGroup(props) {
         if (changedItemIdx >= 0)
             itemChanged(changedItemIdx, newData[changedItemIdx].item, newData[changedItemIdx].isSelected);
     };
-    switch (props.format) {
+    switch (format) {
         case 'multiselect':
         case 'dropdown': {
-            const isMulti = props.format === 'multiselect';
-            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: props.className },
-                React.createElement("div", { className: `dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${props.disabled ? ' disabled' : ''}` },
-                    React.createElement("select", { multiple: isMulti, disabled: props.disabled === true, onChange: (e) => selectChanged(e) }, data.map((d, i) => (React.createElement("option", { key: i, value: d.item.value, disabled: d.item.disabled }, d.item.label)))))));
+            const isMulti = format === 'multiselect';
+            return (React.createElement(DxLabel, { label: title, description: description, className: className },
+                React.createElement("div", { className: `dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${disabled ? ' disabled' : ''}` },
+                    React.createElement("select", { multiple: isMulti, disabled: disabled === true, onChange: (e) => selectChanged(e) }, data.map((d, i) => (React.createElement("option", { key: i, value: d.item.value, disabled: d.item.disabled }, d.item.label)))))));
         }
         case 'checkbox':
         case 'radio':
         default: {
-            return (React.createElement(DxLabel, { label: props.title, description: props.description, className: `dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: i, name: props.format === 'checkbox' ? `${id}-${i}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, onCheckChanged: (checked) => itemChanged(i, d.item, checked), useRadioType: props.format === 'radio', disabled: props.disabled || d.item.disabled })))));
+            return (React.createElement(DxLabel, { label: title, description: description, className: `dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: d.item.value, name: format === 'checkbox' ? `${id}-${d.item.value}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, onCheckChanged: (checked) => itemChanged(i, d.item, checked), useRadioType: format === 'radio', disabled: disabled || d.item.disabled })))));
         }
     }
 }
@@ -197,7 +215,7 @@ function DxTabPanel(props) {
     return React.createElement("div", { className: `dx-tab-panel${props.className ? ' ' + props.className : ''}` }, props.children);
 }
 
-var css_248z$1 = ".dx-textbox {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 10px;\n  border: 1px solid #c6cbd1;\n  border-radius: 2px;\n  margin: 0;\n  padding: 0 10px;\n  height: 32px;\n  background-color: #ffffff;\n}\n.dx-textbox.with-label {\n  margin-top: 0;\n}\n.dx-textbox:focus-within {\n  outline: #aac9ff solid 2px;\n}\n.dx-textbox .icon {\n  display: block;\n  flex: none;\n  color: #75757a;\n}\n.dx-textbox .icon.input-icon {\n  font-size: 14px;\n  line-height: 0;\n}\n.dx-textbox .icon.clear-icon {\n  font-size: 11px;\n  line-height: 0;\n  cursor: pointer;\n  padding: 4px;\n  margin-right: -4px;\n}\n.dx-textbox input {\n  flex-grow: 1;\n  border: 0;\n  background: transparent;\n  box-sizing: border-box;\n  height: 32px;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 16px;\n  color: #272d2d;\n}\n.dx-textbox input:focus-visible {\n  outline: 0;\n}\n.dx-textbox input::placeholder {\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: #757576;\n}\n.dx-textbox.disabled {\n  background-color: #e6ebec;\n  border-color: #e8eaed;\n  cursor: not-allowed;\n}\n.dx-textbox.disabled input {\n  cursor: not-allowed;\n  color: #75757a;\n}\n.dx-textbox.disabled .icon,\n.dx-textbox.disabled input::placeholder {\n  color: #ffffff;\n}";
+var css_248z$1 = ".dx-textbox {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 10px;\n  border: 1px solid #c6cbd1;\n  border-radius: 2px;\n  margin: 0;\n  padding: 0 10px;\n  height: 32px;\n  background-color: #ffffff;\n}\n.dx-textbox.with-label {\n  margin-top: 0;\n}\n.dx-textbox:focus-within {\n  outline: #aac9ff solid 2px;\n}\n.dx-textbox .icon {\n  display: block;\n  flex: none;\n  color: #75757a;\n}\n.dx-textbox .icon.input-icon {\n  font-size: 14px;\n  line-height: 0;\n}\n.dx-textbox .icon.clear-icon {\n  font-size: 11px;\n  line-height: 0;\n  cursor: pointer;\n  padding: 4px;\n  margin-right: -4px;\n}\n.dx-textbox .dx-input {\n  flex-grow: 1;\n  border: 0;\n  background: transparent;\n  box-sizing: border-box;\n  height: 32px;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 16px;\n  color: #272d2d;\n}\n.dx-textbox .dx-input:focus-visible {\n  outline: 0;\n}\n.dx-textbox .dx-input::placeholder {\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: #757576;\n}\n.dx-textbox.disabled {\n  background-color: #e6ebec;\n  border-color: #e8eaed;\n  cursor: not-allowed;\n}\n.dx-textbox.disabled input {\n  cursor: not-allowed;\n  color: #75757a;\n}\n.dx-textbox.disabled .icon,\n.dx-textbox.disabled input::placeholder {\n  color: #ffffff;\n}\n\n.dx-textarea {\n  padding: 10px;\n  border: 1px solid #c6cbd1;\n  border-radius: 2px;\n  width: 100%;\n  font-family: \"Roboto\", sans-serif;\n  box-sizing: border-box;\n}\n.dx-textarea:focus-within {\n  outline: #aac9ff solid 2px;\n}\n.dx-textarea::placeholder {\n  font-family: \"Roboto\", sans-serif;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: #757576;\n}";
 styleInject(css_248z$1);
 
 function DxTextbox(props) {
@@ -217,7 +235,10 @@ function DxTextbox(props) {
     }, []);
     // Value prop updated
     useEffect(() => {
-        setValue(props.value || '');
+        // Ignore value changed if initial value was set; they're mutually exclusive
+        if (!props.initialValue) {
+            setValue(props.value || '');
+        }
     }, [props.value]);
     // Escape pressed
     useEffect(() => {
@@ -260,9 +281,13 @@ function DxTextbox(props) {
         setDebounceMs(props.changeDebounceMs || 300);
     }, [props.changeDebounceMs]);
     // Normalize inputRef
-    let inputRef = useRef(null);
+    let inputRef; // = useRef<HTMLInputElement>(null);
     if (props.inputRef)
         inputRef = props.inputRef;
+    else if (props.inputType === 'textarea')
+        inputRef = useRef(null);
+    else
+        inputRef = useRef(null);
     const hasLabel = props.label && props.label !== '';
     // Global key bindings
     function globalKeyBindings(event) {
@@ -278,19 +303,36 @@ function DxTextbox(props) {
     let inputType = props.inputType;
     if (inputType === 'integer' || inputType === 'decimal')
         inputType = 'number';
-    // TODO: handle props.inputType
-    let component = (React.createElement("div", { className: `dx-textbox${hasLabel ? ' with-label' : ''}${props.disabled ? ' disabled' : ''}`, style: {} },
-        props.icon ? React.createElement(GenesysDevIcon, { icon: props.icon, className: 'input-icon' }) : undefined,
-        React.createElement("input", { className: 'dx-input', type: inputType, step: step, value: value, placeholder: props.placeholder, onChange: (e) => setValue(e.target.value), ref: inputRef, onFocus: () => {
-                setIsFocused(true);
-                if (props.onFocus)
-                    props.onFocus();
-            }, onBlur: () => {
-                setIsFocused(false);
-                if (props.onBlur)
-                    props.onBlur();
-            }, disabled: props.disabled === true }),
-        props.clearButton && (value || isFocused) && !props.disabled ? (React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppTimes, className: 'clear-icon', onClick: () => setValue('') })) : undefined));
+    let component;
+    switch (inputType) {
+        case 'textarea': {
+            component = (React.createElement("textarea", { className: 'dx-textarea', placeholder: props.placeholder, ref: inputRef, value: value, onChange: (e) => setValue(e.target.value), onFocus: () => {
+                    setIsFocused(true);
+                    if (props.onFocus)
+                        props.onFocus();
+                }, onBlur: () => {
+                    setIsFocused(false);
+                    if (props.onBlur)
+                        props.onBlur();
+                }, disabled: props.disabled === true }));
+            break;
+        }
+        // TODO: special handling for other inputType values
+        default: {
+            component = (React.createElement("div", { className: `dx-textbox${hasLabel ? ' with-label' : ''}${props.disabled ? ' disabled' : ''}` },
+                props.icon ? React.createElement(GenesysDevIcon, { icon: props.icon, className: 'input-icon' }) : undefined,
+                React.createElement("input", { className: 'dx-input', type: inputType, step: step, value: value, placeholder: props.placeholder, onChange: (e) => setValue(e.target.value), ref: inputRef, onFocus: () => {
+                        setIsFocused(true);
+                        if (props.onFocus)
+                            props.onFocus();
+                    }, onBlur: () => {
+                        setIsFocused(false);
+                        if (props.onBlur)
+                            props.onBlur();
+                    }, disabled: props.disabled === true }),
+                props.clearButton && (value || isFocused) && !props.disabled ? (React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppTimes, className: 'clear-icon', onClick: () => setValue('') })) : undefined));
+        }
+    }
     // Render
     return (React.createElement(DxLabel, { label: props.label, description: props.description, className: props.className }, component));
 }

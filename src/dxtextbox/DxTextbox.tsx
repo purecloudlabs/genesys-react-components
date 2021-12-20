@@ -25,7 +25,10 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Value prop updated
 	useEffect(() => {
-		setValue(props.value || '');
+		// Ignore value changed if initial value was set; they're mutually exclusive
+		if (!props.initialValue) {
+			setValue(props.value || '');
+		}
 	}, [props.value]);
 
 	// Escape pressed
@@ -69,8 +72,11 @@ export default function DxTextbox(props: DxTextboxProps) {
 	}, [props.changeDebounceMs]);
 
 	// Normalize inputRef
-	let inputRef = useRef<HTMLInputElement>(null);
+	let inputRef; // = useRef<HTMLInputElement>(null);
 	if (props.inputRef) inputRef = props.inputRef;
+	else if (props.inputType === 'textarea') inputRef = useRef<HTMLTextAreaElement>(null);
+	else inputRef = useRef<HTMLInputElement>(null);
+
 	const hasLabel = props.label && props.label !== '';
 
 	// Global key bindings
@@ -88,33 +94,59 @@ export default function DxTextbox(props: DxTextboxProps) {
 	let inputType: React.HTMLInputTypeAttribute | undefined = props.inputType;
 	if (inputType === 'integer' || inputType === 'decimal') inputType = 'number';
 
-	// TODO: handle props.inputType
-	let component = (
-		<div className={`dx-textbox${hasLabel ? ' with-label' : ''}${props.disabled ? ' disabled' : ''}`} style={{}}>
-			{props.icon ? <GenesysDevIcon icon={props.icon} className='input-icon' /> : undefined}
-			<input
-				className='dx-input'
-				type={inputType}
-				step={step}
-				value={value}
-				placeholder={props.placeholder}
-				onChange={(e) => setValue(e.target.value)}
-				ref={inputRef}
-				onFocus={() => {
-					setIsFocused(true);
-					if (props.onFocus) props.onFocus();
-				}}
-				onBlur={() => {
-					setIsFocused(false);
-					if (props.onBlur) props.onBlur();
-				}}
-				disabled={props.disabled === true}
-			/>
-			{props.clearButton && (value || isFocused) && !props.disabled ? (
-				<GenesysDevIcon icon={GenesysDevIcons.AppTimes} className='clear-icon' onClick={() => setValue('')} />
-			) : undefined}
-		</div>
-	);
+	let component;
+	switch (inputType) {
+		case 'textarea': {
+			component = (
+				<textarea
+					className='dx-textarea'
+					placeholder={props.placeholder}
+					ref={inputRef}
+					value={value}
+					onChange={(e) => setValue(e.target.value)}
+					onFocus={() => {
+						setIsFocused(true);
+						if (props.onFocus) props.onFocus();
+					}}
+					onBlur={() => {
+						setIsFocused(false);
+						if (props.onBlur) props.onBlur();
+					}}
+					disabled={props.disabled === true}
+				/>
+			);
+			break;
+		}
+		// TODO: special handling for other inputType values
+		default: {
+			component = (
+				<div className={`dx-textbox${hasLabel ? ' with-label' : ''}${props.disabled ? ' disabled' : ''}`}>
+					{props.icon ? <GenesysDevIcon icon={props.icon} className='input-icon' /> : undefined}
+					<input
+						className='dx-input'
+						type={inputType}
+						step={step}
+						value={value}
+						placeholder={props.placeholder}
+						onChange={(e) => setValue(e.target.value)}
+						ref={inputRef}
+						onFocus={() => {
+							setIsFocused(true);
+							if (props.onFocus) props.onFocus();
+						}}
+						onBlur={() => {
+							setIsFocused(false);
+							if (props.onBlur) props.onBlur();
+						}}
+						disabled={props.disabled === true}
+					/>
+					{props.clearButton && (value || isFocused) && !props.disabled ? (
+						<GenesysDevIcon icon={GenesysDevIcons.AppTimes} className='clear-icon' onClick={() => setValue('')} />
+					) : undefined}
+				</div>
+			);
+		}
+	}
 
 	// Render
 	return (

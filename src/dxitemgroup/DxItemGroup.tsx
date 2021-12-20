@@ -16,6 +16,12 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 		})
 	);
 	const [id] = useState(uuid());
+	const [title, setTitle] = useState(props.title);
+	const [description, setDescription] = useState(props.description);
+	const [format, setFormat] = useState(props.format);
+	const [items, setItems] = useState(props.items);
+	const [disabled, setDisabled] = useState(props.disabled);
+	const [className, setClassName] = useState(props.className);
 
 	// data changed
 	useEffect(() => {
@@ -23,12 +29,27 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data]);
 
+	// Recalculate on props changed
+	useEffect(() => {
+		setTitle(props.title);
+		setDescription(props.description);
+		setFormat(props.format);
+		setItems(props.items);
+		setDisabled(props.disabled);
+		setClassName(props.className);
+		setData(
+			props.items.map((item) => {
+				return { item, isSelected: false };
+			})
+		);
+	}, [props.title, props.description, props.format, props.items, props.disabled, props.className]);
+
 	// Handle individual item changed
 	const itemChanged = (idx: number, item: DxItemGroupItem, checked: boolean) => {
 		if (props.onItemChanged) props.onItemChanged(item, checked);
 		let newData = [...data];
 		// Unselect everything if it's radio buttons
-		if (props.format === 'radio') newData.forEach((value) => (value.isSelected = false));
+		if (format === 'radio') newData.forEach((value) => (value.isSelected = false));
 		// Set the selected state of the new item
 		newData[idx].isSelected = checked;
 		setData(newData);
@@ -49,14 +70,14 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 		if (changedItemIdx >= 0) itemChanged(changedItemIdx, newData[changedItemIdx].item, newData[changedItemIdx].isSelected);
 	};
 
-	switch (props.format) {
+	switch (format) {
 		case 'multiselect':
 		case 'dropdown': {
-			const isMulti = props.format === 'multiselect';
+			const isMulti = format === 'multiselect';
 			return (
-				<DxLabel label={props.title} description={props.description} className={props.className}>
-					<div className={`dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${props.disabled ? ' disabled' : ''}`}>
-						<select multiple={isMulti} disabled={props.disabled === true} onChange={(e) => selectChanged(e)}>
+				<DxLabel label={title} description={description} className={className}>
+					<div className={`dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${disabled ? ' disabled' : ''}`}>
+						<select multiple={isMulti} disabled={disabled === true} onChange={(e) => selectChanged(e)}>
 							{data.map((d, i) => (
 								<option key={i} value={d.item.value} disabled={d.item.disabled}>
 									{d.item.label}
@@ -72,21 +93,21 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 		default: {
 			return (
 				<DxLabel
-					label={props.title}
-					description={props.description}
-					className={`dx-item-group${props.disabled ? ' disabled' : ''}${props.className ? ' ' + props.className : ''}`}
+					label={title}
+					description={description}
+					className={`dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`}
 					useFieldset={true}
 				>
 					{data.map((d, i) => (
 						<DxCheckbox
-							key={i}
-							name={props.format === 'checkbox' ? `${id}-${i}` : id}
+							key={d.item.value}
+							name={format === 'checkbox' ? `${id}-${d.item.value}` : id}
 							label={d.item.label}
 							itemValue={d.item.value}
 							initiallyChecked={d.isSelected}
 							onCheckChanged={(checked) => itemChanged(i, d.item, checked)}
-							useRadioType={props.format === 'radio'}
-							disabled={props.disabled || d.item.disabled}
+							useRadioType={format === 'radio'}
+							disabled={disabled || d.item.disabled}
 						/>
 					))}
 				</DxLabel>
