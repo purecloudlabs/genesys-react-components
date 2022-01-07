@@ -35,9 +35,13 @@ export default function DxCheckbox(props: IProps) {
 			<input
 				type={props.useRadioType ? 'radio' : 'checkbox'}
 				name={props.name}
-				id={props.label}
+				// id={props.label}
 				value={props.itemValue}
-				checked={checked}
+				/* HACK/TODO: break radio buttons out or control them properly. The checked property must be controlled in the context of the
+				 * entire group. Isolation in this component is preventing the state from being updated when another item is selected.
+				 * BUG: Radio buttons don't raise events after they've been selected the first time because the state remains true.
+				 */
+				checked={props.useRadioType ? undefined : checked}
 				onChange={(e) => setChecked(e.target.checked)}
 				disabled={props.disabled === true}
 			/>

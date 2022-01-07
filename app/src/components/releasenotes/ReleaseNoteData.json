@@ -1,5 +1,10 @@
 [
 	{
+		"version": "0.1.0-alpha.11",
+		"notes": "DxItemGroup bugfixes",
+		"bugfixes": ["DxItemGroup - refined selection/eventing behavior for radio group"]
+	},
+	{
 		"version": "0.1.0-alpha.10",
 		"notes": "DxTextbox updates",
 		"features": ["Added support for multiline DxTextbox (i.e. textarea)"],

@@ -115,7 +115,14 @@ function DxCheckbox(props) {
             props.onCheckChanged(checked);
     }, [checked]);
     return (React.createElement("label", { className: `dx-checkbox${props.className ? ' ' + props.className : ''}${props.disabled ? ' disabled' : ''}` },
-        React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, id: props.label, value: props.itemValue, checked: checked, onChange: (e) => setChecked(e.target.checked), disabled: props.disabled === true }),
+        React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, 
+            // id={props.label}
+            value: props.itemValue, 
+            /* HACK/TODO: break radio buttons out or control them properly. The checked property must be controlled in the context of the
+             * entire group. Isolation in this component is preventing the state from being updated when another item is selected.
+             * BUG: Radio buttons don't raise events after they've been selected the first time because the state remains true.
+             */
+            checked: props.useRadioType ? undefined : checked, onChange: (e) => setChecked(e.target.checked), disabled: props.disabled === true }),
         React.createElement("span", { className: 'label-text' }, props.label)));
 }
 
@@ -186,7 +193,14 @@ function DxItemGroup(props) {
         case 'checkbox':
         case 'radio':
         default: {
-            return (React.createElement(DxLabel, { label: title, description: description, className: `dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`, useFieldset: true }, data.map((d, i) => (React.createElement(DxCheckbox, { key: d.item.value, name: format === 'checkbox' ? `${id}-${d.item.value}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, onCheckChanged: (checked) => itemChanged(i, d.item, checked), useRadioType: format === 'radio', disabled: disabled || d.item.disabled })))));
+            return (React.createElement(DxLabel, { label: title, description: description, className: `dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`, useFieldset: true },
+                React.createElement("div", { onChange: (e) => {
+                        var _a;
+                        const i = data.findIndex((d) => { var _a; return d.item.value === ((_a = e.target) === null || _a === void 0 ? void 0 : _a.value); });
+                        if (i < 0)
+                            return;
+                        itemChanged(i, data[i].item, (_a = e.target) === null || _a === void 0 ? void 0 : _a.checked);
+                    } }, data.map((d, i) => (React.createElement(DxCheckbox, { key: d.item.value, name: format === 'checkbox' ? `${id}-${d.item.value}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, useRadioType: format === 'radio', disabled: disabled || d.item.disabled }))))));
         }
     }
 }

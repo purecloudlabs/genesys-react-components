@@ -98,18 +98,25 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 					className={`dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`}
 					useFieldset={true}
 				>
-					{data.map((d, i) => (
-						<DxCheckbox
-							key={d.item.value}
-							name={format === 'checkbox' ? `${id}-${d.item.value}` : id}
-							label={d.item.label}
-							itemValue={d.item.value}
-							initiallyChecked={d.isSelected}
-							onCheckChanged={(checked) => itemChanged(i, d.item, checked)}
-							useRadioType={format === 'radio'}
-							disabled={disabled || d.item.disabled}
-						/>
-					))}
+					<div
+						onChange={(e: React.ChangeEvent<HTMLDivElement>) => {
+							const i = data.findIndex((d) => d.item.value === (e.target as any)?.value);
+							if (i < 0) return;
+							itemChanged(i, data[i].item, (e.target as any)?.checked);
+						}}
+					>
+						{data.map((d, i) => (
+							<DxCheckbox
+								key={d.item.value}
+								name={format === 'checkbox' ? `${id}-${d.item.value}` : id}
+								label={d.item.label}
+								itemValue={d.item.value}
+								initiallyChecked={d.isSelected}
+								useRadioType={format === 'radio'}
+								disabled={disabled || d.item.disabled}
+							/>
+						))}
+					</div>
 				</DxLabel>
 			);
 		}
