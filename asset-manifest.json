@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/genesys-react-components/static/css/main.036ea1b3.chunk.css",
-    "main.js": "/genesys-react-components/static/js/main.a487a7b4.chunk.js",
-    "main.js.map": "/genesys-react-components/static/js/main.a487a7b4.chunk.js.map",
+    "main.js": "/genesys-react-components/static/js/main.ba1acfa4.chunk.js",
+    "main.js.map": "/genesys-react-components/static/js/main.ba1acfa4.chunk.js.map",
     "runtime-main.js": "/genesys-react-components/static/js/runtime-main.635d44a0.js",
     "runtime-main.js.map": "/genesys-react-components/static/js/runtime-main.635d44a0.js.map",
     "static/css/2.d8a13be6.chunk.css": "/genesys-react-components/static/css/2.d8a13be6.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.d8a13be6.chunk.css",
     "static/js/2.298c68fb.chunk.js",
     "static/css/main.036ea1b3.chunk.css",
-    "static/js/main.a487a7b4.chunk.js"
+    "static/js/main.ba1acfa4.chunk.js"
   ]
 }
