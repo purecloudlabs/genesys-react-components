@@ -29,14 +29,30 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$c = ".dx-accordion {\n  margin: 0;\n}\n.dx-accordion .accordion-heading {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: #bfd4e4;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 14px;\n  color: #54565a;\n  padding: 13px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.dx-accordion .accordion-heading .icon {\n  line-height: 0;\n}\n.dx-accordion .accordion-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-accordion .accordion-content > *:first-child {\n  margin-top: 0;\n}\n.dx-accordion .accordion-content > *:last-child {\n  margin-bottom: 0;\n}";
+var css_248z$c = ".dx-accordion {\n  margin: 0;\n}\n.dx-accordion .accordion-heading {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: #bfd4e4;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 14px;\n  color: #54565a;\n  padding: 13px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.dx-accordion .accordion-heading .icon {\n  line-height: 0;\n}\n.dx-accordion .accordion-heading__left {\n  align-self: left;\n}\n.dx-accordion .accordion-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-accordion .accordion-content > *:first-child {\n  margin-top: 0;\n}\n.dx-accordion .accordion-content > *:last-child {\n  margin-bottom: 0;\n}";
 styleInject(css_248z$c);
 
 function DxAccordion(props) {
     const [isOpen, setIsOpen] = useState(props.showOpen || false);
-    return (React.createElement("div", { className: `dx-accordion${props.className ? ' ' + props.className : ''}` },
-        React.createElement("div", { className: 'accordion-heading', onClick: () => setIsOpen(!isOpen) },
-            props.title,
+    const [expandTrigger, setExpandTrigger] = useState(props.expandTrigger);
+    React.useEffect(() => {
+        if (props.expandTrigger !== expandTrigger) {
+            setIsOpen(true);
+            setExpandTrigger(props.expandTrigger);
+        }
+    }, [props.expandTrigger, expandTrigger]);
+    let style = {};
+    if (props.headingColor)
+        style.color = props.headingColor;
+    let icon;
+    if (props.headingIcon)
+        icon = React.createElement(GenesysDevIcon, { icon: props.headingIcon, className: "heading-icon" });
+    return (React.createElement("div", { id: props.containerId || undefined, className: `dx-accordion${props.className ? ' ' + props.className : ''}` },
+        React.createElement("div", { className: 'accordion-heading', style: style, onClick: () => setIsOpen(!isOpen) },
+            React.createElement("span", { className: 'accordion-heading__left' },
+                icon,
+                " ",
+                props.title),
             " ",
             React.createElement(GenesysDevIcon, { icon: isOpen ? GenesysDevIcons.AppChevronUp : GenesysDevIcons.AppChevronDown })),
         isOpen ? React.createElement("div", { className: 'accordion-content' }, props.children) : undefined));

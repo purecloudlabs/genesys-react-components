@@ -1,48 +1,61 @@
 [
-	{
-		"version": "0.1.0-alpha.13",
-		"notes": "",
-		"features": ["DxItemGroup - support providing item values, i.e. value binding"]
-	},
-	{
-		"version": "0.1.0-alpha.12",
-		"notes": "package dependency updates",
-		"bugfixes": ["react ^16"]
-	},
-	{
-		"version": "0.1.0-alpha.11",
-		"notes": "DxItemGroup bugfixes",
-		"bugfixes": ["DxItemGroup - refined selection/eventing behavior for radio group"]
-	},
-	{
-		"version": "0.1.0-alpha.10",
-		"notes": "DxTextbox updates",
-		"features": ["Added support for multiline DxTextbox (i.e. textarea)"],
-		"bugfixes": ["DxTextbox - fix initialValue vs. value bug"]
-	},
-	{
-		"version": "0.1.0-alpha.9",
-		"notes": "DxItemGroup updates",
-		"features": ["Added support for updating items collection in DxItemGroup"]
-	},
-	{
-		"version": "0.1.0-alpha.8",
-		"notes": "Minor bugfix release",
-		"bugfixes": ["Fix DxItemGroup to raise events for all display formats"]
-	},
-	{
-		"version": "0.1.0-alpha.7",
-		"notes": "This release contains several improvements to the components",
-		"features": [
-			"Support disabled property on all input-type components",
-			"Support className property on all components",
-			"Fancy schmancy release notes",
-			"Support 'controlled component' behavior to update internal state when the property value (or checked for checkboxes) is updated"
-		],
-		"bugfixes": ["Fix radio input button style to show as radio button instead of checkmark"]
-	},
-	{
-		"version": "0.1.0-alpha.6",
-		"notes": "This release predates tracking release notes"
-	}
+  {
+    "version": "0.1.0-alpha.14",
+    "notes": "",
+    "features": [
+      "DxAccordion - support interactivity and additional heading formatting options"
+    ]
+  },
+  {
+    "version": "0.1.0-alpha.13",
+    "notes": "",
+    "features": [
+      "DxItemGroup - support providing item values, i.e. value binding"
+    ]
+  },
+  {
+    "version": "0.1.0-alpha.12",
+    "notes": "package dependency updates",
+    "bugfixes": ["react ^16"]
+  },
+  {
+    "version": "0.1.0-alpha.11",
+    "notes": "DxItemGroup bugfixes",
+    "bugfixes": [
+      "DxItemGroup - refined selection/eventing behavior for radio group"
+    ]
+  },
+  {
+    "version": "0.1.0-alpha.10",
+    "notes": "DxTextbox updates",
+    "features": ["Added support for multiline DxTextbox (i.e. textarea)"],
+    "bugfixes": ["DxTextbox - fix initialValue vs. value bug"]
+  },
+  {
+    "version": "0.1.0-alpha.9",
+    "notes": "DxItemGroup updates",
+    "features": ["Added support for updating items collection in DxItemGroup"]
+  },
+  {
+    "version": "0.1.0-alpha.8",
+    "notes": "Minor bugfix release",
+    "bugfixes": ["Fix DxItemGroup to raise events for all display formats"]
+  },
+  {
+    "version": "0.1.0-alpha.7",
+    "notes": "This release contains several improvements to the components",
+    "features": [
+      "Support disabled property on all input-type components",
+      "Support className property on all components",
+      "Fancy schmancy release notes",
+      "Support 'controlled component' behavior to update internal state when the property value (or checked for checkboxes) is updated"
+    ],
+    "bugfixes": [
+      "Fix radio input button style to show as radio button instead of checkmark"
+    ]
+  },
+  {
+    "version": "0.1.0-alpha.6",
+    "notes": "This release predates tracking release notes"
+  }
 ]
