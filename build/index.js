@@ -29,7 +29,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$c = ".dx-accordion {\n  margin: 0;\n}\n.dx-accordion .accordion-heading {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: #bfd4e4;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 14px;\n  color: #54565a;\n  padding: 13px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.dx-accordion .accordion-heading .icon {\n  line-height: 0;\n}\n.dx-accordion .accordion-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-accordion .accordion-content > *:first-child {\n  margin-top: 0;\n}\n.dx-accordion .accordion-content > *:last-child {\n  margin-bottom: 0;\n}";
+var css_248z$c = ".dx-accordion {\n  margin: 0;\n}\n.dx-accordion .accordion-heading {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: #bfd4e4;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 14px;\n  color: #54565a;\n  padding: 13px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.dx-accordion .accordion-heading .icon {\n  line-height: 0;\n}\n.dx-accordion .accordion-heading__left {\n  align-self: left;\n}\n.dx-accordion .accordion-content {\n  padding: 13px 20px 20px 20px;\n  border-bottom: 1px solid #bfd4e4;\n}\n.dx-accordion .accordion-content > *:first-child {\n  margin-top: 0;\n}\n.dx-accordion .accordion-content > *:last-child {\n  margin-bottom: 0;\n}";
 styleInject(css_248z$c);
 
 function DxAccordion(props) {
@@ -49,9 +49,10 @@ function DxAccordion(props) {
         icon = React.createElement(GenesysDevIcon, { icon: props.headingIcon, className: "heading-icon" });
     return (React.createElement("div", { id: props.containerId || undefined, className: `dx-accordion${props.className ? ' ' + props.className : ''}` },
         React.createElement("div", { className: 'accordion-heading', style: style, onClick: () => setIsOpen(!isOpen) },
-            icon,
-            " ",
-            props.title,
+            React.createElement("span", { className: 'accordion-heading__left' },
+                icon,
+                " ",
+                props.title),
             " ",
             React.createElement(GenesysDevIcon, { icon: isOpen ? GenesysDevIcons.AppChevronUp : GenesysDevIcons.AppChevronDown })),
         isOpen ? React.createElement("div", { className: 'accordion-content' }, props.children) : undefined));
@@ -370,43 +371,45 @@ var css_248z = ".dx-toggle-container {\n  display: inline-block;\n}\n.dx-toggle-
 styleInject(css_248z);
 
 function DxToggle(props) {
-    return React.createElement("div", null);
-    // let initialValue: boolean | undefined = props.value !== undefined ? props.value : props.initialValue;
-    // if (!props.isTriState) initialValue = initialValue || false;
-    // const [value, setValue] = useState<boolean | undefined>(initialValue);
-    // const trueIcon = props.trueIcon || GenesysDevIcons.AppCheck;
-    // const falseIcon = props.falseIcon || GenesysDevIcons.AppTimes;
-    // useEffect(() => {
-    // 	if (props.initialValue || props.value === value || (!props.isTriState && props.value === undefined)) return;
-    // 	setValue(props.value);
-    // }, [props.value]);
-    // useEffect(() => {
-    // 	if (props.onChange) props.onChange(value);
-    // 	// eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [value]);
-    // const toggleValue = () => {
-    // 	if (props.disabled) return;
-    // 	if (props.isTriState) {
-    // 		if (value === undefined) setValue(true);
-    // 		else if (value === true) setValue(false);
-    // 		else setValue(undefined);
-    // 	} else {
-    // 		setValue(!value);
-    // 	}
-    // };
-    // return (
-    // 	<DxLabel label={props.label} description={props.description} className={props.className}>
-    // 		<div className={`dx-toggle-container${props.disabled ? ' disabled' : ''}`}>
-    // 			<div className='dx-toggle' onClick={toggleValue}>
-    // 				{value !== false ? <GenesysDevIcon icon={falseIcon} /> : undefined}
-    // 				{value === true && props.isTriState ? <div className='clear-placeholder'>&nbsp;</div> : undefined}
-    // 				<div className='slider'>{value !== undefined ? <GenesysDevIcon icon={value ? trueIcon : falseIcon} /> : undefined}</div>
-    // 				{value === false && props.isTriState ? <div className='clear-placeholder'>&nbsp;</div> : undefined}
-    // 				{value !== true ? <GenesysDevIcon icon={trueIcon} /> : undefined}
-    // 			</div>
-    // 		</div>
-    // 	</DxLabel>
-    // );
+    let initialValue = props.value !== undefined ? props.value : props.initialValue;
+    if (!props.isTriState)
+        initialValue = initialValue || false;
+    const [value, setValue] = useState(initialValue);
+    const trueIcon = props.trueIcon || GenesysDevIcons.AppCheck;
+    const falseIcon = props.falseIcon || GenesysDevIcons.AppTimes;
+    useEffect(() => {
+        if (props.initialValue || props.value === value || (!props.isTriState && props.value === undefined))
+            return;
+        setValue(props.value);
+    }, [props.value]);
+    useEffect(() => {
+        if (props.onChange)
+            props.onChange(value);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [value]);
+    const toggleValue = () => {
+        if (props.disabled)
+            return;
+        if (props.isTriState) {
+            if (value === undefined)
+                setValue(true);
+            else if (value === true)
+                setValue(false);
+            else
+                setValue(undefined);
+        }
+        else {
+            setValue(!value);
+        }
+    };
+    return (React.createElement(DxLabel, { label: props.label, description: props.description, className: props.className },
+        React.createElement("div", { className: `dx-toggle-container${props.disabled ? ' disabled' : ''}` },
+            React.createElement("div", { className: 'dx-toggle', onClick: toggleValue },
+                value !== false ? React.createElement(GenesysDevIcon, { icon: falseIcon }) : undefined,
+                value === true && props.isTriState ? React.createElement("div", { className: 'clear-placeholder' }, "\u00A0") : undefined,
+                React.createElement("div", { className: 'slider' }, value !== undefined ? React.createElement(GenesysDevIcon, { icon: value ? trueIcon : falseIcon }) : undefined),
+                value === false && props.isTriState ? React.createElement("div", { className: 'clear-placeholder' }, "\u00A0") : undefined,
+                value !== true ? React.createElement(GenesysDevIcon, { icon: trueIcon }) : undefined))));
 }
 
 export { DxAccordion, DxAccordionGroup, DxButton, DxCheckbox, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle };

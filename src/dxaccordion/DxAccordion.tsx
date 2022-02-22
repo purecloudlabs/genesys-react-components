@@ -24,7 +24,7 @@ export default function DxAccordion(props: DxAccordionProps) {
 	return (
 		<div id={props.containerId || undefined} className={`dx-accordion${props.className ? ' ' + props.className : ''}`}>
 			<div className='accordion-heading' style={style} onClick={() => setIsOpen(!isOpen)}>
-				{icon} {props.title} <GenesysDevIcon icon={isOpen ? GenesysDevIcons.AppChevronUp : GenesysDevIcons.AppChevronDown} />
+				<span className='accordion-heading__left'>{icon} {props.title}</span> <GenesysDevIcon icon={isOpen ? GenesysDevIcons.AppChevronUp : GenesysDevIcons.AppChevronDown} />
 			</div>
 			{isOpen ? <div className='accordion-content'>{props.children}</div> : undefined}
 		</div>
