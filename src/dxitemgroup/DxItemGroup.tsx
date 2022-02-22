@@ -12,7 +12,7 @@ import DxCheckbox from './DxCheckbox';
 export default function DxItemGroup(props: DxItemGroupProps) {
 	const [data, setData] = useState<DxItemGroupItemValue[]>(
 		props.items.map((item) => {
-			return { item, isSelected: false };
+			return { item, isSelected: item.isSelected !== undefined ? item.isSelected : false };
 		})
 	);
 	const [id] = useState(uuid());
@@ -39,7 +39,7 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 		setClassName(props.className);
 		setData(
 			props.items.map((item) => {
-				return { item, isSelected: false };
+				return { item, isSelected: item.isSelected !== undefined ? item.isSelected : false };
 			})
 		);
 	}, [props.title, props.description, props.format, props.items, props.disabled, props.className]);
@@ -77,7 +77,16 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 			return (
 				<DxLabel label={title} description={description} className={className}>
 					<div className={`dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${disabled ? ' disabled' : ''}`}>
-						<select multiple={isMulti} disabled={disabled === true} onChange={(e) => selectChanged(e)}>
+						<select
+							multiple={isMulti}
+							disabled={disabled === true}
+							onChange={(e) => selectChanged(e)}
+							value={
+								isMulti
+									? data.filter((item) => item.isSelected)?.map((item) => item.item.value)
+									: data.find((item) => item.isSelected)?.item.value
+							}
+						>
 							{data.map((d, i) => (
 								<option key={i} value={d.item.value} disabled={d.item.disabled}>
 									{d.item.label}
@@ -111,7 +120,7 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 								name={format === 'checkbox' ? `${id}-${d.item.value}` : id}
 								label={d.item.label}
 								itemValue={d.item.value}
-								initiallyChecked={d.isSelected}
+								checked={d.isSelected}
 								useRadioType={format === 'radio'}
 								disabled={disabled || d.item.disabled}
 							/>

@@ -1,5 +1,15 @@
 [
 	{
+		"version": "0.1.0-alpha.13",
+		"notes": "",
+		"features": ["DxItemGroup - support providing item values, i.e. value binding"]
+	},
+	{
+		"version": "0.1.0-alpha.12",
+		"notes": "package dependency updates",
+		"bugfixes": ["react ^16"]
+	},
+	{
 		"version": "0.1.0-alpha.11",
 		"notes": "DxItemGroup bugfixes",
 		"bugfixes": ["DxItemGroup - refined selection/eventing behavior for radio group"]

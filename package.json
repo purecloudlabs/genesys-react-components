@@ -1,6 +1,6 @@
 {
 	"name": "genesys-react-components",
-	"version": "0.1.0-alpha.11",
+	"version": "0.1.0-alpha.13",
 	"description": "A React component library containing standardized form elements.",
 	"main": "build/index.js",
 	"module": "build/index.js",
@@ -24,11 +24,11 @@
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^21.0.1",
 		"@rollup/plugin-node-resolve": "^13.0.6",
-		"@types/react": "^17.0.37",
+		"@types/react": "^16",
 		"genesys-dev-icons": "^0.1.12",
 		"node-sass": "^6.0.1",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
+		"react": "^16",
+		"react-dom": "^16",
 		"rollup": "^2.60.2",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
 		"rollup-plugin-postcss": "^4.0.2",
@@ -39,8 +39,8 @@
 	},
 	"peerDependencies": {
 		"genesys-dev-icons": "^0.1.12",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
+		"react": "^16",
+		"react-dom": "^16",
 		"uuid": "^8.3.2"
 	}
 }

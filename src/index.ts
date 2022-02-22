@@ -33,6 +33,7 @@ export interface DxItemGroupItem {
 	label: string;
 	value: string;
 	disabled?: boolean;
+	isSelected?: boolean;
 }
 
 // Item value of a DxItemGroupItem in a DxItemGroup

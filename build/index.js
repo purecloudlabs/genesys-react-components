@@ -115,20 +115,14 @@ function DxCheckbox(props) {
             props.onCheckChanged(checked);
     }, [checked]);
     return (React.createElement("label", { className: `dx-checkbox${props.className ? ' ' + props.className : ''}${props.disabled ? ' disabled' : ''}` },
-        React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, 
-            // id={props.label}
-            value: props.itemValue, 
-            /* HACK/TODO: break radio buttons out or control them properly. The checked property must be controlled in the context of the
-             * entire group. Isolation in this component is preventing the state from being updated when another item is selected.
-             * BUG: Radio buttons don't raise events after they've been selected the first time because the state remains true.
-             */
-            checked: props.useRadioType ? undefined : checked, onChange: (e) => setChecked(e.target.checked), disabled: props.disabled === true }),
+        React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, value: props.itemValue, checked: checked, onChange: (e) => setChecked(e.target.checked), disabled: props.disabled === true }),
         React.createElement("span", { className: 'label-text' }, props.label)));
 }
 
 function DxItemGroup(props) {
+    var _a, _b;
     const [data, setData] = useState(props.items.map((item) => {
-        return { item, isSelected: false };
+        return { item, isSelected: item.isSelected !== undefined ? item.isSelected : false };
     }));
     const [id] = useState(v4());
     const [title, setTitle] = useState(props.title);
@@ -152,7 +146,7 @@ function DxItemGroup(props) {
         setDisabled(props.disabled);
         setClassName(props.className);
         setData(props.items.map((item) => {
-            return { item, isSelected: false };
+            return { item, isSelected: item.isSelected !== undefined ? item.isSelected : false };
         }));
     }, [props.title, props.description, props.format, props.items, props.disabled, props.className]);
     // Handle individual item changed
@@ -188,7 +182,9 @@ function DxItemGroup(props) {
             const isMulti = format === 'multiselect';
             return (React.createElement(DxLabel, { label: title, description: description, className: className },
                 React.createElement("div", { className: `dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${disabled ? ' disabled' : ''}` },
-                    React.createElement("select", { multiple: isMulti, disabled: disabled === true, onChange: (e) => selectChanged(e) }, data.map((d, i) => (React.createElement("option", { key: i, value: d.item.value, disabled: d.item.disabled }, d.item.label)))))));
+                    React.createElement("select", { multiple: isMulti, disabled: disabled === true, onChange: (e) => selectChanged(e), value: isMulti
+                            ? (_a = data.filter((item) => item.isSelected)) === null || _a === void 0 ? void 0 : _a.map((item) => item.item.value)
+                            : (_b = data.find((item) => item.isSelected)) === null || _b === void 0 ? void 0 : _b.item.value }, data.map((d, i) => (React.createElement("option", { key: i, value: d.item.value, disabled: d.item.disabled }, d.item.label)))))));
         }
         case 'checkbox':
         case 'radio':
@@ -200,7 +196,7 @@ function DxItemGroup(props) {
                         if (i < 0)
                             return;
                         itemChanged(i, data[i].item, (_a = e.target) === null || _a === void 0 ? void 0 : _a.checked);
-                    } }, data.map((d, i) => (React.createElement(DxCheckbox, { key: d.item.value, name: format === 'checkbox' ? `${id}-${d.item.value}` : id, label: d.item.label, itemValue: d.item.value, initiallyChecked: d.isSelected, useRadioType: format === 'radio', disabled: disabled || d.item.disabled }))))));
+                    } }, data.map((d, i) => (React.createElement(DxCheckbox, { key: d.item.value, name: format === 'checkbox' ? `${id}-${d.item.value}` : id, label: d.item.label, itemValue: d.item.value, checked: d.isSelected, useRadioType: format === 'radio', disabled: disabled || d.item.disabled }))))));
         }
     }
 }
