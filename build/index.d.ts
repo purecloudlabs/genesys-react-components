@@ -73,6 +73,10 @@ export interface DxAccordionProps {
     children: React.ReactNode;
     showOpen?: boolean;
     className?: string;
+    expandTrigger?: any;
+    containerId?: string;
+    headingIcon?: any;
+    headingColor?: string;
 }
 export interface DxItemGroupProps {
     title?: string;
