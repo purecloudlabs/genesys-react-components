@@ -89,7 +89,7 @@ Run the following command to publish the demo app to the GitHub Pages site:
 ```
 cd app
 yarn unlink
-yarn publish
+yarn deploy
 ```
 
 ## Troubleshooting

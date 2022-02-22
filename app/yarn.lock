@@ -5450,10 +5450,12 @@ genesys-dev-icons@^0.1.12:
   resolved "https://registry.npmjs.org/genesys-dev-icons/-/genesys-dev-icons-0.1.12.tgz"
   integrity sha512-jFE8S2VDfkZLyVlX5OLJQ2aobS6w8fwmzUu0BYSl8VuFyoPAteBSThairhrPx4isnsG7TvkjB/5tLEBj0w4d2Q==
 
-genesys-react-components@^0.1.0-alpha.13:
-  version "0.1.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/genesys-react-components/-/genesys-react-components-0.1.0-alpha.13.tgz#ebc9efccdb9396576249fa17ca7c57800c92f7b1"
-  integrity sha512-nPGNuJajYZRWY7NfneIPLoDCS4z6yHRDX6DeHMM4pnK8A+jNXq5Pm+8RlSZv2h5cRZfKli/6uwlp/Q2teI7/fA==
+genesys-react-components@^0.1.0-alpha.14:
+  version "0.1.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/genesys-react-components/-/genesys-react-components-0.1.0-alpha.14.tgz#cbf5bcaf40ba93203c362eb5306359480a59b15f"
+  integrity sha512-z9Vrp5IeSeixwOtDvumADlFN9dDpv/aRTEH2ZujBMUZ/m2qVCHfqIBkvJOMxdnq07WaSX1WSun6XWQklOCQnIA==
+  dependencies:
+    postcss "^8.4.6"
 
 gensync@^1.0.0-beta.1, gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
@@ -7806,6 +7808,11 @@ nanoid@^3.1.30:
   resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.1.30.tgz"
   integrity sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==
 
+nanoid@^3.2.0:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.1.tgz#6347a18cac88af88f58af0b3594b723d5e99bb35"
+  integrity sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.npmjs.org/nanomatch/-/nanomatch-1.2.13.tgz"
@@ -9265,6 +9272,15 @@ postcss@^8.1.0:
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
 
+postcss@^8.4.6:
+  version "8.4.6"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.6.tgz#c5ff3c3c457a23864f32cb45ac9b741498a09ae1"
+  integrity sha512-OovjwIzs9Te46vlEx7+uXB0PLijpwjXGKXjVGGPIGubGpq7uh5Xgf6D6FiJ/SzJMBosHDp6a2hiXOS97iBXcaA==
+  dependencies:
+    nanoid "^3.2.0"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
@@ -10470,6 +10486,11 @@ source-map-js@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.1.tgz"
   integrity sha512-4+TN2b3tqOCd/kaGRJ/sTYA0tR0mdXx26ipdolxcwtJVqEnqNYvlCAt1q3ypy4QMlYus+Zh34RNtYLoq2oQ4IA==
+
+source-map-js@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
+  integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
 source-map-resolve@^0.5.0, source-map-resolve@^0.5.2:
   version "0.5.3"
