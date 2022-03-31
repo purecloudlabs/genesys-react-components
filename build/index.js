@@ -35,12 +35,25 @@ styleInject(css_248z$c);
 function DxAccordion(props) {
     const [isOpen, setIsOpen] = useState(props.showOpen || false);
     const [expandTrigger, setExpandTrigger] = useState(props.expandTrigger);
+    const [showOpenTrigger, setShowOpenTrigger] = useState(props.showOpenTrigger);
+    // This one forcibly opens the component
     React.useEffect(() => {
         if (props.expandTrigger !== expandTrigger) {
             setIsOpen(true);
             setExpandTrigger(props.expandTrigger);
         }
     }, [props.expandTrigger, expandTrigger]);
+    // This one forcibly recalculates the state based on the value for props.showOpen
+    React.useEffect(() => {
+        if (props.showOpenTrigger !== showOpenTrigger) {
+            setIsOpen(props.showOpen);
+            setShowOpenTrigger(props.showOpenTrigger);
+        }
+    }, [props.showOpenTrigger, showOpenTrigger, props.showOpen]);
+    React.useEffect(() => {
+        if (props.showOpen === true || props.showOpen === false)
+            setIsOpen(props.showOpen);
+    }, [props.showOpen]);
     let style = {};
     if (props.headingColor)
         style.color = props.headingColor;
@@ -48,14 +61,14 @@ function DxAccordion(props) {
     if (props.headingIcon)
         icon = React.createElement(GenesysDevIcon, { icon: props.headingIcon, className: "heading-icon" });
     return (React.createElement("div", { id: props.containerId || undefined, className: `dx-accordion${props.className ? ' ' + props.className : ''}` },
-        React.createElement("div", { className: 'accordion-heading', style: style, onClick: () => setIsOpen(!isOpen) },
-            React.createElement("span", { className: 'accordion-heading__left' },
+        React.createElement("div", { className: "accordion-heading", style: style, onClick: () => setIsOpen(!isOpen) },
+            React.createElement("span", { className: "accordion-heading__left" },
                 icon,
                 " ",
                 props.title),
-            " ",
+            ' ',
             React.createElement(GenesysDevIcon, { icon: isOpen ? GenesysDevIcons.AppChevronUp : GenesysDevIcons.AppChevronDown })),
-        isOpen ? React.createElement("div", { className: 'accordion-content' }, props.children) : undefined));
+        isOpen ? React.createElement("div", { className: "accordion-content" }, props.children) : undefined));
 }
 
 var css_248z$b = ".dx-accordion-group {\n  margin: 40px 0;\n}";
@@ -65,7 +78,7 @@ function DxAccordionGroup(props) {
     return React.createElement("div", { className: `dx-accordion-group${props.className ? ' ' + props.className : ''}` }, props.children);
 }
 
-var css_248z$a = ".dx-button {\n  margin: 15px 10px;\n  border-radius: 2px;\n  padding: 8px 15px;\n  cursor: pointer;\n  font-weight: 500;\n}\n.dx-button-primary {\n  color: #ffffff;\n  border: 1px solid #419bb2;\n  background-color: #419bb2;\n}\n.dx-button-primary:hover {\n  background-color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-primary:focus {\n  background-color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-primary:disabled {\n  background-color: #9aafb540;\n  border-color: #9aafb540;\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-secondary {\n  color: #419bb2;\n  border: 1px solid #419bb2;\n  background-color: #ffffff;\n}\n.dx-button-secondary:hover {\n  color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-secondary:focus {\n  color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-secondary:disabled {\n  color: #8a9a9e;\n  background-color: #e0e6e8;\n  border-color: #e0e6e8;\n  transition: 0.1s;\n  cursor: not-allowed;\n}";
+var css_248z$a = ".dx-button {\n  margin: 15px 10px;\n  border-radius: 2px;\n  padding: 8px 15px;\n  cursor: pointer;\n  font-weight: 500;\n}\n.dx-button-primary {\n  color: #ffffff;\n  border: 1px solid #419bb2;\n  background-color: #419bb2;\n}\n.dx-button-primary:hover {\n  background-color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-primary:focus {\n  background-color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-primary:disabled {\n  background-color: #9aafb540;\n  border-color: #9aafb540;\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-secondary {\n  color: #419bb2;\n  border: 1px solid #419bb2;\n  background-color: #ffffff;\n}\n.dx-button-secondary:hover {\n  color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-secondary:focus {\n  color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-secondary:disabled {\n  color: #8a9a9e;\n  background-color: #e0e6e8;\n  border-color: #e0e6e8;\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-link {\n  color: #2f7bb1;\n  background: transparent;\n  margin: 0;\n  padding: 0 2px;\n  border: 0;\n}\n.dx-button-link:hover {\n  color: #1c5176;\n}\n.dx-button-link:disabled {\n  color: #8a9a9e;\n  transition: 0.1s;\n  cursor: not-allowed;\n  text-decoration: line-through;\n}";
 styleInject(css_248z$a);
 
 function DxButton(props) {
@@ -80,7 +93,7 @@ function DxButton(props) {
         e.stopPropagation();
         props.onClick();
     };
-    return (React.createElement("button", { className: classNames.join(' '), type: 'button', onClick: handleClick, disabled: props.disabled === true }, props.children));
+    return (React.createElement("button", { className: classNames.join(' '), type: "button", onClick: handleClick, disabled: props.disabled === true }, props.children));
 }
 
 var css_248z$9 = ".dx-item-group {\n  display: block;\n  border: 0;\n  margin: 0;\n  padding: 0;\n}";

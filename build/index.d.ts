@@ -75,6 +75,7 @@ export interface DxAccordionProps {
     showOpen?: boolean;
     className?: string;
     expandTrigger?: any;
+    showOpenTrigger?: any;
     containerId?: string;
     headingIcon?: any;
     headingColor?: string;

@@ -4,7 +4,7 @@ import { VoidEventCallback } from '..';
 import './DxButton.scss';
 
 interface IProps {
-	type?: 'primary' | 'secondary';
+	type?: 'primary' | 'secondary' | 'link';
 	disabled?: boolean;
 	children?: React.ReactNode;
 	className?: string;
@@ -24,7 +24,7 @@ export default function DxButton(props: IProps) {
 	};
 
 	return (
-		<button className={classNames.join(' ')} type='button' onClick={handleClick} disabled={props.disabled === true}>
+		<button className={classNames.join(' ')} type="button" onClick={handleClick} disabled={props.disabled === true}>
 			{props.children}
 		</button>
 	);
