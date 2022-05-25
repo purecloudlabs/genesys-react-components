@@ -61,6 +61,13 @@ This clears the build folder and rebuilds the package from source using the roll
 
 When validating the package locally, run `npm link` in the root of this repo to create a local symlink in npm for `genesys-react-components` that points to the locally built package. Take note of the _Error: Invalid hook call_ notice in the troubleshooting section below.
 
+
+### Deploy Component Package to NPM
+
+1. Ensure the version number has been incremented appropriately in `package/package.json` in the format `x.y.x` using semantic versioning rules
+2. Run the `devengage-publish-npm-package` Jenkins job for this package
+   1. Branch builds will have the branch name and build number appended to the package version
+
 ### Demo app
 
 To build and serve the demo app locally, run:
@@ -76,21 +83,15 @@ To validate the local instance of the `genesys-react-components` package, run:
 ```sh
 cd app
 # This removes the published dependency and uses npm link to add the local version
-yarn linklib
+yarn link
 yarn start
 ```
 
-Run `yarn unlinklib` to revert to using the latest published version of the package.
+Run `yarn unlink` to revert to using the latest published version of the package.
 
 #### Publishing the demo app
 
-Run the following command to publish the demo app to the GitHub Pages site:
-
-```
-cd app
-yarn unlinklib
-yarn deploy
-```
+Mainline builds of the `devengage-publish-npm-package` Jenkins job publish the doc site.
 
 ## Troubleshooting
 
