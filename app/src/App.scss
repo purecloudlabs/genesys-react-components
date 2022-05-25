@@ -1,5 +1,55 @@
-.app {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 0 80px 200px 80px;
+$maxWidth: 800px;
+
+.app-container {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: stretch;
+	justify-content: space-between;
+
+	.app-nav {
+		flex-grow: 0;
+		flex-shrink: 0;
+
+		.nav-container {
+			max-width: $maxWidth;
+		}
+	}
+
+	.app {
+		margin: 0;
+		flex-grow: 1;
+		min-height: min-content;
+		overflow: auto;
+
+		.content {
+			max-width: $maxWidth;
+			margin: 0 auto;
+			padding: 0 80px 200px 80px;
+
+			.package-version {
+				margin-top: 180px;
+				text-align: center;
+				display: flex;
+				flex-flow: column nowrap;
+				gap: 10px;
+
+				.sources {
+					font-size: 36px;
+
+					.icon {
+						display: inline-block;
+						margin: 10px;
+						color: #ff4f1f;
+
+						&:hover {
+							color: darken(#ff4f1f, 10%);
+						}
+					}
+				}
+			}
+		}
+	}
 }

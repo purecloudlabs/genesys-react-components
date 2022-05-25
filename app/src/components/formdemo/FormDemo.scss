@@ -1,0 +1,13 @@
+.control-row {
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 40px;
+
+	.display-toggle {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 10px;
+	}
+}

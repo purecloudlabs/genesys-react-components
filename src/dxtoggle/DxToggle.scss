@@ -54,4 +54,23 @@
 			}
 		}
 	}
+
+	&.disabled {
+		.dx-toggle {
+			border-color: #e8eaed;
+			color: #ffffff;
+			cursor: not-allowed;
+
+			&:hover {
+				.slider {
+					border-color: transparent;
+				}
+			}
+
+			.slider {
+				color: #8a9a9e;
+				background-color: #e0e6e8;
+			}
+		}
+	}
 }
