@@ -157,7 +157,6 @@ function DxItemGroup(props) {
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
     const [format, setFormat] = useState(props.format);
-    const [items, setItems] = useState(props.items);
     const [disabled, setDisabled] = useState(props.disabled);
     const [className, setClassName] = useState(props.className);
     // data changed
@@ -171,13 +170,14 @@ function DxItemGroup(props) {
         setTitle(props.title);
         setDescription(props.description);
         setFormat(props.format);
-        setItems(props.items);
         setDisabled(props.disabled);
         setClassName(props.className);
+    }, [props.title, props.description, props.format, props.items, props.disabled, props.className]);
+    useEffect(() => {
         setData(props.items.map((item) => {
             return { item, isSelected: item.isSelected !== undefined ? item.isSelected : false };
         }));
-    }, [props.title, props.description, props.format, props.items, props.disabled, props.className]);
+    }, [props.items]);
     // Handle individual item changed
     const itemChanged = (idx, item, checked) => {
         if (props.onItemChanged)
