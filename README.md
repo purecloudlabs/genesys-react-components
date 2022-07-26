@@ -26,10 +26,10 @@ import { GenesysDevIcons } from 'genesys-dev-icons';
 export default function App() {
 	const inputRef = useRef<HTMLInputElement>(null);
 	return (
-		<div className='app'>
+		<div className="app">
 			<DxTextbox
-				label='1000ms debounce (default 300), removes focus on value change via onChange callback'
-				placeholder='Focus will clear 1 second after you stop typing'
+				label="1000ms debounce (default 300), removes focus on value change via onChange callback"
+				placeholder="Focus will clear 1 second after you stop typing"
 				icon={GenesysDevIcons.AppZoomZoomRight}
 				clearButton={true}
 				onChange={(value: string) => {
@@ -61,7 +61,6 @@ This clears the build folder and rebuilds the package from source using the roll
 
 When validating the package locally, run `npm link` in the root of this repo to create a local symlink in npm for `genesys-react-components` that points to the locally built package. Take note of the _Error: Invalid hook call_ notice in the troubleshooting section below.
 
-
 ### Deploy Component Package to NPM
 
 1. Ensure the version number has been incremented appropriately in `package/package.json` in the format `x.y.x` using semantic versioning rules
@@ -83,7 +82,7 @@ To validate the local instance of the `genesys-react-components` package, run:
 ```sh
 cd app
 # This removes the published dependency and uses npm link to add the local version
-yarn link
+yarn run link
 yarn start
 ```
 
