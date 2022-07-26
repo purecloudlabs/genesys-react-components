@@ -24,7 +24,7 @@ import { DxTextbox } from 'genesys-react-components';
 import { GenesysDevIcons } from 'genesys-dev-icons';
 
 export default function App() {
-	const inputRef = useRef < HTMLInputElement > null;
+	const inputRef = useRef<HTMLInputElement>(null);
 	return (
 		<div className="app">
 			<DxTextbox
