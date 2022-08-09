@@ -10,7 +10,8 @@ import DxTabbedContent from './dxtabbedcontent/DxTabbedContent';
 import DxTabPanel from './dxtabbedcontent/DxTabPanel';
 import DxTextbox from './dxtextbox/DxTextbox';
 import DxToggle from './dxtoggle/DxToggle';
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle };
+import LoadingPlaceholder from './loadingplaceholder/LoadingPlaceholder';
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, LoadingPlaceholder };
 export interface StringChangedCallback {
     (value: string): void;
 }
