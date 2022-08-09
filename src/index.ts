@@ -9,8 +9,9 @@ import DxTabbedContent from './dxtabbedcontent/DxTabbedContent';
 import DxTabPanel from './dxtabbedcontent/DxTabPanel';
 import DxTextbox from './dxtextbox/DxTextbox';
 import DxToggle from './dxtoggle/DxToggle';
+import AlertBlock from './alertblock/AlertBlock';
 
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle };
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, AlertBlock };
 
 export interface StringChangedCallback {
 	(value: string): void;
