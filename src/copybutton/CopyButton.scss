@@ -1,0 +1,8 @@
+@import '../../utils/theme/variables.scss';
+
+.copy-button {
+	cursor: pointer;
+	border: 0;
+	background: transparent;
+	color: var($--theme-core-text-color);
+}
