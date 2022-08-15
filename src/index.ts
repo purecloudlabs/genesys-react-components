@@ -10,8 +10,9 @@ import DxTabPanel from './dxtabbedcontent/DxTabPanel';
 import DxTextbox from './dxtextbox/DxTextbox';
 import DxToggle from './dxtoggle/DxToggle';
 import Tooltip from './tooltip/Tooltip';
+import CopyButton from './copybutton/CopyButton';
 
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip };
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton };
 
 export interface StringChangedCallback {
 	(value: string): void;
