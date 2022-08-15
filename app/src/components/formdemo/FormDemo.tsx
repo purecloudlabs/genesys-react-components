@@ -13,6 +13,10 @@ import {
 	DxItemGroupItem,
 	DxCheckbox,
 	DxItemGroupItemValue,
+	CopyButton,
+	Tooltip,
+	LoadingPlaceholder,
+	AlertBlock,
 } from 'genesys-react-components';
 
 import './FormDemo.scss';
@@ -642,6 +646,81 @@ export default function FormDemo() {
 						<p>interior content here</p>
 					</DxAccordion>
 				</DxAccordionGroup>
+			</Fragment>
+		),
+	});
+
+	demoSections.push({
+		title: 'CopyButton',
+		content: (
+			<Fragment>
+				<p>A copy button</p>
+				<h3>Example</h3>
+				<pre>
+					<code>{`<CopyButton 
+	copyText='A text example' 
+	className='clazzy-copybutton' 
+	tooltipPosition='right' 
+/>`}</code>
+				</pre>
+				A text example
+				<CopyButton copyText="A text example" className="clazzy-copybutton" tooltipPosition="right" />
+			</Fragment>
+		),
+	});
+
+	demoSections.push({
+		title: 'Tooltip',
+		content: (
+			<Fragment>
+				<p>A tooltip</p>
+				<h3>Example</h3>
+				<pre>
+					<code>{`<Tooltip
+	isShowing={true} 
+	text='Tooltip text example'
+	position="right"
+	className="clazzy-tooltip" 
+/>`}</code>
+				</pre>
+				<Tooltip isShowing={true} text="Tooltip text example" position="right" className="clazzy-tooltip" />
+			</Fragment>
+		),
+	});
+
+	demoSections.push({
+		title: 'LoadingPlaceholder',
+		content: (
+			<Fragment>
+				<p>A loading placeholder</p>
+				<h3>Example</h3>
+				<pre>
+					<code>{`<LoadingPlaceholder
+	text='LoadingPlaceholder text example' 
+/>`}</code>
+				</pre>
+				<LoadingPlaceholder text="LoadingPlaceholder text example" />
+			</Fragment>
+		),
+	});
+
+	demoSections.push({
+		title: 'AlertBlock',
+		content: (
+			<Fragment>
+				<p>An alert block</p>
+				<h3>Example</h3>
+				<pre>
+					<code>{`<AlertBlock
+    title='AlertBlock title example'
+    alertType='info'
+    collapsible={false}
+    autoCollapse={false}
+    indentation={1}
+    className='clazzy-alertblock'
+/>`}</code>
+				</pre>
+				<AlertBlock title="AlertBlock title example" alertType="info" />
 			</Fragment>
 		),
 	});

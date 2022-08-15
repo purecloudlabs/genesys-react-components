@@ -12,7 +12,6 @@
 		"@types/react": "^17.0.0",
 		"@types/react-dom": "^17.0.0",
 		"genesys-dev-icons": "^0.1.12",
-		"genesys-react-components": "^0.1.0-alpha.15",
 		"node-sass": "^6.0.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
