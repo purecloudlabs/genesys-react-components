@@ -303,14 +303,14 @@ export default function FormDemo() {
 				<p>For individual checkboxes</p>
 				<h3>Example</h3>
 				<pre>
-					<code>{`<DxCheckbox 
-	label='Checkbox label}' 
-	value='item-value' 
+					<code>{`<DxCheckbox
+	label='Checkbox label}'
+	value='item-value'
 	description='A description'
 	initialValue={true}
 	name='name-string'
 	className='clazzy-checkbox'
-	onCheckChanged={(checked: boolean) => console.log('value changed: ' + checked)} 
+	onCheckChanged={(checked: boolean) => console.log('value changed: ' + checked)}
 />`}</code>
 				</pre>
 				<h3>Checkboxes</h3>
@@ -657,11 +657,13 @@ export default function FormDemo() {
 				<p>A copy button</p>
 				<h3>Example</h3>
 				<pre>
-					<code>{`<CopyButton 
-	copyText='A text example' 
-	className='clazzy-copybutton' 
-	tooltipPosition='right' 
-/>`}</code>
+					<code>
+					{`<CopyButton
+	copyText='A text example'
+	className='clazzy-copybutton'
+	tooltipPosition='right'
+/>`}
+					</code>
 				</pre>
 				A text example
 				<CopyButton copyText="A text example" className="clazzy-copybutton" tooltipPosition="right" />
@@ -676,12 +678,14 @@ export default function FormDemo() {
 				<p>A tooltip</p>
 				<h3>Example</h3>
 				<pre>
-					<code>{`<Tooltip
-	isShowing={true} 
+					<code>
+					{`<Tooltip
+	isShowing={true}
 	text='Tooltip text example'
 	position="right"
-	className="clazzy-tooltip" 
-/>`}</code>
+	className="clazzy-tooltip"
+/>`}
+					</code>
 				</pre>
 				<Tooltip isShowing={true} text="Tooltip text example" position="right" className="clazzy-tooltip" />
 			</Fragment>
@@ -695,9 +699,11 @@ export default function FormDemo() {
 				<p>A loading placeholder</p>
 				<h3>Example</h3>
 				<pre>
-					<code>{`<LoadingPlaceholder
-	text='LoadingPlaceholder text example' 
-/>`}</code>
+					<code>
+					{`<LoadingPlaceholder
+	text='LoadingPlaceholder text example'
+/>`}
+					</code>
 				</pre>
 				<LoadingPlaceholder text="LoadingPlaceholder text example" />
 			</Fragment>
@@ -711,14 +717,16 @@ export default function FormDemo() {
 				<p>An alert block</p>
 				<h3>Example</h3>
 				<pre>
-					<code>{`<AlertBlock
+					<code>
+					{`<AlertBlock
     title='AlertBlock title example'
     alertType='info'
     collapsible={false}
     autoCollapse={false}
     indentation={1}
     className='clazzy-alertblock'
-/>`}</code>
+/>`}
+					</code>
 				</pre>
 				<AlertBlock title="AlertBlock title example" alertType="info" />
 			</Fragment>

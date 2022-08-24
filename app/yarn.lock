@@ -5591,7 +5591,7 @@
 
 "genesys-react-components@file:..":
   "resolved" "file:.."
-  "version" "0.1.3"
+  "version" "0.1.4"
   dependencies:
     "postcss" "^8.4.6"
 
