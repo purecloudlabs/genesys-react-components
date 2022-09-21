@@ -1,5 +1,9 @@
 # Genesys React Components
 
+![npm](https://img.shields.io/npm/v/genesys-react-components)
+
+![npm (tag)](https://img.shields.io/npm/v/genesys-react-components/preview)
+
 A React component library containing standardized form elements. Check out the live demo and full documenation at https://purecloudlabs.github.io/genesys-react-components/
 
 ## Installation
