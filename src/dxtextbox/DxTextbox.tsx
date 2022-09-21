@@ -99,7 +99,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 		case 'textarea': {
 			component = (
 				<textarea
-					className='dx-textarea'
+					className="dx-textarea"
 					placeholder={props.placeholder}
 					ref={inputRef}
 					value={value}
@@ -113,6 +113,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 						if (props.onBlur) props.onBlur();
 					}}
 					disabled={props.disabled === true}
+					autoFocus={props.autoFocus}
 				/>
 			);
 			break;
@@ -121,9 +122,9 @@ export default function DxTextbox(props: DxTextboxProps) {
 		default: {
 			component = (
 				<div className={`dx-textbox${hasLabel ? ' with-label' : ''}${props.disabled ? ' disabled' : ''}`}>
-					{props.icon ? <GenesysDevIcon icon={props.icon} className='input-icon' /> : undefined}
+					{props.icon ? <GenesysDevIcon icon={props.icon} className="input-icon" /> : undefined}
 					<input
-						className='dx-input'
+						className="dx-input"
 						type={inputType}
 						step={step}
 						value={value}
@@ -139,9 +140,10 @@ export default function DxTextbox(props: DxTextboxProps) {
 							if (props.onBlur) props.onBlur();
 						}}
 						disabled={props.disabled === true}
+						autoFocus={props.autoFocus}
 					/>
 					{props.clearButton && (value || isFocused) && !props.disabled ? (
-						<GenesysDevIcon icon={GenesysDevIcons.AppTimes} className='clear-icon' onClick={() => setValue('')} />
+						<GenesysDevIcon icon={GenesysDevIcons.AppTimes} className="clear-icon" onClick={() => setValue('')} />
 					) : undefined}
 				</div>
 			);
