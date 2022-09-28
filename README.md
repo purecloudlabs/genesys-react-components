@@ -12,12 +12,6 @@ A React component library containing standardized form elements. Check out the l
 npm i genesys-react-components
 # install peer dependencies if necessary
 npm i genesys-dev-icons uuid
-
-# or
-
-yarn add genesys-react-components
-# install peer dependencies if necessary
-yarn add genesys-dev-icons uuid
 ```
 
 ## Usage
@@ -77,8 +71,8 @@ To build and serve the demo app locally, run:
 
 ```sh
 cd app
-yarn install
-yarn start
+npm install
+npm run start
 ```
 
 To validate the local instance of the `genesys-react-components` package, run:
@@ -86,11 +80,11 @@ To validate the local instance of the `genesys-react-components` package, run:
 ```sh
 cd app
 # This removes the published dependency and uses npm link to add the local version
-yarn run link
-yarn start
+npm run link
+npm run start
 ```
 
-Run `yarn unlink` to revert to using the latest published version of the package.
+Run `npm run unlink` to revert to using the latest published version of the package.
 
 #### Publishing the demo app
 
@@ -112,4 +106,4 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
 
 The cause of the issue is the first reason. The react-dom dependency is sourced from different locations for the component package and the React app that's using it. The package loads `<thisrepo>/node_modules/react_dom/` but the React app loads `<thisrepo>/app/node_modules/react-dom/` causing them to be different packages even though the loaded versions are identical.
 
-The solution is to delete `<thisrepo>/node_modules/` when using `npm link` in a any local React app. It doesn't seem to matter the order of operations as long as the folder is gone before `yarn start` is run to build the React app.
+The solution is to delete `<thisrepo>/node_modules/` when using `npm link` in a any local React app. It doesn't seem to matter the order of operations as long as the folder is gone before `npm run start` is run to build the React app.

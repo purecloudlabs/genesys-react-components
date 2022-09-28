@@ -1,5 +1,9 @@
 [
 	{
+		"version": "0.2.1",
+		"notes": "Update doc app to React 18"
+	},
+	{
 		"version": "0.2.0",
 		"notes": "New package structure"
 	},

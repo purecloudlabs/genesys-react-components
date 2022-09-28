@@ -1,6 +1,6 @@
 {
 	"name": "genesys-react-components",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "A React component library containing standardized form elements.",
 	"type": "module",
 	"types": "build/index.d.ts",
