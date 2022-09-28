@@ -1,14 +1,20 @@
 {
 	"name": "genesys-react-components",
-	"version": "0.1.6",
+	"version": "0.2.0",
 	"description": "A React component library containing standardized form elements.",
-	"main": "build/index.js",
-	"module": "build/index.js",
+	"type": "module",
+	"types": "build/index.d.ts",
+	"exports": {
+		"require": "./src/index.ts",
+		"default": "./build/index.js"
+	},
 	"files": [
-		"build"
+		"build",
+		"src"
 	],
 	"scripts": {
-		"build": "rm -rf build && rollup -c rollup.config.js",
+		"build": "echo \"skipping rollup build\"",
+		"build-rollup": "rm -rf build && rollup -c rollup.config.js",
 		"test": "echo \"0/0 tests passed. That's technically a perfect score. Keep up the great work!\""
 	},
 	"repository": {

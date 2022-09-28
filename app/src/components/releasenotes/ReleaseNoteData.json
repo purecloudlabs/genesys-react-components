@@ -1,5 +1,9 @@
 [
 	{
+		"version": "0.2.0",
+		"notes": "New package structure"
+	},
+	{
 		"version": "0.1.6",
 		"notes": "Adding autoFocus option",
 		"features": ["DxTextbox - added optional autoFocus option"]
