@@ -1,26 +1,18 @@
 {
   "files": {
-    "main.css": "/genesys-react-components/static/css/main.65f3f99e.chunk.css",
-    "main.js": "/genesys-react-components/static/js/main.278f0ada.chunk.js",
-    "main.js.map": "/genesys-react-components/static/js/main.278f0ada.chunk.js.map",
-    "runtime-main.js": "/genesys-react-components/static/js/runtime-main.df480919.js",
-    "runtime-main.js.map": "/genesys-react-components/static/js/runtime-main.df480919.js.map",
-    "static/css/2.3b104b91.chunk.css": "/genesys-react-components/static/css/2.3b104b91.chunk.css",
-    "static/js/2.a26676a2.chunk.js": "/genesys-react-components/static/js/2.a26676a2.chunk.js",
-    "static/js/2.a26676a2.chunk.js.map": "/genesys-react-components/static/js/2.a26676a2.chunk.js.map",
-    "static/js/3.d06ff0f1.chunk.js": "/genesys-react-components/static/js/3.d06ff0f1.chunk.js",
-    "static/js/3.d06ff0f1.chunk.js.map": "/genesys-react-components/static/js/3.d06ff0f1.chunk.js.map",
+    "main.css": "/genesys-react-components/static/css/main.48269859.css",
+    "main.js": "/genesys-react-components/static/js/main.56c3c903.js",
+    "static/js/787.ee4d86e2.chunk.js": "/genesys-react-components/static/js/787.ee4d86e2.chunk.js",
+    "static/media/genesys-dev-icons.eot?": "/genesys-react-components/static/media/genesys-dev-icons.d2e8cd3131a98ae739fd.eot",
+    "static/media/genesys-dev-icons.woff?": "/genesys-react-components/static/media/genesys-dev-icons.197032f958668532e1d1.woff",
+    "static/media/genesys-dev-icons.woff2?": "/genesys-react-components/static/media/genesys-dev-icons.2ab534918d2c180f7b80.woff2",
     "index.html": "/genesys-react-components/index.html",
-    "static/css/2.3b104b91.chunk.css.map": "/genesys-react-components/static/css/2.3b104b91.chunk.css.map",
-    "static/css/main.65f3f99e.chunk.css.map": "/genesys-react-components/static/css/main.65f3f99e.chunk.css.map",
-    "static/js/2.a26676a2.chunk.js.LICENSE.txt": "/genesys-react-components/static/js/2.a26676a2.chunk.js.LICENSE.txt",
-    "static/media/genesys-dev-icons.css": "/genesys-react-components/static/media/genesys-dev-icons.d2e8cd31.eot"
+    "main.48269859.css.map": "/genesys-react-components/static/css/main.48269859.css.map",
+    "main.56c3c903.js.map": "/genesys-react-components/static/js/main.56c3c903.js.map",
+    "787.ee4d86e2.chunk.js.map": "/genesys-react-components/static/js/787.ee4d86e2.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.df480919.js",
-    "static/css/2.3b104b91.chunk.css",
-    "static/js/2.a26676a2.chunk.js",
-    "static/css/main.65f3f99e.chunk.css",
-    "static/js/main.278f0ada.chunk.js"
+    "static/css/main.48269859.css",
+    "static/js/main.56c3c903.js"
   ]
 }
