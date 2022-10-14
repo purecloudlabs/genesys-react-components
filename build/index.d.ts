@@ -65,6 +65,7 @@ export interface DxTextboxProps {
     placeholder?: string;
     icon?: GenesysDevIcons;
     clearButton?: boolean;
+    clearOnEscape?: boolean;
     onChange?: StringChangedCallback;
     changeDebounceMs?: number;
     inputRef?: React.RefObject<HTMLInputElement>;
