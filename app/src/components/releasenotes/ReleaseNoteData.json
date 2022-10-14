@@ -1,5 +1,10 @@
 [
 	{
+		"version": "0.2.3",
+		"notes": "clearOnEscape feature",
+		"features": ["DxTextbox - added clearOnEscape option to disable esc key behavior"]
+	},
+	{
 		"version": "0.2.2",
 		"notes": "Build fixes",
 		"bugfixes": ["fixed rollup build config"]
