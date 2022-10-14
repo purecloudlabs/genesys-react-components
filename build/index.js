@@ -345,7 +345,7 @@ function DxTextbox(props) {
     let component;
     switch (inputType) {
         case 'textarea': {
-            component = (React.createElement("textarea", { className: 'dx-textarea', placeholder: props.placeholder, ref: inputRef, value: value, onChange: (e) => setValue(e.target.value), onFocus: () => {
+            component = (React.createElement("textarea", { className: "dx-textarea", placeholder: props.placeholder, ref: inputRef, value: value, onChange: (e) => setValue(e.target.value), onFocus: () => {
                     setIsFocused(true);
                     if (props.onFocus)
                         props.onFocus();
@@ -353,14 +353,14 @@ function DxTextbox(props) {
                     setIsFocused(false);
                     if (props.onBlur)
                         props.onBlur();
-                }, disabled: props.disabled === true }));
+                }, disabled: props.disabled === true, autoFocus: props.autoFocus }));
             break;
         }
         // TODO: special handling for other inputType values
         default: {
             component = (React.createElement("div", { className: `dx-textbox${hasLabel ? ' with-label' : ''}${props.disabled ? ' disabled' : ''}` },
-                props.icon ? React.createElement(GenesysDevIcon, { icon: props.icon, className: 'input-icon' }) : undefined,
-                React.createElement("input", { className: 'dx-input', type: inputType, step: step, value: value, placeholder: props.placeholder, onChange: (e) => setValue(e.target.value), ref: inputRef, onFocus: () => {
+                props.icon ? React.createElement(GenesysDevIcon, { icon: props.icon, className: "input-icon" }) : undefined,
+                React.createElement("input", { className: "dx-input", type: inputType, step: step, value: value, placeholder: props.placeholder, onChange: (e) => setValue(e.target.value), ref: inputRef, onFocus: () => {
                         setIsFocused(true);
                         if (props.onFocus)
                             props.onFocus();
@@ -368,8 +368,8 @@ function DxTextbox(props) {
                         setIsFocused(false);
                         if (props.onBlur)
                             props.onBlur();
-                    }, disabled: props.disabled === true }),
-                props.clearButton && (value || isFocused) && !props.disabled ? (React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppTimes, className: 'clear-icon', onClick: () => setValue('') })) : undefined));
+                    }, disabled: props.disabled === true, autoFocus: props.autoFocus }),
+                props.clearButton && (value || isFocused) && !props.disabled ? (React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppTimes, className: "clear-icon", onClick: () => setValue('') })) : undefined));
         }
     }
     // Render
