@@ -282,7 +282,7 @@ function DxTextbox(props) {
     // Escape pressed
     useEffect(() => {
         var _a;
-        if (!isFocused)
+        if (!isFocused || props.clearOnEscape === false)
             return;
         setValue('');
         (_a = inputRef.current) === null || _a === void 0 ? void 0 : _a.blur();

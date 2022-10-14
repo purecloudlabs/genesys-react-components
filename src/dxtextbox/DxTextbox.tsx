@@ -33,7 +33,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Escape pressed
 	useEffect(() => {
-		if (!isFocused) return;
+		if (!isFocused || props.clearOnEscape === false) return;
 		setValue('');
 		inputRef.current?.blur();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
