@@ -4,15 +4,7 @@
 	"private": true,
 	"homepage": "https://purecloudlabs.github.io/genesys-react-components",
 	"dependencies": {
-		"@testing-library/jest-dom": "^5.11.4",
-		"@testing-library/react": "^11.1.0",
-		"@testing-library/user-event": "^12.1.10",
-		"@types/jest": "^26.0.15",
-		"@types/node": "^12.0.0",
-		"@types/react": "^18.0.21",
-		"@types/react-dom": "^18.0.6",
 		"genesys-dev-icons": "^0.1.30",
-		"genesys-react-components": "^0.2.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.4.1",
@@ -49,6 +41,13 @@
 		]
 	},
 	"devDependencies": {
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/react": "^11.1.0",
+		"@testing-library/user-event": "^12.1.10",
+		"@types/jest": "^26.0.15",
+		"@types/node": "^12.0.0",
+		"@types/react": "^18.0.21",
+		"@types/react-dom": "^18.0.6",
 		"@types/uuid": "^8.3.1"
 	}
 }

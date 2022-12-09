@@ -78,7 +78,7 @@ function DxAccordionGroup(props) {
     return React.createElement("div", { className: `dx-accordion-group${props.className ? ' ' + props.className : ''}` }, props.children);
 }
 
-var css_248z$e = ".dx-button {\n  margin: 15px 10px;\n  border-radius: 2px;\n  padding: 8px 15px;\n  cursor: pointer;\n  font-weight: 500;\n}\n.dx-button-primary {\n  color: #ffffff;\n  border: 1px solid #419bb2;\n  background-color: #419bb2;\n}\n.dx-button-primary:hover {\n  background-color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-primary:focus {\n  background-color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-primary:disabled {\n  background-color: #9aafb540;\n  border-color: #9aafb540;\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-secondary {\n  color: #419bb2;\n  border: 1px solid #419bb2;\n  background-color: #ffffff;\n}\n.dx-button-secondary:hover {\n  color: #317b8d;\n  border-color: #317b8d;\n  transition: 0.1s;\n}\n.dx-button-secondary:focus {\n  color: #419bb2;\n  border-color: #419bb2;\n  box-shadow: 0 0 0 2px #aac9ff;\n  transition: 0.1s;\n}\n.dx-button-secondary:disabled {\n  color: #8a9a9e;\n  background-color: #e0e6e8;\n  border-color: #e0e6e8;\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-link {\n  color: #2f7bb1;\n  background: transparent;\n  margin: 0;\n  padding: 0 2px;\n  border: 0;\n}\n.dx-button-link:hover {\n  color: #1c5176;\n}\n.dx-button-link:disabled {\n  color: #8a9a9e;\n  transition: 0.1s;\n  cursor: not-allowed;\n  text-decoration: line-through;\n}";
+var css_248z$e = "/*** \n * Core colors\n ***/\n/*** \n* Component-specific properties \n***/\n/*** \n* Theme definitions\n***/\n.dx-button {\n  margin: 15px 10px;\n  border-radius: 2px;\n  padding: 8px 15px;\n  cursor: pointer;\n  font-weight: 500;\n}\n.dx-button-primary {\n  color: var(--theme-dxbutton-primary-text-color);\n  border: 1px solid var(--theme-dxbutton-primary-background-color);\n  background-color: var(--theme-dxbutton-primary-background-color);\n}\n.dx-button-primary:hover {\n  background-color: var(--theme-dxbutton-primary-hover-background-color);\n  border-color: var(--theme-dxbutton-primary-hover-background-color);\n  transition: 0.1s;\n}\n.dx-button-primary:focus {\n  background-color: var(--theme-dxbutton-primary-background-color);\n  border-color: var(--theme-dxbutton-primary-background-color);\n  box-shadow: 0 0 0 2px var(--theme-dxbutton-primary-shadow-color);\n  transition: 0.1s;\n}\n.dx-button-primary:disabled {\n  background-color: var(--theme-dxbutton-primary-disabled-background-color);\n  border-color: var(--theme-dxbutton-primary-disabled-background-color);\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-secondary {\n  background-color: var(--theme-dxbutton-secondary-background-color);\n  border: 1px solid var(--theme-dxbutton-secondary-border-color);\n  color: var(--theme-dxbutton-secondary-border-color);\n}\n.dx-button-secondary:hover {\n  color: var(--theme-dxbutton-secondary-hover-border-color);\n  border-color: var(--theme-dxbutton-secondary-border-color);\n  transition: 0.1s;\n}\n.dx-button-secondary:focus {\n  color: var(--theme-dxbutton-secondary-border-color);\n  border-color: var(--theme-dxbutton-secondary-border-color);\n  box-shadow: 0 0 0 2px var(--theme-dxbutton-secondary-shadow-color);\n  transition: 0.1s;\n}\n.dx-button-secondary:disabled {\n  color: var(--theme-dxbutton-secondary-disabled-text-color);\n  background-color: var(--theme-dxbutton-secondary-disabled-background-color);\n  border-color: var(--theme-dxbutton-secondary-disabled-background-color);\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-link {\n  color: var(--theme-core-link-color);\n  background: transparent;\n  margin: 0;\n  padding: 0 2px;\n  border: 0;\n}\n.dx-button-link:hover {\n  color: var(--theme-core-link-hover-color);\n  border-color: var(--theme-dxbutton-secondary-border-color);\n}\n.dx-button-link:disabled {\n  color: #8a9a9e;\n  transition: 0.1s;\n  cursor: not-allowed;\n  text-decoration: line-through;\n}";
 styleInject(css_248z$e);
 
 function DxButton(props) {
@@ -464,12 +464,104 @@ function AlertBlock(props) {
                 React.createElement(GenesysDevIcon, { icon: isCollapsed ? GenesysDevIcons.AppChevronDown : GenesysDevIcons.AppChevronUp }))) : undefined)));
 }
 
-var css_248z$2 = "/*** \n * Core colors\n ***/\n/*** \n* Component-specific properties \n***/\n/*** \n* Theme definitions\n***/\n.loading-placeholder {\n  position: relative;\n  width: 160px;\n  height: 160px;\n  margin: 60px auto;\n}\n.loading-placeholder .text {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 16px;\n  line-height: 20px;\n  color: var(--theme-loadingplaceholder-text-color);\n  position: relative;\n  top: 5px;\n  left: 5px;\n  opacity: 0.5;\n}\n.loading-placeholder div {\n  position: absolute;\n  border: 4px solid var(--theme-loadingplaceholder-wave-color);\n  opacity: 1;\n  border-radius: 50%;\n  animation: loading-placeholder 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;\n}\n.loading-placeholder div:nth-child(2) {\n  animation-delay: -0.5s;\n}\n@keyframes loading-placeholder {\n  0% {\n    top: 80px;\n    left: 80px;\n    width: 0;\n    height: 0;\n    opacity: 1;\n  }\n  100% {\n    top: 0px;\n    left: 0px;\n    width: 160px;\n    height: 160px;\n    opacity: 0;\n  }\n}";
+var css_248z$2 = "/*** \n * Core colors\n ***/\n/*** \n* Component-specific properties \n***/\n/*** \n* Theme definitions\n***/\n.loading-placeholder {\n  position: relative;\n  width: 160px;\n  height: 160px;\n  margin: 60px auto;\n}\n.loading-placeholder .text {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  width: 100%;\n  height: 100%;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 16px;\n  line-height: 20px;\n  color: var(--theme-loadingplaceholder-text-color);\n  position: relative;\n  top: 5px;\n  left: 5px;\n  opacity: 0.5;\n}\n.loading-placeholder div {\n  position: absolute;\n  border: 4px solid var(--theme-loadingplaceholder-wave-color);\n  opacity: 1;\n  border-radius: 50%;\n  animation: loading-placeholder 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;\n}\n.loading-placeholder div:nth-child(2) {\n  animation-delay: -0.5s;\n}\n@keyframes loading-placeholder {\n  0% {\n    top: 80px;\n    left: 80px;\n    width: 0;\n    height: 0;\n    opacity: 1;\n  }\n  100% {\n    top: 0px;\n    left: 0px;\n    width: 160px;\n    height: 160px;\n    opacity: 0;\n  }\n}";
 styleInject(css_248z$2);
 
+// SimCity loading messages! https://gist.github.com/erikcox/7e96d031d00d7ecb1a2f
+const MESSAGES = [
+    'Adding Hidden Agendas',
+    'Adjusting Bell Curves',
+    'Aesthesizing Industrial Areas',
+    'Aligning Covariance Matrices',
+    'Applying Feng Shui Shaders',
+    'Applying Theatre Soda Layer',
+    'Asserting Packed Exemplars',
+    'Attempting to Lock Back-Buffer',
+    'Binding Sapling Root System',
+    'Building Data Trees',
+    'Bureacritizing Bureaucracies',
+    'Calculating Inverse Probability Matrices',
+    'Calculating Llama Expectoration Trajectory',
+    'Calibrating Blue Skies',
+    'Charging Ozone Layer',
+    'Coalescing Cloud Formations',
+    'Cohorting Exemplars',
+    'Collecting Meteor Particles',
+    'Compounding Inert Tessellations',
+    'Compressing Fish Files',
+    'Computing Optimal Bin Packing',
+    'Concatenating Sub-Contractors',
+    'Containing Existential Buffer',
+    'Debunching Unionized Commercial Services',
+    'Deciding What Message to Display Next',
+    'Decomposing Singular Values',
+    'Decrementing Tectonic Plates',
+    'Deleting Ferry Routes',
+    'Depixelating Inner Mountain Surface Back Faces',
+    'Deunionizing Bulldozers',
+    'Dicing Models',
+    'Diluting Livestock Nutrition Variables',
+    'Downloading Satellite Terrain Data',
+    'Exposing Flash Variables to Streak System',
+    'Extracting Resources',
+    'Flushing Pipe Network',
+    'Gathering Particle Sources',
+    'Generating Jobs',
+    'Gesticulating Mimes',
+    'Graphing Whale Migration',
+    'Hiding Willio Webnet Mask',
+    'Increasing Accuracy of RCI Simulators',
+    'Increasing Magmafacation',
+    'Initializing My Sim Tracking Mechanism',
+    'Initializing Robotic Click-Path AI',
+    'Inserting Sublimated Messages',
+    'Integrating Curves',
+    'Integrating Illumination Form Factors',
+    'Integrating Population Graphs',
+    'Iterating Cellular Automata',
+    'Lecturing Errant Subsystems',
+    'Modeling Object Components',
+    'Mopping Occupant Leaks',
+    'Normalizing Power',
+    'Obfuscating Quigley Matrix',
+    'Partitioning Singularities',
+    'Perturbing Matrices',
+    'Polishing Water Highlights',
+    'Populating Lot Templates',
+    'Preparing Sprites for Random Walks',
+    'Prioritizing Landmarks',
+    'Projecting Law Enforcement Pastry Intake',
+    'Realigning Alternate Time Frames',
+    'Relaxing Splines',
+    'Removing Road Network Speed Bumps',
+    'Removing Texture Gradients',
+    'Removing Vehicle Avoidance Behavior',
+    'Reticulating Splines',
+    'Retracting Phong Shader',
+    'Retrieving from Back Store',
+    'Reverse Engineering Image Consultant',
+    'Routing Neural Network Infanstructure',
+    'Scattering Rhino Food Sources',
+    'Scrubbing Terrain',
+    'Searching for Llamas',
+    'Seeding Architecture Simulation Parameters',
+    'Sequencing Particles',
+    'Setting Advisor Moods',
+    'Setting Inner Deity Indicators',
+    'Setting Universal Physical Constants',
+    'Sonically Enhancing Occupant-Free Timber',
+    'Speculating Stock Market Indices',
+    'Splatting Transforms',
+    'Stratifying Ground Layers',
+    'Sub-Sampling Water Data',
+    'Synthesizing Gravity',
+    'Synthesizing Wavelets',
+    'Time-Compressing Simulator Clock',
+    'Unable to Reveal Current Activity',
+];
 function LoadingPlaceholder(props) {
     return (React.createElement("div", { className: "loading-placeholder" },
-        React.createElement("span", { className: "text" }, props.text || 'Loading'),
+        React.createElement("span", { className: "text" }, props.text || MESSAGES[Math.floor(Math.random() * (MESSAGES.length - 1))]),
         React.createElement("div", null),
         React.createElement("div", null)));
 }

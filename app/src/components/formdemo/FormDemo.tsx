@@ -658,7 +658,7 @@ export default function FormDemo() {
 				<h3>Example</h3>
 				<pre>
 					<code>
-					{`<CopyButton
+						{`<CopyButton
 	copyText='A text example'
 	className='clazzy-copybutton'
 	tooltipPosition='right'
@@ -679,7 +679,7 @@ export default function FormDemo() {
 				<h3>Example</h3>
 				<pre>
 					<code>
-					{`<Tooltip
+						{`<Tooltip
 	isShowing={true}
 	text='Tooltip text example'
 	position="right"
@@ -696,11 +696,14 @@ export default function FormDemo() {
 		title: 'LoadingPlaceholder',
 		content: (
 			<Fragment>
-				<p>A loading placeholder</p>
+				<p>
+					Use the <code>LoadingPlaceholder</code> to display a visual element while awaiting an asynchronous operation. The text can be
+					specified or randomized placeholder text will be used.
+				</p>
 				<h3>Example</h3>
 				<pre>
 					<code>
-					{`<LoadingPlaceholder
+						{`<LoadingPlaceholder
 	text='LoadingPlaceholder text example'
 />`}
 					</code>
@@ -718,7 +721,7 @@ export default function FormDemo() {
 				<h3>Example</h3>
 				<pre>
 					<code>
-					{`<AlertBlock
+						{`<AlertBlock
     title='AlertBlock title example'
     alertType='info'
     collapsible={false}

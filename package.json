@@ -14,6 +14,7 @@
 	],
 	"scripts": {
 		"build": "rm -rf build && rollup -c rollup.config.js",
+		"localbuild": "npm i && npm run build && rm -rf node_modules",
 		"test": "echo \"0/0 tests passed. That's technically a perfect score. Keep up the great work!\""
 	},
 	"repository": {

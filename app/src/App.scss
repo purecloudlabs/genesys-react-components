@@ -1,4 +1,22 @@
+@import '../node_modules/genesys-react-components/utils/theme/variables.scss';
+
 $maxWidth: 800px;
+
+// writeCssVars rewrites a map of SCSS vars as CSS vars
+@mixin writeCssVars($map: ()) {
+	@each $key, $value in $map {
+		#{$key}: $value;
+	}
+}
+
+// Define each theme's class here and write its CSS vars
+.theme-anemia {
+	@include writeCssVars($theme-anemia);
+}
+
+.theme-anemia-dark {
+	@include writeCssVars($theme-anemia-dark);
+}
 
 .app-container {
 	width: 100vw;
@@ -8,6 +26,8 @@ $maxWidth: 800px;
 	flex-flow: column nowrap;
 	align-items: stretch;
 	justify-content: space-between;
+	background-color: var($--theme-core-background-color);
+	color: var($--theme-core-text-color);
 
 	.app-nav {
 		flex-grow: 0;
@@ -51,5 +71,12 @@ $maxWidth: 800px;
 				}
 			}
 		}
+	}
+
+	.theme-toggle {
+		position: fixed;
+		top: 11px;
+		right: 80px;
+		margin: 0;
 	}
 }
