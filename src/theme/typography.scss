@@ -1,20 +1,13 @@
-html,
-body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
+@import './variables.scss';
 
-	// Basic Typography
-	font-family: 'Roboto', sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 24px;
-	color: #33383d;
-}
+.theme-anemia,
+.theme-anemia-dark {
+	color: var($--theme-core-text-color);
 
-.app {
+	::selection {
+		background: var($--theme-core-selection-color);
+	}
+
 	h1,
 	.h1,
 	h2,
@@ -27,12 +20,12 @@ body {
 	.h5,
 	h6,
 	.h6 {
-		color: #272d2d;
+		color: var($--theme-core-heading-color);
 		margin-top: 60px;
 		margin-bottom: 20px;
 
 		&:hover {
-			color: #272d2d;
+			color: var($--theme-core-heading-color);
 		}
 	}
 
@@ -86,7 +79,7 @@ body {
 		display: block;
 		margin-top: 40px;
 		margin-bottom: 12px;
-		color: #597393;
+		color: var($--theme-core-heading-seven-color);
 	}
 
 	p {
@@ -125,59 +118,34 @@ body {
 	}
 
 	a,
+	a:link,
 	a:active,
 	a:visited,
 	a:focus,
 	a:hover {
-		color: #2f7bb1;
+		color: var($--theme-core-link-color);
 		text-decoration: none;
 	}
 
 	a {
 		&:hover {
 			text-decoration: none;
-			color: #1c5176;
+			color: var($--theme-core-link-hover-color);
 		}
 
-		.inline-download {
-			margin-left: 3px;
-			position: relative;
-			top: 4px;
-		}
-
-		.external-link {
-			margin-left: 3px;
-			margin-right: 2px;
-			position: relative;
-			top: 2px;
+		// Don't style non-href anchors like links
+		&:not([href]):not([class]),
+		&:not([href]):not([class]):hover {
+			color: inherit;
+			text-decoration: none;
 		}
 	}
 
 	code {
-		color: #8452cf;
-		background-color: #eff0f5;
 		padding: 2px 4px;
-		border-radius: 6px;
-	}
-
-	pre {
-		margin: 20px 0;
-		padding: 20px;
-		background-color: #eaeaea;
 		border-radius: 4px;
-		overflow: auto;
-
-		code {
-			background-color: transparent;
-		}
-	}
-
-	code {
-		color: #8452cf;
-		background-color: #eff0f5;
-		padding: 2px 4px;
-		border-radius: 6px;
-		font-style: initial;
+		color: var($--theme-core-code-color);
+		background-color: var($--theme-core-code-background-color);
 	}
 
 	// Standardized indentation
