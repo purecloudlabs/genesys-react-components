@@ -1,6 +1,27 @@
-@import '../node_modules/genesys-react-components/utils/theme/variables.scss';
+@import '../node_modules/genesys-react-components/src/theme/roboto.scss';
+@import '../node_modules/genesys-react-components/src/theme/variables.scss';
+@import '../node_modules/genesys-react-components/src/theme/typography.scss';
+@import '../node_modules/genesys-react-components/src/theme/scrollbars.scss';
 
 $maxWidth: 800px;
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+
+	&,
+	button {
+		font-family: 'Roboto', sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 24px;
+		word-break: break-word;
+	}
+}
 
 // writeCssVars rewrites a map of SCSS vars as CSS vars
 @mixin writeCssVars($map: ()) {
@@ -62,10 +83,10 @@ $maxWidth: 800px;
 					.icon {
 						display: inline-block;
 						margin: 10px;
-						color: #ff4f1f;
+						color: var($--theme-core-link-color);
 
 						&:hover {
-							color: darken(#ff4f1f, 10%);
+							color: var($--theme-core-link-hover-color);
 						}
 					}
 				}

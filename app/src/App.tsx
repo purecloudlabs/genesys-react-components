@@ -6,7 +6,6 @@ import FormDemo from './components/formdemo/FormDemo';
 import { default as dependencies } from '../package.json';
 
 import './App.scss';
-import './typography.scss';
 import DxNavigation, { DxNavigationItem } from './components/dxnavigation/DxNavigation';
 import ReleaseNotes from './components/releasenotes/ReleaseNotes';
 import ThemeInfo from './components/theme/ThemeInfo';
@@ -36,7 +35,7 @@ function App() {
 
 	return (
 		<React.Fragment>
-			<div className={`app-container theme-anemia${darkThemeEnabled ? '-dark' : ''}`}>
+			<div className={`app-container theme-anemia${darkThemeEnabled ? '-dark' : ''} disappearing-scrollbars`}>
 				<DxNavigation items={navItems} className="app-nav" />
 				<div className="app">
 					<div className="content">

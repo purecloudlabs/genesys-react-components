@@ -731,7 +731,36 @@ export default function FormDemo() {
 />`}
 					</code>
 				</pre>
-				<AlertBlock title="AlertBlock title example" alertType="info" />
+				<AlertBlock title="Alert type <none>">
+					<p>
+						This is the default style if <code>alertBlock</code> is not specified.
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type info" alertType="info">
+					<p>
+						Alert type <code>info</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type success" alertType="success">
+					<p>
+						Alert type <code>success</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type critical" alertType="critical">
+					<p>
+						Alert type <code>critical</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type warning" alertType="warning">
+					<p>
+						Alert type <code>warning</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type toast" alertType="toast">
+					<p>
+						Alert type <code>toast</code>
+					</p>
+				</AlertBlock>
 			</Fragment>
 		),
 	});
