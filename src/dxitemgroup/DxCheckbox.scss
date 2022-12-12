@@ -1,3 +1,5 @@
+@import '../theme/variables.scss';
+
 .dx-checkbox {
 	display: flex;
 	flex-flow: row nowrap;
@@ -14,7 +16,7 @@
 		font-weight: normal;
 		font-size: 12px;
 		line-height: 18px;
-		color: #75757a;
+		color: var($--theme-dxcheckbox-text-color);
 	}
 
 	input[type='checkbox'] {
@@ -26,9 +28,9 @@
 		margin: 0 8px 0 0;
 		width: 16px;
 		height: 16px;
-		border: 1px solid #8a96a3;
+		border: 1px solid var($--theme-dxcheckbox-border-color);
 		border-radius: 2px;
-		background-color: #ffffff;
+		background-color: var($--theme-dxcheckbox-background-color);
 		flex-shrink: 0;
 	}
 
@@ -39,7 +41,7 @@
 
 	// Fill in background on check
 	input[type='checkbox']:checked {
-		background-color: #8a96a3;
+		background-color: var($--theme-dxcheckbox-border-color);
 	}
 
 	// Display checkmark on check
@@ -50,10 +52,10 @@
 		left: 3px;
 		font-size: 9px;
 		line-height: 0;
-		color: #ffffff;
+		color: var($--theme-dxcheckbox-background-color);
 
 		// genesys-dev-icons app-check
-		content: '\f103';
+		content: '\f104';
 		font-family: genesys-dev-icons !important;
 		font-style: normal;
 		font-weight: normal !important;
@@ -66,12 +68,12 @@
 
 	// Hover - radio button
 	input[type='checkbox']:not(:disabled):hover {
-		border-color: #4d5061;
+		border-color: var($--theme-dxcheckbox-hover-color);
 	}
 
 	// Focus - radio button
 	input[type='checkbox']:not(:disabled):focus {
-		outline: #aac9ff solid 2px;
+		outline: var($--theme-dxcheckbox-outline-color) solid 2px;
 	}
 	// Disable default focus outline
 	input[type='checkbox']:not(:disabled):focus-visible {
@@ -86,9 +88,9 @@
 		margin: 0 8px 0 0;
 		width: 16px;
 		height: 16px;
-		border: 1px solid #8a96a3;
+		border: 1px solid var($--theme-dxcheckbox-border-color);
 		border-radius: 8px;
-		background-color: #ffffff;
+		background-color: var($--theme-dxcheckbox-background-color);
 		flex-shrink: 0;
 	}
 
@@ -107,17 +109,17 @@
 		position: relative;
 		top: 2px;
 		left: 2px;
-		background-color: #8a96a3;
+		background-color: var($--theme-dxcheckbox-border-color);
 	}
 
 	// Hover - radio button
 	input[type='radio']:not(:disabled):hover {
-		border-color: #4d5061;
+		border-color: var($--theme-dxcheckbox-hover-color);
 	}
 
 	// Focus - radio button
 	input[type='radio']:not(:disabled):focus {
-		outline: #aac9ff solid 2px;
+		outline: var($--theme-dxcheckbox-outline-color) solid 2px;
 	}
 	// Disable default focus outline
 	input[type='radio']:not(:disabled):focus-visible {
@@ -128,13 +130,13 @@
 		cursor: not-allowed;
 
 		input {
-			border-color: #e8eaed;
+			border-color: var($--theme-dxcheckbox-disabled-border-color);
 			cursor: not-allowed;
 		}
 
 		// Fill in background on check
 		input:checked {
-			background-color: #e8eaed;
+			background-color: var($--theme-dxcheckbox-disabled-border-color);
 			cursor: not-allowed;
 		}
 	}
