@@ -1,4 +1,36 @@
+@import '../node_modules/genesys-react-components/src/theme/roboto.scss';
+@import '../node_modules/genesys-react-components/src/theme/variables.scss';
+@import '../node_modules/genesys-react-components/src/theme/typography.scss';
+@import '../node_modules/genesys-react-components/src/theme/scrollbars.scss';
+
 $maxWidth: 800px;
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+
+	&,
+	button {
+		font-family: 'Roboto', sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 24px;
+		word-break: break-word;
+	}
+}
+
+// Define classes for the light and dark themes
+.my-app-light {
+	@include writeCssVars($theme-vars);
+}
+
+.my-app-dark {
+	@include writeCssVars($theme-vars-dark);
+}
 
 .app-container {
 	width: 100vw;
@@ -8,6 +40,8 @@ $maxWidth: 800px;
 	flex-flow: column nowrap;
 	align-items: stretch;
 	justify-content: space-between;
+	background-color: var($--theme-core-background-color);
+	color: var($--theme-core-text-color);
 
 	.app-nav {
 		flex-grow: 0;
@@ -42,14 +76,21 @@ $maxWidth: 800px;
 					.icon {
 						display: inline-block;
 						margin: 10px;
-						color: #ff4f1f;
+						color: var($--theme-core-link-color);
 
 						&:hover {
-							color: darken(#ff4f1f, 10%);
+							color: var($--theme-core-link-hover-color);
 						}
 					}
 				}
 			}
 		}
+	}
+
+	.theme-toggle {
+		position: fixed;
+		top: 11px;
+		right: 80px;
+		margin: 0;
 	}
 }

@@ -24,7 +24,7 @@ export default function DxNavigation(props: IProps) {
 
 	return (
 		<div className={`dx-navigation${props.className ? ' ' + props.className : ''}`}>
-			<div className='nav-container'>
+			<div className="nav-container">
 				{props.items.map((item, i) => (
 					<Link key={i} to={item.link} className={`${location.pathname === item.link ? ' active' : ''}`}>
 						{item.label}

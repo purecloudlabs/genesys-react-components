@@ -1,15 +1,17 @@
+@import '../theme/variables.scss';
+
 .dx-textbox {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
-	border: 1px solid #c6cbd1;
+	border: 1px solid var($--theme-core-control-border-color);
 	border-radius: 2px;
 	margin: 0;
 	padding: 0 10px;
 	height: 32px;
-	background-color: #ffffff;
+	background-color: var($--theme-core-control-alt-background-color);
 
 	&.with-label {
 		margin-top: 0;
@@ -22,7 +24,7 @@
 	.icon {
 		display: block;
 		flex: none;
-		color: #75757a;
+		color: var($--theme-core-control-textbox-text-color);
 
 		&.input-icon {
 			font-size: 14px;
@@ -52,7 +54,7 @@
 		font-weight: normal;
 		font-size: 14px;
 		line-height: 16px;
-		color: #272d2d;
+		color: var($--theme-core-control-textbox-text-color);
 
 		&:focus-visible {
 			outline: 0;
@@ -63,37 +65,38 @@
 			font-weight: 300;
 			font-size: 14px;
 			line-height: 16px;
-			color: #757576;
+			color: var($--theme-core-control-textbox-placeholder-text-color);
 		}
 	}
 
 	&.disabled {
-		background-color: #e6ebec;
-		border-color: #e8eaed;
+		background-color: var($--theme-dxbutton-secondary-disabled-background-color);
 		cursor: not-allowed;
 
 		input {
 			cursor: not-allowed;
-			color: #75757a;
+			color: var($--theme-dxbutton-secondary-disabled-text-color);
 		}
 
 		.icon,
 		input::placeholder {
-			color: #ffffff;
+			color: var($--theme-dxbutton-secondary-disabled-text-color);
 		}
 	}
 }
 
 .dx-textarea {
 	padding: 10px;
-	border: 1px solid #c6cbd1;
+	border: 1px solid var($--theme-core-control-border-color);
 	border-radius: 2px;
 	width: 100%;
 	font-family: 'Roboto', sans-serif;
 	box-sizing: border-box;
+	background-color: var($--theme-core-control-alt-background-color);
+	color: var($--theme-core-control-textbox-text-color);
 
 	&:focus-within {
-		outline: #aac9ff solid 2px;
+		outline: var($--theme-core-control-focus-color) solid 2px;
 	}
 
 	&::placeholder {
@@ -102,6 +105,6 @@
 		font-weight: 300;
 		font-size: 14px;
 		line-height: 16px;
-		color: #757576;
+		color: var($--theme-core-control-textbox-placeholder-text-color);
 	}
 }

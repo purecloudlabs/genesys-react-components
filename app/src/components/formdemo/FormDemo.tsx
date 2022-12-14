@@ -20,6 +20,7 @@ import {
 } from 'genesys-react-components';
 
 import './FormDemo.scss';
+import LoadingPlaceholderDemo from './sections/LoadingPlaceholderDemo';
 
 const primaryItemGroupItems: DxItemGroupItem[] = [
 	{ label: 'First thing', value: 'English' },
@@ -658,7 +659,7 @@ export default function FormDemo() {
 				<h3>Example</h3>
 				<pre>
 					<code>
-					{`<CopyButton
+						{`<CopyButton
 	copyText='A text example'
 	className='clazzy-copybutton'
 	tooltipPosition='right'
@@ -679,7 +680,7 @@ export default function FormDemo() {
 				<h3>Example</h3>
 				<pre>
 					<code>
-					{`<Tooltip
+						{`<Tooltip
 	isShowing={true}
 	text='Tooltip text example'
 	position="right"
@@ -694,20 +695,7 @@ export default function FormDemo() {
 
 	demoSections.push({
 		title: 'LoadingPlaceholder',
-		content: (
-			<Fragment>
-				<p>A loading placeholder</p>
-				<h3>Example</h3>
-				<pre>
-					<code>
-					{`<LoadingPlaceholder
-	text='LoadingPlaceholder text example'
-/>`}
-					</code>
-				</pre>
-				<LoadingPlaceholder text="LoadingPlaceholder text example" />
-			</Fragment>
-		),
+		content: <LoadingPlaceholderDemo />,
 	});
 
 	demoSections.push({
@@ -718,7 +706,7 @@ export default function FormDemo() {
 				<h3>Example</h3>
 				<pre>
 					<code>
-					{`<AlertBlock
+						{`<AlertBlock
     title='AlertBlock title example'
     alertType='info'
     collapsible={false}
@@ -728,7 +716,36 @@ export default function FormDemo() {
 />`}
 					</code>
 				</pre>
-				<AlertBlock title="AlertBlock title example" alertType="info" />
+				<AlertBlock title="Alert type <none>">
+					<p>
+						This is the default style if <code>alertBlock</code> is not specified.
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type info" alertType="info">
+					<p>
+						Alert type <code>info</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type success" alertType="success">
+					<p>
+						Alert type <code>success</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type critical" alertType="critical">
+					<p>
+						Alert type <code>critical</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type warning" alertType="warning">
+					<p>
+						Alert type <code>warning</code>
+					</p>
+				</AlertBlock>
+				<AlertBlock title="Alert type toast" alertType="toast">
+					<p>
+						Alert type <code>toast</code>
+					</p>
+				</AlertBlock>
 			</Fragment>
 		),
 	});

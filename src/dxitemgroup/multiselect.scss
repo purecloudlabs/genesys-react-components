@@ -1,21 +1,23 @@
+@import '../theme/variables.scss';
+
 .dx-multiselect-group {
 	appearance: none;
 	position: relative;
 
 	select {
-		border: 1px solid #8a96a3;
+		border: 1px solid var($--theme-core-control-border-color);
 		border-radius: 2px;
-		background-color: #ffffff;
+		background-color: var($--theme-core-control-alt-background-color);
 		font-style: normal;
 		font-weight: 300;
 		font-size: 12px;
 		line-height: 14px;
-		color: #75757a;
+		color: var($--theme-core-control-textbox-text-color);
 		width: 100%;
 		appearance: none;
 
 		&:focus-visible {
-			outline: 2px solid #aac9ff;
+			outline: 2px solid var($--theme-core-control-focus-color);
 		}
 
 		option {
@@ -28,10 +30,11 @@
 			font-size: 12px;
 			line-height: 31px;
 			padding: 8px 12px;
-			color: #75757a;
+			color: var($--theme-core-control-textbox-text-color);
 
 			&:checked {
-				background: #aac9ff -webkit-linear-gradient(bottom, #aac9ff 0%, #aac9ff 100%);
+				color: var($--theme-core-tag-text-color);
+				background-color: var($--theme-core-tag-background-color);
 			}
 
 			&:disabled {
@@ -62,12 +65,12 @@
 
 	&.disabled {
 		select:disabled {
-			background-color: #e6ebec;
-			border-color: #e8eaed;
+			background-color: var($--theme-core-control-disabled-background-color);
+			border-color: var($--theme-core-control-disabled-border-color);
 			cursor: not-allowed;
 
 			option {
-				color: #8a9a9e;
+				color: var($--theme-core-control-disabled-text-color);
 			}
 		}
 	}

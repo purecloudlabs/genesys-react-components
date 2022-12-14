@@ -1,5 +1,9 @@
 [
 	{
+		"version": "0.2.4",
+		"notes": "updating peer dependencies and messages"
+	},
+	{
 		"version": "0.2.3",
 		"notes": "clearOnEscape feature",
 		"features": ["DxTextbox - added clearOnEscape option to disable esc key behavior"]
