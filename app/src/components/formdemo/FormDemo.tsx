@@ -15,7 +15,6 @@ import {
 	DxItemGroupItemValue,
 	CopyButton,
 	Tooltip,
-	LoadingPlaceholder,
 	AlertBlock,
 } from 'genesys-react-components';
 
