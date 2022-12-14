@@ -20,7 +20,8 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"link": "npm uninstall genesys-react-components && npm link genesys-react-components",
-		"unlink": "npm uninstall genesys-react-components && npm i genesys-react-components"
+		"unlink": "npm uninstall genesys-react-components && npm i genesys-react-components",
+		"rebuildlibandstart": "cd .. && npm run localbuild && cd app && npm run start"
 	},
 	"eslintConfig": {
 		"extends": [

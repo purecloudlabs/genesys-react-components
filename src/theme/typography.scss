@@ -148,6 +148,25 @@
 		background-color: var($--theme-core-code-background-color);
 	}
 
+	pre {
+		display: block;
+		margin: 0;
+		padding: 0;
+		border-radius: 4px;
+		background-color: var($--theme-core-code-background-color);
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+
+		code {
+			background-color: transparent;
+			margin: 0;
+			padding: 20px;
+			display: block;
+			color: var($--theme-core-code-color);
+		}
+	}
+
 	// Standardized indentation
 	@mixin indent-tier($tier) {
 		.indent-#{$tier} {

@@ -20,6 +20,7 @@ import {
 } from 'genesys-react-components';
 
 import './FormDemo.scss';
+import LoadingPlaceholderDemo from './sections/LoadingPlaceholderDemo';
 
 const primaryItemGroupItems: DxItemGroupItem[] = [
 	{ label: 'First thing', value: 'English' },
@@ -694,23 +695,7 @@ export default function FormDemo() {
 
 	demoSections.push({
 		title: 'LoadingPlaceholder',
-		content: (
-			<Fragment>
-				<p>
-					Use the <code>LoadingPlaceholder</code> to display a visual element while awaiting an asynchronous operation. The text can be
-					specified or randomized placeholder text will be used.
-				</p>
-				<h3>Example</h3>
-				<pre>
-					<code>
-						{`<LoadingPlaceholder
-	text='LoadingPlaceholder text example'
-/>`}
-					</code>
-				</pre>
-				<LoadingPlaceholder text="LoadingPlaceholder text example" />
-			</Fragment>
-		),
+		content: <LoadingPlaceholderDemo />,
 	});
 
 	demoSections.push({

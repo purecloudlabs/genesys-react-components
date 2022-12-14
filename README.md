@@ -22,7 +22,7 @@ import { DxTextbox } from 'genesys-react-components';
 import { GenesysDevIcons } from 'genesys-dev-icons';
 
 export default function App() {
-	const inputRef = useRef<HTMLInputElement>(null);
+	const inputRef = useRef < HTMLInputElement > null;
 	return (
 		<div className="app">
 			<DxTextbox
@@ -107,3 +107,26 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
 The cause of the issue is the first reason. The react-dom dependency is sourced from different locations for the component package and the React app that's using it. The package loads `<thisrepo>/node_modules/react_dom/` but the React app loads `<thisrepo>/app/node_modules/react-dom/` causing them to be different packages even though the loaded versions are identical.
 
 The solution is to delete `<thisrepo>/node_modules/` when using `npm link` in a any local React app. It doesn't seem to matter the order of operations as long as the folder is gone before `npm run start` is run to build the React app.
+
+## Concepts and Best Practices
+
+### What SHOULD go in this package?
+
+This package yields two conceptual things: React components and style information.
+
+Components should be added to this package that provide _functionality_ beyond the base HTML elements and built-in JSX/React constructs. This functionality may be complex and interact with the user, like buttons and text boxes, but can also be simple and provide standardization with no user interaction, like the loading placeholder.
+
+Style information can be added to the package in two primary ways.
+
+The most straightforward is to apply styles to a component in the package. A component should have a file of the same name, but with the `.scss` file extension to contain its styles.
+
+The package also provides general-purpose style information using selectors that apply to base HTML elements. These are broken out into a few individual files that can be consumed individually:
+
+- `src/theme/variables.scss` - The variables definition can be used by consuming applications to make any part of its own UI theme-aware. This is typically applied to the page's background, text colors, and custom components in the app.
+- `src/theme/typography.scss` - This file sets base theme style rules controlling the default colors and fonts. These rules apply to standard HTML elements, not components in the package.
+- `src/theme/roboto.scss` - The _Roboto_ font.
+- `src/theme/scrollbars.scss` - Styles for scrollbars
+
+### What SHOULD NOT go in this package?
+
+This package is not a shim for base HTML elements. As such, it should not contain components that neither provide custom functionality nor extend/enhance/normalize base HTML elements.

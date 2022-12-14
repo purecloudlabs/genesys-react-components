@@ -19,6 +19,9 @@ $--theme-core-control-textbox-text-color: --theme-core-control-textbox-text-colo
 $--theme-core-control-textbox-placeholder-text-color: --theme-core-control-textbox-placeholder-text-color;
 $--theme-core-control-textbox-background-color: --theme-core-control-textbox-background-color;
 $--theme-core-control-textbox-border-color: --theme-core-control-textbox-border-color;
+$--theme-core-control-disabled-background-color: --theme-core-control-disabled-background-color;
+$--theme-core-control-disabled-text-color: --theme-core-control-disabled-text-color;
+$--theme-core-control-disabled-border-color: --theme-core-control-disabled-border-color;
 $--theme-core-tag-background-color: --theme-core-tag-background-color;
 $--theme-core-tag-text-color: --theme-core-tag-text-color;
 $--theme-core-punch-color: --theme-core-punch-color;
@@ -163,6 +166,9 @@ $theme-anemia: (
 	$--theme-core-control-textbox-background-color: #ffffff,
 	$--theme-core-control-textbox-border-color: #c6cbd1,
 	$--theme-core-control-textbox-placeholder-text-color: #757576,
+	$--theme-core-control-disabled-background-color: #9aafb5,
+	$--theme-core-control-disabled-text-color: #8a9a9e,
+	$--theme-core-control-disabled-border-color: #e8eaed,
 	$--theme-core-tag-background-color: #1ca2ab,
 	$--theme-core-tag-text-color: #ffffff,
 	$--theme-core-punch-color: #ff4f1f,
@@ -289,6 +295,9 @@ $theme-anemia-dark: (
 	$--theme-core-control-textbox-background-color: #6e6e75,
 	$--theme-core-control-textbox-border-color: #c6cbd1,
 	$--theme-core-control-textbox-placeholder-text-color: #999999,
+	$--theme-core-control-disabled-background-color: #c1cad688,
+	$--theme-core-control-disabled-text-color: #959699,
+	$--theme-core-control-disabled-border-color: #e8eaed,
 	$--theme-core-tag-background-color: #ffb3f7,
 	$--theme-core-tag-text-color: #2d2d2d,
 	$--theme-core-punch-color: #ff4f1f,

@@ -16,7 +16,7 @@
 		font-weight: normal;
 		font-size: 12px;
 		line-height: 18px;
-		color: var($--theme-dxcheckbox-text-color);
+		color: var($--theme-core-text-color);
 	}
 
 	input[type='checkbox'] {
@@ -28,9 +28,9 @@
 		margin: 0 8px 0 0;
 		width: 16px;
 		height: 16px;
-		border: 1px solid var($--theme-dxcheckbox-border-color);
+		border: 1px solid var($--theme-core-control-border-color);
 		border-radius: 2px;
-		background-color: var($--theme-dxcheckbox-background-color);
+		background-color: var($--theme-core-control-background-color);
 		flex-shrink: 0;
 	}
 
@@ -41,7 +41,7 @@
 
 	// Fill in background on check
 	input[type='checkbox']:checked {
-		background-color: var($--theme-dxcheckbox-border-color);
+		background-color: var($--theme-core-control-background-color);
 	}
 
 	// Display checkmark on check
@@ -52,7 +52,7 @@
 		left: 3px;
 		font-size: 9px;
 		line-height: 0;
-		color: var($--theme-dxcheckbox-background-color);
+		color: var($--theme-core-control-punch-color);
 
 		// genesys-dev-icons app-check
 		content: '\f104';
@@ -66,19 +66,22 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	// Hover - radio button
+	// Hover - checkbox
 	input[type='checkbox']:not(:disabled):hover {
-		border-color: var($--theme-dxcheckbox-hover-color);
+		border-color: var($--theme-core-control-punch-color);
 	}
 
-	// Focus - radio button
+	// Focus - checkbox
 	input[type='checkbox']:not(:disabled):focus {
-		outline: var($--theme-dxcheckbox-outline-color) solid 2px;
+		outline: var($--theme-core-control-focus-color) solid 2px;
 	}
 	// Disable default focus outline
 	input[type='checkbox']:not(:disabled):focus-visible {
 		outline: 0;
 	}
+
+	////// RADIO
+
 	input[type='radio'] {
 		// Hide default appearance
 		-webkit-appearance: none;
@@ -88,9 +91,9 @@
 		margin: 0 8px 0 0;
 		width: 16px;
 		height: 16px;
-		border: 1px solid var($--theme-dxcheckbox-border-color);
+		border: 1px solid var($--theme-core-control-border-color);
 		border-radius: 8px;
-		background-color: var($--theme-dxcheckbox-background-color);
+		background-color: var($--theme-core-control-background-color);
 		flex-shrink: 0;
 	}
 
@@ -109,17 +112,17 @@
 		position: relative;
 		top: 2px;
 		left: 2px;
-		background-color: var($--theme-dxcheckbox-border-color);
+		background-color: var($--theme-core-control-punch-color);
 	}
 
 	// Hover - radio button
 	input[type='radio']:not(:disabled):hover {
-		border-color: var($--theme-dxcheckbox-hover-color);
+		border-color: var($--theme-core-control-punch-color);
 	}
 
 	// Focus - radio button
 	input[type='radio']:not(:disabled):focus {
-		outline: var($--theme-dxcheckbox-outline-color) solid 2px;
+		outline: var($--theme-core-control-focus-color) solid 2px;
 	}
 	// Disable default focus outline
 	input[type='radio']:not(:disabled):focus-visible {
@@ -130,13 +133,13 @@
 		cursor: not-allowed;
 
 		input {
-			border-color: var($--theme-dxcheckbox-disabled-border-color);
+			border-color: var($--theme-core-control-disabled-border-color);
 			cursor: not-allowed;
 		}
 
 		// Fill in background on check
 		input:checked {
-			background-color: var($--theme-dxcheckbox-disabled-border-color);
+			background-color: var($--theme-core-control-disabled-background-color);
 			cursor: not-allowed;
 		}
 	}
