@@ -23,20 +23,13 @@ body {
 	}
 }
 
-// writeCssVars rewrites a map of SCSS vars as CSS vars
-@mixin writeCssVars($map: ()) {
-	@each $key, $value in $map {
-		#{$key}: $value;
-	}
+// Define classes for the light and dark themes
+.my-app-light {
+	@include writeCssVars($theme-vars);
 }
 
-// Define each theme's class here and write its CSS vars
-.theme-anemia {
-	@include writeCssVars($theme-anemia);
-}
-
-.theme-anemia-dark {
-	@include writeCssVars($theme-anemia-dark);
+.my-app-dark {
+	@include writeCssVars($theme-vars-dark);
 }
 
 .app-container {

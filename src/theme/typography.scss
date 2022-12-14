@@ -1,7 +1,6 @@
 @import './variables.scss';
 
-.theme-anemia,
-.theme-anemia-dark {
+body {
 	color: var($--theme-core-text-color);
 
 	::selection {
@@ -150,13 +149,14 @@
 
 	pre {
 		display: block;
-		margin: 0;
+		margin: 40px 0;
 		padding: 0;
 		border-radius: 4px;
 		background-color: var($--theme-core-code-background-color);
 		height: 100%;
 		width: 100%;
 		box-sizing: border-box;
+		overflow: auto;
 
 		code {
 			background-color: transparent;

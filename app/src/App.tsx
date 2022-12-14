@@ -42,7 +42,7 @@ function App() {
 
 	return (
 		<React.Fragment>
-			<div className={`app-container theme-anemia${darkThemeEnabled ? '-dark' : ''} disappearing-scrollbars`}>
+			<div className={`app-container my-app${darkThemeEnabled ? '-dark' : '-light'} disappearing-scrollbars`}>
 				<DxNavigation items={navItems} className="app-nav" />
 				<div className="app">
 					<div className="content">

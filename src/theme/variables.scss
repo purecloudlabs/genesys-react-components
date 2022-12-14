@@ -146,7 +146,7 @@ $--theme-toolbox-border-color: --theme-toolbox-border-color;
 	* Theme definitions
 	***/
 
-$theme-anemia: (
+$theme-vars: (
 	// Core
 	$--theme-core-text-color: #272d2d,
 	$--theme-core-background-color: #ffffff,
@@ -271,7 +271,7 @@ $theme-anemia: (
 	$--theme-toolbox-border-color: #c6cbd1
 );
 
-$theme-anemia-dark: (
+$theme-vars-dark: (
 	// Core
 	// Original UX colors
 	// $--theme-core-text-color: #eff0f5,
@@ -404,3 +404,10 @@ $theme-anemia-dark: (
 	$--theme-toolbox-background-color: #2d2d2d,
 	$--theme-toolbox-border-color: #75757a
 );
+
+// writeCssVars rewrites a map of SCSS vars as CSS vars
+@mixin writeCssVars($map: ()) {
+	@each $key, $value in $map {
+		#{$key}: $value;
+	}
+}
