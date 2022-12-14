@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import { Route, Routes } from 'react-router-dom';
 import { DxToggle } from 'genesys-react-components';
@@ -10,13 +10,20 @@ import DxNavigation, { DxNavigationItem } from './components/dxnavigation/DxNavi
 import ReleaseNotes from './components/releasenotes/ReleaseNotes';
 import ThemeInfo from './components/theme/ThemeInfo';
 
+const DARK_THEME_ENABLED_KEY = 'dark-theme';
+
 function App() {
-	const [darkThemeEnabled, setDarkThemeEnabled] = useState<boolean>(false);
+	const [darkThemeEnabled, setDarkThemeEnabled] = useState<boolean>(localStorage.getItem(DARK_THEME_ENABLED_KEY) === 'true');
 	console.log(dependencies);
 	let iconVersion = (dependencies as any)?.dependencies['genesys-react-components'] || '';
 	if (iconVersion.startsWith('^')) iconVersion = iconVersion.substr(1);
 	if (iconVersion !== '') iconVersion = `v${iconVersion}`;
 	else iconVersion = 'local build';
+
+	useEffect(() => {
+		// Save theme setting
+		localStorage.setItem(DARK_THEME_ENABLED_KEY, darkThemeEnabled ? 'true' : '');
+	}, [darkThemeEnabled]);
 
 	const navItems: DxNavigationItem[] = [
 		{
