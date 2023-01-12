@@ -56,7 +56,7 @@ export interface DxToggleProps {
     onChange?: BooleanChangedCallback;
     className?: string;
 }
-export declare type DxTextboxType = 'text' | 'textarea' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
+export type DxTextboxType = 'text' | 'textarea' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 export interface DxTextboxProps {
     initialValue?: string;
     value?: string;
@@ -97,7 +97,7 @@ export interface DxItemGroupProps {
     onItemChanged?: ItemChangedCallback;
     onItemsChanged?: ItemGroupChangedCallback;
 }
-export declare type DxItemGroupFormat = 'checkbox' | 'radio' | 'dropdown' | 'multiselect';
+export type DxItemGroupFormat = 'checkbox' | 'radio' | 'dropdown' | 'multiselect';
 export interface DxTabbedContentProps {
     children: React.ReactNode;
     initialTabId?: number;
