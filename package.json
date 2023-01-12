@@ -1,6 +1,6 @@
 {
 	"name": "genesys-react-components",
-	"version": "0.3.1",
+	"version": "0.3.1-devengage-1574-implementing-code-fences",
 	"description": "A React component library containing standardized form elements.",
 	"type": "module",
 	"types": "build/index.d.ts",
