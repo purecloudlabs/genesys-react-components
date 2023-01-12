@@ -16,6 +16,7 @@ import {
 	CopyButton,
 	Tooltip,
 	AlertBlock,
+	CodeFence,
 } from 'genesys-react-components';
 
 import './FormDemo.scss';
@@ -749,6 +750,35 @@ export default function FormDemo() {
 		),
 	});
 
+	const yuri_data = `{
+	author: 'Yuri the Yeti',
+	gender: 'Male',
+	age: '33',
+	hobbies: ['sledding', 'ice fishing', 'building snow man'],
+	children: []
+}`;
+	demoSections.push({
+		title: 'Code Fence',
+		content: (
+			<Fragment>
+				<p>For code formatting</p>
+				<h3>Example</h3>
+				<pre>
+					<code>
+						{`<CodeFence 
+	title="Yuri data in json"
+	autoCollapse={false}
+	value={yuri_data}
+	language="json"
+/>`}
+					</code>
+				</pre>
+				<CodeFence title="Yuri data in json" autoCollapse={false} value={yuri_data} language="json" />
+				<CodeFence title="Yuri data in java" autoCollapse={false} value={yuri_data} language="java" />
+				<CodeFence title="Yuri data in c" autoCollapse={false} value={yuri_data} language="c" />
+			</Fragment>
+		),
+	});
 	let content: any = demoSections.map((section, i) =>
 		displayMode === 'accordion' ? (
 			<DxAccordion key={i} title={section.title}>
