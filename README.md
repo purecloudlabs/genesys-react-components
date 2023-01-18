@@ -65,7 +65,7 @@ When validating the package locally, run `npm link` in the root of this repo to 
 2. Run the `devengage-publish-npm-package` Jenkins job for this package
    1. Branch builds will have the branch name and build number appended to the package version
 
-### Demo app
+### Demo app5
 
 To build and serve the demo app locally, run:
 
@@ -83,6 +83,8 @@ cd app
 npm run link
 npm run start
 ```
+
+You can also run `npm run rebuildlibandstart` after `npm run link` to setup an run the app with the local instance of `genesys-react-components`
 
 Run `npm run unlink` to revert to using the latest published version of the package.
 

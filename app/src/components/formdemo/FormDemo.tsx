@@ -750,13 +750,6 @@ export default function FormDemo() {
 		),
 	});
 
-	const yuri_data = `{
-	author: 'Yuri the Yeti',
-	gender: 'Male',
-	age: '33',
-	hobbies: ['sledding', 'ice fishing', 'building snow man'],
-	children: []
-}`;
 	demoSections.push({
 		title: 'Code Fence',
 		content: (
@@ -770,12 +763,55 @@ export default function FormDemo() {
 	autoCollapse={false}
 	value={yuri_data}
 	language="json"
+	jsonEditor={true}
 />`}
 					</code>
 				</pre>
-				<CodeFence title="Yuri data in json" autoCollapse={false} value={yuri_data} language="json" />
-				<CodeFence title="Yuri data in java" autoCollapse={false} value={yuri_data} language="java" />
-				<CodeFence title="Yuri data in c" autoCollapse={false} value={yuri_data} language="c" />
+				<CodeFence
+					title="Yuri data in json"
+					autoCollapse={false}
+					value={`{
+	author: 'Yuri the Yeti',
+	gender: 'Male',
+	age: '33',
+	hobbies: ['sledding', 'ice fishing', 'building snow man']
+}`}
+					language="json"
+					jsonEditor={true}
+				/>
+				<CodeFence
+					title="Yuri data in java"
+					autoCollapse={false}
+					value={` public static void main(String args[]) {
+      String author = "Yuri the Yeti";
+      String gender = "male";
+      int age = 33;
+      String hobbies[] = {"sledding", "ice fishing", "building snow man"};
+
+      System.out.printf("Hello my name is %s, I am a %d year old %s and these are my hobbies: \\n", author, age, gender);
+      for(String hobby: hobbies){
+          System.out.println(hobby);
+      }
+    }`}
+					language="java"
+				/>
+				<CodeFence
+					title="Yuri data in c"
+					autoCollapse={false}
+					value={`int main() {
+    char author[] = "yuri the yeti"; 
+    char gender[] = "male";
+    int age = 33; 
+    char hobbies [3][20] = {"sledding", "ice fishing", "building snow man"};
+    printf("Hello my name is %s, I am a %i year old %s and these are my hobbies: \\n", author, age, gender);
+    for(int index = 0; index < 3; index++){
+        printf("%s \\n", hobbies[index]);
+    }
+
+    return 0;
+}`}
+					language="c"
+				/>
 			</Fragment>
 		),
 	});

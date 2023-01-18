@@ -6,7 +6,7 @@
 	position: relative;
 
 	&.json-editor-fence {
-		margin: 1rem 0 0 0 !important;
+		margin: 1rem 0 0 0;
 		height: 80%;
 		width: 100%;
 		overflow: hidden;
@@ -74,7 +74,7 @@
 			display: block;
 			margin: 0 !important;
 			padding: 0 !important;
-			border-radius: 0 0 4px 4px !important;
+			border-radius: 0 0 4px 4px;
 			background: var($--theme-codefence-background-color) !important;
 			height: 100%;
 			width: 100%;
@@ -88,9 +88,6 @@
 
 			code {
 				background-color: transparent;
-				margin: 0 !important;
-				padding: 20px !important;
-				display: block !important;
 				max-height: 600px;
 				color: white;
 
