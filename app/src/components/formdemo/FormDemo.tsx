@@ -761,7 +761,12 @@ export default function FormDemo() {
 						{`<CodeFence 
 	title="Yuri data in json"
 	autoCollapse={false}
-	value={yuri_data}
+	value={\`{
+	"author": "Yuri the Yeti",
+	"gender": "Male",
+	"age": "33",
+	"hobbies": ["sledding", "ice fishing", "building snow man"]
+}\`}
 	language="json"
 	jsonEditor={true}
 />`}
@@ -771,10 +776,10 @@ export default function FormDemo() {
 					title="Yuri data in json"
 					autoCollapse={false}
 					value={`{
-	author: 'Yuri the Yeti',
-	gender: 'Male',
-	age: '33',
-	hobbies: ['sledding', 'ice fishing', 'building snow man']
+	"author": "Yuri the Yeti",
+	"gender": "Male",
+	"age": "33",
+	"hobbies": ["sledding", "ice fishing", "building snow man"]
 }`}
 					language="json"
 					jsonEditor={true}

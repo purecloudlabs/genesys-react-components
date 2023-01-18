@@ -84,7 +84,7 @@ npm run link
 npm run start
 ```
 
-You can also run `npm run rebuildlibandstart` after `npm run link` to setup an run the app with the local instance of `genesys-react-components`
+Alternatively, run `npm run rebuildlibandstart` after `npm run link` to setup the localbuild of `genesys-react-components` and start the app
 
 Run `npm run unlink` to revert to using the latest published version of the package.
 
