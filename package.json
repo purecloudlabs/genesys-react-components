@@ -49,6 +49,7 @@
 		"uuid": "^9.0.0"
 	},
 	"dependencies": {
+		"moment": "^2.29.4",
 		"postcss": "^8.4.6"
 	}
 }
