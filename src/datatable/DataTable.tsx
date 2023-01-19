@@ -6,7 +6,6 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import CopyButton from '../copybutton/CopyButton';
 import MarkdownDisplay from '../../markdowndisplay/MarkdownDisplay';
-import Paginator, { Pagination } from '../../paginator/Paginator';
 
 import './DataTable.scss';
 
@@ -16,7 +15,6 @@ interface IProps {
 	className?: string;
 	indentation?: number;
 	sortable?: boolean;
-	paginated?: boolean;
 	filterable?: boolean;
 }
 
@@ -66,7 +64,6 @@ export interface DataTableCell {
 }
 
 const TABLE_CLASS_REGEX = /(?:^|\s)table(?:$|\s)/i;
-const DEFAULT_PAGE_SIZE = 10;
 
 export default function DataTable(props: IProps) {
 	// filterRows filters the input rows using the configured filters
@@ -142,12 +139,6 @@ export default function DataTable(props: IProps) {
 		});
 	};
 
-	// paginateRows returns a subset of the sorted rows based on the pagination state
-	const paginateRows = (): DataTableRow[] => {
-		if (isPaginated) return sortedRows.slice(pagination.startItem - 1, pagination.endItem);
-		return sortedRows;
-	};
-
 	const [parsedRows, setParsedRows] = useState([] as DataTableRow[]);
 	// Filtered set of rows (first pass)
 	const [filteredRows, setFilteredRows] = useState([] as DataTableRow[]);
@@ -158,12 +149,7 @@ export default function DataTable(props: IProps) {
 
 	const [filters, setFilters] = useState({} as ColumnFilterCollection);
 	const [colsort, setColsort] = useState({ sort: 'none' } as ColumnSort);
-	const [pagination, setPagination] = useState({
-		page: 1,
-		pageSize: DEFAULT_PAGE_SIZE,
-		startItem: 1,
-		endItem: props.rows.length,
-	} as Pagination);
+
 	const [columnTypes, setColumnTypes] = useState({} as ColumnTypeCollection);
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -225,18 +211,14 @@ export default function DataTable(props: IProps) {
 		setSortedRows(r);
 	}, [colsort, filteredRows]);
 
-	// Pagination or sorted rows (source) changed
+	// sorted rows (source) changed
 	useEffect(() => {
-		const r = paginateRows();
-		setRows([...r]);
-	}, [pagination, sortedRows]);
+		setRows([...sortedRows]);
+	}, [sortedRows]);
 
 	// Consolidation props to identify conditions for rendering
 	const isSortable = props.sortable || props.className?.includes('sortable') || props.className?.includes('sort-and-filter');
 	const isFilterable = props.filterable || props.className?.includes('filterable') || props.className?.includes('sort-and-filter');
-	let isPaginated = props.paginated === true || props.className?.includes('paginated');
-	// Forcibly disable pagination
-	if (props.paginated === false || props.className?.includes('nopagination')) isPaginated = false;
 
 	// getSortCaret returns the FontAwesome glyph name to use for the column sort indicator based on the current sort configuration
 	const getSortCaret = (columnId: number): GenesysDevIcons => {
@@ -274,11 +256,6 @@ export default function DataTable(props: IProps) {
 		if (!newFilters[colId]) newFilters[colId] = { colId: parseInt(colId), dataType: 'datetime', filter: undefined };
 		newFilters[colId].filterModifier = filterModifier;
 		setFilters(newFilters);
-	};
-
-	// paginationChanged is the callback for the Pagination control
-	const paginationChanged = (pagination: Pagination) => {
-		setPagination(pagination);
 	};
 
 	// sortChanged is raised when the user clicks a sortable column header
@@ -437,9 +414,7 @@ export default function DataTable(props: IProps) {
 	}
 
 	return (
-		<div
-			className={`table-container${isPaginated ? ' paginated' : ''}${isSortable ? ' sortable' : ''}${isFilterable ? ' filterable' : ''}`}
-		>
+		<div className={`table-container${isSortable ? ' sortable' : ''}${isFilterable ? ' filterable' : ''}`}>
 			<div className="filter-container">
 				<div className="filter-toggle" style={{ visibility: isFilterable ? 'visible' : 'hidden' }}>
 					<GenesysDevIcon icon={GenesysDevIcons.AppFilter} onClick={() => setIsFilterOpen(!isFilterOpen)} />
@@ -464,9 +439,6 @@ export default function DataTable(props: IProps) {
 					</tbody>
 				</table>
 			</div>
-			{isPaginated ? (
-				<Paginator itemCount={sortedRows.length} onPaginationChanged={paginationChanged} minPageSize={DEFAULT_PAGE_SIZE} />
-			) : undefined}
 		</div>
 	);
 }
