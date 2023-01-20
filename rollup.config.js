@@ -11,15 +11,10 @@ export default {
 	input: packageJson.exports.require,
 	output: [
 		{
-			dir: packageJson.exports.default,
+			file: packageJson.exports.default,
 			format: 'esm',
 			sourcemap: true,
 		},
 	],
-	plugins: [peerDepsExternal(),
-		resolve(),
-		commonjs(),
-		typescript({ useTsconfigDeclarationDir: true }),
-		json(),
-		postcss()],
+	plugins: [peerDepsExternal(), resolve(), commonjs(), typescript({ useTsconfigDeclarationDir: true }), json(), postcss()],
 };
