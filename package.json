@@ -43,7 +43,6 @@
 		"uuid": "^9.0.0"
 	},
 	"peerDependencies": {
-		"@rollup/plugin-json": "^6.0.0",
 		"genesys-dev-icons": "0.x",
 		"react": ">=16",
 		"react-dom": ">=16",
