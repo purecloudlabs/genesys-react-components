@@ -2,7 +2,7 @@ import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { useState, useEffect, useRef } from 'react';
 import { v4 } from 'uuid';
 import { PrismAsync } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism/index.js';
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
