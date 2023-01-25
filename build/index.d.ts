@@ -14,7 +14,8 @@ import AlertBlock from './alertblock/AlertBlock';
 import LoadingPlaceholder from './loadingplaceholder/LoadingPlaceholder';
 import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, };
+import CodeFence from './codefence/CodeFence';
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, CodeFence, };
 export interface StringChangedCallback {
     (value: string): void;
 }
@@ -55,7 +56,7 @@ export interface DxToggleProps {
     onChange?: BooleanChangedCallback;
     className?: string;
 }
-export declare type DxTextboxType = 'text' | 'textarea' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
+export type DxTextboxType = 'text' | 'textarea' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 export interface DxTextboxProps {
     initialValue?: string;
     value?: string;
@@ -96,7 +97,7 @@ export interface DxItemGroupProps {
     onItemChanged?: ItemChangedCallback;
     onItemsChanged?: ItemGroupChangedCallback;
 }
-export declare type DxItemGroupFormat = 'checkbox' | 'radio' | 'dropdown' | 'multiselect';
+export type DxItemGroupFormat = 'checkbox' | 'radio' | 'dropdown' | 'multiselect';
 export interface DxTabbedContentProps {
     children: React.ReactNode;
     initialTabId?: number;

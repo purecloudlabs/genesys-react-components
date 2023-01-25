@@ -1,0 +1,100 @@
+@import '../theme/variables.scss';
+
+.fence {
+	border-radius: 0;
+	margin: 40px 0;
+	position: relative;
+
+	&.json-editor-fence {
+		margin: 1rem 0 0 0;
+		height: 80%;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.fence-header {
+		background-color: var($--theme-codefence-header-background-color);
+		color: var($--theme-codefence-header-text-color);
+		font-size: 14px;
+		border-radius: 4px 4px 0px 0px;
+		border-bottom: 1px solid var($--theme-codefence-border-color);
+		margin: 0;
+		padding: 5px 16px;
+		min-height: 24px;
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+
+		&.clickable {
+			cursor: pointer;
+		}
+
+		& > * {
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+
+		.copy-button {
+			font-size: 14px;
+			padding: 0;
+			color: var($--theme-codefence-header-text-color);
+		}
+
+		.fence-title {
+			flex-grow: 1;
+		}
+
+		.icon {
+			line-height: 0;
+		}
+	}
+
+	.fence-body {
+		padding: 0;
+		overflow: auto;
+		border-radius: 0 0 4px 4px;
+
+		&.json-editor-body {
+			height: 100%;
+			line-height: 21px;
+		}
+
+		&.collapsed {
+			max-height: 15px;
+
+			pre {
+				padding-top: 3px;
+			}
+		}
+
+		pre {
+			display: block;
+			margin: 0 !important;
+			padding: 0 !important;
+			border-radius: 0 0 4px 4px;
+			background: var($--theme-codefence-background-color) !important;
+			height: 100%;
+			width: 100%;
+			box-sizing: border-box;
+
+			&.json-editor-pre {
+				height: 100%;
+				width: 100%;
+				box-sizing: border-box;
+			}
+
+			code {
+				background-color: transparent;
+				max-height: 600px;
+				color: white;
+
+				.linenumber {
+					min-width: 26px !important;
+				}
+			}
+		}
+	}
+}

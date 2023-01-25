@@ -13,6 +13,7 @@ import AlertBlock from './alertblock/AlertBlock';
 import LoadingPlaceholder from './loadingplaceholder/LoadingPlaceholder';
 import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
+import CodeFence from './codefence/CodeFence';
 
 export {
 	DxAccordion,
@@ -29,6 +30,7 @@ export {
 	CopyButton,
 	LoadingPlaceholder,
 	AlertBlock,
+	CodeFence,
 };
 
 export interface StringChangedCallback {

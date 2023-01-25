@@ -84,6 +84,8 @@ npm run link
 npm run start
 ```
 
+Alternatively, run `npm run rebuildlibandstart` after `npm run link` to setup the localbuild of `genesys-react-components` and start the app
+
 Run `npm run unlink` to revert to using the latest published version of the package.
 
 #### Publishing the demo app
