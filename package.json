@@ -44,10 +44,10 @@
 	},
 	"peerDependencies": {
 		"genesys-dev-icons": "0.x",
+		"postcss": "^8.4.6",
 		"react": ">=16",
 		"react-dom": ">=16",
-		"uuid": "^9.0.0",
-		"postcss": "^8.4.6",
-		"react-syntax-highlighter": "^15.5.0"
+		"react-syntax-highlighter": "^15.5.0",
+		"uuid": "^9.0.0"
 	}
 }
