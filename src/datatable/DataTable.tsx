@@ -3,9 +3,8 @@ import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import DxTextbox from '../dxtextbox/DxTextbox';
 import DxToggle from '../dxtoggle/DxToggle';
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ReactNode } from 'react';
 import CopyButton from '../copybutton/CopyButton';
-import MarkdownDisplay from '../../markdowndisplay/MarkdownDisplay';
 
 import './DataTable.scss';
 
@@ -57,8 +56,9 @@ export interface DataTableRow {
 
 export interface DataTableCell {
 	raw?: string;
+	renderedContent: ReactNode;
 	content: string;
-	parsedContent?: string | number | Date;
+	parsedContent: string | number | Date;
 	align?: 'left' | 'center' | 'right';
 	copyButton?: boolean;
 }
@@ -305,7 +305,7 @@ export default function DataTable(props: IProps) {
 						onClick={isSortable ? () => sortChanged(i.toString()) : undefined}
 					>
 						<div className={`header-container align-${cell?.align || 'left'}`}>
-							{cell?.content ? <MarkdownDisplay markdown={cell.content} /> : null}
+							{cell?.content ? cell.renderedContent : null}
 							{filters[i] && filters[i].filter !== '' && filters[i].filter !== undefined ? (
 								<GenesysDevIcon icon={GenesysDevIcons.AppFilter} className="filter-active-icon" />
 							) : (
@@ -428,7 +428,7 @@ export default function DataTable(props: IProps) {
 									<td key={ii} align={cell?.align || 'left'}>
 										{cell?.content ? (
 											<div className={`align-${cell?.align || 'left'}`}>
-												<MarkdownDisplay markdown={cell.content} />
+												{cell.renderedContent}
 												{cell.copyButton ? <CopyButton copyText={cell.content} /> : undefined}
 											</div>
 										) : null}

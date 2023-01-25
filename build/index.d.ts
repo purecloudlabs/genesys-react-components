@@ -14,7 +14,8 @@ import AlertBlock from './alertblock/AlertBlock';
 import LoadingPlaceholder from './loadingplaceholder/LoadingPlaceholder';
 import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, };
+import DataTable from './datatable/DataTable';
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, DataTable, };
 export interface StringChangedCallback {
     (value: string): void;
 }

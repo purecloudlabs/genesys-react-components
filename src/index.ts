@@ -13,7 +13,7 @@ import AlertBlock from './alertblock/AlertBlock';
 import LoadingPlaceholder from './loadingplaceholder/LoadingPlaceholder';
 import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
-
+import DataTable from './datatable/DataTable';
 export {
 	DxAccordion,
 	DxAccordionGroup,
@@ -29,6 +29,7 @@ export {
 	CopyButton,
 	LoadingPlaceholder,
 	AlertBlock,
+	DataTable,
 };
 
 export interface StringChangedCallback {
