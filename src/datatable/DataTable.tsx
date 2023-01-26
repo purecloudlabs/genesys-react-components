@@ -5,7 +5,7 @@ import DxToggle from '../dxtoggle/DxToggle';
 import moment from 'moment';
 import React, { useEffect, useState, ReactNode } from 'react';
 import CopyButton from '../copybutton/CopyButton';
-
+import { DataTableRow } from '..';
 import './DataTable.scss';
 
 interface IProps {
@@ -48,19 +48,6 @@ interface RawColumnTypeCount {
 	number: number;
 	date: number;
 	string: number;
-}
-
-export interface DataTableRow {
-	cells: DataTableCell[];
-}
-
-export interface DataTableCell {
-	raw?: string;
-	renderedContent: ReactNode;
-	content: string;
-	parsedContent: string | number | Date;
-	align?: 'left' | 'center' | 'right';
-	copyButton?: boolean;
 }
 
 const TABLE_CLASS_REGEX = /(?:^|\s)table(?:$|\s)/i;

@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+/// <reference types="react" />
+import { DataTableRow } from '..';
 import './DataTable.scss';
 interface IProps {
     rows: DataTableRow[];
@@ -7,20 +8,6 @@ interface IProps {
     indentation?: number;
     sortable?: boolean;
     filterable?: boolean;
-    contentParser?: MarkdownRendererPlugin;
-}
-export interface DataTableRow {
-    cells: DataTableCell[];
-}
-export interface DataTableCell {
-    raw?: string;
-    content: string;
-    parsedContent?: string | number | Date;
-    align?: 'left' | 'center' | 'right';
-    copyButton?: boolean;
-}
-export interface MarkdownRendererPlugin {
-    (node: string): ReactNode | undefined;
 }
 export default function DataTable(props: IProps): JSX.Element;
 export {};

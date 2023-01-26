@@ -6546,20 +6546,13 @@ function DataTable(props) {
         }
         setColsort(newSort);
     };
-    const displayMarkdown = (cellContent) => {
-        if (props.contentParser) {
-            return props.contentParser(cellContent);
-        }
-        else
-            return React.createElement("p", null, cellContent);
-    };
     /***** Setup complete, build the component *****/
     // Build column headers
     let columnHeaders;
     if (props.headerRow) {
         columnHeaders = (React.createElement("tr", null, props.headerRow.cells.map((cell, i) => (React.createElement("td", { key: i, align: (cell === null || cell === void 0 ? void 0 : cell.align) || 'left', className: colsort.colId === i && colsort.sort !== 'none' ? '' : 'unsorted', onClick: isSortable ? () => sortChanged(i.toString()) : undefined },
             React.createElement("div", { className: `header-container align-${(cell === null || cell === void 0 ? void 0 : cell.align) || 'left'}` },
-                (cell === null || cell === void 0 ? void 0 : cell.content) ? displayMarkdown(cell.content) : null,
+                (cell === null || cell === void 0 ? void 0 : cell.content) ? cell.renderedContent : null,
                 filters[i] && filters[i].filter !== '' && filters[i].filter !== undefined ? (React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppFilter, className: "filter-active-icon" })) : (''),
                 isSortable ? React.createElement(GenesysDevIcon, { icon: getSortCaret(i), className: "sort-icon" }) : null))))));
     }
@@ -6611,7 +6604,7 @@ function DataTable(props) {
             React.createElement("table", { className: tableClassName, cellSpacing: "0" },
                 thead,
                 React.createElement("tbody", null, rows.map((row, i) => (React.createElement("tr", { key: i }, row.cells.map((cell, ii) => (React.createElement("td", { key: ii, align: (cell === null || cell === void 0 ? void 0 : cell.align) || 'left' }, (cell === null || cell === void 0 ? void 0 : cell.content) ? (React.createElement("div", { className: `align-${(cell === null || cell === void 0 ? void 0 : cell.align) || 'left'}` },
-                    displayMarkdown(cell.content),
+                    cell.renderedContent,
                     cell.copyButton ? React.createElement(CopyButton, { copyText: cell.content }) : undefined)) : null)))))))))));
 }
 

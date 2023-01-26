@@ -108,3 +108,14 @@ export interface DxTabPanelProps {
     children: React.ReactNode;
     className?: string;
 }
+export interface DataTableRow {
+    cells: DataTableCell[];
+}
+export interface DataTableCell {
+    raw?: string;
+    renderedContent: React.ReactNode;
+    content: string;
+    parsedContent?: string | number | Date;
+    align?: 'left' | 'center' | 'right';
+    copyButton?: boolean;
+}
