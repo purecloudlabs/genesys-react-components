@@ -1,7 +1,9 @@
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { useState } from 'react';
+// import { PrismAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { PrismAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism/index.js';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism/index.js';
+// import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism/index.js';
 
 import CopyButton from '../copybutton/CopyButton';
 
