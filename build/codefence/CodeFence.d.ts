@@ -6,7 +6,7 @@ declare global {
     }
 }
 interface IProps {
-    value: string | JSX.Element;
+    value: string;
     noCollapse?: boolean;
     noHeader?: boolean;
     autoCollapse?: boolean;
