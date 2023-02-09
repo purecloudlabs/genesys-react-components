@@ -150,8 +150,7 @@ export interface DataTableRow {
 }
 
 export interface DataTableCell {
-	raw?: string;
-	renderedContent: React.ReactNode;
+	renderedContent?: React.ReactNode;
 	content: string;
 	parsedContent?: string | number | Date;
 	align?: 'left' | 'center' | 'right';
