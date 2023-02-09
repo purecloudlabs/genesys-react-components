@@ -140,7 +140,7 @@ export default function DataTable(props: IProps) {
 	const [columnTypes, setColumnTypes] = useState({} as ColumnTypeCollection);
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-	// "Constructor"
+	// Reinit when rows change
 	useEffect(() => {
 		// Infer column types
 		if (props.rows.length > 0 && props.rows[0].cells.length > 0) {
@@ -184,7 +184,7 @@ export default function DataTable(props: IProps) {
 			setColumnTypes(newColumnTypes);
 			setParsedRows(props.rows);
 		}
-	}, []);
+	}, [props.rows]);
 
 	// Filter changed
 	useEffect(() => {
