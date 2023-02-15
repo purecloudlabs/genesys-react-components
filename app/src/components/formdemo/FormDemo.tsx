@@ -757,17 +757,14 @@ export default function FormDemo() {
 		headerRow: {
 			cells: [
 				{
-					renderedContent: <p>Observation Type</p>,
 					content: 'Observation Type',
 					align: 'left',
 				},
 				{
-					renderedContent: <p>Description</p>,
 					content: 'Description',
 					align: 'left',
 				},
 				{
-					renderedContent: <p>Example Use Case(s)</p>,
 					content: 'Example Use Case(s)',
 					align: 'left',
 				},
@@ -779,15 +776,17 @@ export default function FormDemo() {
 				cells: [
 					{
 						renderedContent: (
-							<a href="https://developer.genesys.cloud/analyticsdatamanagement/analytics/flows/" target="_blank" rel="noreferrer">
-								Flow
-							</a>
+							<>
+								<a href="https://developer.genesys.cloud/analyticsdatamanagement/analytics/flows/" target="_blank" rel="noreferrer">
+									Flow
+								</a>
+								<GenesysDevIcon icon={GenesysDevIcons.IaAnalyticsDataManagement} />
+							</>
 						),
 						content: '[Flow](flows/)',
 						align: 'left',
 					},
 					{
-						renderedContent: <p>Returns a single metric showing currently observed flow interactions.</p>,
 						content: 'Returns a single metric showing currently observed flow interactions.',
 						align: 'left',
 					},
@@ -807,20 +806,10 @@ export default function FormDemo() {
 			{
 				cells: [
 					{
-						renderedContent: (
-							<a
-								href="https://developer.genesys.cloud/analyticsdatamanagement/analytics/observation/queue-query"
-								target="_blank"
-								rel="noreferrer"
-							>
-								Queue
-							</a>
-						),
-						content: '[Queue](observation/queue-query)',
+						content: 'Queue',
 						align: 'left',
 					},
 					{
-						renderedContent: <p> The queue observations query shows instantaneous data about one or more queues in your organization.</p>,
 						content: 'The queue observations query shows instantaneous data about one or more queues in your organization.',
 						align: 'left',
 					},
@@ -842,29 +831,25 @@ export default function FormDemo() {
 				cells: [
 					{
 						renderedContent: (
-							<a
-								href="https://developer.genesys.cloud/analyticsdatamanagement/analytics/observation/user-query"
-								target="_blank"
-								rel="noreferrer"
-							>
-								User Status
-							</a>
+							<>
+								<a
+									href="https://developer.genesys.cloud/analyticsdatamanagement/analytics/observation/user-query"
+									target="_blank"
+									rel="noreferrer"
+								>
+									User Status
+								</a>
+								<GenesysDevIcon icon={GenesysDevIcons.AppUser} />
+							</>
 						),
 						content: '[User Status](observation/user-query)',
 						align: 'left',
 					},
 					{
-						renderedContent: <p>The user observations query shows instantaneous data about one or more Genesys Cloud users</p>,
 						content: 'The user observations query shows instantaneous data about one or more Genesys Cloud users',
 						align: 'left',
 					},
 					{
-						renderedContent: (
-							<p>
-								This API can be used to answer questions like: how many queues a particular user( e.g. agent) they is active on and what
-								queues they are a member.
-							</p>
-						),
 						content:
 							'This API can be used to answer questions like: how many queues a particular user( e.g. agent) is active on and what queues they are a member.',
 						align: 'left',
@@ -882,11 +867,18 @@ export default function FormDemo() {
 				<h3>Example</h3>
 				<pre>
 					<code>{`<DataTable 
+sortable={true}
+filterable={true}
 headerRow={tableProps.headerRow as DataTableRow}
 rows={tableProps.rows as DataTableRow[]}
 />`}</code>
 				</pre>
-				<DataTable headerRow={tableProps.headerRow as DataTableRow} rows={tableProps.rows as DataTableRow[]} />
+				<DataTable
+					sortable={true}
+					filterable={true}
+					headerRow={tableProps.headerRow as DataTableRow}
+					rows={tableProps.rows as DataTableRow[]}
+				/>
 			</Fragment>
 		),
 	});
