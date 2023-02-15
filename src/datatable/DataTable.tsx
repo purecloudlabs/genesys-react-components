@@ -140,7 +140,7 @@ export default function DataTable(props: IProps) {
 	const [columnTypes, setColumnTypes] = useState({} as ColumnTypeCollection);
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-	// "Constructor"
+	// Reinit when rows change
 	useEffect(() => {
 		// Infer column types
 		if (props.rows.length > 0 && props.rows[0].cells.length > 0) {
@@ -184,7 +184,7 @@ export default function DataTable(props: IProps) {
 			setColumnTypes(newColumnTypes);
 			setParsedRows(props.rows);
 		}
-	}, []);
+	}, [props.rows]);
 
 	// Filter changed
 	useEffect(() => {
@@ -292,7 +292,7 @@ export default function DataTable(props: IProps) {
 						onClick={isSortable ? () => sortChanged(i.toString()) : undefined}
 					>
 						<div className={`header-container align-${cell?.align || 'left'}`}>
-							{cell?.content ? cell.renderedContent : null}
+							{cell.renderedContent || cell.content}
 							{filters[i] && filters[i].filter !== '' && filters[i].filter !== undefined ? (
 								<GenesysDevIcon icon={GenesysDevIcons.AppFilter} className="filter-active-icon" />
 							) : (
@@ -415,7 +415,7 @@ export default function DataTable(props: IProps) {
 									<td key={ii} align={cell?.align || 'left'}>
 										{cell?.content ? (
 											<div className={`align-${cell?.align || 'left'}`}>
-												{cell.renderedContent}
+												{cell.renderedContent || cell.content}
 												{cell.copyButton ? <CopyButton copyText={cell.content} /> : undefined}
 											</div>
 										) : null}

@@ -14,6 +14,8 @@ import LoadingPlaceholder from './loadingplaceholder/LoadingPlaceholder';
 import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
 import DataTable from './datatable/DataTable';
+import CodeFence from './codefence/CodeFence';
+
 export {
 	DxAccordion,
 	DxAccordionGroup,
@@ -29,6 +31,7 @@ export {
 	CopyButton,
 	LoadingPlaceholder,
 	AlertBlock,
+	CodeFence,
 	DataTable,
 };
 
@@ -147,8 +150,7 @@ export interface DataTableRow {
 }
 
 export interface DataTableCell {
-	raw?: string;
-	renderedContent: React.ReactNode;
+	renderedContent?: React.ReactNode;
 	content: string;
 	parsedContent?: string | number | Date;
 	align?: 'left' | 'center' | 'right';
