@@ -775,7 +775,6 @@ export default function FormDemo() {
 		indentation: 0,
 		rows: [
 			{
-				raw: '|[Flow](flows/)|Returns a single metric showing currently observed flow interactions. |**Note**: There is no additional documentation for the flow observations.  The link will take you to the endpoints page for analytics. |\n',
 				cells: [
 					{
 						renderedContent: (
@@ -805,7 +804,6 @@ export default function FormDemo() {
 				],
 			},
 			{
-				raw: '|[Queue](observation/queue-query)| The queue observations query shows instantaneous data about one or more queues in your organization.| This API\'s metrics are focused on such things as: how many interactions are ongoing/waiting right *now* as well as which agents are available.  This API is not appropriate if you need "slice-and-dice" data capabilities or the individual components involved in a conversation (e.g. talk time). | \n',
 				cells: [
 					{
 						renderedContent: (
@@ -840,7 +838,6 @@ export default function FormDemo() {
 				],
 			},
 			{
-				raw: '|[User Status](observation/user-query)|  The user observations query shows instantaneous data about one or more Genesys Cloud users | This API can be used to answer questions like: how many queues a particular user( e.g. agent) is active on and what queues they are a member.|\n',
 				cells: [
 					{
 						renderedContent: (
