@@ -16,6 +16,8 @@ import {
 	CopyButton,
 	Tooltip,
 	AlertBlock,
+	DataTable,
+	DataTableRow,
 	CodeFence,
 } from 'genesys-react-components';
 
@@ -746,6 +748,137 @@ export default function FormDemo() {
 						Alert type <code>toast</code>
 					</p>
 				</AlertBlock>
+			</Fragment>
+		),
+	});
+
+	const tableProps = {
+		className: 'table',
+		headerRow: {
+			cells: [
+				{
+					content: 'Observation Type',
+					align: 'left',
+				},
+				{
+					content: 'Description',
+					align: 'left',
+				},
+				{
+					content: 'Example Use Case(s)',
+					align: 'left',
+				},
+			],
+		},
+		indentation: 0,
+		rows: [
+			{
+				cells: [
+					{
+						renderedContent: (
+							<>
+								<a href="https://developer.genesys.cloud/analyticsdatamanagement/analytics/flows/" target="_blank" rel="noreferrer">
+									Flow
+								</a>
+								<GenesysDevIcon icon={GenesysDevIcons.IaAnalyticsDataManagement} />
+							</>
+						),
+						content: '[Flow](flows/)',
+						align: 'left',
+					},
+					{
+						content: 'Returns a single metric showing currently observed flow interactions.',
+						align: 'left',
+					},
+					{
+						renderedContent: (
+							<p>
+								<strong>Note</strong>: There is no additional documentation for the flow observations. The link will take you to the
+								endpoints page for analytics.
+							</p>
+						),
+						content:
+							'**Note**: There is no additional documentation for the flow observations.  The link will take you to the endpoints page for analytics.',
+						align: 'left',
+					},
+				],
+			},
+			{
+				cells: [
+					{
+						content: 'Queue',
+						align: 'left',
+					},
+					{
+						content: 'The queue observations query shows instantaneous data about one or more queues in your organization.',
+						align: 'left',
+					},
+					{
+						renderedContent: (
+							<p>
+								This API's metrics are focused on such things as: how many interactions are ongoing/waiting right <em>now</em> as well as
+								which agents are available. This API is not appropriate if you need "slice-and-dice" data capabilities or the individual
+								components involved in a conversation (e.g. talk time).
+							</p>
+						),
+						content:
+							'This API\'s metrics are focused on such things as: how many interactions are ongoing/waiting right *now* as well as which agents are available.  This API is not appropriate if you need "slice-and-dice" data capabilities or the individual components involved in a conversation (e.g. talk time).',
+						align: 'left',
+					},
+				],
+			},
+			{
+				cells: [
+					{
+						renderedContent: (
+							<>
+								<a
+									href="https://developer.genesys.cloud/analyticsdatamanagement/analytics/observation/user-query"
+									target="_blank"
+									rel="noreferrer"
+								>
+									User Status
+								</a>
+								<GenesysDevIcon icon={GenesysDevIcons.AppUser} />
+							</>
+						),
+						content: '[User Status](observation/user-query)',
+						align: 'left',
+					},
+					{
+						content: 'The user observations query shows instantaneous data about one or more Genesys Cloud users',
+						align: 'left',
+					},
+					{
+						content:
+							'This API can be used to answer questions like: how many queues a particular user( e.g. agent) is active on and what queues they are a member.',
+						align: 'left',
+					},
+				],
+			},
+		],
+	};
+
+	demoSections.push({
+		title: 'DataTable',
+		content: (
+			<Fragment>
+				<p>For displaying tables</p>
+				<h3>Example</h3>
+				<pre>
+					<code>{`<DataTable 
+sortable={true}
+filterable={true}
+headerRow={tableProps.headerRow as DataTableRow}
+rows={tableProps.rows as DataTableRow[]}
+/>`}</code>
+				</pre>
+				<DataTable
+					sortable={true}
+					filterable={true}
+					headerRow={tableProps.headerRow as DataTableRow}
+					rows={tableProps.rows as DataTableRow[]}
+				/>
 			</Fragment>
 		),
 	});

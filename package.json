@@ -1,6 +1,6 @@
 {
 	"name": "genesys-react-components",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"description": "A React component library containing standardized form elements.",
 	"type": "module",
 	"types": "build/index.d.ts",
@@ -47,7 +47,8 @@
 		"postcss": "^8.4.6",
 		"react": ">=16",
 		"react-dom": ">=16",
-		"react-syntax-highlighter": "^15.5.0",
-		"uuid": "^9.0.0"
+		"uuid": "^9.0.0",
+		"moment": "^2.29.4",
+		"react-syntax-highlighter": "^15.5.0"
 	}
 }

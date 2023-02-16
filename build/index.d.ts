@@ -14,8 +14,9 @@ import AlertBlock from './alertblock/AlertBlock';
 import LoadingPlaceholder from './loadingplaceholder/LoadingPlaceholder';
 import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
+import DataTable from './datatable/DataTable';
 import CodeFence from './codefence/CodeFence';
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, CodeFence, };
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, CodeFence, DataTable, };
 export interface StringChangedCallback {
     (value: string): void;
 }
@@ -107,4 +108,14 @@ export interface DxTabPanelProps {
     title: React.ReactNode;
     children: React.ReactNode;
     className?: string;
+}
+export interface DataTableRow {
+    cells: DataTableCell[];
+}
+export interface DataTableCell {
+    renderedContent?: React.ReactNode;
+    content: string;
+    parsedContent?: string | number | Date;
+    align?: 'left' | 'center' | 'right';
+    copyButton?: boolean;
 }
