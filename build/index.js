@@ -945,7 +945,7 @@ function CodeFence(props) {
             React.createElement(CopyButton, { copyText: props.value }),
             React.createElement("span", { className: "fence-title" }, props.title))),
         collapsed ? undefined : (React.createElement("div", { ref: props.innerRef || undefined, className: bodyClassNames.join(' ') },
-            React.createElement(PrismAsync, { language: props.language, style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value)))));
+            React.createElement(PrismAsync, { language: props.language, style: vscDarkPlus, showLineNumbers: props.showLineNumbers, highlighter: false }, props.value)))));
 }
 
 export { AlertBlock, CodeFence, CopyButton, DataTable, DxAccordion, DxAccordionGroup, DxButton, DxCheckbox, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle, LoadingPlaceholder, Tooltip };

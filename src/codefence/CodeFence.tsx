@@ -58,7 +58,7 @@ export default function CodeFence(props: IProps) {
 			)}
 			{collapsed ? undefined : (
 				<div ref={props.innerRef || undefined} className={bodyClassNames.join(' ')}>
-					<SyntaxHighlighter language={props.language} style={vscDarkPlus} showLineNumbers={props.showLineNumbers}>
+					<SyntaxHighlighter language={props.language} style={vscDarkPlus} showLineNumbers={props.showLineNumbers} highlighter={false}>
 						{props.value}
 					</SyntaxHighlighter>
 				</div>
