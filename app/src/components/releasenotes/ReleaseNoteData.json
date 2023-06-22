@@ -1,5 +1,10 @@
 [
 	{
+		"version": "0.4.2",
+		"notes": "feature update for DxTextbox",
+		"features": ["DXTextbox - added keyboard event prop"]
+	},
+	{
 		"version": "0.3.1",
 		"notes": "doc publish"
 	},

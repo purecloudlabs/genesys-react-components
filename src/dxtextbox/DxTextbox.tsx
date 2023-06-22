@@ -88,8 +88,11 @@ export default function DxTextbox(props: DxTextboxProps) {
 			setEscapePressed(Date.now());
 			return;
 		}
-	}
 
+		if (props.onKeyboardEvent) {
+			props.onKeyboardEvent(event);
+		}
+	}
 	// Normalize input type
 	let inputType: React.HTMLInputTypeAttribute | undefined = props.inputType;
 	if (inputType === 'integer' || inputType === 'decimal') inputType = 'number';

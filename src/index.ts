@@ -106,6 +106,7 @@ export interface DxTextboxProps {
 	disabled?: boolean;
 	className?: string;
 	autoFocus?: boolean;
+	onKeyboardEvent?: { (event: KeyboardEvent): void };
 }
 
 export interface DxAccordionProps {
