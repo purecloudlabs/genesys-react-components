@@ -409,8 +409,9 @@ export default function DataTable(props: IProps) {
 				<table className={tableClassName} cellSpacing="0">
 					{thead}
 					<tbody>
-						{rows.map((row, i) => (
-							<tr key={i}>
+						{rows.map((row, i) => {
+							const rowClass: string = row.className || ''
+							return (<tr key={i} className={rowClass}>
 								{row.cells.map((cell, ii) => (
 									<td key={ii} align={cell?.align || 'left'}>
 										{cell?.content ? (
@@ -422,7 +423,7 @@ export default function DataTable(props: IProps) {
 									</td>
 								))}
 							</tr>
-						))}
+						)})}
 					</tbody>
 				</table>
 			</div>
