@@ -410,12 +410,12 @@ export default function DataTable(props: IProps) {
 					{thead}
 					<tbody>
 						{rows.map((row, i) => {
-							const rowClass: string = row.className || '';
+							const rowClass: string = row.className.trim() || '';
 							return (<tr key={i} className={rowClass}>
 								{row.cells.map((cell, ii) => (
 									<td key={ii} align={cell?.align || 'left'}>
 										{cell?.content ? (
-											<div className={`align-${cell?.align || 'left'}`}>
+											<div className={`align-${cell?.align || 'left'}${cell?.className ? ' ' + cell.className.trim() : ''}`}>
 												{cell.renderedContent || cell.content}
 												{cell.copyButton ? <CopyButton copyText={cell.content} /> : undefined}
 											</div>

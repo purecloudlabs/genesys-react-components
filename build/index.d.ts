@@ -122,4 +122,5 @@ export interface DataTableCell {
     parsedContent?: string | number | Date;
     align?: 'left' | 'center' | 'right';
     copyButton?: boolean;
+    className?: string;
 }
