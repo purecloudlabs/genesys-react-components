@@ -148,6 +148,7 @@ export interface DxTabPanelProps {
 
 export interface DataTableRow {
 	cells: DataTableCell[];
+	className?: string;
 }
 
 export interface DataTableCell {
