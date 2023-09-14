@@ -1,5 +1,10 @@
 [
 	{
+		"version": "0.4.3",
+		"notes": "feature update for DataTable",
+		"features": ["optional class name for DataTable rows"]
+	},
+	{
 		"version": "0.4.2",
 		"notes": "feature update for DxTextbox",
 		"features": ["DXTextbox - added keyboard event prop"]
