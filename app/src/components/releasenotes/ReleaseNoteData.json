@@ -2,7 +2,7 @@
 	{
 		"version": "0.4.3",
 		"notes": "feature update for DataTable",
-		"features": ["optional class name for DataTable rows"]
+		"features": ["optional class name for DataTable rows and cells"]
 	},
 	{
 		"version": "0.4.2",
