@@ -410,7 +410,7 @@ export default function DataTable(props: IProps) {
 					{thead}
 					<tbody>
 						{rows.map((row, i) => {
-							const rowClass: string = row.className.trim() || '';
+							const rowClass: string = row.className?.trim() || '';
 							return (<tr key={i} className={rowClass}>
 								{row.cells.map((cell, ii) => (
 									<td key={ii} align={cell?.align || 'left'}>
