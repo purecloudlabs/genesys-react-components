@@ -340,6 +340,9 @@ function DxTextbox(props) {
             setEscapePressed(Date.now());
             return;
         }
+        if (props.onKeyboardEvent) {
+            props.onKeyboardEvent(event);
+        }
     }
     // Normalize input type
     let inputType = props.inputType;
@@ -917,9 +920,12 @@ function DataTable(props) {
                 React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppFilter, onClick: () => setIsFilterOpen(!isFilterOpen) })),
             React.createElement("table", { className: tableClassName, cellSpacing: "0" },
                 thead,
-                React.createElement("tbody", null, rows.map((row, i) => (React.createElement("tr", { key: i }, row.cells.map((cell, ii) => (React.createElement("td", { key: ii, align: (cell === null || cell === void 0 ? void 0 : cell.align) || 'left' }, (cell === null || cell === void 0 ? void 0 : cell.content) ? (React.createElement("div", { className: `align-${(cell === null || cell === void 0 ? void 0 : cell.align) || 'left'}` },
-                    cell.renderedContent || cell.content,
-                    cell.copyButton ? React.createElement(CopyButton, { copyText: cell.content }) : undefined)) : null)))))))))));
+                React.createElement("tbody", null, rows.map((row, i) => {
+                    const rowClass = row.className.trim() || '';
+                    return (React.createElement("tr", { key: i, className: rowClass }, row.cells.map((cell, ii) => (React.createElement("td", { key: ii, align: (cell === null || cell === void 0 ? void 0 : cell.align) || 'left' }, (cell === null || cell === void 0 ? void 0 : cell.content) ? (React.createElement("div", { className: `align-${(cell === null || cell === void 0 ? void 0 : cell.align) || 'left'}${(cell === null || cell === void 0 ? void 0 : cell.className) ? ' ' + cell.className.trim() : ''}` },
+                        cell.renderedContent || cell.content,
+                        cell.copyButton ? React.createElement(CopyButton, { copyText: cell.content }) : undefined)) : null)))));
+                }))))));
 }
 
 var css_248z = "/*** \n * Core colors\n ***/\n/*** \n\t* Component-specific properties \n\t***/\n/*** \n\t* Theme definitions\n\t***/\n.fence {\n  border-radius: 0;\n  margin: 40px 0;\n  position: relative;\n}\n.fence.json-editor-fence {\n  margin: 1rem 0 0 0;\n  height: 80%;\n  width: 100%;\n  overflow: hidden;\n}\n.fence .fence-header {\n  background-color: var(--theme-codefence-header-background-color);\n  color: var(--theme-codefence-header-text-color);\n  font-size: 14px;\n  border-radius: 4px 4px 0px 0px;\n  border-bottom: 1px solid var(--theme-codefence-border-color);\n  margin: 0;\n  padding: 5px 16px;\n  min-height: 24px;\n  display: flex;\n  flex-direction: row-reverse;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n}\n.fence .fence-header.clickable {\n  cursor: pointer;\n}\n.fence .fence-header > * {\n  flex-grow: 0;\n  flex-shrink: 0;\n}\n.fence .fence-header .copy-button {\n  font-size: 14px;\n  padding: 0;\n  color: var(--theme-codefence-header-text-color);\n}\n.fence .fence-header .fence-title {\n  flex-grow: 1;\n}\n.fence .fence-header .icon {\n  line-height: 0;\n}\n.fence .fence-body {\n  padding: 0;\n  overflow: auto;\n  border-radius: 0 0 4px 4px;\n}\n.fence .fence-body.json-editor-body {\n  height: 100%;\n  line-height: 21px;\n}\n.fence .fence-body.collapsed {\n  max-height: 15px;\n}\n.fence .fence-body.collapsed pre {\n  padding-top: 3px;\n}\n.fence .fence-body pre {\n  display: block;\n  margin: 0 !important;\n  padding: 0 !important;\n  border-radius: 0 0 4px 4px;\n  background: var(--theme-codefence-background-color) !important;\n  height: 100%;\n  width: 100%;\n  box-sizing: border-box;\n}\n.fence .fence-body pre.json-editor-pre {\n  height: 100%;\n  width: 100%;\n  box-sizing: border-box;\n}\n.fence .fence-body pre code {\n  background-color: transparent;\n  max-height: 600px;\n  color: white;\n}\n.fence .fence-body pre code .linenumber {\n  min-width: 26px !important;\n}";

@@ -148,6 +148,7 @@ export interface DxTabPanelProps {
 
 export interface DataTableRow {
 	cells: DataTableCell[];
+	className?: string;
 }
 
 export interface DataTableCell {
@@ -156,4 +157,5 @@ export interface DataTableCell {
 	parsedContent?: string | number | Date;
 	align?: 'left' | 'center' | 'right';
 	copyButton?: boolean;
+	className?: string;
 }

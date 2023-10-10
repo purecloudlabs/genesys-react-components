@@ -76,6 +76,9 @@ export interface DxTextboxProps {
     disabled?: boolean;
     className?: string;
     autoFocus?: boolean;
+    onKeyboardEvent?: {
+        (event: KeyboardEvent): void;
+    };
 }
 export interface DxAccordionProps {
     title: React.ReactNode;
@@ -111,6 +114,7 @@ export interface DxTabPanelProps {
 }
 export interface DataTableRow {
     cells: DataTableCell[];
+    className?: string;
 }
 export interface DataTableCell {
     renderedContent?: React.ReactNode;
@@ -118,4 +122,5 @@ export interface DataTableCell {
     parsedContent?: string | number | Date;
     align?: 'left' | 'center' | 'right';
     copyButton?: boolean;
+    className?: string;
 }
