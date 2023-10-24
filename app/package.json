@@ -4,7 +4,7 @@
 	"private": true,
 	"homepage": "https://purecloudlabs.github.io/genesys-react-components",
 	"dependencies": {
-		"genesys-dev-icons": "^0.4.0",
+		"genesys-dev-icons": "^0.4.1",
 		"genesys-react-components": "^0.4.1",
 		"moment": "^2.29.4",
 		"react": "^18.2.0",
