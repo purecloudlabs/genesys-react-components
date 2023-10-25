@@ -1,5 +1,10 @@
 [
 	{
+		"version": "0.4.4",
+		"notes": "update to package entrypoints and version bump for dependency",
+		"features": ["added main field to package", "version bump for genesys-dev-icons"]
+	},
+	{
 		"version": "0.4.3",
 		"notes": "feature update for DataTable",
 		"features": ["optional class name for DataTable rows and cells"]
