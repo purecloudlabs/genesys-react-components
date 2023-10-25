@@ -921,7 +921,8 @@ function DataTable(props) {
             React.createElement("table", { className: tableClassName, cellSpacing: "0" },
                 thead,
                 React.createElement("tbody", null, rows.map((row, i) => {
-                    const rowClass = row.className.trim() || '';
+                    var _a;
+                    const rowClass = ((_a = row.className) === null || _a === void 0 ? void 0 : _a.trim()) || '';
                     return (React.createElement("tr", { key: i, className: rowClass }, row.cells.map((cell, ii) => (React.createElement("td", { key: ii, align: (cell === null || cell === void 0 ? void 0 : cell.align) || 'left' }, (cell === null || cell === void 0 ? void 0 : cell.content) ? (React.createElement("div", { className: `align-${(cell === null || cell === void 0 ? void 0 : cell.align) || 'left'}${(cell === null || cell === void 0 ? void 0 : cell.className) ? ' ' + cell.className.trim() : ''}` },
                         cell.renderedContent || cell.content,
                         cell.copyButton ? React.createElement(CopyButton, { copyText: cell.content }) : undefined)) : null)))));
