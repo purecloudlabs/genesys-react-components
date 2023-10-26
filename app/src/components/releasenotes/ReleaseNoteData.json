@@ -1,5 +1,10 @@
 [
 	{
+		"version": "0.4.5",
+		"notes": "update to DxCheckbox style",
+		"bugfixes": ["modified css content property to use unicode checkmark instead of genesys-dev-icons font glypn"]
+	},
+	{
 		"version": "0.4.4",
 		"notes": "update to package entrypoints and version bump for dependency",
 		"features": ["added main field to package", "version bump for genesys-dev-icons"]
