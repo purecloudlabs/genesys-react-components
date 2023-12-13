@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import './LoadingPlaceholder.scss';
 interface IProps {
     text?: string;

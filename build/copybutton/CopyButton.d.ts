@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import './CopyButton.scss';
 interface IProps {
     copyText: string;
