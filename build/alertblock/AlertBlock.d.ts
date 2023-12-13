@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import './AlertBlock.scss';
 interface IProps {
     title?: string;

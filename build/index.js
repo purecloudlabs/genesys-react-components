@@ -402,7 +402,7 @@ function DxToggle(props) {
             props.onChange(value);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
-    const toggleValue = () => {
+    const setToggleValue = () => {
         if (props.disabled)
             return;
         if (props.isTriState) {
@@ -417,13 +417,25 @@ function DxToggle(props) {
             setValue(!value);
         }
     };
+    const getToggleValue = () => {
+        if (props.disabled)
+            return 'mixed';
+        if (props.isTriState) {
+            if (value === undefined)
+                return 'mixed';
+        }
+        if (value === true)
+            return 'true';
+        if (value === false)
+            return 'false';
+    };
     return (React.createElement(DxLabel, { label: props.label, description: props.description, className: props.className },
-        React.createElement("div", { className: `dx-toggle-container${props.disabled ? ' disabled' : ''}` },
-            React.createElement("div", { className: 'dx-toggle', onClick: toggleValue },
+        React.createElement("div", { "aria-checked": getToggleValue(), className: `dx-toggle-container${props.disabled ? ' disabled' : ''}` },
+            React.createElement("div", { className: "dx-toggle", onClick: setToggleValue },
                 value !== false ? React.createElement(GenesysDevIcon, { icon: falseIcon }) : undefined,
-                value === true && props.isTriState ? React.createElement("div", { className: 'clear-placeholder' }, "\u00A0") : undefined,
-                React.createElement("div", { className: 'slider' }, value !== undefined ? React.createElement(GenesysDevIcon, { icon: value ? trueIcon : falseIcon }) : undefined),
-                value === false && props.isTriState ? React.createElement("div", { className: 'clear-placeholder' }, "\u00A0") : undefined,
+                value === true && props.isTriState ? React.createElement("div", { className: "clear-placeholder" }, "\u00A0") : undefined,
+                React.createElement("div", { className: "slider" }, value !== undefined ? React.createElement(GenesysDevIcon, { icon: value ? trueIcon : falseIcon }) : undefined),
+                value === false && props.isTriState ? React.createElement("div", { className: "clear-placeholder" }, "\u00A0") : undefined,
                 value !== true ? React.createElement(GenesysDevIcon, { icon: trueIcon }) : undefined))));
 }
 

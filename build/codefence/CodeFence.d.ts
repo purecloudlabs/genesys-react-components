@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import './CodeFence.scss';
 declare global {
     interface Window {

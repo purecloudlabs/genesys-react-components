@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { DxItemGroupProps } from '..';
 import './DxItemGroup.scss';
 import './radiobutton.scss';

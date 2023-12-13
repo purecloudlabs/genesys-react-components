@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { CheckedChangedCallback } from '..';
 import './DxCheckbox.scss';
 interface IProps {

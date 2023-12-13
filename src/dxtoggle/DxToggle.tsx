@@ -24,7 +24,7 @@ export default function DxToggle(props: DxToggleProps) {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [value]);
 
-	const toggleValue = () => {
+	const setToggleValue = () => {
 		if (props.disabled) return;
 		if (props.isTriState) {
 			if (value === undefined) setValue(true);
@@ -35,14 +35,23 @@ export default function DxToggle(props: DxToggleProps) {
 		}
 	};
 
+	const getToggleValue = () => {
+		if (props.disabled) return 'mixed';
+		if (props.isTriState) {
+			if (value === undefined) return 'mixed';
+		}
+		if (value === true) return 'true';
+		if (value === false) return 'false';
+	};
+
 	return (
 		<DxLabel label={props.label} description={props.description} className={props.className}>
-			<div className={`dx-toggle-container${props.disabled ? ' disabled' : ''}`}>
-				<div className='dx-toggle' onClick={toggleValue}>
+			<div aria-checked={getToggleValue()} className={`dx-toggle-container${props.disabled ? ' disabled' : ''}`}>
+				<div className="dx-toggle" onClick={setToggleValue}>
 					{value !== false ? <GenesysDevIcon icon={falseIcon} /> : undefined}
-					{value === true && props.isTriState ? <div className='clear-placeholder'>&nbsp;</div> : undefined}
-					<div className='slider'>{value !== undefined ? <GenesysDevIcon icon={value ? trueIcon : falseIcon} /> : undefined}</div>
-					{value === false && props.isTriState ? <div className='clear-placeholder'>&nbsp;</div> : undefined}
+					{value === true && props.isTriState ? <div className="clear-placeholder">&nbsp;</div> : undefined}
+					<div className="slider">{value !== undefined ? <GenesysDevIcon icon={value ? trueIcon : falseIcon} /> : undefined}</div>
+					{value === false && props.isTriState ? <div className="clear-placeholder">&nbsp;</div> : undefined}
 					{value !== true ? <GenesysDevIcon icon={trueIcon} /> : undefined}
 				</div>
 			</div>
