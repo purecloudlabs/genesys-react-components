@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { DataTableRow } from '..';
 import './DataTable.scss';
 interface IProps {
