@@ -1,5 +1,13 @@
 [
 	{
+		"version": "0.4.7",
+		"notes": "doc publish"
+	},
+	{
+		"version": "0.4.6",
+		"notes": "add aria-checked support for DxToggle"
+	},
+	{
 		"version": "0.4.5",
 		"notes": "update to DxCheckbox style",
 		"bugfixes": ["modified css content property to use unicode checkmark instead of genesys-dev-icons font glypn"]
