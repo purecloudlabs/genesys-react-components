@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/genesys-react-components/static/css/main.898336e9.css",
-    "main.js": "/genesys-react-components/static/js/main.ededc90b.js",
+    "main.js": "/genesys-react-components/static/js/main.9bab275a.js",
     "react-syntax-highlighter/refractor-import.js": "/genesys-react-components/static/js/react-syntax-highlighter/refractor-import.fc60efd2.chunk.js",
     "static/js/787.e7ab6e80.chunk.js": "/genesys-react-components/static/js/787.e7ab6e80.chunk.js",
     "static/media/genesys-dev-icons.eot?": "/genesys-react-components/static/media/genesys-dev-icons.b7d397d9305a45f82f2a.eot",
@@ -21,12 +21,12 @@
     "static/media/genesys-dev-icons.woff2?": "/genesys-react-components/static/media/genesys-dev-icons.843cf98271cf22c4947e.woff2",
     "index.html": "/genesys-react-components/index.html",
     "main.898336e9.css.map": "/genesys-react-components/static/css/main.898336e9.css.map",
-    "main.ededc90b.js.map": "/genesys-react-components/static/js/main.ededc90b.js.map",
+    "main.9bab275a.js.map": "/genesys-react-components/static/js/main.9bab275a.js.map",
     "refractor-import.fc60efd2.chunk.js.map": "/genesys-react-components/static/js/react-syntax-highlighter/refractor-import.fc60efd2.chunk.js.map",
     "787.e7ab6e80.chunk.js.map": "/genesys-react-components/static/js/787.e7ab6e80.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.898336e9.css",
-    "static/js/main.ededc90b.js"
+    "static/js/main.9bab275a.js"
   ]
 }
