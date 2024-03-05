@@ -21,4 +21,5 @@ export default function DxTabbedContent(props: DxTabbedContentProps) {
 			<div className="tab-content">{React.Children.toArray(props.children)[activeTab]}</div>
 		</div>
 	);
+	//why you can use React.Children.toArray and React.Children.toArray.map like this: https://stackoverflow.com/questions/44721768/react-children-map-vs-react-children-toarray-map
 }
