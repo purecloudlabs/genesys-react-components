@@ -238,16 +238,23 @@ styleInject(css_248z$9);
 
 function DxTabbedContent(props) {
     const [activeTab, setActiveTab] = useState(props.initialTabId || 0);
-    const [titles] = useState(
+    const [titles, setTitles] = useState(
     // Scrape titles from child elements
     React.Children.toArray(props.children).map((child) => {
         if (!child || !child.props || !child.props.title)
             return 'Unknown title';
         return child.props.title;
     }));
+    useEffect(() => {
+        setTitles(React.Children.toArray(props.children).map((child) => {
+            if (!child || !child.props || !child.props.title)
+                return 'Unknown title';
+            return child.props.title;
+        }));
+    }, [React.Children]);
     return (React.createElement("div", { className: `dx-tabbed-content${props.className ? ' ' + props.className : ''}` },
-        React.createElement("div", { className: 'tab-titles' }, titles.map((title, i) => (React.createElement("span", { key: i, className: `tab-title${i === activeTab ? ' active' : ''}`, onClick: () => setActiveTab(i) }, title)))),
-        React.createElement("div", { className: 'tab-content' }, React.Children.toArray(props.children)[activeTab])));
+        React.createElement("div", { className: "tab-titles" }, titles.map((title, i) => (React.createElement("span", { key: i, className: `tab-title${i === activeTab ? ' active' : ''}`, onClick: () => setActiveTab(i) }, title)))),
+        React.createElement("div", { className: "tab-content" }, React.Children.toArray(props.children)[activeTab])));
 }
 
 var css_248z$8 = "";
