@@ -251,7 +251,7 @@ function DxTabbedContent(props) {
                 return 'Unknown title';
             return child.props.title;
         }));
-    }, [React.Children]);
+    }, [props.children]);
     return (React.createElement("div", { className: `dx-tabbed-content${props.className ? ' ' + props.className : ''}` },
         React.createElement("div", { className: "tab-titles" }, titles.map((title, i) => (React.createElement("span", { key: i, className: `tab-title${i === activeTab ? ' active' : ''}`, onClick: () => setActiveTab(i) }, title)))),
         React.createElement("div", { className: "tab-content" }, React.Children.toArray(props.children)[activeTab])));

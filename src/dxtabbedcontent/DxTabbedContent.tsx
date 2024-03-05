@@ -20,7 +20,7 @@ export default function DxTabbedContent(props: DxTabbedContentProps) {
 				return child.props.title;
 			})
 		);
-	}, [React.Children]);
+	}, [props.children]);
 
 	return (
 		<div className={`dx-tabbed-content${props.className ? ' ' + props.className : ''}`}>
