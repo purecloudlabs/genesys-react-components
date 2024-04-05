@@ -60,7 +60,7 @@
 			background-color: var($--theme-alertblock-info-background-color);
 			border-color: var($--theme-alertblock-info-border-color);
 
-			.icon {
+			.info-icon {
 				color: var($--theme-alertblock-info-icon-color);
 			}
 		}
@@ -70,7 +70,7 @@
 			background-color: var($--theme-alertblock-warning-background-color);
 			border-color: var($--theme-alertblock-warning-border-color);
 
-			.icon {
+			.info-icon {
 				color: var($--theme-alertblock-warning-icon-color);
 			}
 		}
@@ -80,7 +80,7 @@
 			background-color: var($--theme-alertblock-critical-background-color);
 			border-color: var($--theme-alertblock-critical-border-color);
 
-			.icon {
+			.info-icon {
 				color: var($--theme-alertblock-critical-icon-color);
 			}
 		}
@@ -90,7 +90,7 @@
 			background-color: var($--theme-alertblock-success-background-color);
 			border-color: var($--theme-alertblock-success-border-color);
 
-			.icon {
+			.info-icon {
 				color: var($--theme-alertblock-success-icon-color);
 			}
 		}
@@ -100,7 +100,7 @@
 			background-color: var($--theme-alertblock-toast-background-color);
 			border-color: var($--theme-alertblock-toast-border-color);
 
-			.icon {
+			.info-icon {
 				color: var($--theme-alertblock-toast-icon-color);
 			}
 		}
