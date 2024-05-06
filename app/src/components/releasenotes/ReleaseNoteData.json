@@ -1,5 +1,9 @@
 [
 	{
+		"version": "1.0.1",
+		"notes": "doc publish"
+	},
+	{
 		"version": "1.0.0",
 		"notes": "v1 release - no changes"
 	},
