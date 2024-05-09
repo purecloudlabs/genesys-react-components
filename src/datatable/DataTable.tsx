@@ -185,6 +185,7 @@ export default function DataTable(props: IProps) {
 			setParsedRows(props.rows);
 		} else {
 			setRows(props.rows);
+			setParsedRows(props.rows);
 		}
 	}, [props.rows]);
 
