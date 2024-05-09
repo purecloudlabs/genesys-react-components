@@ -783,6 +783,9 @@ function DataTable(props) {
             setColumnTypes(newColumnTypes);
             setParsedRows(props.rows);
         }
+        else {
+            setRows(props.rows);
+        }
     }, [props.rows]);
     // Filter changed
     useEffect(() => {

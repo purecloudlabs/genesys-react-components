@@ -183,6 +183,9 @@ export default function DataTable(props: IProps) {
 			}
 			setColumnTypes(newColumnTypes);
 			setParsedRows(props.rows);
+		} else {
+			setRows(props.rows);
+			setParsedRows(props.rows);
 		}
 	}, [props.rows]);
 
@@ -411,19 +414,21 @@ export default function DataTable(props: IProps) {
 					<tbody>
 						{rows.map((row, i) => {
 							const rowClass: string = row.className?.trim() || '';
-							return (<tr key={i} className={rowClass}>
-								{row.cells.map((cell, ii) => (
-									<td key={ii} align={cell?.align || 'left'}>
-										{cell?.content ? (
-											<div className={`align-${cell?.align || 'left'}${cell?.className ? ' ' + cell.className.trim() : ''}`}>
-												{cell.renderedContent || cell.content}
-												{cell.copyButton ? <CopyButton copyText={cell.content} /> : undefined}
-											</div>
-										) : null}
-									</td>
-								))}
-							</tr>
-						)})}
+							return (
+								<tr key={i} className={rowClass}>
+									{row.cells.map((cell, ii) => (
+										<td key={ii} align={cell?.align || 'left'}>
+											{cell?.content ? (
+												<div className={`align-${cell?.align || 'left'}${cell?.className ? ' ' + cell.className.trim() : ''}`}>
+													{cell.renderedContent || cell.content}
+													{cell.copyButton ? <CopyButton copyText={cell.content} /> : undefined}
+												</div>
+											) : null}
+										</td>
+									))}
+								</tr>
+							);
+						})}
 					</tbody>
 				</table>
 			</div>
