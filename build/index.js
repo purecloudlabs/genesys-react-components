@@ -783,6 +783,9 @@ function DataTable(props) {
             setColumnTypes(newColumnTypes);
             setParsedRows(props.rows);
         }
+        else {
+            setRows(props.rows);
+        }
     }, [props.rows]);
     // Filter changed
     useEffect(() => {
@@ -943,6 +946,7 @@ var css_248z = "/*** \n * Core colors\n ***/\n/*** \n\t* Component-specific prop
 styleInject(css_248z);
 
 function CodeFence(props) {
+    var _a;
     const [collapsed, setCollapsed] = useState(props.noCollapse ? false : props.autoCollapse || false);
     const bodyClassNames = ['fence-body'];
     if (props.jsonEditor)
@@ -962,7 +966,7 @@ function CodeFence(props) {
             React.createElement(CopyButton, { copyText: props.value }),
             React.createElement("span", { className: "fence-title" }, props.title))),
         collapsed ? undefined : (React.createElement("div", { ref: props.innerRef || undefined, className: bodyClassNames.join(' ') },
-            React.createElement(PrismAsync, { language: props.language, style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value)))));
+            React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value)))));
 }
 
 export { AlertBlock, CodeFence, CopyButton, DataTable, DxAccordion, DxAccordionGroup, DxButton, DxCheckbox, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle, LoadingPlaceholder, Tooltip };
