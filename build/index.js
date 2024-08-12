@@ -96,6 +96,9 @@ function DxButton(props) {
         e.stopPropagation();
         props.onClick();
     };
+    if (props.type === 'link') {
+        return (React.createElement("a", { href: props.link || '#', target: "_blank", className: classNames.join(' ') }, props.children));
+    }
     return (React.createElement("button", { className: classNames.join(' '), type: "button", onClick: handleClick, disabled: props.disabled === true }, props.children));
 }
 
@@ -785,6 +788,7 @@ function DataTable(props) {
         }
         else {
             setRows(props.rows);
+            setParsedRows(props.rows);
         }
     }, [props.rows]);
     // Filter changed

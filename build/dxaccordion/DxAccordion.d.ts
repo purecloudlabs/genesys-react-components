@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { DxAccordionProps } from '..';
 import './DxAccordion.scss';
-export default function DxAccordion(props: DxAccordionProps): JSX.Element;
+export default function DxAccordion(props: DxAccordionProps): React.JSX.Element;

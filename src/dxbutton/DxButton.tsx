@@ -5,6 +5,7 @@ import './DxButton.scss';
 
 interface IProps {
 	type?: 'primary' | 'secondary' | 'link';
+	link?: string;
 	disabled?: boolean;
 	children?: React.ReactNode;
 	className?: string;
@@ -22,7 +23,13 @@ export default function DxButton(props: IProps) {
 		e.stopPropagation();
 		props.onClick();
 	};
-
+	if (props.type === 'link') {
+		return (
+			<a href={props.link || '#'} target="_blank" className={classNames.join(' ')}>
+				{props.children}
+			</a>
+		);
+	}
 	return (
 		<button className={classNames.join(' ')} type="button" onClick={handleClick} disabled={props.disabled === true}>
 			{props.children}
