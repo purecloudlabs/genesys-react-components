@@ -380,7 +380,7 @@ export default function FormDemo() {
 				<DxButton type="secondary" onClick={() => console.log('Secondary button clicked')}>
 					Secondary
 				</DxButton>
-				<DxButton type="link" onClick={() => console.log('Link button clicked')}>
+				<DxButton type="link" link="./" onClick={() => console.log('Link button clicked')}>
 					Link button
 				</DxButton>
 				<h3>Disabled buttons</h3>
