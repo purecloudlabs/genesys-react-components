@@ -81,6 +81,10 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Global key bindings
 	function globalKeyBindings(event: KeyboardEvent) {
+		if (props.onKeyboardEvent) {
+			props.onKeyboardEvent(event);
+		}
+		
 		// Escape - cancel search
 		if (event.key === 'Escape') {
 			event.stopPropagation();
@@ -89,9 +93,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 			return;
 		}
 
-		if (props.onKeyboardEvent) {
-			props.onKeyboardEvent(event);
-		}
+
 	}
 	// Normalize input type
 	let inputType: React.HTMLInputTypeAttribute | undefined = props.inputType;
