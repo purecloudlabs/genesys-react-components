@@ -33,7 +33,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Escape pressed
 	useEffect(() => {
-		if (!isFocused || props.clearOnEscape === false) return;
+		if (!isFocused || !props.clearOnEscape) return;
 		setValue('');
 		inputRef.current?.blur();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -86,15 +86,14 @@ export default function DxTextbox(props: DxTextboxProps) {
 		}
 		
 		// Escape - cancel search
-		if (event.key === 'Escape') {
+		if (event.key === 'Escape' && props.clearOnEscape) {
 			event.stopPropagation();
 			event.preventDefault();
 			setEscapePressed(Date.now());
 			return;
 		}
-
-
 	}
+	
 	// Normalize input type
 	let inputType: React.HTMLInputTypeAttribute | undefined = props.inputType;
 	if (inputType === 'integer' || inputType === 'decimal') inputType = 'number';

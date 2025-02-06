@@ -283,7 +283,7 @@ function DxTextbox(props) {
     // Escape pressed
     useEffect(() => {
         var _a;
-        if (!isFocused || props.clearOnEscape === false)
+        if (!isFocused || !props.clearOnEscape)
             return;
         setValue('');
         (_a = inputRef.current) === null || _a === void 0 ? void 0 : _a.blur();
@@ -331,15 +331,15 @@ function DxTextbox(props) {
     const hasLabel = props.label && props.label !== '';
     // Global key bindings
     function globalKeyBindings(event) {
+        if (props.onKeyboardEvent) {
+            props.onKeyboardEvent(event);
+        }
         // Escape - cancel search
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && props.clearOnEscape) {
             event.stopPropagation();
             event.preventDefault();
             setEscapePressed(Date.now());
             return;
-        }
-        if (props.onKeyboardEvent) {
-            props.onKeyboardEvent(event);
         }
     }
     // Normalize input type
@@ -785,6 +785,7 @@ function DataTable(props) {
         }
         else {
             setRows(props.rows);
+            setParsedRows(props.rows);
         }
     }, [props.rows]);
     // Filter changed
