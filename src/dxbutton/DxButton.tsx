@@ -9,6 +9,7 @@ interface IProps {
 	children?: React.ReactNode;
 	className?: string;
 	onClick?: VoidEventCallback;
+	onClickRaw?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function DxButton(props: IProps) {
@@ -17,10 +18,19 @@ export default function DxButton(props: IProps) {
 	if (props.className) classNames.push(props.className);
 
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		if (!props.onClick) return;
-		e.preventDefault();
-		e.stopPropagation();
-		props.onClick();
+		// Raise raw event
+		if (props.onClickRaw) {
+			props.onClickRaw(e);
+			return;
+		}
+
+		// Raise managed event
+		if (props.onClick) {
+			e.preventDefault();
+			e.stopPropagation();
+			props.onClick();
+			return;
+		}
 	};
 
 	return (

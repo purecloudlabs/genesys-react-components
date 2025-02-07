@@ -90,11 +90,18 @@ function DxButton(props) {
     if (props.className)
         classNames.push(props.className);
     const handleClick = (e) => {
-        if (!props.onClick)
+        // Raise raw event
+        if (props.onClickRaw) {
+            props.onClickRaw(e);
             return;
-        e.preventDefault();
-        e.stopPropagation();
-        props.onClick();
+        }
+        // Raise managed event
+        if (props.onClick) {
+            e.preventDefault();
+            e.stopPropagation();
+            props.onClick();
+            return;
+        }
     };
     return (React.createElement("button", { className: classNames.join(' '), type: "button", onClick: handleClick, disabled: props.disabled === true }, props.children));
 }
