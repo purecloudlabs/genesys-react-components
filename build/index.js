@@ -968,13 +968,15 @@ function CodeFence(props) {
         classNames.push(`indent-${props.indentation}`);
     if (props.jsonEditor)
         classNames.push('json-editor-fence');
+    const disableHighlighting = props.disableSyntaxHighlighting || props.value.length > 100000;
     return (React.createElement("div", { className: classNames.join(' ') },
         props.noHeader || typeof props.value !== 'string' ? ('') : (React.createElement("div", { className: `fence-header${props.noCollapse ? '' : ' clickable'}`, onClick: () => setCollapsed(props.noCollapse ? false : !collapsed) },
             props.noCollapse ? undefined : (React.createElement(GenesysDevIcon, { icon: collapsed ? GenesysDevIcons.AppChevronDown : GenesysDevIcons.AppChevronUp })),
             React.createElement(CopyButton, { copyText: props.value }),
             React.createElement("span", { className: "fence-title" }, props.title))),
         collapsed ? undefined : (React.createElement("div", { ref: props.innerRef || undefined, className: bodyClassNames.join(' ') },
-            React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value)))));
+            disableHighlighting && React.createElement(React.Fragment, null, props.value),
+            !disableHighlighting && (React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value))))));
 }
 
 export { AlertBlock, CodeFence, CopyButton, DataTable, DxAccordion, DxAccordionGroup, DxButton, DxCheckbox, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle, LoadingPlaceholder, Tooltip };

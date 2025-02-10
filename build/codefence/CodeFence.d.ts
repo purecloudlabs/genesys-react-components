@@ -17,6 +17,7 @@ interface IProps {
     className?: string;
     jsonEditor?: boolean;
     innerRef?: any;
+    disableSyntaxHighlighting?: boolean;
 }
 export default function CodeFence(props: IProps): JSX.Element;
 export {};
