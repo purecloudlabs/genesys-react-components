@@ -975,7 +975,8 @@ function CodeFence(props) {
             React.createElement(CopyButton, { copyText: props.value }),
             React.createElement("span", { className: "fence-title" }, props.title))),
         collapsed ? undefined : (React.createElement("div", { ref: props.innerRef || undefined, className: bodyClassNames.join(' ') },
-            disableHighlighting && React.createElement(React.Fragment, null, props.value),
+            disableHighlighting && (React.createElement("pre", null,
+                React.createElement("code", null, props.value))),
             !disableHighlighting && (React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value))))));
 }
 
