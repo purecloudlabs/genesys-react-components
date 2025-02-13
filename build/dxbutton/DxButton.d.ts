@@ -7,6 +7,7 @@ interface IProps {
     children?: React.ReactNode;
     className?: string;
     onClick?: VoidEventCallback;
+    onClickRaw?: React.MouseEventHandler<HTMLButtonElement>;
 }
 export default function DxButton(props: IProps): JSX.Element;
 export {};

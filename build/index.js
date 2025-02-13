@@ -90,11 +90,18 @@ function DxButton(props) {
     if (props.className)
         classNames.push(props.className);
     const handleClick = (e) => {
-        if (!props.onClick)
+        // Raise raw event
+        if (props.onClickRaw) {
+            props.onClickRaw(e);
             return;
-        e.preventDefault();
-        e.stopPropagation();
-        props.onClick();
+        }
+        // Raise managed event
+        if (props.onClick) {
+            e.preventDefault();
+            e.stopPropagation();
+            props.onClick();
+            return;
+        }
     };
     return (React.createElement("button", { className: classNames.join(' '), type: "button", onClick: handleClick, disabled: props.disabled === true }, props.children));
 }
@@ -283,7 +290,7 @@ function DxTextbox(props) {
     // Escape pressed
     useEffect(() => {
         var _a;
-        if (!isFocused || props.clearOnEscape === false)
+        if (!isFocused || !props.clearOnEscape)
             return;
         setValue('');
         (_a = inputRef.current) === null || _a === void 0 ? void 0 : _a.blur();
@@ -331,15 +338,15 @@ function DxTextbox(props) {
     const hasLabel = props.label && props.label !== '';
     // Global key bindings
     function globalKeyBindings(event) {
+        if (props.onKeyboardEvent) {
+            props.onKeyboardEvent(event);
+        }
         // Escape - cancel search
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && props.clearOnEscape) {
             event.stopPropagation();
             event.preventDefault();
             setEscapePressed(Date.now());
             return;
-        }
-        if (props.onKeyboardEvent) {
-            props.onKeyboardEvent(event);
         }
     }
     // Normalize input type
@@ -785,6 +792,7 @@ function DataTable(props) {
         }
         else {
             setRows(props.rows);
+            setParsedRows(props.rows);
         }
     }, [props.rows]);
     // Filter changed
@@ -960,13 +968,16 @@ function CodeFence(props) {
         classNames.push(`indent-${props.indentation}`);
     if (props.jsonEditor)
         classNames.push('json-editor-fence');
+    const disableHighlighting = props.disableSyntaxHighlighting || props.value.length > 100000;
     return (React.createElement("div", { className: classNames.join(' ') },
         props.noHeader || typeof props.value !== 'string' ? ('') : (React.createElement("div", { className: `fence-header${props.noCollapse ? '' : ' clickable'}`, onClick: () => setCollapsed(props.noCollapse ? false : !collapsed) },
             props.noCollapse ? undefined : (React.createElement(GenesysDevIcon, { icon: collapsed ? GenesysDevIcons.AppChevronDown : GenesysDevIcons.AppChevronUp })),
             React.createElement(CopyButton, { copyText: props.value }),
             React.createElement("span", { className: "fence-title" }, props.title))),
         collapsed ? undefined : (React.createElement("div", { ref: props.innerRef || undefined, className: bodyClassNames.join(' ') },
-            React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value)))));
+            disableHighlighting && (React.createElement("pre", null,
+                React.createElement("code", null, props.value))),
+            !disableHighlighting && (React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value))))));
 }
 
 export { AlertBlock, CodeFence, CopyButton, DataTable, DxAccordion, DxAccordionGroup, DxButton, DxCheckbox, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle, LoadingPlaceholder, Tooltip };

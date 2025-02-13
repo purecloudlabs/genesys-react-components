@@ -25,6 +25,7 @@ interface IProps {
 	className?: string;
 	jsonEditor?: boolean;
 	innerRef?: any;
+	disableSyntaxHighlighting?: boolean;
 }
 
 export default function CodeFence(props: IProps) {
@@ -38,6 +39,8 @@ export default function CodeFence(props: IProps) {
 	if (props.noCollapse) classNames.push('nocollapse');
 	if (props.indentation) classNames.push(`indent-${props.indentation}`);
 	if (props.jsonEditor) classNames.push('json-editor-fence');
+
+	const disableHighlighting = props.disableSyntaxHighlighting || props.value.length > 100000;
 
 	return (
 		<div className={classNames.join(' ')}>
@@ -58,9 +61,16 @@ export default function CodeFence(props: IProps) {
 			)}
 			{collapsed ? undefined : (
 				<div ref={props.innerRef || undefined} className={bodyClassNames.join(' ')}>
-					<SyntaxHighlighter language={props.language?.toLowerCase()} style={vscDarkPlus} showLineNumbers={props.showLineNumbers}>
-						{props.value}
-					</SyntaxHighlighter>
+					{disableHighlighting && (
+						<pre>
+							<code>{props.value}</code>
+						</pre>
+					)}
+					{!disableHighlighting && (
+						<SyntaxHighlighter language={props.language?.toLowerCase()} style={vscDarkPlus} showLineNumbers={props.showLineNumbers}>
+							{props.value}
+						</SyntaxHighlighter>
+					)}
 				</div>
 			)}
 		</div>

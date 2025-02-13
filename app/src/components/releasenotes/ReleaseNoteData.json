@@ -1,5 +1,20 @@
 [
 	{
+		"version": "1.0.4",
+		"notes": "",
+		"features":[
+			"DxButton - add new optional raw button event handler",
+			"CodeFence - add option to disable syntax highlighting and automatically disable when the content length is above the performance limit (100,000 characters)"
+		],
+		"bugfixes":[
+			"DxTextbox - allow escape key to be propigated as a key event"
+		]
+	},
+	{
+		"version": "1.0.3",
+		"notes": ""
+	},
+	{
 		"version": "1.0.2",
 		"notes": "doc publish"
 	},
