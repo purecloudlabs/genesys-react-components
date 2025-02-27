@@ -13,7 +13,7 @@ interface IProps {
     title?: string;
     language?: string;
     showLineNumbers?: boolean;
-    indentation?: number;
+    indentation?: string;
     className?: string;
     jsonEditor?: boolean;
     innerRef?: any;

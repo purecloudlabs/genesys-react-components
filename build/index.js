@@ -961,7 +961,7 @@ function CodeFence(props) {
         try {
             if (props.language && props.language.toLowerCase() === 'json') {
                 const parseJ = JSON.parse(value);
-                const tempVal = JSON.stringify(parseJ, null, props.indentation || 2);
+                const tempVal = JSON.stringify(parseJ, null, parseInt(props.indentation) || 2);
                 setValue(tempVal);
             }
         }
