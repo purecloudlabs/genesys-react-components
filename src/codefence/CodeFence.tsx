@@ -21,7 +21,7 @@ interface IProps {
 	title?: string;
 	language?: string;
 	showLineNumbers?: boolean;
-	indentation?: string;
+	indentation?: string | number;
 	className?: string;
 	jsonEditor?: boolean;
 	innerRef?: any;
@@ -35,8 +35,13 @@ export default function CodeFence(props: IProps) {
 	useEffect(() => {
 		try {
 			if (props.language && props.language.toLowerCase() === 'json') {
+				const indentation = props.indentation
+					? typeof props.indentation === 'string'
+						? parseInt(props.indentation)
+						: props.indentation
+					: 2;
 				const parseJ = JSON.parse(value);
-				const tempVal = JSON.stringify(parseJ, null, parseInt(props.indentation) || 2);
+				const tempVal = JSON.stringify(parseJ, null, indentation);
 				setValue(tempVal);
 			}
 		} catch (e) {

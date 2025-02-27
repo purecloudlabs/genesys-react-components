@@ -960,8 +960,13 @@ function CodeFence(props) {
     useEffect(() => {
         try {
             if (props.language && props.language.toLowerCase() === 'json') {
+                const indentation = props.indentation
+                    ? typeof props.indentation === 'string'
+                        ? parseInt(props.indentation)
+                        : props.indentation
+                    : 2;
                 const parseJ = JSON.parse(value);
-                const tempVal = JSON.stringify(parseJ, null, parseInt(props.indentation) || 2);
+                const tempVal = JSON.stringify(parseJ, null, indentation);
                 setValue(tempVal);
             }
         }
