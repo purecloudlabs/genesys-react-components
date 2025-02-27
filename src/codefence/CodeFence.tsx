@@ -1,5 +1,5 @@
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PrismAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism/index.js';
 
@@ -21,7 +21,7 @@ interface IProps {
 	title?: string;
 	language?: string;
 	showLineNumbers?: boolean;
-	indentation?: string;
+	indentation?: number;
 	className?: string;
 	jsonEditor?: boolean;
 	innerRef?: any;
@@ -30,6 +30,19 @@ interface IProps {
 
 export default function CodeFence(props: IProps) {
 	const [collapsed, setCollapsed] = useState(props.noCollapse ? false : props.autoCollapse || false);
+	const [value, setValue] = useState<string>(props.value);
+
+	useEffect(() => {
+		try {
+			if (props.language && props.language.toLowerCase() === 'json') {
+				const parseJ = JSON.parse(value);
+				const tempVal = JSON.stringify(parseJ, null, props.indentation || 2);
+				setValue(tempVal);
+			}
+		} catch (e) {
+			console.log(e);
+		}
+	}, [props.indentation]);
 
 	const bodyClassNames: string[] = ['fence-body'];
 	if (props.jsonEditor) bodyClassNames.push('json-editor-body');
@@ -37,14 +50,13 @@ export default function CodeFence(props: IProps) {
 	const classNames: string[] = ['fence'];
 	if (props.className) classNames.push(props.className);
 	if (props.noCollapse) classNames.push('nocollapse');
-	if (props.indentation) classNames.push(`indent-${props.indentation}`);
 	if (props.jsonEditor) classNames.push('json-editor-fence');
 
-	const disableHighlighting = props.disableSyntaxHighlighting || props.value.length > 100000;
+	const disableHighlighting = props.disableSyntaxHighlighting || value.length > 100000;
 
 	return (
 		<div className={classNames.join(' ')}>
-			{props.noHeader || typeof props.value !== 'string' ? (
+			{props.noHeader || typeof value !== 'string' ? (
 				''
 			) : (
 				<div
@@ -55,7 +67,7 @@ export default function CodeFence(props: IProps) {
 					{props.noCollapse ? undefined : (
 						<GenesysDevIcon icon={collapsed ? GenesysDevIcons.AppChevronDown : GenesysDevIcons.AppChevronUp} />
 					)}
-					<CopyButton copyText={props.value} />
+					<CopyButton copyText={value} />
 					<span className="fence-title">{props.title}</span>
 				</div>
 			)}
@@ -63,12 +75,12 @@ export default function CodeFence(props: IProps) {
 				<div ref={props.innerRef || undefined} className={bodyClassNames.join(' ')}>
 					{disableHighlighting && (
 						<pre>
-							<code>{props.value}</code>
+							<code>{value}</code>
 						</pre>
 					)}
 					{!disableHighlighting && (
 						<SyntaxHighlighter language={props.language?.toLowerCase()} style={vscDarkPlus} showLineNumbers={props.showLineNumbers}>
-							{props.value}
+							{value}
 						</SyntaxHighlighter>
 					)}
 				</div>

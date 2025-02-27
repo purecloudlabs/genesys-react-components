@@ -956,6 +956,19 @@ styleInject(css_248z);
 function CodeFence(props) {
     var _a;
     const [collapsed, setCollapsed] = useState(props.noCollapse ? false : props.autoCollapse || false);
+    const [value, setValue] = useState(props.value);
+    useEffect(() => {
+        try {
+            if (props.language && props.language.toLowerCase() === 'json') {
+                const parseJ = JSON.parse(value);
+                const tempVal = JSON.stringify(parseJ, null, props.indentation || 2);
+                setValue(tempVal);
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }, [props.indentation]);
     const bodyClassNames = ['fence-body'];
     if (props.jsonEditor)
         bodyClassNames.push('json-editor-body');
@@ -964,20 +977,18 @@ function CodeFence(props) {
         classNames.push(props.className);
     if (props.noCollapse)
         classNames.push('nocollapse');
-    if (props.indentation)
-        classNames.push(`indent-${props.indentation}`);
     if (props.jsonEditor)
         classNames.push('json-editor-fence');
-    const disableHighlighting = props.disableSyntaxHighlighting || props.value.length > 100000;
+    const disableHighlighting = props.disableSyntaxHighlighting || value.length > 100000;
     return (React.createElement("div", { className: classNames.join(' ') },
-        props.noHeader || typeof props.value !== 'string' ? ('') : (React.createElement("div", { className: `fence-header${props.noCollapse ? '' : ' clickable'}`, onClick: () => setCollapsed(props.noCollapse ? false : !collapsed) },
+        props.noHeader || typeof value !== 'string' ? ('') : (React.createElement("div", { className: `fence-header${props.noCollapse ? '' : ' clickable'}`, onClick: () => setCollapsed(props.noCollapse ? false : !collapsed) },
             props.noCollapse ? undefined : (React.createElement(GenesysDevIcon, { icon: collapsed ? GenesysDevIcons.AppChevronDown : GenesysDevIcons.AppChevronUp })),
-            React.createElement(CopyButton, { copyText: props.value }),
+            React.createElement(CopyButton, { copyText: value }),
             React.createElement("span", { className: "fence-title" }, props.title))),
         collapsed ? undefined : (React.createElement("div", { ref: props.innerRef || undefined, className: bodyClassNames.join(' ') },
             disableHighlighting && (React.createElement("pre", null,
-                React.createElement("code", null, props.value))),
-            !disableHighlighting && (React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value))))));
+                React.createElement("code", null, value))),
+            !disableHighlighting && (React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, value))))));
 }
 
 export { AlertBlock, CodeFence, CopyButton, DataTable, DxAccordion, DxAccordionGroup, DxButton, DxCheckbox, DxItemGroup, DxLabel, DxTabPanel, DxTabbedContent, DxTextbox, DxToggle, LoadingPlaceholder, Tooltip };
