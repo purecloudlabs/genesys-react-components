@@ -25,8 +25,18 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Value prop updated
 	useEffect(() => {
-		// Ignore value changed if initial value was set; they're mutually exclusive
-		if (!props.initialValue) {
+		//Set initial value of date to avoid invalid format error
+		if (inputType === 'date') {
+			let parsedDate: Date;
+			if (props.initialValue) {
+				parsedDate = parseDate(props.initialValue);
+			} else {
+				parsedDate = parseDate(props.value);
+			}
+			const formattedDate = formatDate(parsedDate?.toISOString());
+			setValue(formattedDate);
+			// Ignore value changed if initial value was set; they're mutually exclusive
+		} else if (!props.initialValue && inputType !== 'date') {
 			setValue(props.value || '');
 		}
 	}, [props.value]);
@@ -84,7 +94,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 		if (props.onKeyboardEvent) {
 			props.onKeyboardEvent(event);
 		}
-		
+
 		// Escape - cancel search
 		if (event.key === 'Escape' && props.clearOnEscape) {
 			event.stopPropagation();
@@ -93,7 +103,25 @@ export default function DxTextbox(props: DxTextboxProps) {
 			return;
 		}
 	}
-	
+
+	//Formats date to fit required HTML format
+	const formatDate = (inputDate: string) => {
+		const date = new Date(inputDate);
+		if (isNaN(date.getTime())) return ''; // Return empty if invalid date
+
+		// Format as YYYY-MM-DD for HTML date input
+		const year = date.getFullYear();
+		const month = String(date.getMonth() + 1).padStart(2, '0');
+		const day = String(date.getDate()).padStart(2, '0');
+		return `${year}-${month}-${day}`;
+	};
+
+	const parseDate = (input: string) => {
+		if (!input) return;
+		const date = new Date(input);
+		return isNaN(date.getTime()) ? null : date;
+	};
+
 	// Normalize input type
 	let inputType: React.HTMLInputTypeAttribute | undefined = props.inputType;
 	if (inputType === 'integer' || inputType === 'decimal') inputType = 'number';

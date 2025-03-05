@@ -282,8 +282,20 @@ function DxTextbox(props) {
     }, []);
     // Value prop updated
     useEffect(() => {
-        // Ignore value changed if initial value was set; they're mutually exclusive
-        if (!props.initialValue) {
+        //Set initial value of date to avoid invalid format error
+        if (inputType === 'date') {
+            let parsedDate;
+            if (props.initialValue) {
+                parsedDate = parseDate(props.initialValue);
+            }
+            else {
+                parsedDate = parseDate(props.value);
+            }
+            const formattedDate = formatDate(parsedDate === null || parsedDate === void 0 ? void 0 : parsedDate.toISOString());
+            setValue(formattedDate);
+            // Ignore value changed if initial value was set; they're mutually exclusive
+        }
+        else if (!props.initialValue && inputType !== 'date') {
             setValue(props.value || '');
         }
     }, [props.value]);
@@ -349,6 +361,23 @@ function DxTextbox(props) {
             return;
         }
     }
+    //Formats date to fit required HTML format
+    const formatDate = (inputDate) => {
+        const date = new Date(inputDate);
+        if (isNaN(date.getTime()))
+            return ''; // Return empty if invalid date
+        // Format as YYYY-MM-DD for HTML date input
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+    const parseDate = (input) => {
+        if (!input)
+            return;
+        const date = new Date(input);
+        return isNaN(date.getTime()) ? null : date;
+    };
     // Normalize input type
     let inputType = props.inputType;
     if (inputType === 'integer' || inputType === 'decimal')
