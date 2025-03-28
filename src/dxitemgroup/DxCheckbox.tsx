@@ -39,8 +39,11 @@ export default function DxCheckbox(props: IProps) {
 				checked={checked}
 				onChange={(e) => setChecked(e.target.checked)}
 				disabled={props.disabled === true}
+				title={props.description}
 			/>
-			<span className='label-text'>{props.label}</span>
+			<span className="label-text" title={props.description}>
+				{props.label}
+			</span>
 		</label>
 	);
 }
