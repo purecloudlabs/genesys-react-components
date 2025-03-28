@@ -1,5 +1,3 @@
-@import '../theme/variables.scss';
-
 $cellWidthPadding: 10px;
 
 .table-container {
@@ -13,7 +11,7 @@ $cellWidthPadding: 10px;
 		box-sizing: border-box;
 
 		.filter-toggle {
-			color: var($--theme-core-link-color);
+			color: var(--theme-core-link-color);
 			font-size: 12px;
 			line-height: 0;
 			margin: 6px 0 0 10px;
@@ -21,7 +19,7 @@ $cellWidthPadding: 10px;
 			align-self: flex-start;
 
 			&:hover {
-				color: var($--theme-core-link-hover-color);
+				color: var(--theme-core-link-hover-color);
 			}
 		}
 	}
@@ -29,14 +27,14 @@ $cellWidthPadding: 10px;
 	.table {
 		width: 100%;
 		margin: 0 30px 0 0;
-		color: var($--theme-datatable-text-color);
-		background-color: var($--theme-datatable-background-color);
+		color: var(--theme-datatable-text-color);
+		background-color: var(--theme-datatable-background-color);
 
 		// Remove paragraph padding from all cells
 		td {
 			border-width: 0 0 1px 0;
 			border-style: solid;
-			border-color: var($--theme-datatable-border-color);
+			border-color: var(--theme-datatable-border-color);
 			vertical-align: top;
 			min-width: 80px;
 
@@ -48,7 +46,7 @@ $cellWidthPadding: 10px;
 
 		thead {
 			tr {
-				color: var($--theme-datatable-text-color);
+				color: var(--theme-datatable-text-color);
 				font-weight: bold;
 				font-size: 14px;
 				line-height: 24px;
@@ -103,7 +101,7 @@ $cellWidthPadding: 10px;
 				}
 
 				&.filter-row {
-					background-color: var($--theme-datatable-filter-background-color);
+					background-color: var(--theme-datatable-filter-background-color);
 
 					td {
 						border-width: 1px 0;
@@ -181,7 +179,7 @@ $cellWidthPadding: 10px;
 
 					.sort-icon,
 					.filter-active-icon {
-						color: var($--theme-core-link-color);
+						color: var(--theme-core-link-color);
 					}
 
 					&.unsorted .sort-icon {

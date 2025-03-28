@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import './AlertBlock.scss';
 interface IProps {
     title?: string;
@@ -9,5 +9,5 @@ interface IProps {
     children?: any;
     className?: string;
 }
-export default function AlertBlock(props: IProps): JSX.Element;
+export default function AlertBlock(props: IProps): React.JSX.Element;
 export {};

@@ -1,10 +1,8 @@
-@import '../theme/variables.scss';
-
 .dx-tabbed-content {
 	margin: 40px 0;
 
 	.tab-titles {
-		border-bottom: 1px solid var($--theme-core-layout-border-color);
+		border-bottom: 1px solid var(--theme-core-layout-border-color);
 		font-weight: normal;
 		font-size: 14px;
 		line-height: 20px;
@@ -16,11 +14,11 @@
 			cursor: pointer;
 
 			&:hover {
-				border-color: var($--theme-core-control-punch-color);
+				border-color: var(--theme-core-control-punch-color);
 			}
 
 			&.active {
-				border-bottom-color: var($--theme-core-control-punch-color);
+				border-bottom-color: var(--theme-core-control-punch-color);
 				font-weight: bold;
 			}
 
@@ -34,7 +32,7 @@
 
 	.tab-content {
 		padding: 13px 20px 20px 20px;
-		border-bottom: 1px solid var($--theme-core-layout-border-color);
+		border-bottom: 1px solid var(--theme-core-layout-border-color);
 
 		// Clear excess margins from content, we provide the padding
 		& > *:first-child {

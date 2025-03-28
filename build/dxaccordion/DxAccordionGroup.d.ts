@@ -4,5 +4,5 @@ interface IProps {
     children: React.ReactNode;
     className?: string;
 }
-export default function DxAccordionGroup(props: IProps): JSX.Element;
+export default function DxAccordionGroup(props: IProps): React.JSX.Element;
 export {};

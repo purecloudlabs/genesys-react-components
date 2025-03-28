@@ -1,12 +1,10 @@
-@import '../../../node_modules/genesys-react-components/src/theme/variables.scss';
-
 .dx-navigation {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	background: var($--theme-core-background-color);
-	box-shadow: 0px 2px 10px var($--theme-core-box-shadow-color);
-	border-bottom: 1px solid $--theme-core-layout-border-color;
+	background: var(--theme-core-background-color);
+	box-shadow: 0px 2px 10px var(--theme-core-box-shadow-color);
+	border-bottom: 1px solid var(--theme-core-layout-border-color);
 	font-style: normal;
 	font-weight: 500;
 	font-size: 16px;
@@ -26,19 +24,19 @@
 			padding: 15px 25px;
 			border-bottom: 2px solid transparent;
 			text-decoration: none;
-			color: var($--theme-core-text-color);
+			color: var(--theme-core-text-color);
 
 			&:hover {
-				border-color: var($--theme-core-box-shadow-color);
+				border-color: var(--theme-core-box-shadow-color);
 			}
 
 			&.active {
 				// background-color: #f5f8fb;
-				border-bottom-color: var($--theme-core-control-punch-color);
+				border-bottom-color: var(--theme-core-control-punch-color);
 				font-weight: bold;
 
 				a {
-					color: var($--theme-core-control-punch-color);
+					color: var(--theme-core-control-punch-color);
 				}
 			}
 		}

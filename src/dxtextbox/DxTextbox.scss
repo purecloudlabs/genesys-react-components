@@ -1,17 +1,15 @@
-@import '../theme/variables.scss';
-
 .dx-textbox {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
-	border: 1px solid var($--theme-core-control-border-color);
+	border: 1px solid var(--theme-core-control-border-color);
 	border-radius: 2px;
 	margin: 0;
 	padding: 0 10px;
 	height: 32px;
-	background-color: var($--theme-core-control-alt-background-color);
+	background-color: var(--theme-core-control-alt-background-color);
 
 	&.with-label {
 		margin-top: 0;
@@ -24,7 +22,7 @@
 	.icon {
 		display: block;
 		flex: none;
-		color: var($--theme-core-control-textbox-text-color);
+		color: var(--theme-core-control-textbox-text-color);
 
 		&.input-icon {
 			font-size: 14px;
@@ -54,7 +52,7 @@
 		font-weight: normal;
 		font-size: 14px;
 		line-height: 16px;
-		color: var($--theme-core-control-textbox-text-color);
+		color: var(--theme-core-control-textbox-text-color);
 
 		&:focus-visible {
 			outline: 0;
@@ -65,38 +63,38 @@
 			font-weight: 300;
 			font-size: 14px;
 			line-height: 16px;
-			color: var($--theme-core-control-textbox-placeholder-text-color);
+			color: var(--theme-core-control-textbox-placeholder-text-color);
 		}
 	}
 
 	&.disabled {
-		background-color: var($--theme-dxbutton-secondary-disabled-background-color);
+		background-color: var(--theme-dxbutton-secondary-disabled-background-color);
 		cursor: not-allowed;
 
 		input {
 			cursor: not-allowed;
-			color: var($--theme-dxbutton-secondary-disabled-text-color);
+			color: var(--theme-dxbutton-secondary-disabled-text-color);
 		}
 
 		.icon,
 		input::placeholder {
-			color: var($--theme-dxbutton-secondary-disabled-text-color);
+			color: var(--theme-dxbutton-secondary-disabled-text-color);
 		}
 	}
 }
 
 .dx-textarea {
 	padding: 10px;
-	border: 1px solid var($--theme-core-control-border-color);
+	border: 1px solid var(--theme-core-control-border-color);
 	border-radius: 2px;
 	width: 100%;
 	font-family: 'Roboto', sans-serif;
 	box-sizing: border-box;
-	background-color: var($--theme-core-control-alt-background-color);
-	color: var($--theme-core-control-textbox-text-color);
+	background-color: var(--theme-core-control-alt-background-color);
+	color: var(--theme-core-control-textbox-text-color);
 
 	&:focus-within {
-		outline: var($--theme-core-control-focus-color) solid 2px;
+		outline: var(--theme-core-control-focus-color) solid 2px;
 	}
 
 	&::placeholder {
@@ -105,6 +103,6 @@
 		font-weight: 300;
 		font-size: 14px;
 		line-height: 16px;
-		color: var($--theme-core-control-textbox-placeholder-text-color);
+		color: var(--theme-core-control-textbox-placeholder-text-color);
 	}
 }
