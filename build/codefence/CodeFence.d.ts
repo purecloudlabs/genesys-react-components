@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import './CodeFence.scss';
 declare global {
     interface Window {
@@ -19,5 +19,5 @@ interface IProps {
     innerRef?: any;
     disableSyntaxHighlighting?: boolean;
 }
-export default function CodeFence(props: IProps): JSX.Element;
+export default function CodeFence(props: IProps): React.JSX.Element;
 export {};

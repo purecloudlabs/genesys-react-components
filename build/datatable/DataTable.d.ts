@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { DataTableRow } from '..';
 import './DataTable.scss';
 interface IProps {
@@ -9,5 +9,5 @@ interface IProps {
     sortable?: boolean;
     filterable?: boolean;
 }
-export default function DataTable(props: IProps): JSX.Element;
+export default function DataTable(props: IProps): React.JSX.Element;
 export {};

@@ -7,5 +7,5 @@ interface IProps {
     className?: string;
     children: React.ReactNode;
 }
-export default function DxLabel(props: IProps): JSX.Element;
+export default function DxLabel(props: IProps): React.JSX.Element;
 export {};

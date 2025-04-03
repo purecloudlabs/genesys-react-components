@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import './Tooltip.scss';
 interface IProps {
     text: string;
@@ -7,5 +7,5 @@ interface IProps {
     className?: string;
     isShowing?: boolean;
 }
-export default function Tooltip(props: IProps): JSX.Element;
+export default function Tooltip(props: IProps): React.JSX.Element;
 export {};

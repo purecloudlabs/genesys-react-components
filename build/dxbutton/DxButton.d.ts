@@ -9,5 +9,5 @@ interface IProps {
     onClick?: VoidEventCallback;
     onClickRaw?: React.MouseEventHandler<HTMLButtonElement>;
 }
-export default function DxButton(props: IProps): JSX.Element;
+export default function DxButton(props: IProps): React.JSX.Element;
 export {};
