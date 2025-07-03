@@ -1,14 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState, ReactNode } from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
+import moment from 'moment';
+
 import DxTextbox from '../dxtextbox/DxTextbox';
 import DxToggle from '../dxtoggle/DxToggle';
-import moment from 'moment';
-import React, { useEffect, useState, ReactNode } from 'react';
 import CopyButton from '../copybutton/CopyButton';
-import { DataTableRow } from '..';
+import { BaseComponentProps, DataTableRow } from '..';
+
 import './DataTable.scss';
 
-interface IProps {
+interface IProps extends BaseComponentProps {
 	rows: DataTableRow[];
 	headerRow?: DataTableRow;
 	className?: string;
@@ -409,7 +411,7 @@ export default function DataTable(props: IProps) {
 				<div className="filter-toggle" style={{ visibility: isFilterable ? 'visible' : 'hidden' }}>
 					<GenesysDevIcon icon={GenesysDevIcons.AppFilter} onClick={() => setIsFilterOpen(!isFilterOpen)} />
 				</div>
-				<table className={tableClassName} cellSpacing="0">
+				<table id={props.id} className={tableClassName} cellSpacing="0">
 					{thead}
 					<tbody>
 						{rows.map((row, i) => {

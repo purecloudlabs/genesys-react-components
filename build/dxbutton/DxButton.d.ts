@@ -1,7 +1,7 @@
 import React from 'react';
-import { VoidEventCallback } from '..';
+import { BaseComponentProps, VoidEventCallback } from '..';
 import './DxButton.scss';
-interface IProps {
+interface IProps extends BaseComponentProps {
     type?: 'primary' | 'secondary' | 'link';
     disabled?: boolean;
     children?: React.ReactNode;

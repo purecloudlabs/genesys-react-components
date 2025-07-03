@@ -1,7 +1,7 @@
 import React from 'react';
-import { DataTableRow } from '..';
+import { BaseComponentProps, DataTableRow } from '..';
 import './DataTable.scss';
-interface IProps {
+interface IProps extends BaseComponentProps {
     rows: DataTableRow[];
     headerRow?: DataTableRow;
     className?: string;

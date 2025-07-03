@@ -1,6 +1,7 @@
 import React from 'react';
+import { BaseComponentProps } from '..';
 import './AlertBlock.scss';
-interface IProps {
+interface IProps extends BaseComponentProps {
     title?: string;
     alertType?: 'info' | 'success' | 'critical' | 'warning' | 'toast';
     collapsible?: boolean;

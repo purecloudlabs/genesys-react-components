@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
+
 import { BooleanChangedCallback, DxToggleProps } from '..';
+import DxLabel from '../dxlabel/DxLabel';
 
 import './DxToggle.scss';
-import DxLabel from '../dxlabel/DxLabel';
 
 export default function DxToggle(props: DxToggleProps) {
 	let initialValue: boolean | undefined = props.value !== undefined ? props.value : props.initialValue;
@@ -45,7 +46,7 @@ export default function DxToggle(props: DxToggleProps) {
 	};
 
 	return (
-		<DxLabel label={props.label} description={props.description} className={props.className}>
+		<DxLabel id={props.id} label={props.label} description={props.description} className={props.className}>
 			<div aria-checked={getToggleValue()} className={`dx-toggle-container${props.disabled ? ' disabled' : ''}`}>
 				<div className="dx-toggle" onClick={setToggleValue}>
 					{value !== false ? <GenesysDevIcon icon={falseIcon} /> : undefined}
