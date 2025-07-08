@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { DxItemGroupItem, DxItemGroupItemValue, DxItemGroupProps, ItemChangedCallback, ItemGroupChangedCallback } from '..';
+
+import { DxItemGroupItem, DxItemGroupItemValue, DxItemGroupProps } from '..';
+import DxLabel from '../dxlabel/DxLabel';
+import DxCheckbox from './DxCheckbox';
 
 import './DxItemGroup.scss';
 import './radiobutton.scss';
 import './dropdown.scss';
 import './multiselect.scss';
-import DxLabel from '../dxlabel/DxLabel';
-import DxCheckbox from './DxCheckbox';
 
 export default function DxItemGroup(props: DxItemGroupProps) {
 	const [data, setData] = useState<DxItemGroupItemValue[]>(
@@ -75,7 +76,7 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 		case 'dropdown': {
 			const isMulti = format === 'multiselect';
 			return (
-				<DxLabel label={title} description={description} className={className}>
+				<DxLabel id={props.id} label={title} description={description} className={className}>
 					<div className={`dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${disabled ? ' disabled' : ''}`}>
 						<select
 							multiple={isMulti}
@@ -102,6 +103,7 @@ export default function DxItemGroup(props: DxItemGroupProps) {
 		default: {
 			return (
 				<DxLabel
+					id={props.id}
 					label={title}
 					description={description}
 					className={`dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`}

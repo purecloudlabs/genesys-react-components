@@ -51,6 +51,10 @@ export interface VoidEventCallback {
 	(): void;
 }
 
+export interface BaseComponentProps {
+	id?: string;
+}
+
 // Item in a DxItemGroup
 export interface DxItemGroupItem {
 	label: string;
@@ -73,7 +77,7 @@ export interface ItemGroupChangedCallback {
 	(items: DxItemGroupItemValue[]): void;
 }
 
-export interface DxToggleProps {
+export interface DxToggleProps extends BaseComponentProps {
 	isTriState?: boolean;
 	initialValue?: boolean;
 	value?: boolean;
@@ -88,7 +92,7 @@ export interface DxToggleProps {
 
 export type DxTextboxType = 'text' | 'textarea' | 'password' | 'email' | 'date' | 'datetime-local' | 'time' | 'integer' | 'decimal';
 
-export interface DxTextboxProps {
+export interface DxTextboxProps extends BaseComponentProps {
 	initialValue?: string;
 	value?: string;
 	inputType?: DxTextboxType;
@@ -109,19 +113,19 @@ export interface DxTextboxProps {
 	onKeyboardEvent?: { (event: KeyboardEvent): void };
 }
 
-export interface DxAccordionProps {
+export interface DxAccordionProps extends BaseComponentProps {
+	containerId?: string; // Deprecated, use id
 	title: React.ReactNode;
 	children: React.ReactNode;
 	showOpen?: boolean;
 	className?: string;
 	expandTrigger?: any;
 	showOpenTrigger?: any;
-	containerId?: string;
 	headingIcon?: any;
 	headingColor?: string;
 }
 
-export interface DxItemGroupProps {
+export interface DxItemGroupProps extends BaseComponentProps {
 	title?: string;
 	description?: string;
 	format: DxItemGroupFormat;
@@ -134,13 +138,13 @@ export interface DxItemGroupProps {
 
 export type DxItemGroupFormat = 'checkbox' | 'radio' | 'dropdown' | 'multiselect';
 
-export interface DxTabbedContentProps {
+export interface DxTabbedContentProps extends BaseComponentProps {
 	children: React.ReactNode;
 	initialTabId?: number;
 	className?: string;
 }
 
-export interface DxTabPanelProps {
+export interface DxTabPanelProps extends BaseComponentProps {
 	title: React.ReactNode;
 	children: React.ReactNode;
 	className?: string;

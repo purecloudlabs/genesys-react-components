@@ -1,10 +1,12 @@
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 import React, { useState } from 'react';
+
 import Tooltip from '../tooltip/Tooltip';
+import { BaseComponentProps } from '..';
 
 import './CopyButton.scss';
 
-interface IProps {
+interface IProps extends BaseComponentProps {
 	copyText: string;
 	className?: string;
 	tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
@@ -33,7 +35,7 @@ export default function CopyButton(props: IProps) {
 	return (
 		<React.Fragment>
 			<Tooltip isShowing={copyState} text="Copied" position={props.tooltipPosition}>
-				<button type="button" className={buttonClasses.join(' ')} onClick={copyCode} onMouseOut={loseFocus}>
+				<button id={props.id} type="button" className={buttonClasses.join(' ')} onClick={copyCode} onMouseOut={loseFocus}>
 					<GenesysDevIcon icon={GenesysDevIcons.AppCopy} />
 				</button>
 			</Tooltip>

@@ -184,7 +184,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Render
 	return (
-		<DxLabel label={props.label} description={props.description} className={props.className}>
+		<DxLabel id={props.id} label={props.label} description={props.description} className={props.className}>
 			{component}
 		</DxLabel>
 	);

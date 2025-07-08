@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { CheckedChangedCallback } from '..';
+
+import { BaseComponentProps, CheckedChangedCallback } from '..';
 
 import './DxCheckbox.scss';
 
-interface IProps {
+interface IProps extends BaseComponentProps {
 	label: string;
 	itemValue: string;
 	description?: string;
@@ -31,7 +32,7 @@ export default function DxCheckbox(props: IProps) {
 	}, [checked]);
 
 	return (
-		<label className={`dx-checkbox${props.className ? ' ' + props.className : ''}${props.disabled ? ' disabled' : ''}`}>
+		<label id={props.id} className={`dx-checkbox${props.className ? ' ' + props.className : ''}${props.disabled ? ' disabled' : ''}`}>
 			<input
 				type={props.useRadioType ? 'radio' : 'checkbox'}
 				name={props.name}

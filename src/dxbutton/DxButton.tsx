@@ -1,9 +1,10 @@
 import React from 'react';
-import { VoidEventCallback } from '..';
+
+import { BaseComponentProps, VoidEventCallback } from '..';
 
 import './DxButton.scss';
 
-interface IProps {
+interface IProps extends BaseComponentProps {
 	type?: 'primary' | 'secondary' | 'link';
 	disabled?: boolean;
 	children?: React.ReactNode;
@@ -34,7 +35,7 @@ export default function DxButton(props: IProps) {
 	};
 
 	return (
-		<button className={classNames.join(' ')} type="button" onClick={handleClick} disabled={props.disabled === true}>
+		<button id={props.id} className={classNames.join(' ')} type="button" onClick={handleClick} disabled={props.disabled === true}>
 			{props.children}
 		</button>
 	);
