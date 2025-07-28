@@ -129,7 +129,7 @@ $cellWidthPadding: 10px;
 
 					& > div {
 						display: flex;
-						flex-flow: row nowrap;
+						flex-flow: column nowrap;
 						align-items: center;
 						justify-content: flex-start;
 						gap: 10px;
