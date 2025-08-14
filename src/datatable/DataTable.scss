@@ -58,9 +58,9 @@ $cellWidthPadding: 10px;
 						margin: 0;
 						padding: 0;
 						display: flex;
-						flex-flow: column nowrap;
-						justify-content: center;
-						align-items: flex-start;
+						flex-flow: row nowrap;
+						justify-content: flex-start;
+						align-items: center;
 						gap: 6px;
 						width: 100%;
 
@@ -130,8 +130,8 @@ $cellWidthPadding: 10px;
 					& > div {
 						display: flex;
 						flex-flow: column nowrap;
-						align-items: center;
-						justify-content: flex-start;
+						align-items: flex-start;
+						justify-content: center;
 						gap: 10px;
 
 						&.align-center {
