@@ -5,7 +5,6 @@ import { DxTextboxProps } from '..';
 
 import './DxTextbox.scss';
 
-// const dateMmDdYyyy = /^\d{2}\/\d{2}\/\d{4}$/;
 const dateYyyyMmDd = /^\d{4}-\d{2}-\d{2}$/;
 
 export default function DxTextbox(props: DxTextboxProps) {
@@ -127,6 +126,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 			 * This date format causes the Date constructor to treat it as a UTC date, whereas the other formats are parsed as local dates.
 			 * This causes the local timezone offset to be subtracted from the UTC date time,
 			 * and the result is that the parsed date is a day behind the date selected.
+			 * This block adjusts for the timezone offset to make the dates consistent regardless of the input date string format.
 			 */
 			date = new Date(input);
 			let offset = date.getTimezoneOffset() * 60000;
