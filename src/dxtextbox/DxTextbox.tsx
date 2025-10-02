@@ -5,6 +5,9 @@ import { DxTextboxProps } from '..';
 
 import './DxTextbox.scss';
 
+const dateMmDdYyyy = /^\d{2}\/\d{2}\/\d{4}$/;
+const dateYyyyMmDd = /^\d{4}-\d{2}-\d{2}$/;
+
 export default function DxTextbox(props: DxTextboxProps) {
 	const [debounceMs, setDebounceMs] = useState(props.changeDebounceMs || 300);
 	const [value, setValue] = useState(props.initialValue || props.value || '');
@@ -117,9 +120,13 @@ export default function DxTextbox(props: DxTextboxProps) {
 	};
 
 	const parseDate = (input: string) => {
-		if (!input) return;
+		// if (!input || !input.match(/^\d{2}\/\d{2}\/\d{4}$/)) return;
+		// const parts: string[] = input.split('/');
+		// const month = parts[0];
 		const date = new Date(input);
-		return isNaN(date.getTime()) ? null : date;
+		let offset = date.getTimezoneOffset() * 60000;
+		let utcDate = new Date(date.getTime() + offset);
+		return isNaN(utcDate.getTime()) ? null : utcDate;
 	};
 
 	// Normalize input type
