@@ -265,6 +265,7 @@ function DxTabPanel(props) {
 var css_248z$7 = ".dx-textbox {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 10px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  margin: 0;\n  padding: 0 10px;\n  height: 32px;\n  background-color: var(--theme-core-control-alt-background-color);\n}\n.dx-textbox.with-label {\n  margin-top: 0;\n}\n.dx-textbox:focus-within {\n  outline: #aac9ff solid 2px;\n}\n.dx-textbox .icon {\n  display: block;\n  flex: none;\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-textbox .icon.input-icon {\n  font-size: 14px;\n  line-height: 0;\n}\n.dx-textbox .icon.clear-icon {\n  font-size: 11px;\n  line-height: 0;\n  cursor: pointer;\n  padding: 4px;\n  margin-right: -4px;\n}\n.dx-textbox .dx-input {\n  flex-grow: 1;\n  border: 0;\n  background: transparent;\n  box-sizing: border-box;\n  height: 32px;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 16px;\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-textbox .dx-input:focus-visible {\n  outline: 0;\n}\n.dx-textbox .dx-input::placeholder {\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: var(--theme-core-control-textbox-placeholder-text-color);\n}\n.dx-textbox.disabled {\n  background-color: var(--theme-dxbutton-secondary-disabled-background-color);\n  cursor: not-allowed;\n}\n.dx-textbox.disabled input {\n  cursor: not-allowed;\n  color: var(--theme-dxbutton-secondary-disabled-text-color);\n}\n.dx-textbox.disabled .icon,\n.dx-textbox.disabled input::placeholder {\n  color: var(--theme-dxbutton-secondary-disabled-text-color);\n}\n\n.dx-textarea {\n  padding: 10px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  width: 100%;\n  font-family: \"Roboto\", sans-serif;\n  box-sizing: border-box;\n  background-color: var(--theme-core-control-alt-background-color);\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-textarea:focus-within {\n  outline: var(--theme-core-control-focus-color) solid 2px;\n}\n.dx-textarea::placeholder {\n  font-family: \"Roboto\", sans-serif;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: var(--theme-core-control-textbox-placeholder-text-color);\n}";
 styleInject(css_248z$7);
 
+const dateYyyyMmDd = /^\d{4}-\d{2}-\d{2}$/;
 function DxTextbox(props) {
     const [debounceMs, setDebounceMs] = useState(props.changeDebounceMs || 300);
     const [value, setValue] = useState(props.initialValue || props.value || '');
@@ -375,7 +376,21 @@ function DxTextbox(props) {
     const parseDate = (input) => {
         if (!input)
             return;
-        const date = new Date(input);
+        let date;
+        if (input.match(dateYyyyMmDd)) {
+            /*
+             * This date format causes the Date constructor to treat it as a UTC date, whereas the other formats are parsed as local dates.
+             * This causes the local timezone offset to be subtracted from the UTC date time,
+             * and the result is that the parsed date is a day behind the date selected.
+             * This block adjusts for the timezone offset to make the dates consistent regardless of the input date string format.
+             */
+            date = new Date(input);
+            let offset = date.getTimezoneOffset() * 60000;
+            date = new Date(date.getTime() + offset);
+        }
+        else {
+            date = new Date(input);
+        }
         return isNaN(date.getTime()) ? null : date;
     };
     // Normalize input type
