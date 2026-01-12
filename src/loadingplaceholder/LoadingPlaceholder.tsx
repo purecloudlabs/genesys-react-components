@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BaseComponentProps } from '..';
+
 import './LoadingPlaceholder.scss';
 
 // SimCity loading messages! https://gist.github.com/erikcox/7e96d031d00d7ecb1a2f
@@ -95,13 +97,13 @@ const MESSAGES = [
 	'Unable to Reveal Current Activity',
 ];
 
-interface IProps {
+interface IProps extends BaseComponentProps {
 	text?: string;
 }
 
 export default function LoadingPlaceholder(props: IProps) {
 	return (
-		<div className="loading-placeholder">
+		<div id={props.id} className="loading-placeholder">
 			<span className="text">{props.text || MESSAGES[Math.floor(Math.random() * (MESSAGES.length - 1))]}</span>
 			<div></div>
 			<div></div>

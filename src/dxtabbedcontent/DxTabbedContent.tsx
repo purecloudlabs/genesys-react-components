@@ -7,7 +7,7 @@ export default function DxTabbedContent(props: DxTabbedContentProps) {
 	const [activeTab, setActiveTab] = useState(props.initialTabId || 0);
 
 	return (
-		<div className={`dx-tabbed-content${props.className ? ' ' + props.className : ''}`}>
+		<div id={props.id} className={`dx-tabbed-content${props.className ? ' ' + props.className : ''}`}>
 			<div className="tab-titles">
 				{React.Children.toArray(props.children).map((child: any, i) => {
 					if (!child) return;

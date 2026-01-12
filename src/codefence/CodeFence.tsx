@@ -4,6 +4,7 @@ import { PrismAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism/index.js';
 
 import CopyButton from '../copybutton/CopyButton';
+import { BaseComponentProps } from '..';
 
 import './CodeFence.scss';
 
@@ -13,7 +14,7 @@ declare global {
 	}
 }
 
-interface IProps {
+interface IProps extends BaseComponentProps {
 	value: string;
 	noCollapse?: boolean;
 	noHeader?: boolean;
@@ -43,7 +44,7 @@ export default function CodeFence(props: IProps) {
 	const disableHighlighting = props.disableSyntaxHighlighting || props.value.length > 100000;
 
 	return (
-		<div className={classNames.join(' ')}>
+		<div id={props.id} className={classNames.join(' ')}>
 			{props.noHeader || typeof props.value !== 'string' ? (
 				''
 			) : (

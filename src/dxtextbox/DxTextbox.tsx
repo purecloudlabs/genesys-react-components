@@ -5,6 +5,8 @@ import { DxTextboxProps } from '..';
 
 import './DxTextbox.scss';
 
+const dateYyyyMmDd = /^\d{4}-\d{2}-\d{2}$/;
+
 export default function DxTextbox(props: DxTextboxProps) {
 	const [debounceMs, setDebounceMs] = useState(props.changeDebounceMs || 300);
 	const [value, setValue] = useState(props.initialValue || props.value || '');
@@ -118,7 +120,20 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	const parseDate = (input: string) => {
 		if (!input) return;
-		const date = new Date(input);
+		let date;
+		if (input.match(dateYyyyMmDd)) {
+			/* 
+			 * This date format causes the Date constructor to treat it as a UTC date, whereas the other formats are parsed as local dates.
+			 * This causes the local timezone offset to be subtracted from the UTC date time,
+			 * and the result is that the parsed date is a day behind the date selected.
+			 * This block adjusts for the timezone offset to make the dates consistent regardless of the input date string format.
+			 */
+			date = new Date(input);
+			let offset = date.getTimezoneOffset() * 60000;
+			date = new Date(date.getTime() + offset);
+		} else {
+			date = new Date(input);
+		}
 		return isNaN(date.getTime()) ? null : date;
 	};
 
@@ -184,7 +199,7 @@ export default function DxTextbox(props: DxTextboxProps) {
 
 	// Render
 	return (
-		<DxLabel label={props.label} description={props.description} className={props.className}>
+		<DxLabel id={props.id} label={props.label} description={props.description} className={props.className}>
 			{component}
 		</DxLabel>
 	);

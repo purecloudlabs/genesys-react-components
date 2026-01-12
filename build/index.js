@@ -63,7 +63,7 @@ function DxAccordion(props) {
     let icon;
     if (props.headingIcon)
         icon = React.createElement(GenesysDevIcon, { icon: props.headingIcon, className: "heading-icon" });
-    return (React.createElement("div", { id: props.containerId || undefined, className: `dx-accordion${props.className ? ' ' + props.className : ''}` },
+    return (React.createElement("div", { id: props.id || props.containerId || undefined, className: `dx-accordion${props.className ? ' ' + props.className : ''}` },
         React.createElement("div", { className: "accordion-heading", style: style, onClick: () => setIsOpen(!isOpen) },
             React.createElement("span", { className: "accordion-heading__left" },
                 icon,
@@ -78,7 +78,7 @@ var css_248z$i = ".dx-accordion-group {\n  margin: 40px 0;\n}";
 styleInject(css_248z$i);
 
 function DxAccordionGroup(props) {
-    return React.createElement("div", { className: `dx-accordion-group${props.className ? ' ' + props.className : ''}` }, props.children);
+    return (React.createElement("div", { id: props.id, className: `dx-accordion-group${props.className ? ' ' + props.className : ''}` }, props.children));
 }
 
 var css_248z$h = ".dx-button {\n  margin: 15px 10px;\n  border-radius: 2px;\n  padding: 8px 15px;\n  cursor: pointer;\n  font-weight: 500;\n}\n.dx-button-primary {\n  color: var(--theme-dxbutton-primary-text-color);\n  border: 1px solid var(--theme-dxbutton-primary-background-color);\n  background-color: var(--theme-dxbutton-primary-background-color);\n}\n.dx-button-primary:hover {\n  background-color: var(--theme-dxbutton-primary-hover-background-color);\n  border-color: var(--theme-dxbutton-primary-hover-background-color);\n  transition: 0.1s;\n}\n.dx-button-primary:focus {\n  background-color: var(--theme-dxbutton-primary-background-color);\n  border-color: var(--theme-dxbutton-primary-background-color);\n  box-shadow: 0 0 0 2px var(--theme-dxbutton-primary-shadow-color);\n  transition: 0.1s;\n}\n.dx-button-primary:disabled {\n  background-color: var(--theme-dxbutton-primary-disabled-background-color);\n  border-color: var(--theme-dxbutton-primary-disabled-background-color);\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-secondary {\n  background-color: var(--theme-dxbutton-secondary-background-color);\n  border: 1px solid var(--theme-dxbutton-secondary-border-color);\n  color: var(--theme-dxbutton-secondary-border-color);\n}\n.dx-button-secondary:hover {\n  color: var(--theme-dxbutton-secondary-hover-border-color);\n  border-color: var(--theme-dxbutton-secondary-border-color);\n  transition: 0.1s;\n}\n.dx-button-secondary:focus {\n  color: var(--theme-dxbutton-secondary-border-color);\n  border-color: var(--theme-dxbutton-secondary-border-color);\n  box-shadow: 0 0 0 2px var(--theme-dxbutton-secondary-shadow-color);\n  transition: 0.1s;\n}\n.dx-button-secondary:disabled {\n  color: var(--theme-dxbutton-secondary-disabled-text-color);\n  background-color: var(--theme-dxbutton-secondary-disabled-background-color);\n  border-color: var(--theme-dxbutton-secondary-disabled-background-color);\n  transition: 0.1s;\n  cursor: not-allowed;\n}\n.dx-button-link {\n  color: var(--theme-core-link-color);\n  background: transparent;\n  margin: 0;\n  padding: 0 2px;\n  border: 0;\n}\n.dx-button-link:hover {\n  color: var(--theme-core-link-hover-color);\n  border-color: var(--theme-dxbutton-secondary-border-color);\n}\n.dx-button-link:disabled {\n  color: #8a9a9e;\n  transition: 0.1s;\n  cursor: not-allowed;\n  text-decoration: line-through;\n}";
@@ -103,43 +103,31 @@ function DxButton(props) {
             return;
         }
     };
-    return (React.createElement("button", { className: classNames.join(' '), type: "button", onClick: handleClick, disabled: props.disabled === true }, props.children));
+    return (React.createElement("button", { id: props.id, className: classNames.join(' '), type: "button", onClick: handleClick, disabled: props.disabled === true }, props.children));
 }
 
-var css_248z$g = ".dx-item-group {\n  display: block;\n  border: 0;\n  margin: 0;\n  padding: 0;\n}";
+var css_248z$g = ".dx-label {\n  margin: 20px 0;\n  display: block;\n}\n.dx-label .label-text,\n.dx-label .input-description {\n  display: block;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  color: var(--theme-core-control-label-color);\n}\n.dx-label .label-text {\n  margin: 0 0 4px 0;\n}\n.dx-label .input-description {\n  padding: 6px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n}\n.dx-label .input-description .icon {\n  color: var(--theme-alertblock-info-icon-color);\n  line-height: 0;\n}";
 styleInject(css_248z$g);
-
-var css_248z$f = "";
-styleInject(css_248z$f);
-
-var css_248z$e = "@charset \"UTF-8\";\n.dx-select-group {\n  appearance: none;\n  position: relative;\n}\n.dx-select-group select {\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  background-color: var(--theme-core-control-alt-background-color);\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: var(--theme-core-control-textbox-text-color);\n  padding: 8px 32px 8px 12px;\n  width: 100%;\n  appearance: none;\n}\n.dx-select-group select:focus-visible {\n  outline: 2px solid var(--theme-core-control-focus-color);\n}\n.dx-select-group::after {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  content: \"⌄\";\n  font-size: 8px;\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  pointer-events: none;\n}\n.dx-select-group.disabled::after {\n  color: var(--theme-core-control-disabled-text-color);\n}\n.dx-select-group.disabled select:disabled {\n  background-color: var(--theme-core-control-disabled-background-color);\n  border-color: var(--theme-core-control-disabled-border-color);\n  color: var(--theme-core-control-disabled-text-color);\n  cursor: not-allowed;\n}";
-styleInject(css_248z$e);
-
-var css_248z$d = ".dx-multiselect-group {\n  appearance: none;\n  position: relative;\n}\n.dx-multiselect-group select {\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  background-color: var(--theme-core-control-alt-background-color);\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: var(--theme-core-control-textbox-text-color);\n  width: 100%;\n  appearance: none;\n  scrollbar-color: #b0b2b5 transparent;\n}\n.dx-multiselect-group select:focus-visible {\n  outline: 2px solid var(--theme-core-control-focus-color);\n}\n.dx-multiselect-group select option {\n  overflow: hidden;\n  white-space: pre;\n  text-overflow: ellipsis;\n  -webkit-appearance: none;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 31px;\n  padding: 8px 12px;\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-multiselect-group select option:checked {\n  color: var(--theme-core-tag-text-color);\n  background-color: var(--theme-core-tag-background-color);\n}\n.dx-multiselect-group select option:disabled {\n  color: #8a9a9e;\n  cursor: not-allowed;\n}\n.dx-multiselect-group select::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 7px;\n  height: 7px;\n}\n.dx-multiselect-group select::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: #b0b2b5;\n}\n.dx-multiselect-group select::-webkit-scrollbar-corner {\n  background: transparent;\n}\n.dx-multiselect-group.disabled select:disabled {\n  background-color: var(--theme-core-control-disabled-background-color);\n  border-color: var(--theme-core-control-disabled-border-color);\n  cursor: not-allowed;\n}\n.dx-multiselect-group.disabled select:disabled option {\n  color: var(--theme-core-control-disabled-text-color);\n}";
-styleInject(css_248z$d);
-
-var css_248z$c = ".dx-label {\n  margin: 20px 0;\n  display: block;\n}\n.dx-label .label-text,\n.dx-label .input-description {\n  display: block;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  color: var(--theme-core-control-label-color);\n}\n.dx-label .label-text {\n  margin: 0 0 4px 0;\n}\n.dx-label .input-description {\n  padding: 6px 20px;\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n}\n.dx-label .input-description .icon {\n  color: var(--theme-alertblock-info-icon-color);\n  line-height: 0;\n}";
-styleInject(css_248z$c);
 
 function DxLabel(props) {
     const hasLabel = props.label && props.label !== '';
-    const description = props.description ? (React.createElement("div", { className: 'input-description' },
+    const description = props.description ? (React.createElement("div", { className: "input-description" },
         React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppInfoSolid }),
         React.createElement("span", null, props.description))) : undefined;
     const contents = (React.createElement(React.Fragment, null,
         ' ',
-        hasLabel ? React.createElement("span", { className: 'label-text' }, props.label) : undefined,
+        hasLabel ? React.createElement("span", { className: "label-text" }, props.label) : undefined,
         props.children,
         description));
     const className = `dx-label${props.className ? ' ' + props.className : ''}`;
     if (props.useFieldset) {
         return React.createElement("fieldset", { className: className }, contents);
     }
-    return React.createElement("label", { className: className }, contents);
+    return (React.createElement("label", { id: props.id, className: className }, contents));
 }
 
-var css_248z$b = "@charset \"UTF-8\";\n.dx-checkbox {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  margin: 15px 0;\n}\n.dx-checkbox:first-of-type {\n  margin-top: 0;\n}\n.dx-checkbox .label-text {\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 12px;\n  line-height: 18px;\n  color: var(--theme-core-text-color);\n}\n.dx-checkbox input[type=checkbox] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  background-color: var(--theme-core-control-background-color);\n  flex-shrink: 0;\n}\n.dx-checkbox input[type=checkbox]::before {\n  display: none;\n}\n.dx-checkbox input[type=checkbox]:checked {\n  background-color: var(--theme-core-control-background-color);\n}\n.dx-checkbox input[type=checkbox]:checked::before {\n  display: block;\n  position: relative;\n  top: 7px;\n  left: 3px;\n  font-size: 9px;\n  line-height: 0;\n  color: var(--theme-core-control-punch-color);\n  content: \"✓\";\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):hover {\n  border-color: var(--theme-core-control-punch-color);\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):focus {\n  outline: var(--theme-core-control-focus-color) solid 2px;\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):focus-visible {\n  outline: 0;\n}\n.dx-checkbox input[type=radio] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 8px;\n  background-color: var(--theme-core-control-background-color);\n  flex-shrink: 0;\n}\n.dx-checkbox input[type=radio]::before {\n  display: none;\n}\n.dx-checkbox input[type=radio]:checked::before {\n  content: \"\";\n  display: block;\n  width: 10px;\n  height: 10px;\n  border-radius: 8px;\n  position: relative;\n  top: 2px;\n  left: 2px;\n  background-color: var(--theme-core-control-punch-color);\n}\n.dx-checkbox input[type=radio]:not(:disabled):hover {\n  border-color: var(--theme-core-control-punch-color);\n}\n.dx-checkbox input[type=radio]:not(:disabled):focus {\n  outline: var(--theme-core-control-focus-color) solid 2px;\n}\n.dx-checkbox input[type=radio]:not(:disabled):focus-visible {\n  outline: 0;\n}\n.dx-checkbox.disabled {\n  cursor: not-allowed;\n}\n.dx-checkbox.disabled input {\n  border-color: var(--theme-core-control-disabled-border-color);\n  cursor: not-allowed;\n}\n.dx-checkbox.disabled input:checked {\n  background-color: var(--theme-core-control-disabled-background-color);\n  cursor: not-allowed;\n}\n\n.dx-label .dx-checkbox .label-text {\n  margin: 0;\n}";
-styleInject(css_248z$b);
+var css_248z$f = "@charset \"UTF-8\";\n.dx-checkbox {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  margin: 15px 0;\n}\n.dx-checkbox:first-of-type {\n  margin-top: 0;\n}\n.dx-checkbox .label-text {\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 12px;\n  line-height: 18px;\n  color: var(--theme-core-text-color);\n}\n.dx-checkbox input[type=checkbox] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  background-color: var(--theme-core-control-background-color);\n  flex-shrink: 0;\n}\n.dx-checkbox input[type=checkbox]::before {\n  display: none;\n}\n.dx-checkbox input[type=checkbox]:checked {\n  background-color: var(--theme-core-control-background-color);\n}\n.dx-checkbox input[type=checkbox]:checked::before {\n  display: block;\n  position: relative;\n  top: 7px;\n  left: 3px;\n  font-size: 9px;\n  line-height: 0;\n  color: var(--theme-core-control-punch-color);\n  content: \"✓\";\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):hover {\n  border-color: var(--theme-core-control-punch-color);\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):focus {\n  outline: var(--theme-core-control-focus-color) solid 2px;\n}\n.dx-checkbox input[type=checkbox]:not(:disabled):focus-visible {\n  outline: 0;\n}\n.dx-checkbox input[type=radio] {\n  -webkit-appearance: none;\n  appearance: none;\n  margin: 0 8px 0 0;\n  width: 16px;\n  height: 16px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 8px;\n  background-color: var(--theme-core-control-background-color);\n  flex-shrink: 0;\n}\n.dx-checkbox input[type=radio]::before {\n  display: none;\n}\n.dx-checkbox input[type=radio]:checked::before {\n  content: \"\";\n  display: block;\n  width: 10px;\n  height: 10px;\n  border-radius: 8px;\n  position: relative;\n  top: 2px;\n  left: 2px;\n  background-color: var(--theme-core-control-punch-color);\n}\n.dx-checkbox input[type=radio]:not(:disabled):hover {\n  border-color: var(--theme-core-control-punch-color);\n}\n.dx-checkbox input[type=radio]:not(:disabled):focus {\n  outline: var(--theme-core-control-focus-color) solid 2px;\n}\n.dx-checkbox input[type=radio]:not(:disabled):focus-visible {\n  outline: 0;\n}\n.dx-checkbox.disabled {\n  cursor: not-allowed;\n}\n.dx-checkbox.disabled input {\n  border-color: var(--theme-core-control-disabled-border-color);\n  cursor: not-allowed;\n}\n.dx-checkbox.disabled input:checked {\n  background-color: var(--theme-core-control-disabled-background-color);\n  cursor: not-allowed;\n}\n\n.dx-label .dx-checkbox .label-text {\n  margin: 0;\n}";
+styleInject(css_248z$f);
 
 function DxCheckbox(props) {
     let initialValue = props.checked !== undefined ? props.checked : props.initiallyChecked || false;
@@ -153,10 +141,22 @@ function DxCheckbox(props) {
         if (props.onCheckChanged)
             props.onCheckChanged(checked);
     }, [checked]);
-    return (React.createElement("label", { className: `dx-checkbox${props.className ? ' ' + props.className : ''}${props.disabled ? ' disabled' : ''}` },
+    return (React.createElement("label", { id: props.id, className: `dx-checkbox${props.className ? ' ' + props.className : ''}${props.disabled ? ' disabled' : ''}` },
         React.createElement("input", { type: props.useRadioType ? 'radio' : 'checkbox', name: props.name, value: props.itemValue, checked: checked, onChange: (e) => setChecked(e.target.checked), disabled: props.disabled === true, title: props.description }),
         React.createElement("span", { className: "label-text", title: props.description }, props.label)));
 }
+
+var css_248z$e = ".dx-item-group {\n  display: block;\n  border: 0;\n  margin: 0;\n  padding: 0;\n}";
+styleInject(css_248z$e);
+
+var css_248z$d = "";
+styleInject(css_248z$d);
+
+var css_248z$c = "@charset \"UTF-8\";\n.dx-select-group {\n  appearance: none;\n  position: relative;\n}\n.dx-select-group select {\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  background-color: var(--theme-core-control-alt-background-color);\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: var(--theme-core-control-textbox-text-color);\n  padding: 8px 32px 8px 12px;\n  width: 100%;\n  appearance: none;\n}\n.dx-select-group select:focus-visible {\n  outline: 2px solid var(--theme-core-control-focus-color);\n}\n.dx-select-group::after {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  content: \"⌄\";\n  font-size: 8px;\n  font-family: genesys-dev-icons !important;\n  font-style: normal;\n  font-weight: normal !important;\n  font-feature-settings: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  pointer-events: none;\n}\n.dx-select-group.disabled::after {\n  color: var(--theme-core-control-disabled-text-color);\n}\n.dx-select-group.disabled select:disabled {\n  background-color: var(--theme-core-control-disabled-background-color);\n  border-color: var(--theme-core-control-disabled-border-color);\n  color: var(--theme-core-control-disabled-text-color);\n  cursor: not-allowed;\n}";
+styleInject(css_248z$c);
+
+var css_248z$b = ".dx-multiselect-group {\n  appearance: none;\n  position: relative;\n}\n.dx-multiselect-group select {\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  background-color: var(--theme-core-control-alt-background-color);\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 14px;\n  color: var(--theme-core-control-textbox-text-color);\n  width: 100%;\n  appearance: none;\n  scrollbar-color: #b0b2b5 transparent;\n}\n.dx-multiselect-group select:focus-visible {\n  outline: 2px solid var(--theme-core-control-focus-color);\n}\n.dx-multiselect-group select option {\n  overflow: hidden;\n  white-space: pre;\n  text-overflow: ellipsis;\n  -webkit-appearance: none;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 12px;\n  line-height: 31px;\n  padding: 8px 12px;\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-multiselect-group select option:checked {\n  color: var(--theme-core-tag-text-color);\n  background-color: var(--theme-core-tag-background-color);\n}\n.dx-multiselect-group select option:disabled {\n  color: #8a9a9e;\n  cursor: not-allowed;\n}\n.dx-multiselect-group select::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 7px;\n  height: 7px;\n}\n.dx-multiselect-group select::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: #b0b2b5;\n}\n.dx-multiselect-group select::-webkit-scrollbar-corner {\n  background: transparent;\n}\n.dx-multiselect-group.disabled select:disabled {\n  background-color: var(--theme-core-control-disabled-background-color);\n  border-color: var(--theme-core-control-disabled-border-color);\n  cursor: not-allowed;\n}\n.dx-multiselect-group.disabled select:disabled option {\n  color: var(--theme-core-control-disabled-text-color);\n}";
+styleInject(css_248z$b);
 
 function DxItemGroup(props) {
     var _a, _b;
@@ -219,7 +219,7 @@ function DxItemGroup(props) {
         case 'multiselect':
         case 'dropdown': {
             const isMulti = format === 'multiselect';
-            return (React.createElement(DxLabel, { label: title, description: description, className: className },
+            return (React.createElement(DxLabel, { id: props.id, label: title, description: description, className: className },
                 React.createElement("div", { className: `dx-item-group${isMulti ? ' dx-multiselect-group' : ' dx-select-group'}${disabled ? ' disabled' : ''}` },
                     React.createElement("select", { multiple: isMulti, disabled: disabled === true, onChange: (e) => selectChanged(e), value: isMulti
                             ? (_a = data.filter((item) => item.isSelected)) === null || _a === void 0 ? void 0 : _a.map((item) => item.item.value)
@@ -228,7 +228,7 @@ function DxItemGroup(props) {
         case 'checkbox':
         case 'radio':
         default: {
-            return (React.createElement(DxLabel, { label: title, description: description, className: `dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`, useFieldset: true },
+            return (React.createElement(DxLabel, { id: props.id, label: title, description: description, className: `dx-item-group${disabled ? ' disabled' : ''}${className ? ' ' + className : ''}`, useFieldset: true },
                 React.createElement("div", { onChange: (e) => {
                         var _a;
                         const i = data.findIndex((d) => { var _a; return d.item.value === ((_a = e.target) === null || _a === void 0 ? void 0 : _a.value); });
@@ -245,7 +245,7 @@ styleInject(css_248z$a);
 
 function DxTabbedContent(props) {
     const [activeTab, setActiveTab] = useState(props.initialTabId || 0);
-    return (React.createElement("div", { className: `dx-tabbed-content${props.className ? ' ' + props.className : ''}` },
+    return (React.createElement("div", { id: props.id, className: `dx-tabbed-content${props.className ? ' ' + props.className : ''}` },
         React.createElement("div", { className: "tab-titles" }, React.Children.toArray(props.children).map((child, i) => {
             if (!child)
                 return;
@@ -259,12 +259,13 @@ var css_248z$9 = "";
 styleInject(css_248z$9);
 
 function DxTabPanel(props) {
-    return React.createElement("div", { className: `dx-tab-panel${props.className ? ' ' + props.className : ''}` }, props.children);
+    return (React.createElement("div", { id: props.id, className: `dx-tab-panel${props.className ? ' ' + props.className : ''}` }, props.children));
 }
 
 var css_248z$8 = ".dx-textbox {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 10px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  margin: 0;\n  padding: 0 10px;\n  height: 32px;\n  background-color: var(--theme-core-control-alt-background-color);\n}\n.dx-textbox.with-label {\n  margin-top: 0;\n}\n.dx-textbox:focus-within {\n  outline: #aac9ff solid 2px;\n}\n.dx-textbox .icon {\n  display: block;\n  flex: none;\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-textbox .icon.input-icon {\n  font-size: 14px;\n  line-height: 0;\n}\n.dx-textbox .icon.clear-icon {\n  font-size: 11px;\n  line-height: 0;\n  cursor: pointer;\n  padding: 4px;\n  margin-right: -4px;\n}\n.dx-textbox .dx-input {\n  flex-grow: 1;\n  border: 0;\n  background: transparent;\n  box-sizing: border-box;\n  height: 32px;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: Roboto;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 16px;\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-textbox .dx-input:focus-visible {\n  outline: 0;\n}\n.dx-textbox .dx-input::placeholder {\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: var(--theme-core-control-textbox-placeholder-text-color);\n}\n.dx-textbox.disabled {\n  background-color: var(--theme-dxbutton-secondary-disabled-background-color);\n  cursor: not-allowed;\n}\n.dx-textbox.disabled input {\n  cursor: not-allowed;\n  color: var(--theme-dxbutton-secondary-disabled-text-color);\n}\n.dx-textbox.disabled .icon,\n.dx-textbox.disabled input::placeholder {\n  color: var(--theme-dxbutton-secondary-disabled-text-color);\n}\n\n.dx-textarea {\n  padding: 10px;\n  border: 1px solid var(--theme-core-control-border-color);\n  border-radius: 2px;\n  width: 100%;\n  font-family: \"Roboto\", sans-serif;\n  box-sizing: border-box;\n  background-color: var(--theme-core-control-alt-background-color);\n  color: var(--theme-core-control-textbox-text-color);\n}\n.dx-textarea:focus-within {\n  outline: var(--theme-core-control-focus-color) solid 2px;\n}\n.dx-textarea::placeholder {\n  font-family: \"Roboto\", sans-serif;\n  font-style: normal;\n  font-weight: 300;\n  font-size: 14px;\n  line-height: 16px;\n  color: var(--theme-core-control-textbox-placeholder-text-color);\n}";
 styleInject(css_248z$8);
 
+const dateYyyyMmDd = /^\d{4}-\d{2}-\d{2}$/;
 function DxTextbox(props) {
     const [debounceMs, setDebounceMs] = useState(props.changeDebounceMs || 300);
     const [value, setValue] = useState(props.initialValue || props.value || '');
@@ -375,7 +376,21 @@ function DxTextbox(props) {
     const parseDate = (input) => {
         if (!input)
             return;
-        const date = new Date(input);
+        let date;
+        if (input.match(dateYyyyMmDd)) {
+            /*
+             * This date format causes the Date constructor to treat it as a UTC date, whereas the other formats are parsed as local dates.
+             * This causes the local timezone offset to be subtracted from the UTC date time,
+             * and the result is that the parsed date is a day behind the date selected.
+             * This block adjusts for the timezone offset to make the dates consistent regardless of the input date string format.
+             */
+            date = new Date(input);
+            let offset = date.getTimezoneOffset() * 60000;
+            date = new Date(date.getTime() + offset);
+        }
+        else {
+            date = new Date(input);
+        }
         return isNaN(date.getTime()) ? null : date;
     };
     // Normalize input type
@@ -413,7 +428,7 @@ function DxTextbox(props) {
         }
     }
     // Render
-    return (React.createElement(DxLabel, { label: props.label, description: props.description, className: props.className }, component));
+    return (React.createElement(DxLabel, { id: props.id, label: props.label, description: props.description, className: props.className }, component));
 }
 
 var css_248z$7 = ".dx-toggle-container {\n  display: inline-block;\n}\n.dx-toggle-container .dx-toggle {\n  border: 1px solid var(--theme-core-control-border-color);\n  background: var(--theme-core-control-background-color);\n  border-radius: 6px;\n  height: 26px;\n  padding: 0px 4px;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  gap: 2px;\n  cursor: pointer;\n}\n.dx-toggle-container .dx-toggle:hover .slider {\n  border-color: var(--theme-core-control-focus-color);\n}\n.dx-toggle-container .dx-toggle .icon {\n  font-size: 10px;\n  line-height: 0;\n  margin: 0 5px;\n  color: var(--theme-core-control-border-color);\n}\n.dx-toggle-container .dx-toggle .clear-placeholder {\n  width: 19px;\n  padding: 0 1px 0 0;\n  margin: 0;\n  display: block;\n}\n.dx-toggle-container .dx-toggle .slider {\n  height: 22px;\n  width: 22px;\n  border-radius: 22px;\n  background-color: var(--theme-core-control-punch-color);\n  box-shadow: 0px 1px 2px var(--theme-core-box-shadow-color);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid transparent;\n}\n.dx-toggle-container .dx-toggle .slider .icon {\n  font-size: 10px;\n  line-height: 0;\n  color: var(--theme-core-control-background-color);\n  padding: 0;\n  margin: 0;\n}\n.dx-toggle-container.disabled .dx-toggle {\n  cursor: not-allowed;\n  opacity: 0.7;\n  border-color: var(--theme-core-control-border-color);\n  color: var(--theme-core-control-background-color);\n}\n.dx-toggle-container.disabled .dx-toggle:hover .slider {\n  border-color: transparent;\n}\n.dx-toggle-container.disabled .dx-toggle .slider {\n  opacity: 0.7;\n  color: var(--theme-core-control-background-color);\n  background-color: var(--theme-core-control-punch-color);\n}";
@@ -463,7 +478,7 @@ function DxToggle(props) {
         if (value === false)
             return 'false';
     };
-    return (React.createElement(DxLabel, { label: props.label, description: props.description, className: props.className },
+    return (React.createElement(DxLabel, { id: props.id, label: props.label, description: props.description, className: props.className },
         React.createElement("div", { "aria-checked": getToggleValue(), className: `dx-toggle-container${props.disabled ? ' disabled' : ''}` },
             React.createElement("div", { className: "dx-toggle", onClick: setToggleValue },
                 value !== false ? React.createElement(GenesysDevIcon, { icon: falseIcon }) : undefined,
@@ -506,7 +521,7 @@ function AlertBlock(props) {
         icon = (React.createElement("span", { className: "clickable", onClick: () => setIsCollapsed(!isCollapsed) }, icon));
     }
     //TODO: remove the card fence classes and build a proper collapser
-    return (React.createElement("div", { className: `alert-container${props.indentation && props.indentation > 0 ? ` indent-${props.indentation}` : ''} ${props.className || ''}` },
+    return (React.createElement("div", { id: props.id, className: `alert-container${props.indentation && props.indentation > 0 ? ` indent-${props.indentation}` : ''} ${props.className || ''}` },
         React.createElement("div", { className: `alert alert-${props.alertType}`, role: "alert" },
             icon,
             React.createElement("div", { className: "alert-content" },
@@ -612,7 +627,7 @@ const MESSAGES = [
     'Unable to Reveal Current Activity',
 ];
 function LoadingPlaceholder(props) {
-    return (React.createElement("div", { className: "loading-placeholder" },
+    return (React.createElement("div", { id: props.id, className: "loading-placeholder" },
         React.createElement("span", { className: "text" }, props.text || MESSAGES[Math.floor(Math.random() * (MESSAGES.length - 1))]),
         React.createElement("div", null),
         React.createElement("div", null)));
@@ -675,11 +690,11 @@ function CopyButton(props) {
         buttonClasses.push(props.className);
     return (React.createElement(React.Fragment, null,
         React.createElement(Tooltip, { isShowing: copyState, text: "Copied", position: props.tooltipPosition },
-            React.createElement("button", { type: "button", className: buttonClasses.join(' '), onClick: copyCode, onMouseOut: loseFocus },
+            React.createElement("button", { id: props.id, type: "button", className: buttonClasses.join(' '), onClick: copyCode, onMouseOut: loseFocus },
                 React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppCopy })))));
 }
 
-var css_248z$2 = ".table-container {\n  margin: 40px 0;\n}\n.table-container .filter-container {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n  width: 100%;\n  box-sizing: border-box;\n}\n.table-container .filter-container .filter-toggle {\n  color: var(--theme-core-link-color);\n  font-size: 12px;\n  line-height: 0;\n  margin: 6px 0 0 10px;\n  cursor: pointer;\n  align-self: flex-start;\n}\n.table-container .filter-container .filter-toggle:hover {\n  color: var(--theme-core-link-hover-color);\n}\n.table-container .table {\n  width: 100%;\n  margin: 0 30px 0 0;\n  color: var(--theme-datatable-text-color);\n  background-color: var(--theme-datatable-background-color);\n}\n.table-container .table td {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: var(--theme-datatable-border-color);\n  vertical-align: top;\n  min-width: 80px;\n}\n.table-container .table td p {\n  margin: 0;\n  min-width: 10%;\n}\n.table-container .table thead tr {\n  color: var(--theme-datatable-text-color);\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 24px;\n}\n.table-container .table thead tr td {\n  padding: 0 10px;\n}\n.table-container .table thead tr td .header-container {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: flex-start;\n  align-items: center;\n  gap: 6px;\n  width: 100%;\n}\n.table-container .table thead tr td .header-container.align-center {\n  justify-content: center;\n}\n.table-container .table thead tr td .header-container.align-right {\n  justify-content: flex-end;\n}\n.table-container .table thead tr td .sort-numeric {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n  align-items: center;\n}\n.table-container .table thead tr td .sort-numeric .dx-label {\n  max-width: 70px;\n}\n.table-container .table thead tr td .sort-date {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n  align-items: center;\n}\n.table-container .table thead tr td .sort-date .date-filter {\n  max-width: 155px;\n}\n.table-container .table thead tr.filter-spacer {\n  height: 10px;\n}\n.table-container .table thead tr.filter-row {\n  background-color: var(--theme-datatable-filter-background-color);\n}\n.table-container .table thead tr.filter-row td {\n  border-width: 1px 0;\n  vertical-align: middle;\n}\n.table-container .table thead tr.filter-row td:first-child {\n  border-width: 1px 0 1px 1px;\n  border-radius: 4px 0 0 4px;\n}\n.table-container .table thead tr.filter-row td:last-child {\n  border-width: 1px 1px 1px 0;\n  border-radius: 0 4px 4px 0;\n}\n.table-container .table tbody tr {\n  font-size: 12px;\n  line-height: 20px;\n}\n.table-container .table tbody tr td {\n  padding: 16px 10px;\n}\n.table-container .table tbody tr td > div {\n  display: flex;\n  flex-flow: row nowrap;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 10px;\n}\n.table-container .table tbody tr td > div.align-center {\n  justify-content: center;\n}\n.table-container .table tbody tr td > div.align-right {\n  justify-content: flex-end;\n}\n.table-container .table tbody tr td > div .copy-button {\n  color: unset;\n}\n.table-container .table tbody tr td > div .icon {\n  line-height: 0;\n}\n.table-container .table tr td:first-child {\n  padding-left: 12px;\n}\n.table-container .table tr td:last-child {\n  padding-right: 12px;\n}\n.table-container.paginated .table {\n  margin-bottom: 10px;\n}\n.table-container.sortable .table thead tr td {\n  cursor: pointer;\n}\n.table-container.sortable .table thead tr td .sort-icon,\n.table-container.sortable .table thead tr td .filter-active-icon {\n  color: var(--theme-core-link-color);\n}\n.table-container.sortable .table thead tr td.unsorted .sort-icon {\n  visibility: hidden;\n}\n.table-container.sortable .table thead tr td:hover .sort-icon {\n  visibility: visible;\n}";
+var css_248z$2 = ".table-container {\n  margin: 40px 0;\n}\n.table-container .filter-container {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n  width: 100%;\n  box-sizing: border-box;\n}\n.table-container .filter-container .filter-toggle {\n  color: var(--theme-core-link-color);\n  font-size: 12px;\n  line-height: 0;\n  margin: 6px 0 0 10px;\n  cursor: pointer;\n  align-self: flex-start;\n}\n.table-container .filter-container .filter-toggle:hover {\n  color: var(--theme-core-link-hover-color);\n}\n.table-container .table {\n  width: 100%;\n  margin: 0 30px 0 0;\n  color: var(--theme-datatable-text-color);\n  background-color: var(--theme-datatable-background-color);\n}\n.table-container .table td {\n  border-width: 0 0 1px 0;\n  border-style: solid;\n  border-color: var(--theme-datatable-border-color);\n  vertical-align: top;\n  min-width: 80px;\n}\n.table-container .table td p {\n  margin: 0;\n  min-width: 10%;\n}\n.table-container .table thead tr {\n  color: var(--theme-datatable-text-color);\n  font-weight: bold;\n  font-size: 14px;\n  line-height: 24px;\n}\n.table-container .table thead tr td {\n  padding: 0 10px;\n}\n.table-container .table thead tr td .header-container {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: flex-start;\n  align-items: center;\n  gap: 6px;\n  width: 100%;\n}\n.table-container .table thead tr td .header-container.align-center {\n  justify-content: center;\n}\n.table-container .table thead tr td .header-container.align-right {\n  justify-content: flex-end;\n}\n.table-container .table thead tr td .sort-numeric {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n  align-items: center;\n}\n.table-container .table thead tr td .sort-numeric .dx-label {\n  max-width: 70px;\n}\n.table-container .table thead tr td .sort-date {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 8px;\n  align-items: center;\n}\n.table-container .table thead tr td .sort-date .date-filter {\n  max-width: 155px;\n}\n.table-container .table thead tr.filter-spacer {\n  height: 10px;\n}\n.table-container .table thead tr.filter-row {\n  background-color: var(--theme-datatable-filter-background-color);\n}\n.table-container .table thead tr.filter-row td {\n  border-width: 1px 0;\n  vertical-align: middle;\n}\n.table-container .table thead tr.filter-row td:first-child {\n  border-width: 1px 0 1px 1px;\n  border-radius: 4px 0 0 4px;\n}\n.table-container .table thead tr.filter-row td:last-child {\n  border-width: 1px 1px 1px 0;\n  border-radius: 0 4px 4px 0;\n}\n.table-container .table tbody tr {\n  font-size: 12px;\n  line-height: 20px;\n}\n.table-container .table tbody tr td {\n  padding: 16px 10px;\n}\n.table-container .table tbody tr td > div {\n  display: flex;\n  flex-flow: column nowrap;\n  align-items: flex-start;\n  justify-content: center;\n  gap: 10px;\n}\n.table-container .table tbody tr td > div.align-center {\n  justify-content: center;\n}\n.table-container .table tbody tr td > div.align-right {\n  justify-content: flex-end;\n}\n.table-container .table tbody tr td > div .copy-button {\n  color: unset;\n}\n.table-container .table tbody tr td > div .icon {\n  line-height: 0;\n}\n.table-container .table tr td:first-child {\n  padding-left: 12px;\n}\n.table-container .table tr td:last-child {\n  padding-right: 12px;\n}\n.table-container.paginated .table {\n  margin-bottom: 10px;\n}\n.table-container.sortable .table thead tr td {\n  cursor: pointer;\n}\n.table-container.sortable .table thead tr td .sort-icon,\n.table-container.sortable .table thead tr td .filter-active-icon {\n  color: var(--theme-core-link-color);\n}\n.table-container.sortable .table thead tr td.unsorted .sort-icon {\n  visibility: hidden;\n}\n.table-container.sortable .table thead tr td:hover .sort-icon {\n  visibility: visible;\n}";
 styleInject(css_248z$2);
 
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -968,7 +983,7 @@ function DataTable(props) {
         React.createElement("div", { className: "filter-container" },
             React.createElement("div", { className: "filter-toggle", style: { visibility: isFilterable ? 'visible' : 'hidden' } },
                 React.createElement(GenesysDevIcon, { icon: GenesysDevIcons.AppFilter, onClick: () => setIsFilterOpen(!isFilterOpen) })),
-            React.createElement("table", { className: tableClassName, cellSpacing: "0" },
+            React.createElement("table", { id: props.id, className: tableClassName, cellSpacing: "0" },
                 thead,
                 React.createElement("tbody", null, rows.map((row, i) => {
                     var _a;
@@ -998,7 +1013,7 @@ function CodeFence(props) {
     if (props.jsonEditor)
         classNames.push('json-editor-fence');
     const disableHighlighting = props.disableSyntaxHighlighting || props.value.length > 100000;
-    return (React.createElement("div", { className: classNames.join(' ') },
+    return (React.createElement("div", { id: props.id, className: classNames.join(' ') },
         props.noHeader || typeof props.value !== 'string' ? ('') : (React.createElement("div", { className: `fence-header${props.noCollapse ? '' : ' clickable'}`, onClick: () => setCollapsed(props.noCollapse ? false : !collapsed) },
             props.noCollapse ? undefined : (React.createElement(GenesysDevIcon, { icon: collapsed ? GenesysDevIcons.AppChevronDown : GenesysDevIcons.AppChevronUp })),
             React.createElement(CopyButton, { copyText: props.value }),
@@ -1009,7 +1024,7 @@ function CodeFence(props) {
             !disableHighlighting && (React.createElement(PrismAsync, { language: (_a = props.language) === null || _a === void 0 ? void 0 : _a.toLowerCase(), style: vscDarkPlus, showLineNumbers: props.showLineNumbers }, props.value))))));
 }
 
-var css_248z = ".loading-spinner {\n  --loading-spinner-size: 25px;\n  width: var(--loading-spinner-size);\n  height: var(--loading-spinner-size);\n  border: calc(var(--loading-spinner-size) / 5) solid #dddddd;\n  border-top-color: var(theme-core-nav-level-2-color);\n  border-radius: 50%;\n  animation: spin 0.7s linear infinite;\n}\n.loading-spinner.small {\n  --loading-spinner-size: 16px;\n}\n.loading-spinner.medium {\n  --loading-spinner-size: 25px;\n}\n.loading-spinner.large {\n  --loading-spinner-size: 32px;\n}\n\n@keyframes spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}";
+var css_248z = ".loading-spinner {\n  --loading-spinner-size: 10px;\n  width: var(--loading-spinner-size);\n  height: var(--loading-spinner-size);\n  border-top-color: var(--theme-card-icon-color);\n  border-right-color: transparent;\n  border-bottom-color: transparent;\n  border-style: solid;\n  border-width: calc(var(--loading-spinner-size) / 5);\n  border-left: dotted var(--theme-card-icon-color);\n  border-radius: 50%;\n  animation: spin 0.7s linear infinite;\n}\n.loading-spinner.small {\n  --loading-spinner-size: 10px;\n}\n.loading-spinner.medium {\n  --loading-spinner-size: 20px;\n}\n.loading-spinner.large {\n  --loading-spinner-size: 30px;\n}\n\n@keyframes spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}";
 styleInject(css_248z);
 
 function LoadingSpinner(props) {

@@ -1,14 +1,19 @@
 [
 	{
+		"version": "1.1.0",
+		"notes": "id property support",
+		"features": [
+			"Added an optional id property to all components. This will set the id property on the outermost element rendered by the component."
+		]
+	},
+	{
 		"version": "1.0.4",
 		"notes": "",
-		"features":[
+		"features": [
 			"DxButton - add new optional raw button event handler",
 			"CodeFence - add option to disable syntax highlighting and automatically disable when the content length is above the performance limit (100,000 characters)"
 		],
-		"bugfixes":[
-			"DxTextbox - allow escape key to be propigated as a key event"
-		]
+		"bugfixes": ["DxTextbox - allow escape key to be propigated as a key event"]
 	},
 	{
 		"version": "1.0.3",

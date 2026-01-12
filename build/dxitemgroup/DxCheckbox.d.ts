@@ -1,7 +1,7 @@
 import React from 'react';
-import { CheckedChangedCallback } from '..';
+import { BaseComponentProps, CheckedChangedCallback } from '..';
 import './DxCheckbox.scss';
-interface IProps {
+interface IProps extends BaseComponentProps {
     label: string;
     itemValue: string;
     description?: string;

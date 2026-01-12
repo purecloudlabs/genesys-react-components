@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { GenesysDevIcon, GenesysDevIcons } from 'genesys-dev-icons';
 
+import { BaseComponentProps } from '..';
+
 import './AlertBlock.scss';
 
-interface IProps {
+interface IProps extends BaseComponentProps {
 	title?: string;
 	alertType?: 'info' | 'success' | 'critical' | 'warning' | 'toast';
 	collapsible?: boolean;
@@ -59,6 +61,7 @@ export default function AlertBlock(props: IProps) {
 	//TODO: remove the card fence classes and build a proper collapser
 	return (
 		<div
+			id={props.id}
 			className={`alert-container${props.indentation && props.indentation > 0 ? ` indent-${props.indentation}` : ''} ${
 				props.className || ''
 			}`}

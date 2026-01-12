@@ -1,6 +1,7 @@
 import React from 'react';
+import { BaseComponentProps } from '..';
 import './DxLabel.scss';
-interface IProps {
+interface IProps extends BaseComponentProps {
     label?: string;
     description?: string;
     useFieldset?: boolean;

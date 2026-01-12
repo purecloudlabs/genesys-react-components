@@ -1,6 +1,7 @@
 import React from 'react';
+import { BaseComponentProps } from '..';
 import './CopyButton.scss';
-interface IProps {
+interface IProps extends BaseComponentProps {
     copyText: string;
     className?: string;
     tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';

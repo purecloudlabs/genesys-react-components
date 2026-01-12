@@ -1,11 +1,12 @@
 import React from 'react';
+import { BaseComponentProps } from '..';
 import './CodeFence.scss';
 declare global {
     interface Window {
         Prism: any;
     }
 }
-interface IProps {
+interface IProps extends BaseComponentProps {
     value: string;
     noCollapse?: boolean;
     noHeader?: boolean;

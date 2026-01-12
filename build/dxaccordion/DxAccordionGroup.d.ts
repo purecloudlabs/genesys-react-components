@@ -1,6 +1,7 @@
 import React from 'react';
+import { BaseComponentProps } from '..';
 import './DxAccordionGroup.scss';
-interface IProps {
+interface IProps extends BaseComponentProps {
     children: React.ReactNode;
     className?: string;
 }
