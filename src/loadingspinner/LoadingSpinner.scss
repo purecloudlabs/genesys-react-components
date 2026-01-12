@@ -3,12 +3,12 @@
     
     width: var(--loading-spinner-size);
     height: var(--loading-spinner-size);
-    border-top-color: var(--theme-card-icon-color);
+    border-top-color: var(--theme-loadingspinner-color);
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-style: solid;
     border-width: calc(var(--loading-spinner-size) / 5);
-    border-left: dotted var(--theme-card-icon-color);
+    border-left: dotted var(--theme-loadingspinner-color);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
 
