@@ -16,7 +16,8 @@ import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
 import DataTable from './datatable/DataTable';
 import CodeFence from './codefence/CodeFence';
-export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, CodeFence, DataTable, };
+import LoadingSpinner from './loadingspinner/LoadingSpinner';
+export { DxAccordion, DxAccordionGroup, DxButton, DxItemGroup, DxCheckbox, DxLabel, DxTabbedContent, DxTabPanel, DxTextbox, DxToggle, Tooltip, CopyButton, LoadingPlaceholder, AlertBlock, CodeFence, DataTable, LoadingSpinner, };
 export interface StringChangedCallback {
     (value: string): void;
 }

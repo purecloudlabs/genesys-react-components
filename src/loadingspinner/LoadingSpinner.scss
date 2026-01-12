@@ -1,0 +1,29 @@
+.loading-spinner {
+    --loading-spinner-size: 25px;
+    
+    width: var(--loading-spinner-size);
+    height: var(--loading-spinner-size);
+    border: calc(var(--loading-spinner-size) / 5) solid #dddddd;
+    border-top-color: var(theme-core-nav-level-2-color);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+
+    &.small {
+        --loading-spinner-size: 16px;
+    }
+    &.medium {
+        --loading-spinner-size: 25px;
+    }
+    &.large {
+        --loading-spinner-size: 32px;
+    }
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

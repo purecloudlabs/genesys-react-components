@@ -15,6 +15,7 @@ import Tooltip from './tooltip/Tooltip';
 import CopyButton from './copybutton/CopyButton';
 import DataTable from './datatable/DataTable';
 import CodeFence from './codefence/CodeFence';
+import LoadingSpinner from './loadingspinner/LoadingSpinner';
 
 export {
 	DxAccordion,
@@ -33,6 +34,7 @@ export {
 	AlertBlock,
 	CodeFence,
 	DataTable,
+	LoadingSpinner,
 };
 
 export interface StringChangedCallback {
