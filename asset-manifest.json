@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/genesys-react-components/static/css/main.7f7694f0.css",
-    "main.js": "/genesys-react-components/static/js/main.e097a144.js",
+    "main.css": "/genesys-react-components/static/css/main.bc820416.css",
+    "main.js": "/genesys-react-components/static/js/main.40209fa9.js",
     "react-syntax-highlighter/refractor-import.js": "/genesys-react-components/static/js/react-syntax-highlighter/refractor-import.c1a656f2.chunk.js",
     "static/js/453.d48f257c.chunk.js": "/genesys-react-components/static/js/453.d48f257c.chunk.js",
     "static/media/genesys-dev-icons.eot?": "/genesys-react-components/static/media/genesys-dev-icons.dd76860030004fed40ca.eot",
@@ -20,13 +20,13 @@
     "static/media/roboto-v29-latin-300.woff2": "/genesys-react-components/static/media/roboto-v29-latin-300.0109a2ace896a506a0aa.woff2",
     "static/media/roboto-v29-latin-regular.woff2": "/genesys-react-components/static/media/roboto-v29-latin-regular.4673b4537a84c7f7a130.woff2",
     "index.html": "/genesys-react-components/index.html",
-    "main.7f7694f0.css.map": "/genesys-react-components/static/css/main.7f7694f0.css.map",
-    "main.e097a144.js.map": "/genesys-react-components/static/js/main.e097a144.js.map",
+    "main.bc820416.css.map": "/genesys-react-components/static/css/main.bc820416.css.map",
+    "main.40209fa9.js.map": "/genesys-react-components/static/js/main.40209fa9.js.map",
     "refractor-import.c1a656f2.chunk.js.map": "/genesys-react-components/static/js/react-syntax-highlighter/refractor-import.c1a656f2.chunk.js.map",
     "453.d48f257c.chunk.js.map": "/genesys-react-components/static/js/453.d48f257c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7f7694f0.css",
-    "static/js/main.e097a144.js"
+    "static/css/main.bc820416.css",
+    "static/js/main.40209fa9.js"
   ]
 }
