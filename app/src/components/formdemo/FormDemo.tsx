@@ -23,6 +23,7 @@ import {
 
 import './FormDemo.scss';
 import LoadingPlaceholderDemo from './sections/LoadingPlaceholderDemo';
+import LoadingSpinnerDemo from './sections/LoadingSpinnerDemo';
 
 const primaryItemGroupItems: DxItemGroupItem[] = [
 	{ label: 'First thing', value: 'English' },
@@ -698,6 +699,10 @@ export default function FormDemo() {
 	demoSections.push({
 		title: 'LoadingPlaceholder',
 		content: <LoadingPlaceholderDemo />,
+	});
+	demoSections.push({
+		title: 'LoadingSpinner',
+		content: <LoadingSpinnerDemo />,
 	});
 
 	demoSections.push({
