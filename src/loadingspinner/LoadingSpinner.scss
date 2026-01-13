@@ -1,0 +1,33 @@
+.loading-spinner {
+    --loading-spinner-size: 10px;
+    
+    width: var(--loading-spinner-size);
+    height: var(--loading-spinner-size);
+    border-top-color: var(--theme-loadingspinner-color);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-style: solid;
+    border-width: calc(var(--loading-spinner-size) / 5);
+    border-left: dotted var(--theme-loadingspinner-color);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+
+    &.small {
+        --loading-spinner-size: 10px;
+    }
+    &.medium {
+        --loading-spinner-size: 20px;
+    }
+    &.large {
+        --loading-spinner-size: 30px;
+    }
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

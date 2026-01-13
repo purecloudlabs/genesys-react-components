@@ -134,6 +134,9 @@ $--theme-feedback-border-color: --theme-feedback-border-color;
 $--theme-loadingplaceholder-text-color: --theme-loadingplaceholder-text-color;
 $--theme-loadingplaceholder-wave-color: --theme-loadingplaceholder-wave-color;
 
+// LoadingSpinner
+$--theme-loadingspinner-color: --theme-loadingspinner-color;
+
 // PrivacyBanner
 $--theme-privacybanner-background-color: --theme-privacybanner-background-color;
 $--theme-privacybanner-border-color: --theme-privacybanner-border-color;
@@ -263,6 +266,8 @@ $theme-vars: (
 	// LoadingPlaceholder
 	$--theme-loadingplaceholder-text-color: #009fc7,
 	$--theme-loadingplaceholder-wave-color: #009fc7,
+	// LoadingSpinner
+	$--theme-loadingspinner-color: #ff4f1f,
 	// PrivacyBanner
 	$--theme-privacybanner-background-color: #f5f8fb,
 	$--theme-privacybanner-border-color: #2f7bb1,
@@ -397,6 +402,8 @@ $theme-vars-dark: (
 	// LoadingPlaceholder
 	$--theme-loadingplaceholder-text-color: #5edbf7,
 	$--theme-loadingplaceholder-wave-color: #5edbf7,
+	// LoadingSpinner
+	$--theme-loadingspinner-color: #ff4f1f,
 	// PrivacyBanner
 	$--theme-privacybanner-background-color: #4d5061,
 	$--theme-privacybanner-border-color: #75757a,
