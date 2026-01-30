@@ -25,7 +25,9 @@ export default function DxToggle(props: DxToggleProps) {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [value]);
 
-	const setToggleValue = () => {
+	const setToggleValue = (e: React.MouseEvent<HTMLDivElement>) => {
+		e.preventDefault();
+		e.stopPropagation();
 		if (props.disabled) return;
 		if (props.isTriState) {
 			if (value === undefined) setValue(true);
