@@ -40,7 +40,7 @@
 		"rollup-plugin-typescript2": "^0.31.1",
 		"sass": "^1.44.0",
 		"typescript": "^4.5.2",
-		"uuid": "^9.0.0"
+		"uuid": "^11.1.1"
 	},
 	"peerDependencies": {
 		"genesys-dev-icons": "^1.5.0",
@@ -49,7 +49,7 @@
 		"react": ">=16",
 		"react-dom": ">=16",
 		"react-syntax-highlighter": "^15.5.0",
-		"uuid": "^9.0.0"
+		"uuid": "^11.1.1"
 	},
 	"dependencies": {
 		"moment": "^2.30.1",
