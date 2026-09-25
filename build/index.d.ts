@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { GenesysDevIcons } from 'genesys-dev-icons';
 import DxAccordion from './dxaccordion/DxAccordion';
 import DxAccordionGroup from './dxaccordion/DxAccordionGroup';
